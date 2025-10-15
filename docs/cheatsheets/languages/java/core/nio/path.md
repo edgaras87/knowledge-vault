@@ -1,3 +1,9 @@
+---
+title: Path — Quickref
+tags: [cheatsheet, java, nio, filesystem]
+summary: Practical snippets for java.nio.file.Path — joining, resolving, walking, reading/writing.
+---
+
 # Java `Path` (and a quick note on `Paths`)
 
 * **`Path`** is the main interface in `java.nio.file` that models a filesystem path (like `"images/cat.png"` or `"/usr/local/bin"`).

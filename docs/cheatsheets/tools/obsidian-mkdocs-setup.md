@@ -1,3 +1,10 @@
+---
+title: obsidian-mkdocs-setup
+tags: [cheatsheet, tools, obsidian, mkdocs, documentation]
+summary: Setup guide for using Obsidian with MkDocs Material to create a developer docs site.
+---
+
+
 # Obsidian ↔ MkDocs Material — Setup & Structure (for `knowledge-vault/docs`)
 
 **Goal:** Write in Obsidian with `[[wikilinks]]` → publish a polished docs site via MkDocs Material.
