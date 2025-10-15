@@ -1,0 +1,38 @@
+# --- MkDocs build output ---
+site/
+
+# --- Python / tooling ---
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.cache/
+
+# --- Obsidian vault internals (not for the public web) ---
+.obsidian/
+.trash/
+
+# --- IDE/editor noise ---
+# JetBrains (IntelliJ IDEA, PyCharm, etc.)
+.idea/
+# VS Code
+.vscode/
+
+# --- OS detritus ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs & local state ---
+*.log
+*.tmp
+*.swp
+*.swo
+
+# --- Secrets / local env (if you ever add them) ---
+.env
+.env.*
