@@ -22,6 +22,26 @@ theme:
     - search.suggest                       # Search autocomplete
     - search.highlight                     # Highlight matches on page
 
+  # Color schemes (light/dark) that follow OS preference
+  palette:
+    # --- Scheme 1: Light (shown when OS prefers light) ---
+    - media: "(prefers-color-scheme: light)"  # follow OS light mode
+      scheme: default                          # Material's default light scheme
+      primary: indigo                          # header / accents
+      accent: indigo                           # buttons / highlights
+      toggle:
+        icon: material/weather-night           # icon shown while in light mode
+        name: Switch to dark mode              # accessible label (tooltip)
+
+    # --- Scheme 2: Dark (shown when OS prefers dark) ---
+    - media: "(prefers-color-scheme: dark)"   # follow OS dark mode
+      scheme: slate                            # Material's dark scheme
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny           # icon shown while in dark mode
+        name: Switch to light mode
+
 # docs_dir defaults to "docs". Keeping it implicit = cleaner config.
 # docs_dir: docs
 
