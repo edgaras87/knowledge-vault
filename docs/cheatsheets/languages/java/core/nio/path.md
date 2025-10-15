@@ -1,5 +1,5 @@
 ---
-title: Path — Quickref
+title: Path
 tags: [cheatsheet, java, nio, filesystem]
 summary: Practical snippets for java.nio.file.Path — joining, resolving, walking, reading/writing.
 ---
