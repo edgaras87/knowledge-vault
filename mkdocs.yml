@@ -1,0 +1,109 @@
+# mkdocs.yml — Site configuration for "Knowledge Vault"
+# MkDocs reads Markdown from ./docs and outputs static HTML into ./site
+
+site_name: Knowledge Vault                 # Shown in header and metadata
+site_url: https://edgaras87.github.io/knowledge-vault  # Used for canonical links/sitemaps
+repo_url: https://github.com/edgaras87/knowledge-vault  # “Edit on GitHub” links
+edit_uri: edit/main/docs/                  # Path to open files in GitHub’s editor
+use_directory_urls: true                   # Pretty URLs: /path/ instead of /path.html
+
+theme:
+  name: material                           # Material for MkDocs theme (feature-rich)
+  language: en
+  features:
+    - navigation.instant                   # Faster page transitions
+    - navigation.tracking                  # Highlight active section as you scroll
+    - navigation.sections                  # Group pages by top-level sections
+    - navigation.tabs                      # Top-level sections as tabs
+    - toc.integrate                        # Merge page TOC into the sidebar
+    - content.code.copy                    # Copy button on code blocks
+    - content.code.annotate                # Inline annotations on code
+    - content.action.edit                  # “Edit this page” button
+    - search.suggest                       # Search autocomplete
+    - search.highlight                     # Highlight matches on page
+
+# docs_dir defaults to "docs". Keeping it implicit = cleaner config.
+# docs_dir: docs
+
+plugins:
+  - search                                 # Full-text search
+  # If you installed Option A:
+  - roamlinks
+  - callouts
+  # If you installed Option B instead:
+  # - ezlinks
+  - git-revision-date-localized:           # “Last updated” timestamps
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - admonition                             # !!! note/tip/warning blocks
+  - attr_list                              # {#id .class} on elements
+  - def_list                               # Definition lists
+  - md_in_html                             # Markdown inside HTML blocks
+  - tables                                 # Advanced tables
+  - toc:
+      permalink: true                      # Link anchors for headings
+  - pymdownx.details                       # <details> collapsible sections
+  - pymdownx.highlight:
+      anchor_linenums: true                # Clickable line numbers in code
+      line_spans: __span                   # For precise CSS targeting
+  - pymdownx.inlinehilite                  # `==inline code==` highlighting
+  - pymdownx.magiclink                     # Autolink URLs and issues
+  - pymdownx.superfences                   # Fenced code blocks inside lists, tabs
+  - pymdownx.tabbed:
+      alternate_style: true                # Nice UI for tabbed code examples
+  - pymdownx.tasklist:
+      custom_checkbox: true                # Pretty checkboxes in lists
+
+# Navigation:
+# Option A (recommended): start minimal and let filesystem drive nav while drafting — comment out nav.
+# Option B: curate the nav to control order/labels (uncomment to use).
+#
+# nav:
+#   - Home: index.md
+#   - Cheatsheets:
+#       - Overview: cheatsheets/index.md
+#       - Languages:
+#           - Java:
+#               - Streams: cheatsheets/languages/java/core/streams.md
+#               - Spring Annotations: cheatsheets/languages/java/frameworks/spring/annotations.md
+#               - REST Controller: cheatsheets/languages/java/frameworks/spring/rest-controller.md
+#           - Python:
+#               - Basics: cheatsheets/languages/python/basics.md
+#       - Databases:
+#           - SQL:
+#               - Basics: cheatsheets/databases/sql/basics.md
+#               - Joins: cheatsheets/databases/sql/joins.md
+#           - MySQL:
+#               - Setup (Java): cheatsheets/databases/mysql/setup/java.md
+#               - Setup (Python): cheatsheets/databases/mysql/setup/python.md
+#               - Queries: cheatsheets/databases/mysql/queries.md
+#           - ORM:
+#               - JPA Annotations (Java): cheatsheets/databases/orm/jpa-java-annotations.md
+#               - SQLAlchemy Cheats (Python): cheatsheets/databases/orm/sqlalchemy-python-cheats.md
+#       - Networking:
+#           - HTTP Basics: cheatsheets/networking/http/basics.md
+#           - Headers: cheatsheets/networking/http/headers.md
+#       - Tools:
+#           - Git: cheatsheets/tools/git.md
+#           - Docker: cheatsheets/tools/docker.md
+#           - Obsidian + MkDocs Setup: cheatsheets/tools/obsidian-mkdocs-setup.md
+#   - Concepts:
+#       - Overview: concepts/index.md
+#       - Backend:
+#           - HTTP: concepts/backend/http.md
+#           - REST API: concepts/backend/rest-api.md
+#           - Caching: concepts/backend/caching.md
+#       - Databases:
+#           - Normalization: concepts/databases/normalization.md
+#           - Indexing: concepts/databases/indexing.md
+#           - Transactions (ACID): concepts/databases/transactions-acid.md
+#           - ORM:
+#               - ORM Concepts: concepts/databases/orm/orm-concepts.md
+#               - JPA vs SQLAlchemy: concepts/databases/orm/jpa-vs-sqlalchemy.md
+#       - Frameworks:
+#           - Spring Core: concepts/frameworks/spring-core.md
+#           - Hibernate: concepts/frameworks/hibernate.md
+#       - Design:
+#           - Dependency Injection: concepts/design/dependency-injection.md
+#           - Microservices: concepts/design/microservices.md
