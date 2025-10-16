@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>quick-refresher - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "quick-refresher";
+        var mkdocs_page_input_path = "cheatsheets/databases/relational/\ud83d\udc18 postgresql/quick-refresher.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Databases</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Relational</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" >🐘 postgresql</a>
+    <ul class="current">
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">quick-refresher</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#1-what-postgresql-actually-does">⚙️ 1. What PostgreSQL Actually Does</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#2-core-concepts">🧱 2. Core Concepts</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#3-postgresql-in-action">🧩 3. PostgreSQL in Action</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#start-stop-linux">Start / Stop (Linux)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#quick-db-shell-commands">Quick DB shell commands</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#create-a-user-and-database">Create a user and database</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#4-sql-basics-refresher">🧰 4. SQL Basics Refresher</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#5-postgresql-with-docker">🧩 5. PostgreSQL with Docker</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#docker-compose-example">Docker Compose Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#6-common-data-types">🧠 6. Common Data Types</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#7-user-access-management">🧩 7. User &amp; Access Management</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#8-useful-cli-commands">🧩 8. Useful CLI Commands</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#9-troubleshooting">🧰 9. Troubleshooting</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#10-postgresql-configuration-essentials">🧩 10. PostgreSQL Configuration Essentials</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#11-postgresql-in-ides-jetbrains-vs-code">💻 11. PostgreSQL in IDEs (JetBrains / VS Code)</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#jetbrains-datagrip-intellij-ultimate">JetBrains (DataGrip, IntelliJ Ultimate)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#vs-code-setup">VS Code Setup</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#12-spring-boot-integration-example">🚀 12. Spring Boot Integration Example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#13-developer-workflow-pattern">🧠 13. Developer Workflow Pattern</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#14-optimization-and-maintenance">🧩 14. Optimization and Maintenance</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#15-summary">✅ 15. Summary</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#16-postgresql-in-developer-workflows-jetbrains-vs-code">💻 16. PostgreSQL in Developer Workflows (JetBrains &amp; VS Code)</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#jetbrains-ides-intellij-ultimate-datagrip-pycharm-pro">🧩 JetBrains IDEs (IntelliJ Ultimate / DataGrip / PyCharm Pro)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#vs-code-integration">🧠 VS Code Integration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#18-integration-with-cicd-github-actions-example">🚀 18. Integration with CI/CD (GitHub Actions Example)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#19-managing-environments-local-staging-production">🧩 19. Managing Environments: Local → Staging → Production</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#20-production-hardening-maintenance-patterns">🔒 20. Production Hardening &amp; Maintenance Patterns</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#connection-pooling">Connection Pooling</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#backups">Backups</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#replication-and-scaling">Replication and Scaling</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#security">Security</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#summary-developer-edition">✅ Summary (Developer Edition)</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../tools/obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Databases</li>
+          <li class="breadcrumb-item">Relational</li>
+          <li class="breadcrumb-item">🐘 postgresql</li>
+      <li class="breadcrumb-item active">quick-refresher</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/databases/relational/🐘 postgresql/quick-refresher.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="postgre-sql-from-basics-to-full-stack-integration">🐘 Postgre-SQL: From Basics to Full-Stack Integration<a class="headerlink" href="#postgre-sql-from-basics-to-full-stack-integration" title="Permanent link">&para;</a></h1>
+<p>PostgreSQL (often just <strong>Postgres</strong>) is a <strong>powerful, open-source relational database</strong> known for reliability, standards compliance, and extensibility.<br />
+It’s the database behind everything from small apps to enterprise-scale systems.<br />
+Think of it as the “developer’s Swiss army knife” for data — solid, flexible, and endlessly scriptable.</p>
+<hr />
+<h2 id="1-what-postgresql-actually-does">⚙️ 1. What PostgreSQL Actually Does<a class="headerlink" href="#1-what-postgresql-actually-does" title="Permanent link">&para;</a></h2>
+<p>At its core, Postgres:
+- Stores structured data in <strong>tables</strong> (rows and columns).
+- Enforces <strong>relations</strong> via keys and constraints.
+- Lets you query and transform data using <strong>SQL</strong>.
+- Runs as a <strong>daemon/service</strong> on your system or inside a Docker container.
+- Manages concurrent access safely with <strong>MVCC</strong> (multi-version concurrency control).</p>
+<p>👉 In short: PostgreSQL is a <strong>transactional data engine</strong> — designed for consistency, safety, and complex queries.</p>
+<hr />
+<h2 id="2-core-concepts">🧱 2. Core Concepts<a class="headerlink" href="#2-core-concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Database</strong></td>
+<td>Logical container for schemas, tables, and users.</td>
+</tr>
+<tr>
+<td><strong>Schema</strong></td>
+<td>Namespace inside a database (like a folder for tables).</td>
+</tr>
+<tr>
+<td><strong>Table</strong></td>
+<td>Structured data collection (rows = records, columns = fields).</td>
+</tr>
+<tr>
+<td><strong>Row / Column</strong></td>
+<td>Individual data unit / attribute.</td>
+</tr>
+<tr>
+<td><strong>Primary key</strong></td>
+<td>Unique identifier per row.</td>
+</tr>
+<tr>
+<td><strong>Foreign key</strong></td>
+<td>Relationship link between tables.</td>
+</tr>
+<tr>
+<td><strong>Transaction</strong></td>
+<td>Atomic unit of work — all or nothing.</td>
+</tr>
+<tr>
+<td><strong>MVCC</strong></td>
+<td>Allows simultaneous reads/writes safely via versioning.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-postgresql-in-action">🧩 3. PostgreSQL in Action<a class="headerlink" href="#3-postgresql-in-action" title="Permanent link">&para;</a></h2>
+<h3 id="start-stop-linux">Start / Stop (Linux)<a class="headerlink" href="#start-stop-linux" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
+</span></code></pre></div>
+<h3 id="quick-db-shell-commands">Quick DB shell commands<a class="headerlink" href="#quick-db-shell-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">\</span><span class="n">l</span><span class="w">           </span><span class="c1">-- list databases</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">mydb</span><span class="w">      </span><span class="c1">-- connect to database</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="err">\</span><span class="n">dt</span><span class="w">          </span><span class="c1">-- list tables</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">tablename</span><span class="w"> </span><span class="c1">-- describe table structure</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="err">\</span><span class="n">q</span><span class="w">           </span><span class="c1">-- quit</span>
+</span></code></pre></div>
+<h3 id="create-a-user-and-database">Create a user and database<a class="headerlink" href="#create-a-user-and-database" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">devuser</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;secret&#39;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">devdb</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="n">devuser</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">devdb</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">devuser</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4-sql-basics-refresher">🧰 4. SQL Basics Refresher<a class="headerlink" href="#4-sql-basics-refresher" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Create table</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">email</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1">-- Insert data</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;alice@example.com&#39;</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1">-- Query data</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%@example.com&#39;</span><span class="p">;</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1">-- Update</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Alicia&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="c1">-- Delete</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-postgresql-with-docker">🧩 5. PostgreSQL with Docker<a class="headerlink" href="#5-postgresql-with-docker" title="Permanent link">&para;</a></h2>
+<p>Simplify local setup — run everything isolated and disposable.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--name<span class="w"> </span>postgres<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>devuser<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>devdb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>-v<span class="w"> </span>pg_data:/var/lib/postgresql/data<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>postgres:16
+</span></code></pre></div>
+<p>Now you can connect from your host or app via:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Host: localhost
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Port: 5432
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Database: devdb
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>User: devuser
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Password: secret
+</span></code></pre></div>
+<h3 id="docker-compose-example">Docker Compose Example<a class="headerlink" href="#docker-compose-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">devuser</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">devdb</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_data:/var/lib/postgresql/data</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="nt">pgadmin</span><span class="p">:</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dpage/pgadmin4</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">      </span><span class="nt">PGADMIN_DEFAULT_EMAIL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin@example.com</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="nt">PGADMIN_DEFAULT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5050:80&quot;</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">  </span><span class="nt">pg_data</span><span class="p">:</span>
+</span></code></pre></div>
+<p>Access <strong>pgAdmin</strong> at <a href="http://localhost:5050">http://localhost:5050</a> → connect to host <code>postgres</code>, port <code>5432</code>.</p>
+<hr />
+<h2 id="6-common-data-types">🧠 6. Common Data Types<a class="headerlink" href="#6-common-data-types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INTEGER</code></td>
+<td>42</td>
+<td>Whole numbers</td>
+</tr>
+<tr>
+<td><code>SERIAL</code></td>
+<td>auto-increment</td>
+<td>Shortcut for <code>integer + sequence</code></td>
+</tr>
+<tr>
+<td><code>VARCHAR(n)</code></td>
+<td>'Hello'</td>
+<td>Variable-length string</td>
+</tr>
+<tr>
+<td><code>TEXT</code></td>
+<td>Long article</td>
+<td>Unlimited string</td>
+</tr>
+<tr>
+<td><code>BOOLEAN</code></td>
+<td>TRUE / FALSE</td>
+<td>Logical flag</td>
+</tr>
+<tr>
+<td><code>DATE</code>, <code>TIMESTAMP</code></td>
+<td>2025-10-15</td>
+<td>Temporal data</td>
+</tr>
+<tr>
+<td><code>JSONB</code></td>
+<td>'{"x":1}'</td>
+<td>Binary JSON — queryable!</td>
+</tr>
+<tr>
+<td><code>ARRAY</code></td>
+<td>'{1,2,3}'</td>
+<td>PostgreSQL supports array columns</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-user-access-management">🧩 7. User &amp; Access Management<a class="headerlink" href="#7-user-access-management" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- Create user</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">api_user</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;apipass&#39;</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">-- Grant permissions</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">CONNECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">devdb</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">api_user</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">USAGE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">api_user</span><span class="p">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">api_user</span><span class="p">;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1">-- Future tables</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">TABLES</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">api_user</span><span class="p">;</span>
+</span></code></pre></div>
+<p>👉 Keep app-level users <strong>least-privileged</strong> — don’t give them superuser rights.</p>
+<hr />
+<h2 id="8-useful-cli-commands">🧩 8. Useful CLI Commands<a class="headerlink" href="#8-useful-cli-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>psql<span class="w"> </span>-U<span class="w"> </span>devuser<span class="w"> </span>-d<span class="w"> </span>devdb<span class="w">        </span><span class="c1"># connect to DB</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>devuser<span class="w">    </span><span class="c1"># specify host</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>pg_dump<span class="w"> </span>-U<span class="w"> </span>devuser<span class="w"> </span>devdb<span class="w"> </span>&gt;<span class="w"> </span>dump.sql<span class="w">    </span><span class="c1"># backup</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>psql<span class="w"> </span>-U<span class="w"> </span>devuser<span class="w"> </span>-d<span class="w"> </span>devdb<span class="w"> </span>&lt;<span class="w"> </span>dump.sql<span class="w">    </span><span class="c1"># restore</span>
+</span></code></pre></div>
+<p>Check service status:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</span></code></pre></div>
+<hr />
+<h2 id="9-troubleshooting">🧰 9. Troubleshooting<a class="headerlink" href="#9-troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Can't connect (local)</td>
+<td>Check <code>pg_hba.conf</code> and open port 5432.</td>
+</tr>
+<tr>
+<td>“role does not exist”</td>
+<td>Create user via <code>CREATE USER</code>.</td>
+</tr>
+<tr>
+<td>Permission denied</td>
+<td>Ensure grants on database and schema.</td>
+</tr>
+<tr>
+<td>Docker container forgets data</td>
+<td>Add a volume: <code>-v pg_data:/var/lib/postgresql/data</code>.</td>
+</tr>
+<tr>
+<td>Encoding issues</td>
+<td>Use <code>UTF8</code> during DB creation.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-postgresql-configuration-essentials">🧩 10. PostgreSQL Configuration Essentials<a class="headerlink" href="#10-postgresql-configuration-essentials" title="Permanent link">&para;</a></h2>
+<p>Main config files (Linux or container):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/etc/postgresql/16/main/postgresql.conf
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>/etc/postgresql/16/main/pg_hba.conf
+</span></code></pre></div>
+<p>Common tweaks:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">listen_addresses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;*&#39;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">max_connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nv">shared_buffers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>256MB
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nv">work_mem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>16MB
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nv">logging_collector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>on
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nv">log_directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;log&#39;</span>
+</span></code></pre></div>
+<p>Reload without restart:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>postgresql
+</span></code></pre></div>
+<hr />
+<h2 id="11-postgresql-in-ides-jetbrains-vs-code">💻 11. PostgreSQL in IDEs (JetBrains / VS Code)<a class="headerlink" href="#11-postgresql-in-ides-jetbrains-vs-code" title="Permanent link">&para;</a></h2>
+<h3 id="jetbrains-datagrip-intellij-ultimate">JetBrains (DataGrip, IntelliJ Ultimate)<a class="headerlink" href="#jetbrains-datagrip-intellij-ultimate" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Open “Database” panel → “+” → “PostgreSQL”.</li>
+<li>Set host/port/user/password.</li>
+<li>Can run SQL scripts directly, browse schema, or diff databases.</li>
+<li>Integration with <strong>.env</strong> variables and <strong>Docker Compose services</strong>.</li>
+</ul>
+<p><strong>Shortcut magic:</strong></p>
+<ul>
+<li>Alt+Enter → run query under cursor</li>
+<li>Ctrl+Enter → run entire script</li>
+<li>Ctrl+Shift+F10 → execute file</li>
+</ul>
+<hr />
+<h3 id="vs-code-setup">VS Code Setup<a class="headerlink" href="#vs-code-setup" title="Permanent link">&para;</a></h3>
+<p>Extensions to install:</p>
+<ul>
+<li><strong>SQLTools</strong></li>
+<li><strong>SQLTools PostgreSQL Driver</strong></li>
+<li><strong>vscode-database-client</strong> (optional GUI)</li>
+</ul>
+<p>Example <code>.sqltools.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Local Postgres&quot;</span><span class="p">,</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">      </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">      </span><span class="nt">&quot;previewLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">      </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">      </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;devdb&quot;</span><span class="p">,</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">      </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;devuser&quot;</span><span class="p">,</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret&quot;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Run queries directly in VS Code or integrated terminal.</p>
+<hr />
+<h2 id="12-spring-boot-integration-example">🚀 12. Spring Boot Integration Example<a class="headerlink" href="#12-spring-boot-integration-example" title="Permanent link">&para;</a></h2>
+<p>In your <code>application.properties</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:postgresql://localhost:5432/devdb</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">devuser</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">secret</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.PostgreSQLDialect</span>
+</span></code></pre></div>
+<p>Docker Compose-friendly URL:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>jdbc:postgresql://postgres:5432/devdb
+</span></code></pre></div>
+<hr />
+<h2 id="13-developer-workflow-pattern">🧠 13. Developer Workflow Pattern<a class="headerlink" href="#13-developer-workflow-pattern" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Start your DB (local or Docker).</li>
+<li>Connect through IDE or pgAdmin.</li>
+<li>Run schema migrations (Liquibase/Flyway).</li>
+<li>Run app → verify connection.</li>
+<li>Backup before experimenting.</li>
+</ol>
+<p>Keep <code>.env</code> variables for credentials:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>POSTGRES_USER=devuser
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>POSTGRES_PASSWORD=secret
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>POSTGRES_DB=devdb
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>POSTGRES_PORT=5432
+</span></code></pre></div>
+<p>Load via:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">export</span><span class="w"> </span><span class="k">$(</span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;^#&#39;</span><span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="k">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="14-optimization-and-maintenance">🧩 14. Optimization and Maintenance<a class="headerlink" href="#14-optimization-and-maintenance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Analyze &amp; Vacuum</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">VACUUM</span><span class="w"> </span><span class="k">ANALYZE</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Keeps statistics fresh and space reclaimed.</p>
+<ul>
+<li><strong>Indexes</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_users_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Backups</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pg_dumpall<span class="w"> </span>&gt;<span class="w"> </span>full_backup.sql
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Performance</strong></p>
+</li>
+<li>
+<p>Prefer <code>JSONB</code> for flexible data.</p>
+</li>
+<li>Avoid <code>SELECT *</code> in production queries.</li>
+<li>Tune <code>work_mem</code>, <code>shared_buffers</code> for heavy loads.</li>
+</ul>
+<hr />
+<h2 id="15-summary">✅ 15. Summary<a class="headerlink" href="#15-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>PostgreSQL = reliable, standard, and developer-friendly.</li>
+<li>Use Docker for easy, isolated environments.</li>
+<li>Use pgAdmin or IDE integration for management.</li>
+<li>Integrate cleanly with Spring Boot via JDBC.</li>
+<li>Keep permissions minimal, backups regular, and queries explicit.</li>
+</ul>
+<hr />
+<h2 id="16-postgresql-in-developer-workflows-jetbrains-vs-code">💻 16. PostgreSQL in Developer Workflows (JetBrains &amp; VS Code)<a class="headerlink" href="#16-postgresql-in-developer-workflows-jetbrains-vs-code" title="Permanent link">&para;</a></h2>
+<p>Postgres is more than a database service — it’s part of your <strong>daily dev feedback loop</strong>.<br />
+Connecting it tightly to your IDE and environment lets you debug, test, and deploy confidently.</p>
+<hr />
+<h3 id="jetbrains-ides-intellij-ultimate-datagrip-pycharm-pro">🧩 JetBrains IDEs (IntelliJ Ultimate / DataGrip / PyCharm Pro)<a class="headerlink" href="#jetbrains-ides-intellij-ultimate-datagrip-pycharm-pro" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Add Data Source → PostgreSQL</strong></td>
+<td>Connect via host/port or directly through Docker Compose service.</td>
+</tr>
+<tr>
+<td><strong>Run SQL scripts inline</strong></td>
+<td>Execute queries from <code>.sql</code> files, see live results.</td>
+</tr>
+<tr>
+<td><strong>Compare Schemas</strong></td>
+<td>Diff local vs. remote DB structures (great for migrations).</td>
+</tr>
+<tr>
+<td><strong>Generate DDL from tables</strong></td>
+<td>Auto-create SQL definitions for export or review.</td>
+</tr>
+<tr>
+<td><strong>Inspect Query Plan (Ctrl+Shift+Enter)</strong></td>
+<td>Visualize query performance via <code>EXPLAIN ANALYZE</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quick habit loop:</strong>
+1. Write query → Alt+Enter → Run.<br />
+2. Fix slow query → Inspect execution plan.<br />
+3. Save snippet in IDE’s “Scratch File” for reuse.</p>
+<p>You can connect directly to your Dockerized DB by pointing to host <code>localhost:5432</code> or service name <code>postgres</code> inside Compose.</p>
+<hr />
+<h3 id="vs-code-integration">🧠 VS Code Integration<a class="headerlink" href="#vs-code-integration" title="Permanent link">&para;</a></h3>
+<p><strong>Recommended extensions:</strong>
+- <strong>SQLTools</strong> + <strong>SQLTools PostgreSQL Driver</strong> → simple queries, table explorer.<br />
+- <strong>Database Client</strong> → visual schema browsing.<br />
+- <strong>.env support</strong> → use environment variables for credentials.  </p>
+<p>Connect via <code>.sqltools.json</code>:
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Local Postgres&quot;</span><span class="p">,</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">      </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">      </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">      </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;devdb&quot;</span><span class="p">,</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">      </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;devuser&quot;</span><span class="p">,</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret&quot;</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="p">}</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="err">````</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="err">You</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">ru</span><span class="kc">n</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="kc">test</span><span class="w"> </span><span class="err">queries</span><span class="w"> </span><span class="err">direc</span><span class="kc">tl</span><span class="err">y</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">`.sql`</span><span class="w"> </span><span class="kc">f</span><span class="err">iles</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">hou</span><span class="kc">t</span><span class="w"> </span><span class="err">swi</span><span class="kc">t</span><span class="err">chi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">t</span><span class="err">ools.</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="mi">---</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="err">##</span><span class="w"> </span><span class="err">🧰</span><span class="w"> </span><span class="mf">17.</span><span class="w"> </span><span class="err">Pos</span><span class="kc">t</span><span class="err">greSQL</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">Docker</span><span class="w"> </span><span class="err">Compose</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">Mul</span><span class="kc">t</span><span class="err">i</span><span class="mf">-E</span><span class="kc">n</span><span class="err">viro</span><span class="kc">n</span><span class="err">me</span><span class="kc">nts</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="err">A</span><span class="w"> </span><span class="err">si</span><span class="kc">n</span><span class="err">gle</span><span class="w"> </span><span class="err">Compose</span><span class="w"> </span><span class="kc">f</span><span class="err">ile</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">ha</span><span class="kc">n</span><span class="err">dle</span><span class="w"> </span><span class="err">bo</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">**developme</span><span class="kc">nt</span><span class="err">**</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">**</span><span class="kc">test</span><span class="err">i</span><span class="kc">n</span><span class="err">g**</span><span class="w"> </span><span class="err">da</span><span class="kc">ta</span><span class="err">bases.</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="err">```yaml</span>
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="err">versio</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.9&quot;</span>
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="err">services</span><span class="p">:</span>
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a><span class="w">  </span><span class="err">pos</span><span class="kc">t</span><span class="err">gres</span><span class="p">:</span>
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="w">    </span><span class="err">image</span><span class="p">:</span><span class="w"> </span><span class="err">pos</span><span class="kc">t</span><span class="err">gres</span><span class="p">:</span><span class="mi">16</span>
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="w">    </span><span class="err">e</span><span class="kc">n</span><span class="err">viro</span><span class="kc">n</span><span class="err">me</span><span class="kc">nt</span><span class="p">:</span>
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="w">      </span><span class="err">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="err">devuser</span>
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="w">      </span><span class="err">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="err">secre</span><span class="kc">t</span>
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a><span class="w">      </span><span class="err">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="err">devdb</span>
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a><span class="w">    </span><span class="err">por</span><span class="kc">ts</span><span class="p">:</span>
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="w">      </span><span class="mi">-</span><span class="w"> </span><span class="s2">&quot;5432:5432&quot;</span>
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="w">    </span><span class="err">volumes</span><span class="p">:</span>
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a><span class="w">      </span><span class="mi">-</span><span class="w"> </span><span class="err">pg_da</span><span class="kc">ta</span><span class="p">:</span><span class="err">/var/lib/pos</span><span class="kc">t</span><span class="err">gresql/da</span><span class="kc">ta</span>
+</span><span id="__span-21-37"><a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a><span class="w">    </span><span class="err">heal</span><span class="kc">t</span><span class="err">hcheck</span><span class="p">:</span>
+</span><span id="__span-21-38"><a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="w">      </span><span class="kc">test</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CMD-SHELL&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pg_isready -U devuser -d devdb&quot;</span><span class="p">]</span>
+</span><span id="__span-21-39"><a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="w">      </span><span class="err">i</span><span class="kc">nter</span><span class="err">val</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="err">s</span>
+</span><span id="__span-21-40"><a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a><span class="w">      </span><span class="err">re</span><span class="kc">tr</span><span class="err">ies</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+</span><span id="__span-21-41"><a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a>
+</span><span id="__span-21-42"><a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a><span class="w">  </span><span class="kc">test</span><span class="err">db</span><span class="p">:</span>
+</span><span id="__span-21-43"><a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a><span class="w">    </span><span class="err">image</span><span class="p">:</span><span class="w"> </span><span class="err">pos</span><span class="kc">t</span><span class="err">gres</span><span class="p">:</span><span class="mi">16</span>
+</span><span id="__span-21-44"><a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a><span class="w">    </span><span class="err">e</span><span class="kc">n</span><span class="err">viro</span><span class="kc">n</span><span class="err">me</span><span class="kc">nt</span><span class="p">:</span>
+</span><span id="__span-21-45"><a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a><span class="w">      </span><span class="err">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="kc">testuser</span>
+</span><span id="__span-21-46"><a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a><span class="w">      </span><span class="err">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="kc">test</span><span class="err">pass</span>
+</span><span id="__span-21-47"><a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a><span class="w">      </span><span class="err">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="kc">test</span><span class="err">db</span>
+</span><span id="__span-21-48"><a id="__codelineno-21-48" name="__codelineno-21-48" href="#__codelineno-21-48"></a><span class="w">    </span><span class="err">por</span><span class="kc">ts</span><span class="p">:</span>
+</span><span id="__span-21-49"><a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a><span class="w">      </span><span class="mi">-</span><span class="w"> </span><span class="s2">&quot;55432:5432&quot;</span>
+</span><span id="__span-21-50"><a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a><span class="w">    </span><span class="kc">t</span><span class="err">mp</span><span class="kc">fs</span><span class="p">:</span>
+</span><span id="__span-21-51"><a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a><span class="w">      </span><span class="mi">-</span><span class="w"> </span><span class="err">/var/lib/pos</span><span class="kc">t</span><span class="err">gresql/da</span><span class="kc">ta</span>
+</span><span id="__span-21-52"><a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a><span class="w">    </span><span class="err">heal</span><span class="kc">t</span><span class="err">hcheck</span><span class="p">:</span>
+</span><span id="__span-21-53"><a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a><span class="w">      </span><span class="kc">test</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CMD-SHELL&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pg_isready -U testuser -d testdb&quot;</span><span class="p">]</span>
+</span><span id="__span-21-54"><a id="__codelineno-21-54" name="__codelineno-21-54" href="#__codelineno-21-54"></a><span class="w">      </span><span class="err">i</span><span class="kc">nter</span><span class="err">val</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="err">s</span>
+</span><span id="__span-21-55"><a id="__codelineno-21-55" name="__codelineno-21-55" href="#__codelineno-21-55"></a><span class="w">      </span><span class="err">re</span><span class="kc">tr</span><span class="err">ies</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-21-56"><a id="__codelineno-21-56" name="__codelineno-21-56" href="#__codelineno-21-56"></a>
+</span><span id="__span-21-57"><a id="__codelineno-21-57" name="__codelineno-21-57" href="#__codelineno-21-57"></a><span class="err">volumes</span><span class="p">:</span>
+</span><span id="__span-21-58"><a id="__codelineno-21-58" name="__codelineno-21-58" href="#__codelineno-21-58"></a><span class="w">  </span><span class="err">pg_da</span><span class="kc">ta</span><span class="p">:</span>
+</span></code></pre></div></p>
+<p><strong>Why it matters:</strong></p>
+<ul>
+<li><code>pg_data</code> → persists your dev data.</li>
+<li><code>testdb</code> → ephemeral; wiped between test runs.</li>
+<li>Healthchecks prevent dependent containers from starting too early.</li>
+</ul>
+<p>👉 You can link your backend app to <code>postgres</code> (dev) or <code>testdb</code> (CI) just by switching env variables.</p>
+<hr />
+<h2 id="18-integration-with-cicd-github-actions-example">🚀 18. Integration with CI/CD (GitHub Actions Example)<a class="headerlink" href="#18-integration-with-cicd-github-actions-example" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Backend Tests</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">      </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">          </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">testuser</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">          </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">testpass</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">          </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">testdb</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;5432:5432&#39;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">          </span><span class="no">--health-cmd=&quot;pg_isready -U testuser -d testdb&quot;</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">          </span><span class="no">--health-interval=5s --health-timeout=5s --health-retries=5</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Wait for Postgres</span>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">          </span><span class="no">until pg_isready -h localhost -U testuser; do</span>
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">            </span><span class="no">sleep 1</span>
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="w">          </span><span class="no">done</span>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Tests</span>
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew test</span>
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">          </span><span class="nt">SPRING_DATASOURCE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://localhost:5432/testdb</span>
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="w">          </span><span class="nt">SPRING_DATASOURCE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">testuser</span>
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="w">          </span><span class="nt">SPRING_DATASOURCE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">testpass</span>
+</span></code></pre></div>
+<p>This pattern runs Postgres automatically for tests — no manual setup, no external dependencies.</p>
+<hr />
+<h2 id="19-managing-environments-local-staging-production">🧩 19. Managing Environments: Local → Staging → Production<a class="headerlink" href="#19-managing-environments-local-staging-production" title="Permanent link">&para;</a></h2>
+<p><strong>Environment separation rule:</strong></p>
+<ul>
+<li>Keep configuration externalized (<code>.env</code>, <code>configmaps</code>, or Secrets).</li>
+<li>Never commit real passwords or keys.</li>
+<li>Distinguish database URLs by environment:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Example URL</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td><code>jdbc:postgresql://localhost:5432/devdb</code></td>
+<td>Docker or local install</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td><code>jdbc:postgresql://staging-db.internal:5432/appdb</code></td>
+<td>Shared test data</td>
+</tr>
+<tr>
+<td>Production</td>
+<td><code>jdbc:postgresql://prod-db.cluster:5432/appdb</code></td>
+<td>High availability</td>
+</tr>
+</tbody>
+</table>
+<p>In Docker Compose:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">env_file</span><span class="p">:</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env.${ENVIRONMENT}</span>
+</span></code></pre></div>
+<p>In Spring Boot:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">${DB_URL}</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">${DB_USER}</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">${DB_PASS}</span>
+</span></code></pre></div>
+<p><strong>Pro tip:</strong> version <code>.env.example</code> for onboarding new developers easily.</p>
+<hr />
+<h2 id="20-production-hardening-maintenance-patterns">🔒 20. Production Hardening &amp; Maintenance Patterns<a class="headerlink" href="#20-production-hardening-maintenance-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="connection-pooling">Connection Pooling<a class="headerlink" href="#connection-pooling" title="Permanent link">&para;</a></h3>
+<p>Postgres performs best with connection pooling (e.g., <strong>PgBouncer</strong>).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span>--name<span class="w"> </span>pgbouncer<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">6432</span>:6432<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DB_USER</span><span class="o">=</span>devuser<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DB_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DB_HOST</span><span class="o">=</span>postgres<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">  </span>edoburu/pgbouncer
+</span></code></pre></div>
+<p>App connects to <code>localhost:6432</code> instead of <code>5432</code>.</p>
+<h3 id="backups">Backups<a class="headerlink" href="#backups" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>pg_dump<span class="w"> </span>-U<span class="w"> </span>devuser<span class="w"> </span>devdb<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>backup_<span class="k">$(</span>date<span class="w"> </span>+%F<span class="k">)</span>.sql.gz
+</span></code></pre></div>
+<p>Automate via cron or CI.</p>
+<h3 id="replication-and-scaling">Replication and Scaling<a class="headerlink" href="#replication-and-scaling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use <strong>Streaming Replication</strong> for read replicas.</li>
+<li>Or scale horizontally via <strong>logical replication</strong>.</li>
+<li>Consider <strong>Patroni</strong> or <strong>TimescaleDB</strong> for high-availability setups.</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Disable remote superuser login.</li>
+<li>Restrict <code>listen_addresses</code> in <code>postgresql.conf</code>.</li>
+<li>Rotate credentials regularly.</li>
+<li>Encrypt connections with SSL (<code>ssl = on</code>).</li>
+</ul>
+<hr />
+<h2 id="summary-developer-edition">✅ Summary (Developer Edition)<a class="headerlink" href="#summary-developer-edition" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Integrate Postgres into your IDE and CI/CD pipelines, not just your runtime.</li>
+<li>Run it via Docker Compose to match local and production schemas.</li>
+<li>Automate validation, migrations, and backups.</li>
+<li>Use <code>.env</code> files to keep environments cleanly separated.</li>
+<li>Monitor performance (<code>EXPLAIN ANALYZE</code>, logs, connection stats) like a pro DBA.</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../in-memory/%F0%9F%94%B4%20redis/quick-refresher/" class="btn btn-neutral float-left" title="quick-refresher"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../languages/java/core/nio/path/" class="btn btn-neutral float-right" title="Path">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../../in-memory/%F0%9F%94%B4%20redis/quick-refresher/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../languages/java/core/nio/path/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

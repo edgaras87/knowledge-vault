@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/concepts/networking/http/50-tokens/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Tokens - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tokens";
+        var mkdocs_page_input_path = "concepts/networking/http/50-tokens.md";
+        var mkdocs_page_url = "/knowledge-vault/concepts/networking/http/50-tokens/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../cheatsheets/languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../cheatsheets/tools/obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Networking</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Http</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Tokens</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#what-a-token-really-is">What a Token Really Is</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-stateless-really-means">What “Stateless” Really Means</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#whats-inside-a-token">What’s Inside a Token</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-the-server-sees-it">How the Server Sees It</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#permissions-vs-history">Permissions vs. History</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#where-state-actually-lives">Where “State” Actually Lives</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#core-summary">Core Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#analogy">Analogy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#in-a-sentence">In a Sentence</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Concepts</li>
+          <li class="breadcrumb-item">Networking</li>
+          <li class="breadcrumb-item">Http</li>
+      <li class="breadcrumb-item active">Tokens</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/concepts/networking/http/50-tokens.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="understanding-tokens-and-statelessness">🧠 Understanding Tokens and Statelessness<a class="headerlink" href="#understanding-tokens-and-statelessness" title="Permanent link">&para;</a></h1>
+<hr />
+<h3 id="what-a-token-really-is"><strong>What a Token Really Is</strong><a class="headerlink" href="#what-a-token-really-is" title="Permanent link">&para;</a></h3>
+<p>A <strong>token</strong> is <strong>proof of identity and permission</strong>, not history.
+It tells the server <em>who you are</em> and <em>what you’re allowed to do</em> — nothing more.</p>
+<p>When you send a request with a token:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6...
+</span></code></pre></div>
+<p>the server verifies it and uses the claims inside to decide whether you’re authorized.</p>
+<p>The server doesn’t “remember” you — it just <strong>trusts the math</strong> behind the token’s signature.</p>
+<hr />
+<h3 id="what-stateless-really-means"><strong>What “Stateless” Really Means</strong><a class="headerlink" href="#what-stateless-really-means" title="Permanent link">&para;</a></h3>
+<p>In old, <strong>stateful</strong> models (cookies + sessions), the server remembered everything:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sessionId=abc123 → user=Edgaras, cart=3 items, lastPage=/checkout
+</span></code></pre></div>
+<p>Each request depended on the previous one.
+That’s <strong>stateful</strong> — continuity stored in memory on the server.</p>
+<p>In a <strong>stateless</strong> model (tokens):</p>
+<ul>
+<li>Each request is independent.</li>
+<li>The server doesn’t hold user memory between requests.</li>
+<li>If it needs context (cart, settings, history), it queries the <strong>database</strong>.</li>
+</ul>
+<p>So “stateless” ≠ “no persistence.”
+It means “no in-memory conversation” — every request brings everything needed to complete itself.</p>
+<hr />
+<h3 id="whats-inside-a-token"><strong>What’s Inside a Token</strong><a class="headerlink" href="#whats-inside-a-token" title="Permanent link">&para;</a></h3>
+<p>Tokens carry only essential data (claims):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;42&quot;</span><span class="p">,</span><span class="w">          </span><span class="c1">// who you are</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USER&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// what you can do</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read:books&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;exp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1739678400</span><span class="w">     </span><span class="c1">// when it expires</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The server reads this info, verifies the signature, and makes decisions — without ever having to recall your previous state.</p>
+<hr />
+<h3 id="how-the-server-sees-it"><strong>How the Server Sees It</strong><a class="headerlink" href="#how-the-server-sees-it" title="Permanent link">&para;</a></h3>
+<p>Each request is a self-contained event:</p>
+<ol>
+<li>Receive the token.</li>
+<li>Verify its signature (check it’s not forged).</li>
+<li>Validate expiry and audience.</li>
+<li>Use claims to authorize actions.</li>
+<li>Fetch any needed data from persistent storage.</li>
+</ol>
+<p>After responding, it forgets — no ongoing memory, no session list.</p>
+<hr />
+<h3 id="permissions-vs-history"><strong>Permissions vs. History</strong><a class="headerlink" href="#permissions-vs-history" title="Permanent link">&para;</a></h3>
+<p>Tokens don’t store your personal history.
+They store your <strong>authority</strong> — your access rights.</p>
+<p>Think of it like an <strong>access badge</strong>:</p>
+<ul>
+<li>The badge shows your name, department, and which doors you can open.</li>
+<li>The guard doesn’t know what meetings you had yesterday.</li>
+<li>If your permissions change, you get a new badge.</li>
+</ul>
+<p>That’s how modern auth works.</p>
+<hr />
+<h3 id="where-state-actually-lives"><strong>Where “State” Actually Lives</strong><a class="headerlink" href="#where-state-actually-lives" title="Permanent link">&para;</a></h3>
+<p>All lasting data (orders, messages, progress, preferences) is stored in the <strong>database</strong>, linked to your user ID.
+When you send a token, the server uses that ID to look up your data as needed.</p>
+<p>So the <em>real</em> state lives in persistent storage — not in the session or the token.</p>
+<hr />
+<h3 id="core-summary"><strong>Core Summary</strong><a class="headerlink" href="#core-summary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Token</strong></td>
+<td>Digital proof of identity and permission</td>
+</tr>
+<tr>
+<td><strong>Stateless</strong></td>
+<td>Each request stands alone — no server memory between them</td>
+</tr>
+<tr>
+<td><strong>State</strong></td>
+<td>Stored in the database, not in RAM</td>
+</tr>
+<tr>
+<td><strong>Cookies</strong></td>
+<td>Used for stateful sessions (server remembers you)</td>
+</tr>
+<tr>
+<td><strong>Tokens</strong></td>
+<td>Used for stateless APIs (you prove yourself each time)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="analogy"><strong>Analogy</strong><a class="headerlink" href="#analogy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Analogy</th>
+<th>Who Keeps Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cookies / Sessions</td>
+<td>You get a coat-check ticket; the server keeps your coat</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Tokens</td>
+<td>You carry a signed passport; the server just checks its seal</td>
+<td>Client</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="in-a-sentence"><strong>In a Sentence</strong><a class="headerlink" href="#in-a-sentence" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Cookies make the web remember you.
+Tokens make the web verify you.</p>
+</blockquote>
+<hr />
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>
+</span></code></pre></div>
+<hr />
+<h1 id="key-qa">❓ Key Q&amp;A<a class="headerlink" href="#key-qa" title="Permanent link">&para;</a></h1>
+<hr />
+<h3 id="1-what-the-token-actually-does">1️⃣ What the token <em>actually</em> does<a class="headerlink" href="#1-what-the-token-actually-does" title="Permanent link">&para;</a></h3>
+<p>A <strong>token doesn’t carry your personal history</strong>.
+It carries <strong>proof of identity and permission</strong> — that’s it.</p>
+<p>When you send it, the server checks:</p>
+<blockquote>
+<p>“Is this token valid, and what does it allow this user to do?”</p>
+</blockquote>
+<p>It’s like flashing an ID badge to get into a building:</p>
+<ul>
+<li>The guard (server) doesn’t remember your previous visits.</li>
+<li>The badge (token) simply proves you’re allowed to be there, maybe with access to certain floors (permissions).</li>
+</ul>
+<p>So yes — a <strong>token just proves who you are and what you can do</strong>.</p>
+<hr />
+<h3 id="2-what-happens-to-state">2️⃣ What happens to “state”<a class="headerlink" href="#2-what-happens-to-state" title="Permanent link">&para;</a></h3>
+<p>That’s the stateless part:
+the server does <strong>not</strong> keep per-user memory between requests.</p>
+<p>In a <strong>stateful</strong> model (like old cookie sessions):</p>
+<ul>
+<li>The server had a table:
+  <code>sessionId=abc123 → user=Edgaras, cart=3 items, lastPage=/checkout</code></li>
+<li>It used that for context in later requests.</li>
+</ul>
+<p>In a <strong>stateless</strong> model (tokens):</p>
+<ul>
+<li>The server doesn’t keep that table.</li>
+<li>Each request stands alone: the server authenticates, authorizes, and processes it from scratch using info inside (or derived from) the token.</li>
+</ul>
+<p>If the server needs extra data — for example, your shopping cart — it looks it up from the <strong>database</strong>, not from memory tied to a session.</p>
+<p>That’s what “stateless” really means:</p>
+<blockquote>
+<p>No in-memory user context between requests. Every request carries all it needs.</p>
+</blockquote>
+<hr />
+<h3 id="3-whats-inside-the-token-then">3️⃣ What’s inside the token, then?<a class="headerlink" href="#3-whats-inside-the-token-then" title="Permanent link">&para;</a></h3>
+<p>Usually minimal facts:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;42&quot;</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USER&quot;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read:books&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;exp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1739678400</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li><code>sub</code> → who you are</li>
+<li><code>role</code> / <code>scope</code> → what you can do</li>
+<li><code>exp</code> → when this proof expires</li>
+</ul>
+<p>So the token doesn’t tell your <em>story</em>, it tells your <em>authority</em>.</p>
+<hr />
+<h3 id="4-how-the-server-uses-it">4️⃣ How the server uses it<a class="headerlink" href="#4-how-the-server-uses-it" title="Permanent link">&para;</a></h3>
+<p>When you send a request with your token:</p>
+<ol>
+<li>Server verifies its <strong>signature</strong> → confirms it wasn’t forged.</li>
+<li>Checks <strong>expiration</strong>.</li>
+<li>Reads <strong>claims</strong> (<code>sub</code>, <code>role</code>, <code>scope</code>).</li>
+<li>
+<p>Uses that info to decide:</p>
+</li>
+<li>
+<p>Can this user access <code>/api/orders/42</code>?</p>
+</li>
+<li>Is this admin-only?</li>
+<li>What data should they see?</li>
+</ol>
+<p>Then the app logic handles whatever you asked — e.g., reading your orders — using the user ID from the token to query the database.</p>
+<hr />
+<h3 id="5-does-the-server-need-history">5️⃣ Does the server <em>need</em> history?<a class="headerlink" href="#5-does-the-server-need-history" title="Permanent link">&para;</a></h3>
+<p>Not usually.
+In modern designs, <strong>state lives in the database</strong>, not the session.</p>
+<p>If it needs to remember your past actions — orders, cart, last login — that’s persisted in the DB keyed by your user ID, not kept in RAM between requests.</p>
+<p>So “stateless” doesn’t mean “no persistence.”
+It means “no transient memory that ties one HTTP request to the next.”</p>
+<hr />
+<h3 id="6-permissions-what-the-token-grants">6️⃣ Permissions — what the token “grants”<a class="headerlink" href="#6-permissions-what-the-token-grants" title="Permanent link">&para;</a></h3>
+<p>When an auth system issues a token, it embeds what that token <em>allows</em>.
+Those are your <strong>scopes</strong> or <strong>roles</strong>.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;read:orders write:profile&quot;</span>
+</span></code></pre></div>
+<p>That’s like saying:</p>
+<blockquote>
+<p>“This badge lets you read orders and update your profile, but not delete users.”</p>
+</blockquote>
+<p>The backend checks these scopes to enforce access control.</p>
+<p>If you later change a user’s permissions, future tokens will reflect that — but old tokens will keep old scopes until they expire.</p>
+<hr />
+<h3 id="7-so-in-summary">7️⃣ So in summary:<a class="headerlink" href="#7-so-in-summary" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Token = identity + permissions</strong>, not history.</li>
+<li><strong>Server = verifier</strong>, not rememberer.</li>
+<li><strong>State (like data or progress)</strong> lives in the <strong>database</strong>, not the session.</li>
+<li><strong>Stateless</strong> means each request can stand alone — validated and processed without prior context.</li>
+<li><strong>Scopes/roles</strong> inside the token define what you can touch.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../40-cookies/" class="btn btn-neutral float-left" title="Cookies"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../learning/backend/spring-roadmap/" class="btn btn-neutral float-right" title="Spring roadmap">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../40-cookies/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../learning/backend/spring-roadmap/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>quick-refresher - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "quick-refresher";
+        var mkdocs_page_input_path = "cheatsheets/databases/in-memory/\ud83d\udd34 redis/quick-refresher.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Databases</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >In memory</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" >🔴 redis</a>
+    <ul class="current">
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">quick-refresher</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#1-what-redis-actually-does">⚙️ 1. What Redis Actually Does</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#2-core-concepts">🧱 2. Core Concepts</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#3-basic-commands-quick-reference">⚡ 3. Basic Commands (Quick Reference)</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#hashes-key-fields">Hashes (key → fields)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#lists-ordered-queue">Lists (ordered queue)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#sets-unique-values">Sets (unique values)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#sorted-sets-ranking">Sorted Sets (ranking)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#pubsub">Pub/Sub</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#5-persistence-modes">🧠 5. Persistence Modes</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#6-running-redis-with-docker">🧰 6. Running Redis with Docker</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#7-docker-compose-example">🧩 7. Docker Compose Example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#8-redis-application-integration-spring-boot-example">💾 8. Redis + Application Integration (Spring Boot Example)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#9-monitoring-and-admin-commands">📡 9. Monitoring and Admin Commands</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#10-security-performance-best-practices">🔒 10. Security &amp; Performance Best Practices</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#11-ide-tool-integration">💻 11. IDE &amp; Tool Integration</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#jetbrains-ides">JetBrains IDEs</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#vs-code">VS Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#12-cicd-integration-example">🚀 12. CI/CD Integration Example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#13-real-world-patterns">🧩 13. Real-World Patterns</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#14-troubleshooting">🧠 14. Troubleshooting</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#15-summary">✅ 15. Summary</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../tools/obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Databases</li>
+          <li class="breadcrumb-item">In memory</li>
+          <li class="breadcrumb-item">🔴 redis</li>
+      <li class="breadcrumb-item active">quick-refresher</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/databases/in-memory/🔴 redis/quick-refresher.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="redis-from-basics-to-real-world-usage">🔴 Redis: From Basics to Real-World Usage<a class="headerlink" href="#redis-from-basics-to-real-world-usage" title="Permanent link">&para;</a></h1>
+<p>Redis (Remote Dictionary Server) is a <strong>lightning-fast in-memory data store</strong> used as a cache, message broker, and lightweight database.<br />
+It stores data as <strong>key-value pairs</strong>, keeps it in RAM for near-instant access, and can optionally persist it to disk.</p>
+<p>It’s often used alongside PostgreSQL: Postgres for durability, Redis for speed.</p>
+<hr />
+<h2 id="1-what-redis-actually-does">⚙️ 1. What Redis Actually Does<a class="headerlink" href="#1-what-redis-actually-does" title="Permanent link">&para;</a></h2>
+<p>Redis keeps everything in <strong>memory</strong> but optionally syncs to disk (snapshots or append logs).<br />
+It supports complex data types, pub/sub messaging, and atomic operations — all with sub-millisecond latency.</p>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cache</strong></td>
+<td>Store frequently accessed DB results.</td>
+</tr>
+<tr>
+<td><strong>Session Store</strong></td>
+<td>Track logged-in users.</td>
+</tr>
+<tr>
+<td><strong>Queue / Stream</strong></td>
+<td>Background jobs, real-time feeds.</td>
+</tr>
+<tr>
+<td><strong>Rate Limiter</strong></td>
+<td>Count requests per user/IP.</td>
+</tr>
+<tr>
+<td><strong>Pub/Sub</strong></td>
+<td>Event notification between services.</td>
+</tr>
+</tbody>
+</table>
+<p>👉 In short: Redis trades <em>persistence</em> for <em>speed</em>, but can be configured for both.</p>
+<hr />
+<h2 id="2-core-concepts">🧱 2. Core Concepts<a class="headerlink" href="#2-core-concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Key</strong></td>
+<td>Identifier for a piece of data (string).</td>
+</tr>
+<tr>
+<td><strong>Value</strong></td>
+<td>Data stored under a key — can be string, hash, list, set, etc.</td>
+</tr>
+<tr>
+<td><strong>TTL</strong></td>
+<td>Time-to-live (expiration).</td>
+</tr>
+<tr>
+<td><strong>Persistence</strong></td>
+<td>Data saved to disk (RDB snapshots or AOF logs).</td>
+</tr>
+<tr>
+<td><strong>Pub/Sub</strong></td>
+<td>Publisher sends messages to channels; subscribers receive them.</td>
+</tr>
+<tr>
+<td><strong>Database index</strong></td>
+<td>Redis has logical DBs numbered 0–15 by default.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-basic-commands-quick-reference">⚡ 3. Basic Commands (Quick Reference)<a class="headerlink" href="#3-basic-commands-quick-reference" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redis-cli<span class="w">                   </span><span class="c1"># Start CLI</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ping<span class="w">                        </span><span class="c1"># → PONG</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">set</span><span class="w"> </span>key<span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="w">             </span><span class="c1"># store</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>get<span class="w"> </span>key<span class="w">                     </span><span class="c1"># retrieve</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>del<span class="w"> </span>key<span class="w">                     </span><span class="c1"># delete</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>exists<span class="w"> </span>key<span class="w">                  </span><span class="c1"># check if exists</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>expire<span class="w"> </span>key<span class="w"> </span><span class="m">60</span><span class="w">               </span><span class="c1"># expire after 60s</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>keys<span class="w"> </span>*<span class="w">                      </span><span class="c1"># list all keys (use with caution)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>flushall<span class="w">                    </span><span class="c1"># delete everything</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="sb">````</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>---
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">## 🧩 4. Data Structures and Examples</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1">### Strings</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="sb">```</span>bash
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nb">set</span><span class="w"> </span>greeting<span class="w"> </span><span class="s2">&quot;Hello&quot;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>get<span class="w"> </span>greeting
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>incr<span class="w"> </span>counter
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>decr<span class="w"> </span>counter
+</span></code></pre></div>
+<h3 id="hashes-key-fields">Hashes (key → fields)<a class="headerlink" href="#hashes-key-fields" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hset<span class="w"> </span>user:1<span class="w"> </span>name<span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="w"> </span>email<span class="w"> </span><span class="s2">&quot;alice@example.com&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>hgetall<span class="w"> </span>user:1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>hget<span class="w"> </span>user:1<span class="w"> </span>email
+</span></code></pre></div>
+<h3 id="lists-ordered-queue">Lists (ordered queue)<a class="headerlink" href="#lists-ordered-queue" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>lpush<span class="w"> </span>queue<span class="w"> </span>job1
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>rpush<span class="w"> </span>queue<span class="w"> </span>job2
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>lrange<span class="w"> </span>queue<span class="w"> </span><span class="m">0</span><span class="w"> </span>-1
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>lpop<span class="w"> </span>queue
+</span></code></pre></div>
+<h3 id="sets-unique-values">Sets (unique values)<a class="headerlink" href="#sets-unique-values" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sadd<span class="w"> </span>users<span class="w"> </span><span class="s2">&quot;edgaras&quot;</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>smembers<span class="w"> </span>users
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sismember<span class="w"> </span>users<span class="w"> </span><span class="s2">&quot;bob&quot;</span>
+</span></code></pre></div>
+<h3 id="sorted-sets-ranking">Sorted Sets (ranking)<a class="headerlink" href="#sorted-sets-ranking" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>zadd<span class="w"> </span>leaderboard<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span><span class="m">95</span><span class="w"> </span><span class="s2">&quot;bob&quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>zrevrange<span class="w"> </span>leaderboard<span class="w"> </span><span class="m">0</span><span class="w"> </span>-1<span class="w"> </span>WITHSCORES
+</span></code></pre></div>
+<h3 id="pubsub">Pub/Sub<a class="headerlink" href="#pubsub" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SUBSCRIBE<span class="w"> </span>news
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>PUBLISH<span class="w"> </span>news<span class="w"> </span><span class="s2">&quot;Server update complete!&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-persistence-modes">🧠 5. Persistence Modes<a class="headerlink" href="#5-persistence-modes" title="Permanent link">&para;</a></h2>
+<p>Redis can persist data in two main ways:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RDB (Snapshot)</strong></td>
+<td>Saves full dataset at intervals (default). Fast, minimal overhead.</td>
+</tr>
+<tr>
+<td><strong>AOF (Append Only File)</strong></td>
+<td>Logs every operation — safer but slower.</td>
+</tr>
+<tr>
+<td><strong>Hybrid</strong></td>
+<td>Combines both for speed + durability.</td>
+</tr>
+</tbody>
+</table>
+<p>Example in <code>redis.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>save 900 1
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>save 300 10
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>save 60 10000
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>appendonly yes
+</span></code></pre></div>
+<hr />
+<h2 id="6-running-redis-with-docker">🧰 6. Running Redis with Docker<a class="headerlink" href="#6-running-redis-with-docker" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--name<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">6379</span>:6379<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>-v<span class="w"> </span>redis_data:/data<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>redis:7
+</span></code></pre></div>
+<p>Check connection:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>ping
+</span></code></pre></div>
+<p>With password:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">6379</span>:6379<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">REDIS_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>redis:7<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span>redis-server<span class="w"> </span>--requirepass<span class="w"> </span>secret
+</span></code></pre></div>
+<hr />
+<h2 id="7-docker-compose-example">🧩 7. Docker Compose Example<a class="headerlink" href="#7-docker-compose-example" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">redis</span><span class="p">:</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis:7</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6379:6379&quot;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis_data:/data</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis-server --appendonly yes</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;redis-cli&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;ping&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">      </span><span class="nt">REDIS_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">      </span><span class="nt">REDIS_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6379</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">  </span><span class="nt">redis_data</span><span class="p">:</span>
+</span></code></pre></div>
+<hr />
+<h2 id="8-redis-application-integration-spring-boot-example">💾 8. Redis + Application Integration (Spring Boot Example)<a class="headerlink" href="#8-redis-application-integration-spring-boot-example" title="Permanent link">&para;</a></h2>
+<p><code>application.properties</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">spring.data.redis.host</span><span class="o">=</span><span class="s">redis</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="na">spring.data.redis.port</span><span class="o">=</span><span class="s">6379</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="na">spring.data.redis.password</span><span class="o">=</span><span class="s">secret</span>
+</span></code></pre></div>
+<p>Simple cache usage with Spring:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Cacheable</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">getUserById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="na">orElseThrow</span><span class="p">();</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Make sure caching is enabled:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@EnableCaching</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nd">@SpringBootApplication</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">App</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="9-monitoring-and-admin-commands">📡 9. Monitoring and Admin Commands<a class="headerlink" href="#9-monitoring-and-admin-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>info<span class="w">                   </span><span class="c1"># show metrics</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>dbsize<span class="w">                 </span><span class="c1"># number of keys</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>monitor<span class="w">                </span><span class="c1"># live command log</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>config<span class="w"> </span>get<span class="w"> </span>*<span class="w">           </span><span class="c1"># view config</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>config<span class="w"> </span>rewrite<span class="w">          </span><span class="c1"># persist config changes</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>slowlog<span class="w"> </span>get<span class="w">            </span><span class="c1"># show slow commands</span>
+</span></code></pre></div>
+<p>For real-time dashboards:</p>
+<ul>
+<li><a href="https://redis.io/docs/ui/insight/">RedisInsight</a></li>
+<li><code>redis-exporter</code> for Prometheus / Grafana metrics.</li>
+</ul>
+<hr />
+<h2 id="10-security-performance-best-practices">🔒 10. Security &amp; Performance Best Practices<a class="headerlink" href="#10-security-performance-best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Set a password</strong> (<code>requirepass secret</code>) — Redis is open by default.</li>
+<li><strong>Bind to localhost</strong> or internal networks (<code>bind 127.0.0.1</code>).</li>
+<li>Disable <code>FLUSHALL</code> and <code>CONFIG</code> commands in production.</li>
+<li>Use <strong>connection pooling</strong> for app clients.</li>
+<li>For persistence: prefer <strong>AOF + fsync every second</strong>.</li>
+<li>Enable <code>maxmemory</code> and <code>maxmemory-policy allkeys-lru</code> for safe eviction.</li>
+</ul>
+<p>Example snippet:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>maxmemory 512mb
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>maxmemory-policy allkeys-lru
+</span></code></pre></div>
+<hr />
+<h2 id="11-ide-tool-integration">💻 11. IDE &amp; Tool Integration<a class="headerlink" href="#11-ide-tool-integration" title="Permanent link">&para;</a></h2>
+<h3 id="jetbrains-ides">JetBrains IDEs<a class="headerlink" href="#jetbrains-ides" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use built-in <strong>Database Tool Window</strong> → Add Data Source → Redis.</li>
+<li>Visualize keys, TTLs, and values directly.</li>
+<li>Supports <code>EVAL</code> and Lua scripting.</li>
+</ul>
+<h3 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h3>
+<p>Recommended extensions:</p>
+<ul>
+<li><strong>Redis Explorer</strong> → browse keys, TTLs, and memory usage.</li>
+<li><strong>REST Client</strong> → test APIs that interact with Redis.</li>
+<li><strong>.env files</strong> → store connection secrets.</li>
+</ul>
+<p>Example <code>.env</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>REDIS_HOST=localhost
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>REDIS_PORT=6379
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>REDIS_PASSWORD=secret
+</span></code></pre></div>
+<hr />
+<h2 id="12-cicd-integration-example">🚀 12. CI/CD Integration Example<a class="headerlink" href="#12-cicd-integration-example" title="Permanent link">&para;</a></h2>
+<p>GitHub Actions — Redis as test dependency:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">redis</span><span class="p">:</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis:7</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;6379:6379&#39;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">      </span><span class="no">--health-cmd=&quot;redis-cli ping&quot;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">      </span><span class="no">--health-interval=5s --health-retries=5</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run integration tests</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">      </span><span class="nt">REDIS_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">      </span><span class="nt">REDIS_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6379</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew test</span>
+</span></code></pre></div>
+<hr />
+<h2 id="13-real-world-patterns">🧩 13. Real-World Patterns<a class="headerlink" href="#13-real-world-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cache-Aside</strong></td>
+<td>App reads from Redis; on miss, fetches DB + stores in Redis.</td>
+<td>Common with Spring or Django.</td>
+</tr>
+<tr>
+<td><strong>Write-Through</strong></td>
+<td>Writes go to Redis and DB simultaneously.</td>
+<td>Ensures consistency.</td>
+</tr>
+<tr>
+<td><strong>Pub/Sub</strong></td>
+<td>Services communicate via Redis channels.</td>
+<td>Real-time notifications.</td>
+</tr>
+<tr>
+<td><strong>Streams</strong></td>
+<td>Event queue with consumer groups.</td>
+<td>Great for jobs, analytics.</td>
+</tr>
+</tbody>
+</table>
+<p>Example stream usage:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>XADD<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>*<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;alice&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>XREADGROUP<span class="w"> </span>GROUP<span class="w"> </span>workers<span class="w"> </span><span class="m">1</span><span class="w"> </span>COUNT<span class="w"> </span><span class="m">1</span><span class="w"> </span>STREAMS<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>&gt;
+</span></code></pre></div>
+<hr />
+<h2 id="14-troubleshooting">🧠 14. Troubleshooting<a class="headerlink" href="#14-troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis not reachable</td>
+<td>Check port 6379 and container health.</td>
+</tr>
+<tr>
+<td>Keys disappear</td>
+<td>TTL expired or memory eviction triggered.</td>
+</tr>
+<tr>
+<td>“NOAUTH” error</td>
+<td>Set password in config and client.</td>
+</tr>
+<tr>
+<td>High latency</td>
+<td>Tune <code>maxmemory</code> + eviction policy.</td>
+</tr>
+<tr>
+<td>Data not persistent</td>
+<td>Enable <code>appendonly yes</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-summary">✅ 15. Summary<a class="headerlink" href="#15-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Redis = speed and simplicity — an in-memory data store with persistence options.</li>
+<li>Ideal for caching, pub/sub, queues, and rate limiting.</li>
+<li>Use Docker for easy setup and Compose for multi-service integration.</li>
+<li>Always secure, monitor, and limit memory.</li>
+<li>Combine with PostgreSQL for the best of both worlds: durability + velocity.</li>
+</ul>
+<hr />
+<p>📄 <strong>File path suggestion:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docs/
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>└─ cheatsheets/
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>   └─ tools/
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>      └─ redis/
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>         └─ quick-refresher.md
+</span></code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../../.." class="btn btn-neutral float-left" title="Knowledge Vault"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../relational/%F0%9F%90%98%20postgresql/quick-refresher/" class="btn btn-neutral float-right" title="quick-refresher">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../relational/%F0%9F%90%98%20postgresql/quick-refresher/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

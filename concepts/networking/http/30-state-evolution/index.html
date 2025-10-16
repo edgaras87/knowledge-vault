@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/concepts/networking/http/30-state-evolution/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>State (Evolution) - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "State (Evolution)";
+        var mkdocs_page_input_path = "concepts/networking/http/30-state-evolution.md";
+        var mkdocs_page_url = "/knowledge-vault/concepts/networking/http/30-state-evolution/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../cheatsheets/languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../cheatsheets/tools/obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Networking</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Http</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">State (Evolution)</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#1-why-web-state-exists">1) Why Web State Exists</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-cookies-the-original-memory-hack">2) Cookies — The Original Memory Hack</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-why-the-client-cant-be-trusted">3) Why the Client Can’t Be Trusted</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-the-stateful-model-server-remembers-you">4) The Stateful Model — Server Remembers You</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#example-spring-mvc">Example: Spring MVC</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-the-stateless-model-client-proves-itself">5) The Stateless Model — Client Proves Itself</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#example-spring-boot-rest-api">Example: Spring Boot (REST API)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-why-this-change-happened">6) Why This Change Happened</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-hybrid-world-cookies-meet-tokens">7) Hybrid World — Cookies Meet Tokens</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-cross-language-equivalents">8) Cross-Language Equivalents</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#java-spring">🧩 Java / Spring</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#nodejs-express">⚙️ Node.js / Express</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#python">🐍 Python</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#javascript-frontends">⚡ JavaScript Frontends</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-concept-table-the-evolution-in-one-view">9) Concept Table — The Evolution in One View</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#10-core-insight">10) Core Insight</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#11-practical-developer-takeaways">11) Practical Developer Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#12-in-a-sentence">12) In a Sentence</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Concepts</li>
+          <li class="breadcrumb-item">Networking</li>
+          <li class="breadcrumb-item">Http</li>
+      <li class="breadcrumb-item active">State (Evolution)</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/concepts/networking/http/30-state-evolution.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="web-state-evolution-told-through-springs-lens">🌐 Web State Evolution (told through Spring’s lens)<a class="headerlink" href="#web-state-evolution-told-through-springs-lens" title="Permanent link">&para;</a></h1>
+<p>How the web learned to <em>remember</em> — and how that memory evolved from cookies to tokens, from servers to clients.</p>
+<p><strong>See also:</strong> <a href="../../../../cheatsheets/networking/http/state/">HTTP State Reference</a></p>
+<hr />
+<h2 id="1-why-web-state-exists">1) Why Web State Exists<a class="headerlink" href="#1-why-web-state-exists" title="Permanent link">&para;</a></h2>
+<p>HTTP was designed to be <strong>stateless</strong> — every request is a blank slate.
+Without extra mechanisms, the server can’t tell whether two requests come from the same user.</p>
+<p>To make web experiences persistent — logins, carts, dashboards — we need a <strong>state bridge</strong> between requests.
+That bridge has changed over time, but the problem never did.</p>
+<hr />
+<h2 id="2-cookies-the-original-memory-hack">2) Cookies — The Original Memory Hack<a class="headerlink" href="#2-cookies-the-original-memory-hack" title="Permanent link">&para;</a></h2>
+<p>A <strong>cookie</strong> is a tiny key–value pair that a server asks the browser to keep and send back with future requests.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Server → Set-Cookie: sessionId=abc123
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Browser → Cookie: sessionId=abc123
+</span></code></pre></div>
+<p>Cookies make HTTP <em>feel</em> stateful, but they’re just <strong>labels</strong>, not memory.
+The actual data lives on the <strong>server</strong>, keyed by that label:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sessionId=abc123 → user=Edgaras, cart=3 items
+</span></code></pre></div>
+<p>Think of it as a coat-check system:</p>
+<ul>
+<li>You (the browser) keep the ticket.</li>
+<li>The server keeps your coat (the session data).</li>
+</ul>
+<p>When you return, you hand in the ticket; the server finds your coat.</p>
+<p>If either side forgets (cookie cleared or session expired), you start fresh.</p>
+<hr />
+<h2 id="3-why-the-client-cant-be-trusted">3) Why the Client Can’t Be Trusted<a class="headerlink" href="#3-why-the-client-cant-be-trusted" title="Permanent link">&para;</a></h2>
+<p>Cookies are stored client-side, so they can be read, changed, or deleted.
+That’s why cookies must be protected with strict attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Protects Against</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HttpOnly</code></td>
+<td>JavaScript access</td>
+<td>JS can’t read or modify it</td>
+</tr>
+<tr>
+<td><code>Secure</code></td>
+<td>Network sniffing</td>
+<td>Only sent via HTTPS</td>
+</tr>
+<tr>
+<td><code>SameSite</code></td>
+<td>CSRF attacks</td>
+<td>Controls cross-site sending</td>
+</tr>
+</tbody>
+</table>
+<p>Servers must <strong>never trust cookie data blindly</strong> — it’s a reference, not proof.</p>
+<hr />
+<h2 id="4-the-stateful-model-server-remembers-you">4) The Stateful Model — Server Remembers You<a class="headerlink" href="#4-the-stateful-model-server-remembers-you" title="Permanent link">&para;</a></h2>
+<h3 id="example-spring-mvc">Example: Spring MVC<a class="headerlink" href="#example-spring-mvc" title="Permanent link">&para;</a></h3>
+<p>Old-school web applications used <strong>server-side sessions</strong>.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>POST /login → Set-Cookie: JSESSIONID=xyz123
+</span></code></pre></div>
+<p>Spring stores that session internally:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>xyz123 → userId=42, username=&quot;edgaras&quot;
+</span></code></pre></div>
+<p>Next request:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET /profile
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Cookie: JSESSIONID=xyz123
+</span></code></pre></div>
+<p>Spring restores your identity automatically via <code>HttpSession</code>.</p>
+<p>Code sketch:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="w"> </span><span class="n">session</span><span class="p">.</span><span class="na">getAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This model is <strong>stateful</strong> — the server remembers each user’s state in memory or a shared store (like Redis).</p>
+<hr />
+<h2 id="5-the-stateless-model-client-proves-itself">5) The Stateless Model — Client Proves Itself<a class="headerlink" href="#5-the-stateless-model-client-proves-itself" title="Permanent link">&para;</a></h2>
+<p>Modern REST APIs abandoned server memory.
+Instead of “the server remembers you,” we now do <strong>“you prove who you are each time.”</strong></p>
+<h3 id="example-spring-boot-rest-api">Example: Spring Boot (REST API)<a class="headerlink" href="#example-spring-boot-rest-api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6...
+</span></code></pre></div>
+<p>The token (e.g., JWT) is:</p>
+<ul>
+<li>Signed by the server</li>
+<li>Self-contained (includes user info, expiration, roles)</li>
+<li>Verifiable without server memory</li>
+</ul>
+<p>No lookup tables. No <code>HttpSession</code>.
+Every request is independent and verifiable.</p>
+<p>This makes scaling simple — any server can validate the token.</p>
+<hr />
+<h2 id="6-why-this-change-happened">6) Why This Change Happened<a class="headerlink" href="#6-why-this-change-happened" title="Permanent link">&para;</a></h2>
+<p>The shift wasn’t stylistic — it was infrastructural.</p>
+<p>Old model (sessions):</p>
+<ul>
+<li>Works for single servers.</li>
+<li>Breaks in load-balanced or cloud environments (session stickiness issues).</li>
+</ul>
+<p>New model (tokens):</p>
+<ul>
+<li>Works with multiple instances.</li>
+<li>Stateless and cache-friendly.</li>
+<li>Portable across APIs, apps, and devices.</li>
+</ul>
+<p>Tokens are ideal for <strong>distributed</strong>, <strong>multi-client</strong> systems.
+Cookies still shine in <strong>browser-native</strong>, <strong>single-origin</strong> web apps.</p>
+<hr />
+<h2 id="7-hybrid-world-cookies-meet-tokens">7) Hybrid World — Cookies Meet Tokens<a class="headerlink" href="#7-hybrid-world-cookies-meet-tokens" title="Permanent link">&para;</a></h2>
+<p>Many modern systems combine both ideas:</p>
+<ul>
+<li><strong>Browser clients:</strong> store JWT in an <strong>HttpOnly cookie</strong> for security</li>
+<li><strong>Mobile / API clients:</strong> store JWT manually and send via <code>Authorization</code> header</li>
+</ul>
+<p>Same token, different transport.</p>
+<p>Cookies are now often just the <em>delivery vehicle</em> for tokens.</p>
+<hr />
+<h2 id="8-cross-language-equivalents">8) Cross-Language Equivalents<a class="headerlink" href="#8-cross-language-equivalents" title="Permanent link">&para;</a></h2>
+<h3 id="java-spring">🧩 Java / Spring<a class="headerlink" href="#java-spring" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Old: <code>HttpSession</code> + <code>JSESSIONID</code></li>
+<li>New: JWT / OAuth2 in <code>Authorization</code> header</li>
+<li>Advanced: WebFlux (reactive, stateless)</li>
+</ul>
+<h3 id="nodejs-express">⚙️ Node.js / Express<a class="headerlink" href="#nodejs-express" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Old: <code>express-session</code> + <code>connect-redis</code></li>
+<li>New: <code>jsonwebtoken</code> + stateless JWT validation</li>
+<li>Middleware-driven auth; typically one-liners</li>
+</ul>
+<h3 id="python">🐍 Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Django (classic)</strong>: sessionid cookie → DB-backed session</li>
+<li><strong>Flask</strong>: <code>flask-session</code> (stateful) or <code>flask-jwt-extended</code> (stateless)</li>
+<li><strong>FastAPI</strong>: modern, JWT-first design</li>
+</ul>
+<h3 id="javascript-frontends">⚡ JavaScript Frontends<a class="headerlink" href="#javascript-frontends" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>React / Vue / Angular</strong> store tokens in <code>localStorage</code> or cookies</li>
+<li>Send them as <code>Authorization: Bearer ...</code></li>
+<li>Tokens make frontends independent from backend state</li>
+</ul>
+<p>Each ecosystem faces the same choice:</p>
+<blockquote>
+<p><em>Do we store memory on the server (stateful) or carry proof on the client (stateless)?</em></p>
+</blockquote>
+<hr />
+<h2 id="9-concept-table-the-evolution-in-one-view">9) Concept Table — The Evolution in One View<a class="headerlink" href="#9-concept-table-the-evolution-in-one-view" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Era</th>
+<th>Approach</th>
+<th>Who Remembers You</th>
+<th>Stored Where</th>
+<th>Still Used?</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1990s–2010s</td>
+<td><strong>Sessions + Cookies</strong></td>
+<td>Server</td>
+<td>Memory / DB</td>
+<td>✅ Yes</td>
+<td>Django, Spring MVC</td>
+</tr>
+<tr>
+<td>2010s–2020s</td>
+<td><strong>Tokens (JWT/OAuth2)</strong></td>
+<td>Client</td>
+<td>Header / localStorage</td>
+<td>✅ Yes</td>
+<td>Spring Boot, FastAPI</td>
+</tr>
+<tr>
+<td>2020s→</td>
+<td><strong>Hybrid Cookies + Tokens</strong></td>
+<td>Both</td>
+<td>Cookie-wrapped JWT</td>
+<td>✅ Growing</td>
+<td>SPAs, Cloud-native apps</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-core-insight">10) Core Insight<a class="headerlink" href="#10-core-insight" title="Permanent link">&para;</a></h2>
+<p>Cookies gave the web its first memory,
+but tokens gave it <em>freedom</em> — freedom to scale, to move between servers, to talk to any device.</p>
+<p>Spring just reflects that same journey:</p>
+<ul>
+<li>From <strong>JSESSIONID</strong> → to <strong>JWT</strong> → to <strong>OAuth2/OpenID Connect</strong>.</li>
+</ul>
+<p>The evolution wasn’t just technical — it was philosophical:
+moving from <em>the server knows you</em> to <em>you can prove who you are.</em></p>
+<hr />
+<h2 id="11-practical-developer-takeaways">11) Practical Developer Takeaways<a class="headerlink" href="#11-practical-developer-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Understand <strong>cookies and sessions</strong> conceptually — they’re still vital for browsers.</li>
+<li>Build your APIs <strong>statelessly</strong> — each request should carry its own proof (token).</li>
+<li>Use <strong>Spring Security + JWT/OAuth2</strong> as your modern baseline.</li>
+<li>Learn <strong>cross-language equivalents</strong> — they all rhyme with Spring’s concepts.</li>
+<li>For scale: <strong>state belongs at the edge (client)</strong>, not in memory on the server.</li>
+</ul>
+<hr />
+<h2 id="12-in-a-sentence">12) In a Sentence<a class="headerlink" href="#12-in-a-sentence" title="Permanent link">&para;</a></h2>
+<p>Cookies made the web personal.
+Tokens made it planetary.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../20-quick-refresher/" class="btn btn-neutral float-left" title="Quick Refresher"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../40-cookies/" class="btn btn-neutral float-right" title="Cookies">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../20-quick-refresher/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../40-cookies/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

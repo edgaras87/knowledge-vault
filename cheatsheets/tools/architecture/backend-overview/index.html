@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/backend-overview/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>backend-system-overview - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "backend-system-overview";
+        var mkdocs_page_input_path = "cheatsheets/tools/architecture/backend-overview.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/tools/architecture/backend-overview/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tools</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Architecture</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">backend-system-overview</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#git-docker-nginx-postgresql-redis-systemd">(Git → Docker → Nginx → PostgreSQL → Redis → systemd)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#1-the-big-picture-data-flow-and-control-flow">🧱 1. The Big Picture: Data Flow and Control Flow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-nginx-the-front-gate">🌐 5. Nginx: The Front Gate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-postgresql-the-reliable-store">🐘 6. PostgreSQL: The Reliable Store</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-redis-the-speed-layer">🔴 7. Redis: The Speed Layer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-systemd-the-foundation-layer">⚙️ 8. systemd: The Foundation Layer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-lifecycle-summary">🔁 9. Lifecycle Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#10-environment-interaction-diagram">🧠 10. Environment Interaction Diagram</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#11-developer-flow-from-code-to-live-system">🧰 11. Developer Flow: “From Code to Live System”</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#12-security-configuration-flow">🔒 12. Security &amp; Configuration Flow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#13-future-expansions">🧭 13. Future Expansions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#14-summary">✅ 14. Summary</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Tools</li>
+          <li class="breadcrumb-item">Architecture</li>
+      <li class="breadcrumb-item active">backend-system-overview</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/tools/architecture/backend-overview.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="backend-system-architecture-overview">🧩 Backend System Architecture Overview<a class="headerlink" href="#backend-system-architecture-overview" title="Permanent link">&para;</a></h1>
+<hr />
+<h3 id="git-docker-nginx-postgresql-redis-systemd">(Git → Docker → Nginx → PostgreSQL → Redis → systemd)<a class="headerlink" href="#git-docker-nginx-postgresql-redis-systemd" title="Permanent link">&para;</a></h3>
+<p>This overview connects the dots between your core tools — how they work together to deliver a modern backend system.<br />
+You now have the <em>whole pipeline</em> from code commit to production runtime.</p>
+<hr />
+<h2 id="1-the-big-picture-data-flow-and-control-flow">🧱 1. The Big Picture: Data Flow and Control Flow<a class="headerlink" href="#1-the-big-picture-data-flow-and-control-flow" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌────────┐         ┌────────────┐         ┌──────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  Git   │  push→  │  Docker    │  run→   │ systemd  │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└────────┘         └──────┬─────┘         └────┬─────┘
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│                  │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>build images             │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│                  │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>┌──────────▼─────────┐         │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   Containers:      │         │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  ├─ Nginx (proxy)  │         │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  ├─ Backend (API)  │         │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  ├─ PostgreSQL (DB)│         │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  └─ Redis (cache)  │         │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└──────────┬─────────┘         │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│                   │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>inbound requests           │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│                   │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>Clients ←─────────────┘
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>````
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>**Data flow summary:**
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>1. Users → **Nginx** → **Backend API**  
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>2. API → **PostgreSQL** for durable data  
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>3. API ↔ **Redis** for caching/session data  
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>4. All of it runs under **Docker**, orchestrated by **systemd**  
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>5. Source code and configs tracked via **Git**
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>---
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>## ⚙️ 2. Startup Order (Dependency Chain)
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>When your system boots or deploys:
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>| Order | Component | Managed By | Description |
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>|--------|------------|-------------|--------------|
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>| 1️⃣ | systemd | Linux | Starts Docker, PostgreSQL, Redis, Nginx |
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>| 2️⃣ | Docker | systemd | Brings containers online |
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>| 3️⃣ | Databases (Postgres, Redis) | Docker Compose | Foundational services |
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>| 4️⃣ | Application backend | Docker Compose | Connects to DBs |
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>| 5️⃣ | Nginx | Docker Compose | Public entrypoint |
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>| 6️⃣ | Developers | Git | Deploy and version control updates |
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>💡 In production, **systemd manages Docker**, while **Docker manages everything else.**
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>---
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>## 🧰 3. Git: The Source of Truth
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>**Purpose:** Version control for everything — code, Dockerfiles, configs.
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>```bash
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>git clone repo-url
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>git commit -m &quot;Add Nginx reverse proxy&quot;
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>git push origin main
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>````
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>**Best practice:**
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>Store `.env.example`, `docker-compose.yml`, `nginx.conf`, and service configs in Git — but **never credentials**.
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>Use `.gitignore` for:
+</span></code></pre></div>
+.env
+*.log
+<strong>pycache</strong>/
+data/
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>---
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>## 🐳 4. Docker: The Environment Fabric
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>**Purpose:** Package and run every service in isolation.
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Typical structure:
+</span></code></pre></div>
+docker/
+ ├─ nginx/
+ ├─ backend/
+ ├─ postgres/
+ └─ redis/
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>**docker-compose.yml**
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>```yaml
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>services:
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  nginx:
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    image: nginx:latest
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    ports: [&quot;80:80&quot;]
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  backend:
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    build: ./backend
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    depends_on: [postgres, redis]
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  postgres:
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    image: postgres:16
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  redis:
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    image: redis:7
+</span></code></pre></div></p>
+<p>Docker defines your <strong>runtime graph</strong>; Compose defines <strong>relationships</strong>.
+Everything above this line (Nginx, API, DB) lives in its own lightweight container.</p>
+<hr />
+<h2 id="5-nginx-the-front-gate">🌐 5. Nginx: The Front Gate<a class="headerlink" href="#5-nginx-the-front-gate" title="Permanent link">&para;</a></h2>
+<p><strong>Purpose:</strong> Routes HTTP traffic, handles HTTPS, and load-balances backend requests.</p>
+<p>Flow:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Client → Nginx → Backend container
+</span></code></pre></div>
+<p>Common setup:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend:8080</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kn">root</span><span class="w"> </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Nginx offloads:</p>
+<ul>
+<li>SSL termination</li>
+<li>Static assets</li>
+<li>Reverse proxying</li>
+<li>Rate limiting and caching</li>
+</ul>
+<hr />
+<h2 id="6-postgresql-the-reliable-store">🐘 6. PostgreSQL: The Reliable Store<a class="headerlink" href="#6-postgresql-the-reliable-store" title="Permanent link">&para;</a></h2>
+<p><strong>Purpose:</strong> Permanent relational data.
+It lives in its own container with a <strong>mounted volume</strong> for persistence.</p>
+<p>Connections:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>jdbc:postgresql://postgres:5432/appdb
+</span></code></pre></div>
+<p>Rules of thumb:</p>
+<ul>
+<li>Use <strong>volumes</strong> for data durability.</li>
+<li>Create separate users for apps.</li>
+<li>Use <strong>pgAdmin</strong> or IDE to manage schemas.</li>
+</ul>
+<hr />
+<h2 id="7-redis-the-speed-layer">🔴 7. Redis: The Speed Layer<a class="headerlink" href="#7-redis-the-speed-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Purpose:</strong> In-memory cache, session store, and message broker.
+Communicates with backend over internal Docker network.</p>
+<p>Common patterns:</p>
+<ul>
+<li>Cache-Aside (read-through)</li>
+<li>Pub/Sub for async events</li>
+<li>Distributed locks (e.g., for job workers)</li>
+</ul>
+<p>Spring Boot example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">spring.data.redis.host</span><span class="o">=</span><span class="s">redis</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">spring.cache.type</span><span class="o">=</span><span class="s">redis</span>
+</span></code></pre></div>
+<p>Redis acts as the <em>short-term memory</em> of your system.</p>
+<hr />
+<h2 id="8-systemd-the-foundation-layer">⚙️ 8. systemd: The Foundation Layer<a class="headerlink" href="#8-systemd-the-foundation-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Purpose:</strong> Boot, supervise, and restart everything automatically.</p>
+<p><code>systemctl</code> controls Docker, PostgreSQL, Redis, and Nginx daemons:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker<span class="w"> </span>postgresql<span class="w"> </span>redis<span class="w"> </span>nginx
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
+</span></code></pre></div>
+<p>systemd ensures services recover after crashes and start at boot.</p>
+<hr />
+<h2 id="9-lifecycle-summary">🔁 9. Lifecycle Summary<a class="headerlink" href="#9-lifecycle-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Development</strong></td>
+<td>Git, Docker Compose</td>
+<td>Build and test stack locally</td>
+</tr>
+<tr>
+<td><strong>Startup</strong></td>
+<td>systemd</td>
+<td>Boot and manage background services</td>
+</tr>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>Docker</td>
+<td>Run isolated services</td>
+</tr>
+<tr>
+<td><strong>Networking</strong></td>
+<td>Nginx</td>
+<td>Route traffic</td>
+</tr>
+<tr>
+<td><strong>Persistence</strong></td>
+<td>PostgreSQL</td>
+<td>Store structured data</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Redis</td>
+<td>Cache data and speed up requests</td>
+</tr>
+<tr>
+<td><strong>Recovery</strong></td>
+<td>systemd</td>
+<td>Auto-restart failed services</td>
+</tr>
+<tr>
+<td><strong>Versioning</strong></td>
+<td>Git</td>
+<td>Track everything that changes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-environment-interaction-diagram">🧠 10. Environment Interaction Diagram<a class="headerlink" href="#10-environment-interaction-diagram" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>               ┌─────────────────────────────────────┐
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>               │             Clients                 │
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>               │ (Browser, API consumer, mobile app) │
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>               └─────────────────────────────────────┘
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                             │
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                             ▼
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>                    ┌────────────────┐
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>                    │     Nginx      │  (HTTP entrypoint)
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>                    └────────────────┘
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>                             │
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>                             ▼
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>                 ┌────────────────────┐
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>                 │   Backend (API)    │
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>                 │   (Spring, Python) │
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>                 └────────────────────┘
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>                   │                │
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>             SQL queries         Cached data
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>                   │                │
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>                   ▼                ▼
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>         ┌────────────────┐   ┌────────────────┐
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>         │  PostgreSQL    │   │     Redis      │
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>         │ (data at rest) │   │ (data in RAM)  │
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>         └────────────────┘   └────────────────┘
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>                             ▲
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>                             │
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>                     ┌────────────────┐
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>                     │    Docker      │
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>                     │ (runs all)     │
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>                     └────────────────┘
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>                             │
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>                             ▼
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>                     ┌────────────────┐
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>                     │   systemd      │
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>                     │ (boots Docker) │
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>                     └────────────────┘
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>                             │
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>                             ▼
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>                     ┌────────────────┐
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>                     │     Git        │
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>                     │ (build source) │
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>                     └────────────────┘
+</span></code></pre></div>
+<hr />
+<h2 id="11-developer-flow-from-code-to-live-system">🧰 11. Developer Flow: “From Code to Live System”<a class="headerlink" href="#11-developer-flow-from-code-to-live-system" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Code change</strong> → Commit in Git.</li>
+<li><strong>Build image</strong> → Docker builds backend image.</li>
+<li><strong>Run stack</strong> → <code>docker compose up -d</code>.</li>
+<li><strong>Test endpoints</strong> → via Nginx reverse proxy.</li>
+<li><strong>Persist data</strong> → PostgreSQL.</li>
+<li><strong>Speed up responses</strong> → Redis caching.</li>
+<li><strong>Control startup &amp; uptime</strong> → systemd.</li>
+<li><strong>Repeat confidently</strong> — everything reproducible and tracked.</li>
+</ol>
+<hr />
+<h2 id="12-security-configuration-flow">🔒 12. Security &amp; Configuration Flow<a class="headerlink" href="#12-security-configuration-flow" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nginx</strong></td>
+<td>SSL, headers, access control</td>
+</tr>
+<tr>
+<td><strong>Docker</strong></td>
+<td>Container isolation</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>Authentication, roles</td>
+</tr>
+<tr>
+<td><strong>Redis</strong></td>
+<td>Password protection, internal-only binding</td>
+</tr>
+<tr>
+<td><strong>systemd</strong></td>
+<td>OS-level permissions, restart policy</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>Audit trail, version history</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-future-expansions">🧭 13. Future Expansions<a class="headerlink" href="#13-future-expansions" title="Permanent link">&para;</a></h2>
+<p>Once you’re comfortable with this foundation:</p>
+<ul>
+<li>Add <strong>CI/CD</strong> (GitHub Actions, Jenkins, or GitLab CI).</li>
+<li>Introduce <strong>Prometheus + Grafana</strong> for monitoring.</li>
+<li>Explore <strong>Kubernetes</strong> (for distributed orchestration).</li>
+<li>Use <strong>Ansible</strong> or <strong>Terraform</strong> for infrastructure automation.</li>
+</ul>
+<hr />
+<h2 id="14-summary">✅ 14. Summary<a class="headerlink" href="#14-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Git</strong> – tracks your code and infrastructure definitions.</li>
+<li><strong>Docker</strong> – builds and isolates your runtime.</li>
+<li><strong>systemd</strong> – ensures your stack survives reboots.</li>
+<li><strong>Nginx</strong> – routes and protects requests.</li>
+<li><strong>PostgreSQL</strong> – stores long-term state.</li>
+<li><strong>Redis</strong> – provides instant responses and caching.</li>
+</ul>
+<p>Everything fits like gears in a machine — from developer commit to production uptime.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../obsidian-mkdocs-setup/" class="btn btn-neutral float-left" title="obsidian-mkdocs-setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../frontend-overview/" class="btn btn-neutral float-right" title="frontend-system-overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../obsidian-mkdocs-setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../frontend-overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

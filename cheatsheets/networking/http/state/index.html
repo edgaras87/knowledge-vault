@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/networking/http/state/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>State - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "State";
+        var mkdocs_page_input_path = "cheatsheets/networking/http/state.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/networking/http/state/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Networking</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Http</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">State</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#1-the-core-problem">1) The Core Problem</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-sessions-the-old-but-gold-approach">2) Sessions — The Old but Gold Approach</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#idea">🧩 Idea</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#how-it-works">⚙️ How It Works</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#pros">💡 Pros</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#cons">⚠️ Cons</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-cookies-the-tiny-carriers-of-state">3) Cookies — The Tiny Carriers of State</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#example_1">🍬 Example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#key-attributes">🧠 Key Attributes</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#security-baseline">🔒 Security baseline</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-tokens-modern-stateless-authentication">4) Tokens — Modern, Stateless Authentication</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#jwt-example">🔧 JWT Example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#typical-flow">Typical Flow</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#pros_1">💡 Pros</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#cons_1">⚠️ Cons</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-cookies-vs-tokens-the-real-difference">5) Cookies vs Tokens — The Real Difference</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-mixing-cookies-tokens-hybrid-pattern">6) Mixing Cookies &amp; Tokens (Hybrid Pattern)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-refresh-tokens">7) Refresh Tokens</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-csrf-xss-the-twin-threats">8) CSRF &amp; XSS — The Twin Threats</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#cross-site-scripting-xss">Cross-Site Scripting (XSS)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-practical-example-login-flow-comparison">9) Practical Example — Login Flow Comparison</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#cookie-based-sessions">🍪 Cookie-based (Sessions)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#token-based-jwt">🪙 Token-based (JWT)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#10-quick-recap-what-to-use-when">10) Quick Recap — What to Use When</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#11-java-spring-quick-hooks">11) Java &amp; Spring Quick Hooks</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#session-example">Session Example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#jwt-filter-example">JWT Filter Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#12-pocket-glossary">12) Pocket Glossary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#13-summary-thought">13) Summary Thought</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../tools/obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Networking</li>
+          <li class="breadcrumb-item">Http</li>
+      <li class="breadcrumb-item active">State</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/networking/http/state.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sessions-tokens-cookies-quick-refresher">🍪 Sessions, Tokens &amp; Cookies — Quick Refresher<a class="headerlink" href="#sessions-tokens-cookies-quick-refresher" title="Permanent link">&para;</a></h1>
+<p>How HTTP, a stateless protocol, learns to remember you.</p>
+<p><strong>See also:</strong> <a href="../../../../concepts/networking/http/30-state-evolution/">HTTP State Evolution</a></p>
+<hr />
+<h2 id="1-the-core-problem">1) The Core Problem<a class="headerlink" href="#1-the-core-problem" title="Permanent link">&para;</a></h2>
+<p>HTTP by design has <strong>no memory</strong>.
+Each request is independent — the server doesn’t know it’s <em>you</em> returning unless you tell it every time.</p>
+<p>So to build logins, carts, dashboards, and “remember me” experiences, we need a <strong>state mechanism</strong> — something that links separate requests together.</p>
+<p>Three main patterns exist:</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Where State Lives</th>
+<th>Common Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sessions</strong></td>
+<td>On the <strong>server</strong></td>
+<td>Web apps, classic login</td>
+</tr>
+<tr>
+<td><strong>Cookies</strong></td>
+<td>On the <strong>client (browser)</strong></td>
+<td>Store session IDs, small data</td>
+</tr>
+<tr>
+<td><strong>Tokens</strong></td>
+<td>On the <strong>client (API world)</strong></td>
+<td>JWTs, OAuth access tokens</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-sessions-the-old-but-gold-approach">2) Sessions — The Old but Gold Approach<a class="headerlink" href="#2-sessions-the-old-but-gold-approach" title="Permanent link">&para;</a></h2>
+<h3 id="idea">🧩 Idea<a class="headerlink" href="#idea" title="Permanent link">&para;</a></h3>
+<p>Store a “session record” on the <strong>server</strong> — usually a hash map like:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sessionId -&gt; { userId: 42, role: &quot;admin&quot;, cart: [...] }
+</span></code></pre></div>
+<p>The client just holds a random session ID:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Cookie: sessionId=abc123
+</span></code></pre></div>
+<p>The server looks it up on every request.</p>
+<h3 id="how-it-works">⚙️ How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<ol>
+<li>User logs in with username/password.</li>
+<li>Server creates a session in memory or database.</li>
+<li>Server sends the session ID to the client as a cookie.</li>
+<li>Client sends it with every request.</li>
+</ol>
+<h3 id="pros">💡 Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Easy to invalidate (<code>delete sessionId</code> server-side).</li>
+<li>Works with simple cookies (no JWT complexity).</li>
+<li>Secure if server stores minimal data.</li>
+</ul>
+<h3 id="cons">⚠️ Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Doesn’t scale easily across multiple servers unless you share session storage (Redis, database, etc.).</li>
+<li>Not ideal for stateless APIs.</li>
+</ul>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">POST /login</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">→ Set-Cookie: sessionId=abc123; HttpOnly; Secure</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="err">GET /profile</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="err">→ Cookie: sessionId=abc123</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3-cookies-the-tiny-carriers-of-state">3) Cookies — The Tiny Carriers of State<a class="headerlink" href="#3-cookies-the-tiny-carriers-of-state" title="Permanent link">&para;</a></h2>
+<p>Cookies are <strong>small text blobs</strong> (≈4KB each) stored by browsers per origin.</p>
+<p>They automatically attach to every HTTP request to that site.</p>
+<h3 id="example_1">🍬 Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Set-Cookie: theme=dark; Path=/; Max-Age=3600; SameSite=Lax
+</span></code></pre></div>
+<p>Browser then adds:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Cookie: theme=dark
+</span></code></pre></div>
+<h3 id="key-attributes">🧠 Key Attributes<a class="headerlink" href="#key-attributes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Domain</strong></td>
+<td>which host(s) can read it</td>
+</tr>
+<tr>
+<td><strong>Path</strong></td>
+<td>restrict cookie to part of site</td>
+</tr>
+<tr>
+<td><strong>Expires / Max-Age</strong></td>
+<td>when to delete it</td>
+</tr>
+<tr>
+<td><strong>Secure</strong></td>
+<td>only send over HTTPS</td>
+</tr>
+<tr>
+<td><strong>HttpOnly</strong></td>
+<td>JS can’t access it (prevents XSS stealing)</td>
+</tr>
+<tr>
+<td><strong>SameSite</strong></td>
+<td>controls cross-site sending (prevents CSRF)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security-baseline">🔒 Security baseline<a class="headerlink" href="#security-baseline" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">Set-Cookie: sessionId=abc123; Secure; HttpOnly; SameSite=Strict</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4-tokens-modern-stateless-authentication">4) Tokens — Modern, Stateless Authentication<a class="headerlink" href="#4-tokens-modern-stateless-authentication" title="Permanent link">&para;</a></h2>
+<p>Tokens shift state <strong>to the client</strong>, so servers don’t store sessions.
+They’re ideal for APIs, SPAs, and mobile apps.</p>
+<p>The two main types:</p>
+<table>
+<thead>
+<tr>
+<th>Token Type</th>
+<th>Format</th>
+<th>Where Stored</th>
+<th>Expiry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JWT (JSON Web Token)</strong></td>
+<td>signed JSON</td>
+<td>localStorage / cookie</td>
+<td>short-lived (mins–hrs)</td>
+</tr>
+<tr>
+<td><strong>Opaque Token</strong></td>
+<td>random ID</td>
+<td>server DB lookup</td>
+<td>flexible</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jwt-example">🔧 JWT Example<a class="headerlink" href="#jwt-example" title="Permanent link">&para;</a></h3>
+<p>Header.Payload.Signature — all Base64 encoded.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;42&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Edgaras&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;exp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1737000000</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>JWTs are signed with a secret (HMAC) or private key (RSA).
+The server verifies the signature — no DB lookup needed.</p>
+<h3 id="typical-flow">Typical Flow<a class="headerlink" href="#typical-flow" title="Permanent link">&para;</a></h3>
+<ol>
+<li>User logs in → server returns <code>access_token</code> + <code>refresh_token</code>.</li>
+<li>Client stores them (preferably <strong>in memory</strong> or <strong>httpOnly cookie</strong>).</li>
+<li>Sends token in every request:</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR...
+</span></code></pre></div>
+4. When access token expires, client uses refresh token to get a new one.</p>
+<h3 id="pros_1">💡 Pros<a class="headerlink" href="#pros_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Perfect for distributed / stateless backends.</li>
+<li>Scales easily.</li>
+<li>Easy to integrate with mobile / third-party clients.</li>
+</ul>
+<h3 id="cons_1">⚠️ Cons<a class="headerlink" href="#cons_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Harder to invalidate before expiry (you can only blacklist).</li>
+<li>Token theft = full impersonation until expiry.</li>
+</ul>
+<hr />
+<h2 id="5-cookies-vs-tokens-the-real-difference">5) Cookies vs Tokens — The Real Difference<a class="headerlink" href="#5-cookies-vs-tokens-the-real-difference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Cookie Session</th>
+<th>Token-based</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>State stored</td>
+<td>Server-side</td>
+<td>Client-side</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>Automatic via browser</td>
+<td>Manual in <code>Authorization</code> header</td>
+</tr>
+<tr>
+<td>Invalidation</td>
+<td>Easy (delete on server)</td>
+<td>Harder (must track blacklists)</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Requires shared session store</td>
+<td>Scales horizontally</td>
+</tr>
+<tr>
+<td>Works with</td>
+<td>Browser + HTML apps</td>
+<td>APIs, SPAs, mobile apps</td>
+</tr>
+<tr>
+<td>CSRF risk</td>
+<td>Yes</td>
+<td>Minimal (if no cookies used)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-mixing-cookies-tokens-hybrid-pattern">6) Mixing Cookies &amp; Tokens (Hybrid Pattern)<a class="headerlink" href="#6-mixing-cookies-tokens-hybrid-pattern" title="Permanent link">&para;</a></h2>
+<p>Modern secure apps often use <strong>tokens inside cookies</strong>.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="err">Set-Cookie: access_token=&lt;JWT&gt;; HttpOnly; Secure; SameSite=Strict</span>
+</span></code></pre></div>
+<p>Benefits:</p>
+<ul>
+<li>Automatic sending like sessions.</li>
+<li>JWT’s stateless verification.</li>
+<li>HttpOnly flag protects from JS theft.</li>
+</ul>
+<p>Used by major frameworks like <strong>NextAuth</strong>, <strong>Spring Security</strong>, and <strong>Django Rest Framework</strong>.</p>
+<hr />
+<h2 id="7-refresh-tokens">7) Refresh Tokens<a class="headerlink" href="#7-refresh-tokens" title="Permanent link">&para;</a></h2>
+<p>To balance <strong>security</strong> and <strong>convenience</strong>, many systems use two tokens:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Lifetime</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Access token</strong></td>
+<td>short (5–15 min)</td>
+<td>Used for API requests</td>
+</tr>
+<tr>
+<td><strong>Refresh token</strong></td>
+<td>long (days–weeks)</td>
+<td>Used to get new access token</td>
+</tr>
+</tbody>
+</table>
+<p>The refresh token is sent only to <code>/auth/refresh</code> endpoint — not every request.</p>
+<hr />
+<h2 id="8-csrf-xss-the-twin-threats">8) CSRF &amp; XSS — The Twin Threats<a class="headerlink" href="#8-csrf-xss-the-twin-threats" title="Permanent link">&para;</a></h2>
+<h3 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Permanent link">&para;</a></h3>
+<p>When attacker tricks browser into sending a cookie-authenticated request.
+Prevent with:</p>
+<ul>
+<li><code>SameSite=Strict</code> or <code>Lax</code> cookies.</li>
+<li>CSRF token in form submissions.</li>
+<li>Use of <code>Authorization</code> header instead of cookies for APIs.</li>
+</ul>
+<h3 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)<a class="headerlink" href="#cross-site-scripting-xss" title="Permanent link">&para;</a></h3>
+<p>When injected JS steals tokens or cookies.
+Prevent with:</p>
+<ul>
+<li><code>HttpOnly</code> cookies.</li>
+<li>Strict Content-Security-Policy.</li>
+<li>Input sanitization.</li>
+</ul>
+<hr />
+<h2 id="9-practical-example-login-flow-comparison">9) Practical Example — Login Flow Comparison<a class="headerlink" href="#9-practical-example-login-flow-comparison" title="Permanent link">&para;</a></h2>
+<h3 id="cookie-based-sessions">🍪 Cookie-based (Sessions)<a class="headerlink" href="#cookie-based-sessions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>POST /login
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>→ Set-Cookie: sessionId=abc123; HttpOnly; Secure
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>GET /dashboard
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>→ Cookie: sessionId=abc123
+</span></code></pre></div>
+<h3 id="token-based-jwt">🪙 Token-based (JWT)<a class="headerlink" href="#token-based-jwt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>POST /login
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>→ { &quot;access_token&quot;: &quot;eyJ...&quot;, &quot;refresh_token&quot;: &quot;eyJ...&quot; }
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>GET /profile
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>→ Authorization: Bearer eyJ...
+</span></code></pre></div>
+<hr />
+<h2 id="10-quick-recap-what-to-use-when">10) Quick Recap — What to Use When<a class="headerlink" href="#10-quick-recap-what-to-use-when" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classic server-rendered site</td>
+<td>Sessions + Cookies</td>
+</tr>
+<tr>
+<td>REST API / mobile app</td>
+<td>JWTs (access + refresh tokens)</td>
+</tr>
+<tr>
+<td>Microservices / distributed</td>
+<td>JWTs or opaque tokens with gateway validation</td>
+</tr>
+<tr>
+<td>Sensitive data / high security</td>
+<td>Short-lived tokens + HttpOnly cookies</td>
+</tr>
+<tr>
+<td>Public API</td>
+<td>API keys (simple token variant)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-java-spring-quick-hooks">11) Java &amp; Spring Quick Hooks<a class="headerlink" href="#11-java-spring-quick-hooks" title="Permanent link">&para;</a></h2>
+<h3 id="session-example">Session Example<a class="headerlink" href="#session-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">HttpSession</span><span class="w"> </span><span class="n">session</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">session</span><span class="p">.</span><span class="na">setAttribute</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="jwt-filter-example">JWT Filter Example<a class="headerlink" href="#jwt-filter-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">String</span><span class="w"> </span><span class="n">authHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&quot;Authorization&quot;</span><span class="p">);</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">authHeader</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">authHeader</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;Bearer &quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authHeader</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">Claims</span><span class="w"> </span><span class="n">claims</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jwtUtil</span><span class="p">.</span><span class="na">validateToken</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="c1">// attach user info to security context</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="12-pocket-glossary">12) Pocket Glossary<a class="headerlink" href="#12-pocket-glossary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Session:</strong> server-side memory of a user’s state.</li>
+<li><strong>Cookie:</strong> key-value pair stored on client, sent automatically with requests.</li>
+<li><strong>Token:</strong> signed credential representing a user (e.g., JWT).</li>
+<li><strong>Refresh token:</strong> used to issue new access tokens.</li>
+<li><strong>CSRF:</strong> tricking browser into unintended requests.</li>
+<li><strong>XSS:</strong> injecting scripts that run in a user’s browser.</li>
+</ul>
+<hr />
+<h2 id="13-summary-thought">13) Summary Thought<a class="headerlink" href="#13-summary-thought" title="Permanent link">&para;</a></h2>
+<p>HTTP forgets.
+Sessions, cookies, and tokens are three ways to make it <em>remember</em> — but each trades simplicity for scalability, and security for convenience.
+Knowing when to <strong>store state</strong> and when to <strong>trust statelessness</strong> is what separates beginners from real backend engineers.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../languages/java/core/nio/path/" class="btn btn-neutral float-left" title="Path"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../tools/obsidian-mkdocs-setup/" class="btn btn-neutral float-right" title="obsidian-mkdocs-setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../../languages/java/core/nio/path/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../tools/obsidian-mkdocs-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

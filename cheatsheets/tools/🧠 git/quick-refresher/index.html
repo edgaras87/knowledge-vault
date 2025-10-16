@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/%F0%9F%A7%A0%20git/quick-refresher/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>quick-refresher - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "quick-refresher";
+        var mkdocs_page_input_path = "cheatsheets/tools/\ud83e\udde0 git/quick-refresher.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/tools/%F0%9F%A7%A0%20git/quick-refresher/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tools</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >🧠 git</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">quick-refresher</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#1-what-git-actually-does">⚙️ 1. What Git Actually Does</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#inspect">Inspect</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#stage-and-commit">Stage and Commit</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#branch-and-merge">Branch and Merge</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#sync-with-remote">Sync with Remote</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-branching-and-collaboration-patterns">🌿 5. Branching and Collaboration Patterns</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-undoing-and-time-travel">⚡ 6. Undoing and Time Travel</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-working-with-remotes-github-etc">🧩 7. Working with Remotes (GitHub, etc.)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-real-world-example-feature-workflow">🧰 8. Real-World Example (Feature Workflow)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-maintenance-and-cleanup">🧼 9. Maintenance and Cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#10-common-troubleshooting">🧠 10. Common Troubleshooting</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#11-advanced-tools-for-later">🧩 11. Advanced Tools (for later)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#next-step-ideas">🧭 Next Step Ideas</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#12-git-in-your-ide-jetbrains-vs-code">💻 12. Git in Your IDE (JetBrains &amp; VS Code)</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#jetbrains-ides-intellij-idea-pycharm-etc">🧩 JetBrains IDEs (IntelliJ IDEA, PyCharm, etc.)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#vs-code-integration">🧠 VS Code Integration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#13-writing-great-commit-messages">✍️ 13. Writing Great Commit Messages</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#14-practical-git-ide-workflow-example">🧩 14. Practical Git + IDE Workflow Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#15-tips-for-clean-repositories">🧼 15. Tips for Clean Repositories</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#final-notes">✅ Final Notes</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Tools</li>
+          <li class="breadcrumb-item">🧠 git</li>
+      <li class="breadcrumb-item active">quick-refresher</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/tools/🧠 git/quick-refresher.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git-from-basics-to-advanced-workflow-mastery">🧠 Git: From Basics to Advanced Workflow Mastery<a class="headerlink" href="#git-from-basics-to-advanced-workflow-mastery" title="Permanent link">&para;</a></h1>
+<p>Git is a <strong>distributed version control system (DVCS)</strong> — it tracks changes to files over time, lets developers collaborate, and makes every clone a complete backup of the repository.<br />
+It’s the tool that powers GitHub, GitLab, and most of modern software development.</p>
+<hr />
+<h2 id="1-what-git-actually-does">⚙️ 1. What Git Actually Does<a class="headerlink" href="#1-what-git-actually-does" title="Permanent link">&para;</a></h2>
+<p>Git records <strong>snapshots</strong> of your project (commits), not just diffs.<br />
+Each commit stores the <em>entire state</em> of your code at that moment, compressed efficiently.</p>
+<p>You can move through history (like checkpoints in a game), branch off to experiment, and merge or rebase to integrate changes.</p>
+<p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># See history</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--decorate
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sb">````</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>👉<span class="w"> </span>In<span class="w"> </span>short:<span class="w"> </span>Git<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span>project’s<span class="w"> </span>**time<span class="w"> </span>machine<span class="w"> </span>+<span class="w"> </span>collaboration<span class="w"> </span>layer**.
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>---
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">## 🧱 2. Core Concepts</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">|</span><span class="w"> </span>Concept<span class="w">               </span><span class="p">|</span><span class="w"> </span>Description<span class="w">                                                                      </span><span class="p">|</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">|</span><span class="w"> </span>---------------------<span class="w"> </span><span class="p">|</span><span class="w"> </span>--------------------------------------------------------------------------------<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">|</span><span class="w"> </span>**Repository<span class="w"> </span><span class="o">(</span>repo<span class="o">)</span>**<span class="w"> </span><span class="p">|</span><span class="w"> </span>A<span class="w"> </span>Git-managed<span class="w"> </span>folder<span class="w"> </span>containing<span class="w"> </span>code<span class="w"> </span>and<span class="w"> </span>version<span class="w"> </span><span class="nb">history</span><span class="w"> </span><span class="o">(</span><span class="sb">`</span>.git<span class="sb">`</span><span class="w"> </span>folder<span class="w"> </span>inside<span class="o">)</span>.<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">|</span><span class="w"> </span>**Commit**<span class="w">            </span><span class="p">|</span><span class="w"> </span>A<span class="w"> </span>snapshot<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>files<span class="w"> </span>at<span class="w"> </span>a<span class="w"> </span>moment<span class="w"> </span><span class="k">in</span><span class="w"> </span>time.<span class="w">                                    </span><span class="p">|</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">|</span><span class="w"> </span>**Branch**<span class="w">            </span><span class="p">|</span><span class="w"> </span>A<span class="w"> </span>movable<span class="w"> </span>pointer<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>commit<span class="w"> </span>—<span class="w"> </span>allows<span class="w"> </span>parallel<span class="w"> </span>development.<span class="w">                     </span><span class="p">|</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">|</span><span class="w"> </span>**HEAD**<span class="w">              </span><span class="p">|</span><span class="w"> </span>Your<span class="w"> </span>current<span class="w"> </span>working<span class="w"> </span>branch<span class="w"> </span><span class="o">(</span>where<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">history</span><span class="o">)</span>.<span class="w">                          </span><span class="p">|</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">|</span><span class="w"> </span>**Staging<span class="w"> </span>area**<span class="w">      </span><span class="p">|</span><span class="w"> </span>Where<span class="w"> </span>you<span class="w"> </span>prepare<span class="w"> </span>changes<span class="w"> </span>before<span class="w"> </span>committing.<span class="w">                                     </span><span class="p">|</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">|</span><span class="w"> </span>**Remote**<span class="w">            </span><span class="p">|</span><span class="w"> </span>A<span class="w"> </span>copy<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>repo<span class="w"> </span>hosted<span class="w"> </span>elsewhere<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>GitHub<span class="o">)</span>.<span class="w">                             </span><span class="p">|</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">|</span><span class="w"> </span>**Merge**<span class="w">             </span><span class="p">|</span><span class="w"> </span>Combines<span class="w"> </span>histories<span class="w"> </span>from<span class="w"> </span>different<span class="w"> </span>branches.<span class="w">                                      </span><span class="p">|</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">|</span><span class="w"> </span>**Rebase**<span class="w">            </span><span class="p">|</span><span class="w"> </span>Moves<span class="w"> </span>commits<span class="w"> </span>onto<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>base,<span class="w"> </span>creating<span class="w"> </span>a<span class="w"> </span>linear<span class="w"> </span>history.<span class="w">                        </span><span class="p">|</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>---
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1">## ⚒️ 3. The Git Workflow (mental model)</span>
+</span></code></pre></div>
+Working Directory → Staging Area → Local Repository → Remote Repository
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Edit files → `git add`
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Save snapshot → `git commit`
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. Share/pull changes → `git push` / `git pull`
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>---
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>## 🔧 4. Quick Command Reference
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>### Initialize or Clone
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>```bash
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>git init                           # start a new repo
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>git clone https://github.com/user/repo.git
+</span></code></pre></div></p>
+<h3 id="inspect">Inspect<a class="headerlink" href="#inspect" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>status<span class="w">                         </span><span class="c1"># show changed files</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>diff<span class="w">                           </span><span class="c1"># show unstaged changes</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--decorate
+</span></code></pre></div>
+<h3 id="stage-and-commit">Stage and Commit<a class="headerlink" href="#stage-and-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>add<span class="w"> </span>file.txt<span class="w">                   </span><span class="c1"># stage file</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                          </span><span class="c1"># stage all changes</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add new feature&quot;</span><span class="w">    </span><span class="c1"># create commit</span>
+</span></code></pre></div>
+<h3 id="branch-and-merge">Branch and Merge<a class="headerlink" href="#branch-and-merge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>branch<span class="w">                         </span><span class="c1"># list branches</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/login<span class="w">        </span><span class="c1"># create + switch</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>merge<span class="w"> </span>feature/login<span class="w">            </span><span class="c1"># merge into current branch</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/login<span class="w">        </span><span class="c1"># delete local branch</span>
+</span></code></pre></div>
+<h3 id="sync-with-remote">Sync with Remote<a class="headerlink" href="#sync-with-remote" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                      </span><span class="c1"># show remotes</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>fetch<span class="w">                          </span><span class="c1"># get new data, no merge</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git<span class="w"> </span>pull<span class="w">                           </span><span class="c1"># fetch + merge current branch</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w">               </span><span class="c1"># upload local commits</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-branching-and-collaboration-patterns">🌿 5. Branching and Collaboration Patterns<a class="headerlink" href="#5-branching-and-collaboration-patterns" title="Permanent link">&para;</a></h2>
+<p><strong>Main workflow:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>main
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a> ├─ feature/login
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> ├─ feature/dashboard
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> └─ fix/typo
+</span></code></pre></div>
+<p><strong>Branch naming convention:</strong>
+<code>feature/…</code>, <code>fix/…</code>, <code>refactor/…</code>, <code>release/…</code></p>
+<p><strong>Recommended pattern:</strong></p>
+<ul>
+<li><code>main</code> — stable release branch</li>
+<li><code>develop</code> — active integration branch</li>
+<li><code>feature/*</code> — short-lived branches</li>
+<li><code>hotfix/*</code> — emergency fixes</li>
+<li><code>release/*</code> — prep for deployment</li>
+</ul>
+<hr />
+<h2 id="6-undoing-and-time-travel">⚡ 6. Undoing and Time Travel<a class="headerlink" href="#6-undoing-and-time-travel" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>restore<span class="w"> </span>file.txt<span class="w">               </span><span class="c1"># discard unstaged changes</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>file.txt<span class="w">      </span><span class="c1"># unstage</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;commit&gt;<span class="w"> </span>--<span class="w"> </span>file.txt<span class="w">  </span><span class="c1"># restore from old commit</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">            </span><span class="c1"># undo last commit, keep changes staged</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1<span class="w">            </span><span class="c1"># undo commit + changes</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>git<span class="w"> </span>revert<span class="w"> </span>&lt;commit&gt;<span class="w">                </span><span class="c1"># create new commit that undoes another</span>
+</span></code></pre></div>
+<p>👉 <code>reset</code> rewrites history; <code>revert</code> adds a new commit that undoes previous work safely.</p>
+<hr />
+<h2 id="7-working-with-remotes-github-etc">🧩 7. Working with Remotes (GitHub, etc.)<a class="headerlink" href="#7-working-with-remotes-github-etc" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/user/repo.git
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div>
+<p>Next time, just:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>push
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+<p><strong>Clone and work:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;url&gt;
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/branch
+</span></code></pre></div>
+<p><strong>Sync fork or upstream:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/source/repo.git
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>git<span class="w"> </span>merge<span class="w"> </span>upstream/main
+</span></code></pre></div>
+<hr />
+<h2 id="8-real-world-example-feature-workflow">🧰 8. Real-World Example (Feature Workflow)<a class="headerlink" href="#8-real-world-example-feature-workflow" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Start new work</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/login
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Edit code</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Implement login feature&quot;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Update main and rebase to stay up-to-date</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># Push branch for review</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/login
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># After merge, clean up</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>git<span class="w"> </span>pull
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/login
+</span></code></pre></div>
+<hr />
+<h2 id="9-maintenance-and-cleanup">🧼 9. Maintenance and Cleanup<a class="headerlink" href="#9-maintenance-and-cleanup" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-vv<span class="w">                    </span><span class="c1"># see tracking info</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>fetch<span class="w"> </span>-p<span class="w">                      </span><span class="c1"># prune deleted remote branches</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>git<span class="w"> </span>gc<span class="w">                            </span><span class="c1"># clean up unnecessary files and optimize repo</span>
+</span></code></pre></div>
+<hr />
+<h2 id="10-common-troubleshooting">🧠 10. Common Troubleshooting<a class="headerlink" href="#10-common-troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accidentally committed wrong file</td>
+<td><code>git reset HEAD~1</code> then re-commit</td>
+</tr>
+<tr>
+<td>Merge conflict</td>
+<td>Edit conflicted file → <code>git add .</code> → <code>git commit</code></td>
+</tr>
+<tr>
+<td>Detached HEAD</td>
+<td><code>git switch main</code> to reattach</td>
+</tr>
+<tr>
+<td>“non-fast-forward” error on push</td>
+<td>Pull first (<code>git pull --rebase</code>) then push again</td>
+</tr>
+<tr>
+<td>Wrong commit message</td>
+<td><code>git commit --amend -m "New message"</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-advanced-tools-for-later">🧩 11. Advanced Tools (for later)<a class="headerlink" href="#11-advanced-tools-for-later" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Rebase vs Merge:</strong> Rebase keeps history linear, merge preserves branching.</li>
+<li><strong>Cherry-pick:</strong> apply specific commits between branches.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit&gt;
+</span></code></pre></div>
+* <strong>Stash:</strong> temporarily save changes.</p>
+<p><div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>stash
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
+</span></code></pre></div>
+* <strong>Hooks:</strong> automate pre-commit checks and CI workflows.
+* <strong>Submodules:</strong> include external repos inside your repo.</p>
+<hr />
+<h2 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Git snapshots your code and lets you time-travel safely.</li>
+<li>Commits build your local history, remotes sync it across the team.</li>
+<li>Branches isolate work; merges and rebases integrate it.</li>
+<li><code>git status</code> and <code>git log</code> are your best debugging friends.</li>
+<li>Never panic — you can almost always recover history in Git.</li>
+</ul>
+<hr />
+<h2 id="next-step-ideas">🧭 Next Step Ideas<a class="headerlink" href="#next-step-ideas" title="Permanent link">&para;</a></h2>
+<p>When you outgrow this refresher:</p>
+<ul>
+<li>Split into <code>git-basics.md</code>, <code>git-advanced.md</code>, <code>git-troubleshooting.md</code></li>
+<li>Add practical guides for branching strategies or GitHub workflows.</li>
+</ul>
+<hr />
+<p>📄 <strong>File path suggestion:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docs/
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>└─ cheatsheets/
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>   └─ tools/
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>      └─ git/
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>         └─ quick-refresher.md
+</span></code></pre></div>
+<hr />
+<h2 id="12-git-in-your-ide-jetbrains-vs-code">💻 12. Git in Your IDE (JetBrains &amp; VS Code)<a class="headerlink" href="#12-git-in-your-ide-jetbrains-vs-code" title="Permanent link">&para;</a></h2>
+<p>Git isn’t just a command-line tool — every modern IDE wraps it into a visual workflow.<br />
+But it helps to understand what each action <em>actually does</em> under the hood.</p>
+<hr />
+<h3 id="jetbrains-ides-intellij-idea-pycharm-etc">🧩 JetBrains IDEs (IntelliJ IDEA, PyCharm, etc.)<a class="headerlink" href="#jetbrains-ides-intellij-idea-pycharm-etc" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>What It Actually Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Commit (Ctrl+K)</strong></td>
+<td>Stages &amp; commits changes locally. Equivalent to <code>git add</code> + <code>git commit</code>.</td>
+</tr>
+<tr>
+<td><strong>Push (Ctrl+Shift+K)</strong></td>
+<td>Uploads commits to the remote (<code>git push</code>).</td>
+</tr>
+<tr>
+<td><strong>Update Project (Ctrl+T)</strong></td>
+<td>Fetch + merge (or rebase, if configured).</td>
+</tr>
+<tr>
+<td><strong>Rebase Onto Upstream</strong></td>
+<td>Equivalent to <code>git rebase origin/main</code>. Keeps history clean.</td>
+</tr>
+<tr>
+<td><strong>Show History (Alt+9 → Log tab)</strong></td>
+<td>Visual <code>git log</code> + branch graph.</td>
+</tr>
+<tr>
+<td><strong>Cherry-pick Commit</strong></td>
+<td>Applies selected commit(s) onto your branch (<code>git cherry-pick</code>).</td>
+</tr>
+<tr>
+<td><strong>Shelve Changes</strong></td>
+<td>JetBrains' own version of <code>git stash</code> — great for quick context switches.</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Pro tip: JetBrains auto-detects Git roots. If a folder contains <code>.git</code>, it treats it as a repo automatically.</p>
+<p><strong>Good workflow habit inside JetBrains:</strong>
+1. Regularly commit small, meaningful chunks.
+2. Rebase before pushing to keep branches fast-forwardable.
+3. Always inspect your commit diff before confirming.</p>
+<hr />
+<h3 id="vs-code-integration">🧠 VS Code Integration<a class="headerlink" href="#vs-code-integration" title="Permanent link">&para;</a></h3>
+<p>VS Code’s Source Control panel is a friendly wrapper around core Git commands.</p>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Action</th>
+<th>Git Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✓</td>
+<td>Commit</td>
+<td><code>git commit</code></td>
+</tr>
+<tr>
+<td>⬆️</td>
+<td>Push</td>
+<td><code>git push</code></td>
+</tr>
+<tr>
+<td>⬇️</td>
+<td>Pull</td>
+<td><code>git pull</code></td>
+</tr>
+<tr>
+<td>🔁</td>
+<td>Sync Changes</td>
+<td>Pull + Push</td>
+</tr>
+<tr>
+<td>⊕</td>
+<td>Stage Change</td>
+<td><code>git add</code></td>
+</tr>
+<tr>
+<td>🗑️</td>
+<td>Discard Change</td>
+<td><code>git restore</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Extensions worth adding:</strong>
+- <strong>GitLens</strong> → deep history, blame, branch insights.
+- <strong>Git Graph</strong> → visual branching and merges.
+- <strong>GitHub Pull Requests</strong> → manage PRs directly in VS Code.</p>
+<hr />
+<h2 id="13-writing-great-commit-messages">✍️ 13. Writing Great Commit Messages<a class="headerlink" href="#13-writing-great-commit-messages" title="Permanent link">&para;</a></h2>
+<p>Clear commit messages are part of professional hygiene.<br />
+A Git log should read like a timeline of meaningful decisions, not noise.</p>
+<p><strong>Format (conventional style):</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>&lt;type&gt;(scope): short summary
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>[optional body]
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>[optional footer]
+</span></code></pre></div></p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>feat(auth): add JWT token validation
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>fix(api): correct null pointer on user fetch
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>docs(readme): add setup instructions
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>refactor(core): simplify cache layer
+</span></code></pre></div></p>
+<p><strong>Common types:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feat</code></td>
+<td>new feature</td>
+</tr>
+<tr>
+<td><code>fix</code></td>
+<td>bug fix</td>
+</tr>
+<tr>
+<td><code>docs</code></td>
+<td>documentation change</td>
+</tr>
+<tr>
+<td><code>refactor</code></td>
+<td>code restructure without behavior change</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>adding or fixing tests</td>
+</tr>
+<tr>
+<td><code>chore</code></td>
+<td>maintenance or tooling changes</td>
+</tr>
+</tbody>
+</table>
+<p>👉 A good commit message should explain <strong>why</strong> a change exists, not just <strong>what</strong> changed.</p>
+<hr />
+<h2 id="14-practical-git-ide-workflow-example">🧩 14. Practical Git + IDE Workflow Example<a class="headerlink" href="#14-practical-git-ide-workflow-example" title="Permanent link">&para;</a></h2>
+<p>Here’s how a typical developer loop looks:</p>
+<ol>
+<li>
+<p><strong>Start new work</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git switch -c feature/login
+</span></code></pre></div>
+<em>(Or use JetBrains “New Branch” button.)</em></p>
+</li>
+<li>
+<p><strong>Code → test → commit</strong></p>
+</li>
+<li>Stage meaningful changes</li>
+<li>
+<p>Commit with a clear message:<br />
+<code>feat(login): add session management</code></p>
+</li>
+<li>
+<p><strong>Stay up to date</strong></p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git fetch origin
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>git rebase origin/main
+</span></code></pre></div>
+<p><em>(Or “Rebase onto Main” in IDE.)</em></p>
+<ol>
+<li><strong>Push for review</strong></li>
+</ol>
+<p>git push -u origin feature/login</p>
+<p><em>(Or “Push” in IDE.)</em></p>
+<ol>
+<li><strong>After PR merge</strong></li>
+</ol>
+<p>git switch main
+git pull
+git branch -d feature/login</p>
+<p><em>(Or “Delete Branch” safely in IDE.)</em></p>
+<hr />
+<h2 id="15-tips-for-clean-repositories">🧼 15. Tips for Clean Repositories<a class="headerlink" href="#15-tips-for-clean-repositories" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Keep <code>.gitignore</code> tight — no IDE caches or <code>.venv/</code> folders.</li>
+<li>Avoid committing binaries, logs, or secrets.</li>
+<li>Use <code>.gitattributes</code> to manage line endings across systems.</li>
+<li>Squash small commits before merging to keep history readable:</li>
+</ul>
+<p>```bash
+git rebase -i HEAD~5
+````</p>
+<ul>
+<li>Use <code>git tag</code> for versioning:</li>
+</ul>
+<p><code>bash
+  git tag -a v1.0.0 -m "Initial release"
+  git push origin v1.0.0</code></p>
+<hr />
+<h2 id="final-notes">✅ Final Notes<a class="headerlink" href="#final-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The IDE is just a lens — Git remains the same underneath.</li>
+<li>Always review the diff before committing.</li>
+<li>Favor <strong>small, focused commits</strong> over massive all-in-one pushes.</li>
+<li>Treat your Git history as a story — future you will thank you.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../%F0%9F%90%B3%20docker/quick-refresher/" class="btn btn-neutral float-left" title="quick-refresher"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../concepts/networking/http/10-index/" class="btn btn-neutral float-right" title="Starter">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../%F0%9F%90%B3%20docker/quick-refresher/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../concepts/networking/http/10-index/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

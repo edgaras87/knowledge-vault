@@ -2,22 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/</loc>
-         <lastmod>2025-10-15</lastmod>
+         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
-         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/</loc>
-         <lastmod>2025-10-15</lastmod>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/core/nio/path/</loc>
-         <lastmod>2025-10-15</lastmod>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/networking/http/state/</loc>
+         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/obsidian-mkdocs-setup/</loc>
-         <lastmod>2025-10-15</lastmod>
+         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
-         <loc>https://edgaras87.github.io/knowledge-vault/concepts/</loc>
-         <lastmod>2025-10-15</lastmod>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/backend-overview/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/frontend-overview/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/fullstack-deployment-overview/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/%E2%9A%99%20systemd/quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/%F0%9F%8C%90%20nginx/quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/%F0%9F%90%B3%20docker/quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/%F0%9F%A7%A0%20git/quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/10-index/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/20-quick-refresher/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/30-state-evolution/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/40-cookies/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/50-tokens/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/learning/backend/spring-roadmap/</loc>
+         <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/meta/structure-notes/</loc>
+         <lastmod>2025-10-16</lastmod>
     </url>
 </urlset>

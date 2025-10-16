@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/concepts/networking/http/40-cookies/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Cookies - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Cookies";
+        var mkdocs_page_input_path = "concepts/networking/http/40-cookies.md";
+        var mkdocs_page_url = "/knowledge-vault/concepts/networking/http/40-cookies/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../cheatsheets/languages/java/core/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../cheatsheets/tools/obsidian-mkdocs-setup/">obsidian-mkdocs-setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >⚙ systemd</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%E2%9A%99%20systemd/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🌐 nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%8C%90%20nginx/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🐳 docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%90%B3%20docker/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >🧠 git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../cheatsheets/tools/%F0%9F%A7%A0%20git/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Networking</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Http</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../20-quick-refresher/">Quick Refresher</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Cookies</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#1-what-a-cookie-is">1) What a Cookie Is</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-anatomy-of-a-cookie">2) Anatomy of a Cookie</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-where-cookies-live">3) Where Cookies Live</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-common-attributes-and-their-meaning">4) Common Attributes and Their Meaning</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-lifecycle">5) Lifecycle</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-session-vs-persistent-cookies">6) Session vs Persistent Cookies</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-security-essentials">7) Security Essentials</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#always-use">✅ Always use:</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#key-points">Key points</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-samesite-explained-clearly">8) SameSite Explained Clearly</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-cookies-in-apis-and-spas">9) Cookies in APIs and SPAs</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#client-javascript">Client (JavaScript)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#server-api">Server (API)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#95-modern-alternatives">9.5) Modern Alternatives</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#session-tokens">Session Tokens</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#jwt-json-web-token">JWT (JSON Web Token)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#server-side-sessions">Server-Side Sessions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#10-cookie-storage-alternatives">10) Cookie Storage Alternatives</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#11-practical-example-login-flow">11) Practical Example — Login Flow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#12-debugging-inspection">12) Debugging &amp; Inspection</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#using-curl">Using cURL</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#in-browser">In Browser</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#13-java-spring-example">13) Java &amp; Spring Example</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#setting">Setting</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#reading">Reading</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#14-quick-reference-table">14) Quick Reference Table</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#15-mental-checklist">15) Mental Checklist</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#16-in-a-sentence">16) In a Sentence</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">Spring roadmap</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../meta/structure-notes/">🧩 Structure Notes — Cheatsheets Organization</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Concepts</li>
+          <li class="breadcrumb-item">Networking</li>
+          <li class="breadcrumb-item">Http</li>
+      <li class="breadcrumb-item active">Cookies</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/concepts/networking/http/40-cookies.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="http-cookies-quick-refresher">🍪 HTTP Cookies — Quick Refresher<a class="headerlink" href="#http-cookies-quick-refresher" title="Permanent link">&para;</a></h1>
+<p>Tiny text packets that let the web remember.</p>
+<hr />
+<h2 id="1-what-a-cookie-is">1) What a Cookie Is<a class="headerlink" href="#1-what-a-cookie-is" title="Permanent link">&para;</a></h2>
+<p>A <strong>cookie</strong> is a small key–value pair that the <strong>server</strong> tells the <strong>browser</strong> to store.
+The browser automatically sends it back with every request to the same origin.</p>
+<p>Cookies exist because <strong>HTTP is stateless</strong> — servers forget who you are between requests.
+Cookies give the illusion of continuity.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Server → Set-Cookie: sessionId=abc123; Secure; HttpOnly
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Browser → Cookie: sessionId=abc123
+</span></code></pre></div>
+<p>They’re the oldest and most universal state mechanism in HTTP.</p>
+<hr />
+<h2 id="2-anatomy-of-a-cookie">2) Anatomy of a Cookie<a class="headerlink" href="#2-anatomy-of-a-cookie" title="Permanent link">&para;</a></h2>
+<p>Each cookie line looks like this:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Set-Cookie: key=value; Attribute1; Attribute2=...
+</span></code></pre></div>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Set-Cookie: theme=dark; Path=/; Max-Age=3600; SameSite=Lax
+</span></code></pre></div>
+<p>The browser then includes it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Cookie: theme=dark
+</span></code></pre></div>
+<hr />
+<h2 id="3-where-cookies-live">3) Where Cookies Live<a class="headerlink" href="#3-where-cookies-live" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>In browsers:</strong> limited (~20 per domain, 4 KB each).</li>
+<li><strong>By origin:</strong> tied to domain + path + scheme (HTTP/HTTPS).</li>
+<li><strong>Automatically sent:</strong> for same-origin requests, no client code needed.</li>
+</ul>
+<hr />
+<h2 id="4-common-attributes-and-their-meaning">4) Common Attributes and Their Meaning<a class="headerlink" href="#4-common-attributes-and-their-meaning" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Purpose</th>
+<th>Typical Value / Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Domain</strong></td>
+<td>Which host(s) can receive it</td>
+<td><code>Domain=example.com</code></td>
+</tr>
+<tr>
+<td><strong>Path</strong></td>
+<td>Restrict to subpath</td>
+<td><code>Path=/api</code></td>
+</tr>
+<tr>
+<td><strong>Expires</strong></td>
+<td>Absolute expiry time</td>
+<td><code>Expires=Wed, 16 Oct 2025 07:00:00 GMT</code></td>
+</tr>
+<tr>
+<td><strong>Max-Age</strong></td>
+<td>Relative expiry in seconds</td>
+<td><code>Max-Age=3600</code></td>
+</tr>
+<tr>
+<td><strong>Secure</strong></td>
+<td>Send only via HTTPS</td>
+<td><code>Secure</code></td>
+</tr>
+<tr>
+<td><strong>HttpOnly</strong></td>
+<td>Hide from JavaScript</td>
+<td><code>HttpOnly</code></td>
+</tr>
+<tr>
+<td><strong>SameSite</strong></td>
+<td>Limit cross-site sending</td>
+<td><code>Strict</code>, <code>Lax</code>, <code>None</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-lifecycle">5) Lifecycle<a class="headerlink" href="#5-lifecycle" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Server sets</strong> the cookie via <code>Set-Cookie</code> header.</li>
+<li><strong>Browser stores</strong> it until it expires or user clears it.</li>
+<li><strong>Browser sends</strong> it back in future requests matching domain/path/scheme.</li>
+<li><strong>Server reads</strong> it from <code>Cookie:</code> header.</li>
+</ol>
+<p>To delete:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Set-Cookie: sessionId=deleted; Max-Age=0
+</span></code></pre></div>
+<hr />
+<h2 id="6-session-vs-persistent-cookies">6) Session vs Persistent Cookies<a class="headerlink" href="#6-session-vs-persistent-cookies" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Session cookie</strong></td>
+<td>No <code>Expires</code>/<code>Max-Age</code>; stored in memory</td>
+<td>Removed when browser closes</td>
+</tr>
+<tr>
+<td><strong>Persistent cookie</strong></td>
+<td>Has expiration</td>
+<td>Survives browser restarts</td>
+</tr>
+</tbody>
+</table>
+<p>Session cookies → logins
+Persistent cookies → “remember me”</p>
+<hr />
+<h2 id="7-security-essentials">7) Security Essentials<a class="headerlink" href="#7-security-essentials" title="Permanent link">&para;</a></h2>
+<h3 id="always-use">✅ Always use:<a class="headerlink" href="#always-use" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Set-Cookie: sessionId=abc123; Secure; HttpOnly; SameSite=Strict
+</span></code></pre></div>
+<h3 id="key-points">Key points<a class="headerlink" href="#key-points" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Secure</code>: no plaintext transmission.</li>
+<li><code>HttpOnly</code>: prevents JS theft (XSS).</li>
+<li><code>SameSite</code>: defends against CSRF.</li>
+<li>Don’t store sensitive data directly inside cookies.</li>
+<li>Avoid overly broad domains (<code>Domain=.example.com</code> shares across subdomains).</li>
+</ul>
+<hr />
+<h2 id="8-samesite-explained-clearly">8) SameSite Explained Clearly<a class="headerlink" href="#8-samesite-explained-clearly" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Behavior</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strict</strong></td>
+<td>Sent only from same site</td>
+<td>Most secure (auth cookies)</td>
+</tr>
+<tr>
+<td><strong>Lax</strong></td>
+<td>Sent on top-level navigations</td>
+<td>Default for browsers</td>
+</tr>
+<tr>
+<td><strong>None</strong></td>
+<td>Sent everywhere, even cross-site</td>
+<td>Must combine with <code>Secure</code>; used for third-party integrations</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Set-Cookie: auth=abc123; SameSite=None; Secure
+</span></code></pre></div>
+<hr />
+<h2 id="9-cookies-in-apis-and-spas">9) Cookies in APIs and SPAs<a class="headerlink" href="#9-cookies-in-apis-and-spas" title="Permanent link">&para;</a></h2>
+<p>Browsers attach cookies automatically only for same-origin requests.
+When making cross-origin API calls, you must explicitly enable credential sharing.</p>
+<h3 id="client-javascript">Client (JavaScript)<a class="headerlink" href="#client-javascript" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://api.example.com/data&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nx">credentials</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;include&quot;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">});</span>
+</span></code></pre></div>
+<h3 id="server-api">Server (API)<a class="headerlink" href="#server-api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Access-Control-Allow-Credentials: true
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Access-Control-Allow-Origin: https://app.example.com
+</span></code></pre></div>
+<p>This handshake enables cookie-based auth across origins.</p>
+<hr />
+<h2 id="95-modern-alternatives">9.5) Modern Alternatives<a class="headerlink" href="#95-modern-alternatives" title="Permanent link">&para;</a></h2>
+<p>While cookies remain the <strong>native way browsers persist state</strong>, modern systems often use other approaches — especially for APIs and mobile apps.</p>
+<h3 id="session-tokens">Session Tokens<a class="headerlink" href="#session-tokens" title="Permanent link">&para;</a></h3>
+<p>Instead of storing a session ID in a cookie, the server issues a <strong>token</strong> (like a signed string) that the client stores manually (e.g., in <code>localStorage</code>) and sends in headers such as:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Authorization: Bearer &lt;token&gt;
+</span></code></pre></div>
+<h3 id="jwt-json-web-token">JWT (JSON Web Token)<a class="headerlink" href="#jwt-json-web-token" title="Permanent link">&para;</a></h3>
+<p>A <strong>self-contained, signed token</strong> that carries claims — user ID, roles, expiration.
+Used for stateless authentication — the server doesn’t need to remember anything.
+But with power comes danger: once issued, it’s valid until expiry, so <strong>revocation is harder</strong>.</p>
+<h3 id="server-side-sessions">Server-Side Sessions<a class="headerlink" href="#server-side-sessions" title="Permanent link">&para;</a></h3>
+<p>The classic approach — store session data on the <strong>server</strong>, and just send a session ID via cookie.
+Simpler to invalidate, but less scalable in distributed systems.</p>
+<p><strong>In short:</strong></p>
+<ul>
+<li><strong>Cookies</strong> are the browser-native state glue.</li>
+<li><strong>Tokens</strong> are the API-native evolution.
+  You’ll often see <strong>both working together</strong> — cookies wrapping tokens for web clients, tokens alone for APIs and mobile apps.</li>
+</ul>
+<hr />
+<h2 id="10-cookie-storage-alternatives">10) Cookie Storage Alternatives<a class="headerlink" href="#10-cookie-storage-alternatives" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>LocalStorage / SessionStorage</strong> — manually managed by JS, not auto-sent.</li>
+<li><strong>Cookies</strong> — automatic, integrated with HTTP.</li>
+<li>Use <strong>HttpOnly cookies</strong> for secrets; use storage APIs for preferences.</li>
+</ul>
+<hr />
+<h2 id="11-practical-example-login-flow">11) Practical Example — Login Flow<a class="headerlink" href="#11-practical-example-login-flow" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">POST /login</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="err">→ Set-Cookie: sessionId=abc123; HttpOnly; Secure; SameSite=Strict</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="err">GET /dashboard</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="err">→ Cookie: sessionId=abc123</span>
+</span></code></pre></div>
+<p>Browser sends the cookie automatically; server validates the session.</p>
+<p>Logout:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Set-Cookie: sessionId=; Max-Age=0
+</span></code></pre></div>
+<hr />
+<h2 id="12-debugging-inspection">12) Debugging &amp; Inspection<a class="headerlink" href="#12-debugging-inspection" title="Permanent link">&para;</a></h2>
+<h3 id="using-curl">Using cURL<a class="headerlink" href="#using-curl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Show cookies in response</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>curl<span class="w"> </span>-I<span class="w"> </span>-c<span class="w"> </span>cookies.txt<span class="w"> </span>https://example.com
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Send stored cookies</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>curl<span class="w"> </span>-b<span class="w"> </span>cookies.txt<span class="w"> </span>https://example.com/profile
+</span></code></pre></div>
+<h3 id="in-browser">In Browser<a class="headerlink" href="#in-browser" title="Permanent link">&para;</a></h3>
+<p>Open <strong>DevTools → Application → Cookies</strong> to view, edit, or delete.</p>
+<hr />
+<h2 id="13-java-spring-example">13) Java &amp; Spring Example<a class="headerlink" href="#13-java-spring-example" title="Permanent link">&para;</a></h2>
+<h3 id="setting">Setting<a class="headerlink" href="#setting" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">ResponseCookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResponseCookie</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">&quot;sessionId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;abc123&quot;</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="p">.</span><span class="na">httpOnly</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="p">.</span><span class="na">secure</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="p">.</span><span class="na">sameSite</span><span class="p">(</span><span class="s">&quot;Strict&quot;</span><span class="p">)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="p">.</span><span class="na">maxAge</span><span class="p">(</span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">()</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="p">.</span><span class="na">header</span><span class="p">(</span><span class="n">HttpHeaders</span><span class="p">.</span><span class="na">SET_COOKIE</span><span class="p">,</span><span class="w"> </span><span class="n">cookie</span><span class="p">.</span><span class="na">toString</span><span class="p">())</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="s">&quot;ok&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="reading">Reading<a class="headerlink" href="#reading" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@CookieValue</span><span class="p">(</span><span class="s">&quot;sessionId&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sessionId</span>
+</span></code></pre></div>
+<hr />
+<h2 id="14-quick-reference-table">14) Quick Reference Table<a class="headerlink" href="#14-quick-reference-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Header</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set new cookie</td>
+<td><code>Set-Cookie</code></td>
+<td><code>Set-Cookie: user=edgaras; Max-Age=600</code></td>
+</tr>
+<tr>
+<td>Send existing cookie</td>
+<td><code>Cookie</code></td>
+<td><code>Cookie: user=edgaras</code></td>
+</tr>
+<tr>
+<td>Delete cookie</td>
+<td><code>Set-Cookie</code></td>
+<td><code>Set-Cookie: user=; Max-Age=0</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-mental-checklist">15) Mental Checklist<a class="headerlink" href="#15-mental-checklist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Always add <code>Secure; HttpOnly; SameSite</code>.</li>
+<li>Keep cookies small.</li>
+<li>Avoid sensitive info inside.</li>
+<li>Delete or expire aggressively.</li>
+<li>Treat them as <em>credentials</em>, not just data.</li>
+</ul>
+<hr />
+<h2 id="16-in-a-sentence">16) In a Sentence<a class="headerlink" href="#16-in-a-sentence" title="Permanent link">&para;</a></h2>
+<p>Cookies are the quiet workhorses of the web — small, loyal, and dumb.
+They make a stateless protocol feel personal, but trust them only when you’ve set the rules.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../30-state-evolution/" class="btn btn-neutral float-left" title="State (Evolution)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../50-tokens/" class="btn btn-neutral float-right" title="Tokens">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../30-state-evolution/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../50-tokens/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
