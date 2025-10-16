@@ -98,7 +98,19 @@ source .venv/bin/activate      # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
 
 # Core: MkDocs + Material + "Last updated" git plugin
-pip install -U mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin
+pip install -U mkdocs mkdocs-git-revision-date-localized-plugin
+
+
+# themes:
+# 1) Material
+pip install mkdocs-material
+
+# 2) Windmill
+#pip install mkdocs-windmill
+
+# 3) Bootstrap / Bootswatch
+#pip install mkdocs-bootstrap mkdocs-bootswatch
+
 
 # Pick ONE wikilinks plugin (to convert [[Page]] to proper links):
 

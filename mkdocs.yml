@@ -9,6 +9,8 @@ use_directory_urls: true                   # Pretty URLs: /path/ instead of /pat
 
 theme:
   name: material                           # Material for MkDocs theme (feature-rich)
+  #name: windmill                           # Material for MkDocs theme (feature-rich)
+  #name: bootstrap   # or a Bootswatch variant via the bootswatch package
   language: en
   features:
     - navigation.instant                   # Faster page transitions
