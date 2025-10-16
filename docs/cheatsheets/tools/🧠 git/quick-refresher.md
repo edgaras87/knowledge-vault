@@ -1,5 +1,5 @@
 ---
-title: memory-refresher
+title: quick-refresher
 tags: [git, version-control, vcs, branching, collaboration, troubleshooting]
 summary: Git basics, core concepts, commands, branching strategies, undoing changes, working with remotes, and troubleshooting.
 ---

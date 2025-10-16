@@ -1,5 +1,5 @@
 ---
-title: memory-refresher
+title: quick-refresher
 tags: [docker, containers, devops, systemctl, compose, networking]
 summary: managing Docker as a service, core concepts, commands, networking, multi-container apps with Compose, and troubleshooting.
 ---
