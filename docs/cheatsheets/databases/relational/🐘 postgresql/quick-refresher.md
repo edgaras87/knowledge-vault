@@ -45,11 +45,12 @@ At its core, Postgres:
 ## 🧩 3. PostgreSQL in Action
 
 ### Start / Stop (Linux)
+
 ```bash
 sudo systemctl start postgresql
 sudo systemctl status postgresql
 sudo -u postgres psql
-````
+```
 
 ### Quick DB shell commands
 

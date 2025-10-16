@@ -7,8 +7,16 @@ repo_url: https://github.com/edgaras87/knowledge-vault  # “Edit on GitHub” l
 edit_uri: edit/main/docs/                  # Path to open files in GitHub’s editor
 use_directory_urls: true                   # Pretty URLs: /path/ instead of /path.html
 
+#https://pawamoy.github.io/mkdocs-gallery/themes/readthedocs/
+extra_css:
+  - css/overrides.css
+
 theme:
-  name: material                           # Material for MkDocs theme (feature-rich)
+  name: readthedocs                           # Material for MkDocs theme (feature-rich)
+  navigation_depth: 6                 # how deep the sidebar goes
+
+  #name: dracula
+  #name: material                           # Material for MkDocs theme (feature-rich)
   #name: windmill                           # Material for MkDocs theme (feature-rich)
   #name: bootstrap   # or a Bootswatch variant via the bootswatch package
   language: en
@@ -25,24 +33,24 @@ theme:
     - search.highlight                     # Highlight matches on page
 
   # Color schemes (light/dark) that follow OS preference
-  palette:
-    # --- Scheme 1: Light (shown when OS prefers light) ---
-    - media: "(prefers-color-scheme: light)"  # follow OS light mode
-      scheme: default                          # Material's default light scheme
-      primary: indigo                          # header / accents
-      accent: indigo                           # buttons / highlights
-      toggle:
-        icon: material/weather-night           # icon shown while in light mode
-        name: Switch to dark mode              # accessible label (tooltip)
-
-    # --- Scheme 2: Dark (shown when OS prefers dark) ---
-    - media: "(prefers-color-scheme: dark)"   # follow OS dark mode
-      scheme: slate                            # Material's dark scheme
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny           # icon shown while in dark mode
-        name: Switch to light mode
+#  palette:
+#    # --- Scheme 1: Light (shown when OS prefers light) ---
+#    - media: "(prefers-color-scheme: light)"  # follow OS light mode
+#      scheme: default                          # Material's default light scheme
+#      primary: indigo                          # header / accents
+#      accent: indigo                           # buttons / highlights
+#      toggle:
+#        icon: material/weather-night           # icon shown while in light mode
+#        name: Switch to dark mode              # accessible label (tooltip)
+#
+#    # --- Scheme 2: Dark (shown when OS prefers dark) ---
+#    - media: "(prefers-color-scheme: dark)"   # follow OS dark mode
+#      scheme: slate                            # Material's dark scheme
+#      primary: indigo
+#      accent: indigo
+#      toggle:
+#        icon: material/weather-sunny           # icon shown while in dark mode
+#        name: Switch to light mode
 
 # docs_dir defaults to "docs". Keeping it implicit = cleaner config.
 # docs_dir: docs

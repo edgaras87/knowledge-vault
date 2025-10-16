@@ -1,0 +1,7 @@
+/* Wider main content (desktop only) */
+@media (min-width: 1000px) {
+  .wy-nav-content {
+    max-width: 1400px;   /* pick your number: 1000–1400px is common */
+    margin: 0 auto;      /* keep it centered */
+  }
+}

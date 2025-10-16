@@ -101,7 +101,7 @@ python -m pip install --upgrade pip
 pip install -U mkdocs mkdocs-git-revision-date-localized-plugin
 
 
-# themes:
+# themes:    https://pawamoy.github.io/mkdocs-gallery/themes/readthedocs/
 # 1) Material
 pip install mkdocs-material
 
