@@ -6,6 +6,7 @@ summary: Personal developer wiki — cheatsheets for speed, concepts for mastery
 # 🧠 Knowledge Vault
 
 Two modes, one brain:
+
 - **Cheatsheets** → quick reference while coding
 - **Concepts** → deeper understanding and architecture
 
