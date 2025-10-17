@@ -1,5 +1,5 @@
 ---
-title: Editor Future Blueprint
+title: Editors — Future Blueprint
 date: 2025-10-17
 summary: A standardized structure and templates for documenting editor cheatsheets (IDEA, VS Code, Vim, etc.).
 ---
@@ -62,85 +62,7 @@ Change only the **title**, **tags**, and **summary** per file:
   * IDEA: `[editors, idea, snippets]`, `[editors, idea, debugging]`, `[editors, idea, config]`
   * VS Code: `[editors, vscode, snippets]`, `[editors, vscode, extensions]`
 
-## Document skeletons (copy/paste starters)
 
-### `code-snippets.md`
-
-```
-# Code Snippets
-
-## Scope & intent
-What this page covers and how to trigger snippets.
-
-## High-leverage snippets
-- Abbrev → expansion → where it’s valid (context)
-- JSON/Template blocks
-
-## How to add/update
-- Steps to create/modify
-- Where files live (path)
-- Sync/export strategy
-
-## Gotchas
-- Context not enabled
-- Expansion key not Tab
-```
-
-### `shortcuts.md`
-
-```
-# Shortcuts
-
-## Essentials (daily driver)
-- Navigation, search, refactor
-
-## Editing power moves
-- Multi-cursor, duplicate, move line
-
-## Debugging shortcuts
-- Start/stop, step, eval
-
-## Custom bindings you rely on
-```
-
-### `configuration.md`
-
-```
-# Configuration
-
-## Baseline
-- Code style, formatter, inspections
-
-## Project templates / file templates
-- Snippets, variables/macros
-
-## Export/Sync
-- Settings Sync, what to exclude/include
-```
-
-### `debugging.md`
-
-```
-# Debugging
-
-## Setup
-- Config types, env vars
-
-## Techniques
-- Conditional breakpoints, logpoints, watches
-
-## Patterns
-- Troubleshooting common failures
-```
-
-## Quick rename guidance (today → future)
-
-* If you already created `live-templates.md` for IDEA, **rename to**:
-
-  * `cheatsheets/tools/editors/idea/code-snippets.md`
-* When you add VS Code later, create:
-
-  * `cheatsheets/tools/editors/vscode/code-snippets.md`
 
 ## Optional: a tiny README index per editor
 

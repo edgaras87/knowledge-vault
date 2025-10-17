@@ -85,6 +85,12 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true                # Pretty checkboxes in lists
 
+# Exclude meta folders from the documentation build
+#exclude_docs: |
+#  **/_meta/**
+#  **/meta/**
+
+
 # Navigation:
 # Option A (recommended): start minimal and let filesystem drive nav while drafting — comment out nav.
 # Option B: curate the nav to control order/labels (uncomment to use).

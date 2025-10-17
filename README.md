@@ -74,6 +74,24 @@ knowledge-vault/
        └─ design/
 ```
 
+> 💡 **Note on `_meta` Blueprints**
+>
+> Some folders include a `_meta/` subdirectory (e.g. `containers/_meta/blueprint.md`, `tools/editors/_meta/blueprint.md`).
+>
+> These `_meta/` notes are **internal scaffolding** — they describe how each section should scale, evolve, and stay consistent over time.
+>
+> They are **not rendered** in the published site and serve as “project design docs” for organizing future material.
+>
+> Example:
+> ```
+> cheatsheets/
+> ├─ containers/
+> │  ├─ runtime/
+> │  └─ _meta/
+> │     └─ blueprint.md
+> ```
+> Each blueprint defines naming rules, folder layout, and front matter templates — like an internal spec for that domain.
+
 ---
 
 ## 🧠 How It Works
