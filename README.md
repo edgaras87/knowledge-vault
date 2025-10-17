@@ -145,7 +145,7 @@ This builds the site and publishes it automatically to
 **Jump to files**
 - Site homepage: [`docs/index.md`](docs/index.md)
 - MkDocs config (commented): [`mkdocs.yml`](mkdocs.yml)
-- Full setup & reasoning: [`docs/cheatsheets/tools/obsidian-mkdocs-setup.md`](docs/cheatsheets/tools/obsidian-mkdocs-setup.md)
+- Full setup & reasoning: [`docs/cheatsheets/tools/mkdocs/setup.md`](docs/cheatsheets/tools/mkdocs/setup.md)
 
 
 ---

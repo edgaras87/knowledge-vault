@@ -1,11 +1,13 @@
 ---
-title: obsidian-mkdocs-setup
+title: MkDocs Setup
 tags: [cheatsheet, tools, obsidian, mkdocs, documentation]
-summary: Setup guide for using Obsidian with MkDocs Material to create a developer docs site.
+summary: Step-by-step guide to setting up MkDocs Material with Obsidian for a personal developer documentation site, featuring a dual-structure of Cheatsheets and Concepts.
+aliases:
+  - MkDocs Setup
 ---
 
 
-# Obsidian ↔ MkDocs Material — Setup & Structure (for `knowledge-vault/docs`)
+# MkDocs — Setup & Structure (for `knowledge-vault/docs`)
 
 **Goal:** Write in Obsidian with `[[wikilinks]]` → publish a polished docs site via MkDocs Material.
 
@@ -82,7 +84,12 @@ knowledge-vault/
          └─ microservices.md
 ```
 
-**Why this structure?** Cheatsheets = fast lookup (language/framework/API); Concepts = how/why/architecture. It mirrors how your brain flips between coding and understanding, and keeps search results clean.
+**Why this structure?** 
+
+- Cheatsheets = fast lookup (language/framework/API); 
+- Concepts = how/why/architecture. 
+
+It mirrors how your brain flips between coding and understanding, and keeps search results clean.
 
 ---
 
@@ -229,7 +236,7 @@ mkdir -p docs/{cheatsheets/{languages/{java/{core,frameworks/spring},python},dat
 
 ---
 
-## 4) `mkdocs.yml` — fully commented
+## 4) `mkdocs.yml` configuration
 
 Create `knowledge-vault/mkdocs.yml` with this content:
 
@@ -243,8 +250,18 @@ repo_url: https://github.com/<your-username>/knowledge-vault  # “Edit on GitHu
 edit_uri: edit/main/docs/                  # Path to open files in GitHub’s editor
 use_directory_urls: true                   # Pretty URLs: /path/ instead of /path.html
 
+#https://pawamoy.github.io/mkdocs-gallery/themes/readthedocs/
+extra_css:
+  - css/overrides.css
+
 theme:
-  name: material                           # Material for MkDocs theme (feature-rich)
+  name: readthedocs                         # A classic, documentation-focused theme
+  navigation_depth: 6                       # how deep the sidebar goes
+  
+  #name: dracula                            # A dark theme
+  #name: material                           # Material for MkDocs theme (feature-rich)
+  #name: windmill                           # A simple, responsive theme
+  #name: bootstrap                          # or a Bootswatch variant via the bootswatch package
   language: en
   features:
     - navigation.instant                   # Faster page transitions
@@ -258,25 +275,25 @@ theme:
     - search.suggest                       # Search autocomplete
     - search.highlight                     # Highlight matches on page
 
-  # Color schemes (light/dark) that follow OS preference
-  palette:
-    # --- Scheme 1: Light (shown when OS prefers light) ---
-    - media: "(prefers-color-scheme: light)"  # follow OS light mode
-      scheme: default                          # Material's default light scheme
-      primary: indigo                          # header / accents
-      accent: indigo                           # buttons / highlights
-      toggle:
-        icon: material/weather-night           # icon shown while in light mode
-        name: Switch to dark mode              # accessible label (tooltip)
-
-    # --- Scheme 2: Dark (shown when OS prefers dark) ---
-    - media: "(prefers-color-scheme: dark)"   # follow OS dark mode
-      scheme: slate                            # Material's dark scheme
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny           # icon shown while in dark mode
-        name: Switch to light mode
+#  # Color schemes (light/dark) that follow OS preference
+#  palette:
+#    # --- Scheme 1: Light (shown when OS prefers light) ---
+#    - media: "(prefers-color-scheme: light)"  # follow OS light mode
+#      scheme: default                          # Material's default light scheme
+#      primary: indigo                          # header / accents
+#      accent: indigo                           # buttons / highlights
+#      toggle:
+#        icon: material/weather-night           # icon shown while in light mode
+#        name: Switch to dark mode              # accessible label (tooltip)
+#
+#    # --- Scheme 2: Dark (shown when OS prefers dark) ---
+#    - media: "(prefers-color-scheme: dark)"   # follow OS dark mode
+#      scheme: slate                            # Material's dark scheme
+#      primary: indigo
+#      accent: indigo
+#      toggle:
+#        icon: material/weather-sunny           # icon shown while in dark mode
+#        name: Switch to light mode
 
 # docs_dir defaults to "docs". Keeping it implicit = cleaner config.
 # docs_dir: docs
@@ -310,6 +327,11 @@ markdown_extensions:
       alternate_style: true                # Nice UI for tabbed code examples
   - pymdownx.tasklist:
       custom_checkbox: true                # Pretty checkboxes in lists
+
+# Exclude meta folders from the documentation build
+#exclude_docs: |
+#  **/_meta/**
+#  **/meta/**
 
 # Navigation:
 # Option A (recommended): start minimal and let filesystem drive nav while drafting — comment out nav.
