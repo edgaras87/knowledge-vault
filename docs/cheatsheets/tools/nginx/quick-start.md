@@ -1,7 +1,9 @@
 ---
-title: quick-refresher
+title: Quick Start 
 tags: [nginx, webserver, reverse-proxy, load-balancer, https, caching, security]
 summary: Nginx basics, reverse proxy, load balancing, HTTPS setup, caching, security, and common configurations.
+aliases:
+  - Nginx Quick Start
 ---
 
 
@@ -56,8 +58,7 @@ Typical Linux layout after install:
 └─ logs/
 ├─ access.log
 └─ error.log
-
-````
+```
 
 Test and reload Nginx safely:
 
@@ -65,7 +66,7 @@ Test and reload Nginx safely:
 sudo nginx -t       # test syntax
 sudo systemctl reload nginx
 sudo systemctl status nginx
-````
+```
 
 ---
 
@@ -370,7 +371,7 @@ docs/
 └─ cheatsheets/
    └─ tools/
       └─ nginx/
-         └─ quick-refresher.md
+         └─ quick-start.md
 ```
 
 ---
@@ -392,10 +393,12 @@ It’s a **local testing tool**, **reverse proxy in development**, and part of m
 | **Docker integration** | Configure Nginx container services directly in IDE Services tab. |
 
 **Pro tip:**  
+
 In JetBrains, you can make a *Run Configuration* that executes:
+
 ```bash
 sudo nginx -t && sudo systemctl reload nginx
-````
+```
 
 This gives you one-click config validation + reload directly from the IDE.
 
@@ -578,16 +581,3 @@ services:
 * Run the same Nginx image locally and in production for consistency.
 * Version-control your `.conf` files like code — because they *are* code.
 * Treat Nginx as your **traffic controller**, not just a web server.
-
----
-
-📄 **Final structure suggestion:**
-
-```
-docs/
-└─ cheatsheets/
-   └─ tools/
-      └─ nginx/
-         └─ quick-refresher.md
-```
-
