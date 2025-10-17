@@ -1,7 +1,14 @@
 ---
-title: quick-refresher
-tags: [docker, containers, devops, systemctl, compose, networking]
+title: 🐳 Docker Quickstart
+tags: 
+    - docker
+    - containers
+    - devops
+    - orchestration
+    - compose
 summary: managing Docker as a service, core concepts, commands, networking, multi-container apps with Compose, and troubleshooting.
+aliases:
+  - Docker Quickstart
 ---
 
 # 🐳 Docker: From Service Basics to Multi-Container Setup
