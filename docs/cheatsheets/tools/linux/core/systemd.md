@@ -1,7 +1,9 @@
 ---
-title: quick-refresher
+title: Systemd + Systemctl 
 tags: [linux, systemd, systemctl, services, devops, backend]
 summary: A concise guide to Linux systemd and systemctl for managing services, including key commands, unit file structure, and practical tips for developers.
+aliases:
+  - Systemd & Systemctl Quick Start
 ---
 
 # ⚙️ Linux systemd & systemctl: From Basics to Service Mastery
