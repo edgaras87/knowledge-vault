@@ -1,7 +1,9 @@
 ---
-title: quick-refresher
+title: Quick Start
 tags: [git, version-control, vcs, branching, collaboration, troubleshooting]
 summary: Git basics, core concepts, commands, branching strategies, undoing changes, working with remotes, and troubleshooting.
+aliases:
+  - Git Quick Start
 ---
 
 
@@ -22,7 +24,7 @@ You can move through history (like checkpoints in a game), branch off to experim
 ```bash
 # See history
 git log --oneline --graph --decorate
-````
+```
 
 👉 In short: Git is your project’s **time machine + collaboration layer**.
 
@@ -136,6 +138,25 @@ git revert <commit>                # create new commit that undoes another
 ```
 
 👉 `reset` rewrites history; `revert` adds a new commit that undoes previous work safely.
+
+!!! Caution 
+    Attention when rewriting history on shared branches!
+
+* Update the remote to match your local (force rewrite remote branch):
+
+  ```
+  # safer force (recommended even when alone)
+  git push --force-with-lease origin <your-branch>
+
+  # or force (less safe)
+  git push --force origin <your-branch>
+  ```
+
+Notes:
+
+* `--force-with-lease` prevents clobbering a remote you don’t expect — it fails if remote changed since you last fetched.
+* If you accidentally delete something, `git reflog` can usually recover the commit SHA.
+
 
 ---
 
@@ -262,7 +283,7 @@ docs/
 └─ cheatsheets/
    └─ tools/
       └─ git/
-         └─ quick-refresher.md
+         └─ quick-start.md
 ```
 
 
