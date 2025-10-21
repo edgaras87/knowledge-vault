@@ -25,12 +25,12 @@ Each file stands alone, but reading them **in order** reveals the full story of 
 
 ## ️⃣ Read Order
 
-| Step   | File                                     | Theme                        | Why it comes here                                                                                                            |
-| ------ | ---------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **1.** | [[20-quick-refresher|Quick Refresher]]      | **HTTP fundamentals**        | The physics of the web: requests, responses, headers, and why HTTP is stateless by design.                                   |
-| **2.** | [[30-state-evolution|HTTP State Evolution]] | **How state was invented**   | Explains *why* cookies and tokens exist at all — the journey from “forgetful HTTP” to “authenticated APIs.”                  |
-| **3.** | [[40-cookies|Cookies]]                    | **Browser-native state**     | Deep dive into cookies: how servers create them, how browsers send them, and how they keep classic sessions alive.           |
-| **4.** | [[50-tokens|Tokens]]                     | **Stateless authentication** | Modern replacement for sessions — how APIs and mobile apps use tokens (JWT, OAuth2) to prove identity without server memory. |
+| Step   | File                                      | Theme                        | Why it comes here                                                                                                            |
+| ------ | ----------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **1.** | [[20-http-foundations|HTTP Basics]]          | **HTTP fundamentals**        | The physics of the web: requests, responses, headers, and why HTTP is stateless by design.                                   |
+| **2.** | [[30-state-evolution| HTTP State Evolution]] | **How state was invented**   | Explains *why* cookies and tokens exist at all — the journey from “forgetful HTTP” to “authenticated APIs.”                  |
+| **3.** | [[40-cookies| Cookies]]                    | **Browser-native state**     | Deep dive into cookies: how servers create them, how browsers send them, and how they keep classic sessions alive.           |
+| **4.** | [[50-tokens| Tokens]]                     | **Stateless authentication** | Modern replacement for sessions — how APIs and mobile apps use tokens (JWT, OAuth2) to prove identity without server memory. |
 
 ---
 

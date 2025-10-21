@@ -1,5 +1,5 @@
 ---
-title: Quick Refresher
+title: Quick Start
 tags: 
     - http
     - api
@@ -11,10 +11,10 @@ tags:
     - security
 summary: A compact, no-fluff HTTP reference for daily use.
 aliases:
-  - Quick Refresher
+  - HTTP Quick Start
 ---
 
-# ⚡ HTTP — Quick Refresher
+# ⚡ HTTP — Quick Start
 
 A speed-run of the web’s lingua franca. Keep this handy; split it later when you outgrow it.
 
