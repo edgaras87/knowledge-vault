@@ -1,3 +1,10 @@
+---
+title: Structure Notes 
+date: 2025-10-21 
+summary: Guidelines for organizing cheatsheets and concepts sections in the knowledge vault.
+---
+
+
 # 🧩 Structure Notes — Cheatsheets Organization
 
 **Topic:** How to handle the growth of the `tools/` section in cheatsheets.
