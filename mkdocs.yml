@@ -13,7 +13,7 @@ extra_css:
 
 theme:
   name: readthedocs                         # A classic, documentation-focused theme
-  navigation_depth: 7                       # how deep the sidebar goes
+  navigation_depth: 10                       # how deep the sidebar goes
 
   #name: dracula                            # A dark theme
   #name: material                           # Material for MkDocs theme (feature-rich)
