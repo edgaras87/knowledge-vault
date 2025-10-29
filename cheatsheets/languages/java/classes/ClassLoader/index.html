@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/ClassLoader/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>ClassLoader - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ClassLoader";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/classes/ClassLoader.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/classes/ClassLoader/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Classes</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">ClassLoader</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#1-the-journey-from-source-to-runtime">1. The Journey: From Source to Runtime</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#2-the-loading-chain-delegation-model">2. The Loading Chain — Delegation Model</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#3-the-classpath-the-loaders-search-map">3. The Classpath — The Loader’s Search Map</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#how-the-classpath-works">How the Classpath Works</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#classpath-vs-module-path">Classpath vs Module Path</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#quick-gotchas">Quick Gotchas</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#visual-summary">Visual Summary</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#4-built-in-classloaders">4. Built-in ClassLoaders</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#5-how-class-loading-works-internally">5. How Class Loading Works Internally</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#6-relationship-with-class">6. Relationship with Class&lt;?&gt;</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#7-writing-a-custom-classloader">7. Writing a Custom ClassLoader</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#8-loadclass-vs-findclass">8. loadClass() vs findClass()</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#9-why-custom-loaders-exist">9. Why Custom Loaders Exist</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#10-metaspace-where-classes-live">10. Metaspace: Where Classes Live</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#11-loading-from-different-sources">11. Loading From Different Sources</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#12-debugging-introspection">12. Debugging &amp; Introspection</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#13-class-unloading-rules">13. Class Unloading Rules</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#14-real-world-hierarchies">14. Real-World Hierarchies</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#15-classloader-reflection">15. ClassLoader + Reflection</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#16-common-pitfalls">16. Common Pitfalls</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#17-modern-evolution">17. Modern Evolution</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#18-the-mental-map">18. The Mental Map</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#19-quick-reference">19. Quick Reference</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#20-final-mind-model">20. Final Mind Model</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#21-full-method-coverage">21. 🔎 Full Method Coverage</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#1-core-loading-methods">1. Core Loading Methods</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-resource-lookup-not-classes-but-files-inside-jars-paths">2. Resource Lookup (not classes, but files inside JARs / paths)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-classpath-url-access-via-subclasses">3. Classpath / URL Access (via subclasses)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-context-hierarchy-methods">4. Context &amp; Hierarchy Methods</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-security-protectiondomain">5. Security &amp; ProtectionDomain</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#6-thread-context-loader-utilities">6. Thread Context Loader Utilities</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#7-internal-advanced-less-common-but-still-relevant">7. Internal / Advanced (less common but still relevant)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#8-deprecated-historical">8. Deprecated / Historical</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#meta-insight">Meta-Insight</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Classes</li>
+      <li class="breadcrumb-item active">ClassLoader</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/classes/ClassLoader.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="classloader-the-jvms-gatekeeper">⚙️ <code>ClassLoader</code> — The JVM’s Gatekeeper<a class="headerlink" href="#classloader-the-jvms-gatekeeper" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>A <code>ClassLoader</code> is the bridge between the <strong>bytecode world</strong> (<code>.class</code> files, JARs, modules) and the <strong>runtime world</strong> (objects and types).<br />
+It tells the JVM <em>where</em> to find classes and <em>how</em> to bring them into memory.</p>
+</blockquote>
+<p>Every class in Java — from <code>String</code> to your own — is loaded by exactly one <code>ClassLoader</code>.</p>
+<hr />
+<h2 id="1-the-journey-from-source-to-runtime">1. The Journey: From Source to Runtime<a class="headerlink" href="#1-the-journey-from-source-to-runtime" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>source (.java)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>↓ compiled by javac
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>bytecode (.class)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>↓ loaded by
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ClassLoader
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>↓ defined in
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Class&lt;?&gt; (Metaspace)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>↓ instantiated into
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Object (Heap)
+</span></code></pre></div>
+<ul>
+<li><strong>ClassLoader</strong> → reads raw bytecode.  </li>
+<li><strong>Class&lt;?&gt;</strong> → the runtime representation of that type.  </li>
+<li><strong>Object</strong> → the actual instance living on the heap.</li>
+</ul>
+<hr />
+<h2 id="2-the-loading-chain-delegation-model">2. The Loading Chain — Delegation Model<a class="headerlink" href="#2-the-loading-chain-delegation-model" title="Permanent link">&para;</a></h2>
+<p>Java’s loaders form a <strong>hierarchy</strong> — each loader delegates to its parent before loading itself.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>BootstrapClassLoader
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>↑
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>PlatformClassLoader (JDK APIs)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>↑
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>AppClassLoader (your code &amp; libs)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>↑
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Custom Loaders (plugins, frameworks)
+</span></code></pre></div>
+<p>This model prevents multiple copies of core classes like <code>java.lang.Object</code>.<br />
+Only the top-most loader (Bootstrap) defines them once for the entire JVM.</p>
+<hr />
+<h2 id="3-the-classpath-the-loaders-search-map">3. The Classpath — The Loader’s Search Map<a class="headerlink" href="#3-the-classpath-the-loaders-search-map" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>The <strong>classpath</strong> is not a directory — it’s a <strong>runtime search list</strong> that tells the Application ClassLoader where to find <code>.class</code> and <code>.jar</code> files.</p>
+</blockquote>
+<p>When you run a Java program:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java<span class="w"> </span>-cp<span class="w"> </span><span class="s2">&quot;out/:libs/*&quot;</span><span class="w"> </span>com.example.Main
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="sb">````</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>or<span class="w"> </span>equivalently:
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="sb">```</span>bash
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLASSPATH</span><span class="o">=</span>out/:libs/*
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>java<span class="w"> </span>com.example.Main
+</span></code></pre></div>
+<p>the JVM passes that list to the <strong>AppClassLoader</strong>, which searches those paths in order.</p>
+<hr />
+<h3 id="how-the-classpath-works">How the Classpath Works<a class="headerlink" href="#how-the-classpath-works" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Linux/macOS → entries separated by <code>:</code></li>
+<li>Windows → entries separated by <code>;</code></li>
+<li>
+<p>Each entry can be:</p>
+</li>
+<li>
+<p>a <strong>directory</strong> (searched recursively by package path)</p>
+</li>
+<li>a <strong>JAR file</strong></li>
+<li>a <strong>wildcard (<code>*</code>)</strong> — includes all JARs in a directory</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/project/out:/project/lib/*:/opt/javafx/lib/*
+</span></code></pre></div>
+<p>You can inspect your runtime classpath with:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;java.class.path&quot;</span><span class="p">));</span>
+</span></code></pre></div>
+<hr />
+<h3 id="classpath-vs-module-path">Classpath vs Module Path<a class="headerlink" href="#classpath-vs-module-path" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Classpath (Traditional)</th>
+<th>Module Path (Java 9+)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Used by</td>
+<td>AppClassLoader</td>
+<td>Module system (JPMS)</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>Flat list of dirs/JARs</td>
+<td>Graph of named modules</td>
+</tr>
+<tr>
+<td>Dependency visibility</td>
+<td>All-to-all</td>
+<td>Explicit <code>requires</code> / <code>exports</code></td>
+</tr>
+<tr>
+<td>Common usage</td>
+<td>Spring, legacy apps, tools</td>
+<td>Modular apps, JLink runtimes</td>
+</tr>
+</tbody>
+</table>
+<p>Even modular apps still rely on the <strong>ClassLoader mechanism under the hood</strong> — modules just add structure on top.</p>
+<hr />
+<h3 id="quick-gotchas">Quick Gotchas<a class="headerlink" href="#quick-gotchas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Wrong or missing classpath → <code>ClassNotFoundException</code></li>
+<li><code>java -jar</code> ignores <code>-cp</code> unless the JAR’s manifest defines <code>Class-Path</code></li>
+<li>IDEs and build tools (Maven, Gradle, IntelliJ) construct the classpath automatically</li>
+</ul>
+<hr />
+<h3 id="visual-summary">Visual Summary<a class="headerlink" href="#visual-summary" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>+----------------------+
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>|      Classpath       | ← directories &amp; JARs
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>+----------------------+
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>          ↓
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>     AppClassLoader
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>          ↓
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>       JVM Runtime
+</span></code></pre></div>
+<hr />
+<h2 id="4-built-in-classloaders">4. Built-in ClassLoaders<a class="headerlink" href="#4-built-in-classloaders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Loader</th>
+<th>Loads From</th>
+<th>Access in Code</th>
+<th>Example Classes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bootstrap</strong></td>
+<td>Core JDK (<code>rt.jar</code> / modules)</td>
+<td><code>null</code> (native)</td>
+<td><code>java.lang.*</code>, <code>java.util.*</code></td>
+</tr>
+<tr>
+<td><strong>Platform (Extension)</strong></td>
+<td><code>jre/lib/ext</code> (old) or JDK modules</td>
+<td><code>ClassLoader.getPlatformClassLoader()</code></td>
+<td><code>java.sql.*</code>, <code>java.xml.*</code></td>
+</tr>
+<tr>
+<td><strong>Application (System)</strong></td>
+<td><code>CLASSPATH</code> / <code>modulepath</code></td>
+<td><code>ClassLoader.getSystemClassLoader()</code></td>
+<td>your app &amp; dependencies</td>
+</tr>
+<tr>
+<td><strong>Custom</strong></td>
+<td>Anywhere you define</td>
+<td>Subclass of <code>ClassLoader</code></td>
+<td>plugins, agents, hot-reloaders</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ClassLoader</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ClassLoader</span><span class="p">.</span><span class="na">getSystemClassLoader</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">app</span><span class="p">);</span><span class="w">               </span><span class="c1">// AppClassLoader</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="na">getParent</span><span class="p">());</span><span class="w">   </span><span class="c1">// PlatformClassLoader</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="na">getParent</span><span class="p">().</span><span class="na">getParent</span><span class="p">());</span><span class="w"> </span><span class="c1">// null (Bootstrap)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-how-class-loading-works-internally">5. How Class Loading Works Internally<a class="headerlink" href="#5-how-class-loading-works-internally" title="Permanent link">&para;</a></h2>
+<p>Each class passes through these phases:</p>
+<ol>
+<li><strong>Loading</strong> — read bytes from <code>.class</code>, JAR, or network.</li>
+<li>
+<p><strong>Linking</strong> —</p>
+</li>
+<li>
+<p><em>Verification</em>: bytecode safety checks.</p>
+</li>
+<li><em>Preparation</em>: allocate static fields.</li>
+<li><em>Resolution</em>: replace symbolic refs with direct ones.</li>
+<li><strong>Initialization</strong> — run static blocks and field initializers.</li>
+</ol>
+<p>You can intercept loading by overriding <code>findClass(name)</code>.</p>
+<hr />
+<h2 id="6-relationship-with-class">6. Relationship with <code>Class&lt;?&gt;</code><a class="headerlink" href="#6-relationship-with-class" title="Permanent link">&para;</a></h2>
+<p>Every loaded class has an associated <code>Class&lt;?&gt;</code> object that remembers its loader.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">());</span><span class="w"> </span><span class="c1">// AppClassLoader</span>
+</span></code></pre></div>
+<p>If two identical classes are loaded by different loaders → they are <strong>different types</strong> to the JVM:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">classA</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">classB</span><span class="p">;</span><span class="w"> </span><span class="c1">// false if loaded by different ClassLoaders</span>
+</span></code></pre></div>
+<p>That’s why app servers (Tomcat, Spring Boot) can isolate multiple apps with identical class names.</p>
+<hr />
+<h2 id="7-writing-a-custom-classloader">7. Writing a Custom ClassLoader<a class="headerlink" href="#7-writing-a-custom-classloader" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyLoader</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ClassLoader</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nd">@Override</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="nf">findClass</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">(</span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="sc">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.class&quot;</span><span class="p">));</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">defineClass</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassNotFoundException</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">ClassLoader</span><span class="w"> </span><span class="n">loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyLoader</span><span class="p">();</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">loadClass</span><span class="p">(</span><span class="s">&quot;com.example.Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getDeclaredConstructor</span><span class="p">().</span><span class="na">newInstance</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h2 id="8-loadclass-vs-findclass">8. <code>loadClass()</code> vs <code>findClass()</code><a class="headerlink" href="#8-loadclass-vs-findclass" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>loadClass(name)</code></td>
+<td>Handles <strong>delegation</strong> (calls parent first).</td>
+</tr>
+<tr>
+<td><code>findClass(name)</code></td>
+<td>Defines how <em>your</em> loader finds the class.</td>
+</tr>
+</tbody>
+</table>
+<p>If you override <code>findClass()</code>, always call <code>super.loadClass(name, false)</code> first to respect delegation.</p>
+<hr />
+<h2 id="9-why-custom-loaders-exist">9. Why Custom Loaders Exist<a class="headerlink" href="#9-why-custom-loaders-exist" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hot reloading</strong></td>
+<td>Spring DevTools, JRebel</td>
+</tr>
+<tr>
+<td><strong>Plugin isolation</strong></td>
+<td>Tomcat webapps, OSGi</td>
+</tr>
+<tr>
+<td><strong>Dynamic bytecode</strong></td>
+<td>Hibernate proxies, generated classes</td>
+</tr>
+<tr>
+<td><strong>Security / sandboxing</strong></td>
+<td>Applets, custom interpreters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-metaspace-where-classes-live">10. Metaspace: Where Classes Live<a class="headerlink" href="#10-metaspace-where-classes-live" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pre-Java 8: <strong>PermGen</strong> held class metadata.</li>
+<li>Since Java 8: <strong>Metaspace</strong> (native memory).</li>
+<li>Stores each loaded class’s structure, methods, constants.</li>
+<li>
+<p>Classes unload only when:</p>
+</li>
+<li>
+<p>No live references remain, and</p>
+</li>
+<li>Their loader is garbage collected.</li>
+</ul>
+<p>Long-lived custom loaders can leak memory if they hold on to objects.</p>
+<hr />
+<h2 id="11-loading-from-different-sources">11. Loading From Different Sources<a class="headerlink" href="#11-loading-from-different-sources" title="Permanent link">&para;</a></h2>
+<p>You can load classes from anywhere — filesystem, JARs, or network.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">URL</span><span class="o">[]</span><span class="w"> </span><span class="n">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="s">&quot;file:/path/to/lib.jar&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">URLClassLoader</span><span class="w"> </span><span class="n">loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URLClassLoader</span><span class="p">(</span><span class="n">urls</span><span class="p">);</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">loader</span><span class="p">.</span><span class="na">loadClass</span><span class="p">(</span><span class="s">&quot;com.lib.Tool&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Close it when done:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">loader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// releases JAR handles</span>
+</span></code></pre></div>
+<hr />
+<h2 id="12-debugging-introspection">12. Debugging &amp; Introspection<a class="headerlink" href="#12-debugging-introspection" title="Permanent link">&para;</a></h2>
+<p>Check which loader loaded a class:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">());</span><span class="w"> </span><span class="c1">// null (Bootstrap)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">());</span><span class="w">   </span><span class="c1">// AppClassLoader</span>
+</span></code></pre></div>
+<p>List all URLs in the system loader:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">URLClassLoader</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">URLClassLoader</span><span class="p">)</span><span class="w"> </span><span class="n">ClassLoader</span><span class="p">.</span><span class="na">getSystemClassLoader</span><span class="p">();</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">URL</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cl</span><span class="p">.</span><span class="na">getURLs</span><span class="p">())</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Print the loader hierarchy:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printHierarchy</span><span class="p">(</span><span class="n">ClassLoader</span><span class="w"> </span><span class="n">cl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cl</span><span class="p">);</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl</span><span class="p">.</span><span class="na">getParent</span><span class="p">();</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="13-class-unloading-rules">13. Class Unloading Rules<a class="headerlink" href="#13-class-unloading-rules" title="Permanent link">&para;</a></h2>
+<p>A class can be unloaded only when:</p>
+<ol>
+<li>Its defining <code>ClassLoader</code> is unreachable.</li>
+<li>No live instances of that class remain.</li>
+<li>No reflective references (<code>Class&lt;?&gt;</code>) survive.</li>
+</ol>
+<p>In long-lived servers, <strong>leaked loaders = leaked memory</strong>.</p>
+<hr />
+<h2 id="14-real-world-hierarchies">14. Real-World Hierarchies<a class="headerlink" href="#14-real-world-hierarchies" title="Permanent link">&para;</a></h2>
+<p><strong>Spring Boot Fat JAR:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>AppClassLoader
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>   ↳ LaunchedURLClassLoader (Spring Boot custom)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>        ↳ PluginClassLoader (optional)
+</span></code></pre></div>
+<p><strong>Tomcat:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>CommonLoader
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>   ↳ CatalinaLoader (server classes)
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>       ↳ WebAppLoader (per webapp)
+</span></code></pre></div>
+<p>Each webapp runs in isolation — same class names, different loaders.</p>
+<hr />
+<h2 id="15-classloader-reflection">15. ClassLoader + Reflection<a class="headerlink" href="#15-classloader-reflection" title="Permanent link">&para;</a></h2>
+<p>Frameworks often pair loaders with reflection:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">ClassLoader</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getContextClassLoader</span><span class="p">();</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl</span><span class="p">.</span><span class="na">loadClass</span><span class="p">(</span><span class="s">&quot;com.example.ServiceImpl&quot;</span><span class="p">);</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">Annotation</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="na">getAnnotation</span><span class="p">(</span><span class="n">Service</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span></code></pre></div>
+<p>The <strong>Thread Context ClassLoader</strong> lets frameworks load user classes without hardcoding paths.</p>
+<hr />
+<h2 id="16-common-pitfalls">16. Common Pitfalls<a class="headerlink" href="#16-common-pitfalls" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Forgetting to close <code>URLClassLoader</code> → file lock leaks (especially on Windows).</li>
+<li>Holding references to plugin classes → prevents GC/unloading.</li>
+<li>Violating delegation → <code>LinkageError</code>.</li>
+<li>Duplicate classes from different loaders → <code>ClassCastException: X cannot be cast to X</code>.</li>
+<li>Misusing context loader → <code>ServiceLoader</code> fails to locate providers.</li>
+</ul>
+<hr />
+<h2 id="17-modern-evolution">17. Modern Evolution<a class="headerlink" href="#17-modern-evolution" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Java Modules (JPMS)</strong> — adds explicit dependencies; built atop loaders.</li>
+<li><strong>Instrumentation API</strong> — allows runtime class redefinition.</li>
+<li><strong><code>Lookup#defineClass()</code> (Java 15+)</strong> — defines classes without subclassing <code>ClassLoader</code>.</li>
+</ul>
+<hr />
+<h2 id="18-the-mental-map">18. The Mental Map<a class="headerlink" href="#18-the-mental-map" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[ClassLoader]  → defines  →  [Class&lt;?&gt; in Metaspace]
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>       ↑                         ↓
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a> hierarchy                    used to create
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>       ↑                         ↓
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a> [App/Custom Loaders]     [Objects on Heap]
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Lives In</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ClassLoader</code></td>
+<td>Heap</td>
+<td>Loads and defines classes</td>
+</tr>
+<tr>
+<td><code>Class&lt;?&gt;</code></td>
+<td>Metaspace</td>
+<td>Metadata for a type</td>
+</tr>
+<tr>
+<td><code>Object</code></td>
+<td>Heap</td>
+<td>Runtime instance</td>
+</tr>
+<tr>
+<td><code>Classpath</code></td>
+<td>JVM property</td>
+<td>Search map for AppClassLoader</td>
+</tr>
+<tr>
+<td><code>Metaspace</code></td>
+<td>Native memory</td>
+<td>Class metadata store</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="19-quick-reference">19. Quick Reference<a class="headerlink" href="#19-quick-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System loader</td>
+<td><code>ClassLoader.getSystemClassLoader()</code></td>
+</tr>
+<tr>
+<td>Platform loader</td>
+<td><code>ClassLoader.getPlatformClassLoader()</code></td>
+</tr>
+<tr>
+<td>Loader of a class</td>
+<td><code>MyClass.class.getClassLoader()</code></td>
+</tr>
+<tr>
+<td>Get parent loader</td>
+<td><code>getParent()</code></td>
+</tr>
+<tr>
+<td>Define manually</td>
+<td><code>defineClass(name, bytes, 0, len)</code></td>
+</tr>
+<tr>
+<td>Close URL loader</td>
+<td><code>close()</code></td>
+</tr>
+<tr>
+<td>Get classpath</td>
+<td><code>System.getProperty("java.class.path")</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="20-final-mind-model">20. Final Mind Model<a class="headerlink" href="#20-final-mind-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>                ┌────────────┐
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>                │ ClassLoader│──────┐ defines
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>                └─────┬──────┘      ↓
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>                      │         ┌──────────────┐
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>                      └────────▶│  Class&lt;?&gt;    │ (Metaspace)
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>                                └────┬─────────┘
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>                                     │ instantiates
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>                                     ↓
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>                                [Objects on Heap]
+</span></code></pre></div>
+<p>Everything that exists at runtime passes through this chain.
+The classpath feeds it. The ClassLoader enacts it. The JVM sustains it.</p>
+<h2 id="21-full-method-coverage">21. 🔎 Full Method Coverage<a class="headerlink" href="#21-full-method-coverage" title="Permanent link">&para;</a></h2>
+<p>Below are the main methods grouped by purpose, including those not yet explicitly mentioned in your version.</p>
+<hr />
+<h3 id="1-core-loading-methods">1. Core Loading Methods<a class="headerlink" href="#1-core-loading-methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>loadClass(String name)</code></td>
+<td>Main entry point. Performs parent-delegation before attempting to find the class. Usually <strong>not overridden</strong>.</td>
+</tr>
+<tr>
+<td><code>findClass(String name)</code></td>
+<td>Child loader’s lookup logic. Usually <strong>overridden</strong> in custom loaders.</td>
+</tr>
+<tr>
+<td><code>defineClass(String name, byte[] b, int off, int len)</code></td>
+<td>Converts raw bytecode → <code>Class&lt;?&gt;</code>. Also checks security and defines it in the current loader’s namespace.</td>
+</tr>
+<tr>
+<td><code>defineClass(String name, ByteBuffer b, ProtectionDomain pd)</code></td>
+<td>Same but accepts a <code>ByteBuffer</code>.</td>
+</tr>
+<tr>
+<td><code>resolveClass(Class&lt;?&gt; c)</code></td>
+<td>Links the class (resolves symbolic references). Often called after defining.</td>
+</tr>
+<tr>
+<td><code>findLoadedClass(String name)</code></td>
+<td>Checks whether the class has already been loaded by this loader. Useful to prevent re-definition.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-resource-lookup-not-classes-but-files-inside-jars-paths">2. Resource Lookup (not classes, but files inside JARs / paths)<a class="headerlink" href="#2-resource-lookup-not-classes-but-files-inside-jars-paths" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getResource(String name)</code></td>
+<td>Finds a single resource (delegates to parent first).</td>
+</tr>
+<tr>
+<td><code>getResources(String name)</code></td>
+<td>Returns all matches (<code>Enumeration&lt;URL&gt;</code>).</td>
+</tr>
+<tr>
+<td><code>getResourceAsStream(String name)</code></td>
+<td>Opens resource as stream. Convenient for configs inside JARs.</td>
+</tr>
+<tr>
+<td><code>findResource(String name)</code></td>
+<td>Child’s own lookup (skip parent).</td>
+</tr>
+<tr>
+<td><code>findResources(String name)</code></td>
+<td>Same idea, but for multiple results.</td>
+</tr>
+<tr>
+<td><code>getResourceAsStream(String name)</code></td>
+<td>Handy wrapper combining both.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> These work for <code>.properties</code>, <code>.xml</code>, images, or anything packaged in classpath/JARs — not <code>.class</code> files specifically.</p>
+<hr />
+<h3 id="3-classpath-url-access-via-subclasses">3. Classpath / URL Access (via subclasses)<a class="headerlink" href="#3-classpath-url-access-via-subclasses" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getURLs()</code></td>
+<td>(only in <code>URLClassLoader</code>) — lists all JARs and directories this loader reads from.</td>
+</tr>
+<tr>
+<td><code>addURL(URL url)</code></td>
+<td>(protected in <code>URLClassLoader</code>) — dynamically extend classpath.</td>
+</tr>
+<tr>
+<td><code>close()</code></td>
+<td>(since Java 7) — release open JAR handles (critical on Windows).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-context-hierarchy-methods">4. Context &amp; Hierarchy Methods<a class="headerlink" href="#4-context-hierarchy-methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getParent()</code></td>
+<td>Returns parent loader in the delegation chain.</td>
+</tr>
+<tr>
+<td><code>getName()</code></td>
+<td>Human-readable name of this loader (Java 9+).</td>
+</tr>
+<tr>
+<td><code>getDefinedPackage(String name)</code></td>
+<td>Returns metadata for a single package defined by this loader.</td>
+</tr>
+<tr>
+<td><code>getDefinedPackages()</code></td>
+<td>Returns all packages defined by this loader.</td>
+</tr>
+<tr>
+<td><code>setDefaultAssertionStatus(boolean enabled)</code></td>
+<td>Controls assertion checking.</td>
+</tr>
+<tr>
+<td><code>setPackageAssertionStatus(String pkg, boolean enabled)</code></td>
+<td>Per-package assertions.</td>
+</tr>
+<tr>
+<td><code>setClassAssertionStatus(String className, boolean enabled)</code></td>
+<td>Per-class assertions.</td>
+</tr>
+<tr>
+<td><code>clearAssertionStatus()</code></td>
+<td>Resets all assertion settings.</td>
+</tr>
+</tbody>
+</table>
+<p>These assertion methods were added when Java introduced <code>assert</code> — rarely used today, but still valid.</p>
+<hr />
+<h3 id="5-security-protectiondomain">5. Security &amp; ProtectionDomain<a class="headerlink" href="#5-security-protectiondomain" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getDefinedPackage(String name)</code></td>
+<td>Returns info about the package and its signing/sealing metadata.</td>
+</tr>
+<tr>
+<td><code>definePackage(...)</code></td>
+<td>Defines a package with attributes (version, vendor, sealBase).</td>
+</tr>
+<tr>
+<td><code>getPackage(String name)</code></td>
+<td>Legacy method (pre-Java 9). Returns info if the package was already defined.</td>
+</tr>
+<tr>
+<td><code>getPackages()</code></td>
+<td>Legacy variant returning all loaded packages.</td>
+</tr>
+<tr>
+<td><code>getSystemResource(String name)</code> / <code>getSystemResourceAsStream(String name)</code></td>
+<td>Static utility methods using the <strong>system classloader</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="6-thread-context-loader-utilities">6. Thread Context Loader Utilities<a class="headerlink" href="#6-thread-context-loader-utilities" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Thread.currentThread().getContextClassLoader()</code></td>
+<td>Retrieves the loader used for reflection, frameworks, and service loading.</td>
+</tr>
+<tr>
+<td><code>Thread.currentThread().setContextClassLoader(loader)</code></td>
+<td>Temporarily changes loader for current thread. Used heavily by Spring, Hibernate, and <code>ServiceLoader</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Not part of <code>ClassLoader</code> class itself, but conceptually essential.</p>
+<hr />
+<h3 id="7-internal-advanced-less-common-but-still-relevant">7. Internal / Advanced (less common but still relevant)<a class="headerlink" href="#7-internal-advanced-less-common-but-still-relevant" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>defineModule(...)</code></td>
+<td>Used by JPMS to define a <code>Module</code> for this loader.</td>
+</tr>
+<tr>
+<td><code>findModule(...)</code></td>
+<td>Looks up modules known by this loader.</td>
+</tr>
+<tr>
+<td><code>getUnnamedModule()</code></td>
+<td>Returns the “default” module (non-modular classes).</td>
+</tr>
+<tr>
+<td><code>registerAsParallelCapable()</code></td>
+<td>Declares that loader can safely load in parallel (multi-threaded).</td>
+</tr>
+<tr>
+<td><code>isRegisteredAsParallelCapable()</code></td>
+<td>Checks the above flag.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="8-deprecated-historical">8. Deprecated / Historical<a class="headerlink" href="#8-deprecated-historical" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getSystemClassLoader()</code></td>
+<td>Still valid, but sometimes replaced by <code>ModuleLayer.boot().findLoader(...)</code> in modular apps.</td>
+</tr>
+<tr>
+<td><code>getSystemResource*()</code></td>
+<td>Static variants still used widely.</td>
+</tr>
+<tr>
+<td><code>defineClass</code> variants with <code>ProtectionDomain</code> and <code>CodeSource</code> — older security model, still functional.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="meta-insight">Meta-Insight<a class="headerlink" href="#meta-insight" title="Permanent link">&para;</a></h4>
+<p><code>ClassLoader</code> is deceptively deep.
+At first glance it looks like just a “read bytes and define classes” utility, but in modern JVMs it also manages:</p>
+<ul>
+<li>Module boundaries (post-Java 9)</li>
+<li>Parallel class loading safety</li>
+<li>Resource abstraction across JARs and layers</li>
+<li>Assertion control and package sealing</li>
+</ul>
+<p>The class is <em>half relic, half skeleton key</em> — much of the JVM’s modular world still stands on its shoulders.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Class/" class="btn btn-neutral float-left" title="Class<?>"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Stream/" class="btn btn-neutral float-right" title="Stream">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Class/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Stream/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

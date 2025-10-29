@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/git/remotes/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Remote ↔ Local - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Remote \u2194 Local";
+        var mkdocs_page_input_path = "cheatsheets/tools/git/remotes.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/tools/git/remotes/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tools</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Git</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Remote ↔ Local</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#core-ideas">🔑 Core ideas</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-scenarios">🚀 Common Scenarios</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#1-start-from-remote-local">1. Start from Remote → Local</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#2-start-from-local-remote">2. Start from Local → Remote</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#3-already-have-both-sync-them">3. Already Have Both (Sync Them)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#understanding-upstream">🌍 Understanding “Upstream”</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#folder-rules">📂 Folder Rules</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#which-first">🤔 Which First?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handy-commands">⚡ Handy Commands</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pitfalls">⚠️ Pitfalls</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#decision-tree">🗂️ Decision Tree</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#why-this-matters">Why this matters</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Tools</li>
+          <li class="breadcrumb-item">Git</li>
+      <li class="breadcrumb-item active">Remote ↔ Local</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/tools/git/remotes.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git-local-remote-cheat-sheet">📝 Git Local ↔ Remote Cheat Sheet<a class="headerlink" href="#git-local-remote-cheat-sheet" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="core-ideas">🔑 Core ideas<a class="headerlink" href="#core-ideas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>clone</strong> → make a new local folder from remote  </li>
+<li><strong>init</strong> → make current folder a repo  </li>
+<li><strong>remote</strong> = nickname + URL (<code>origin</code>)  </li>
+<li><strong>upstream</strong> = default remote branch your local branch tracks  </li>
+</ul>
+<hr />
+<h2 id="common-scenarios">🚀 Common Scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="1-start-from-remote-local">1. Start from Remote → Local<a class="headerlink" href="#1-start-from-remote-local" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;REMOTE-URL&gt;<span class="w"> </span><span class="o">[</span>folder<span class="o">]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>folder<span class="o">]</span>
+</span></code></pre></div>
+<p>✅ Now just <code>git pull</code> and <code>git push</code></p>
+<hr />
+<h3 id="2-start-from-local-remote">2. Start from Local → Remote<a class="headerlink" href="#2-start-from-local-remote" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>init
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;first commit&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;REMOTE-URL&gt;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div>
+<blockquote>
+<p>The <code>-u</code> flag sets the <strong>upstream</strong> for your branch.
+It tells Git: “<code>main</code> should track <code>origin/main</code> from now on.”</p>
+</blockquote>
+<hr />
+<h3 id="3-already-have-both-sync-them">3. Already Have Both (Sync Them)<a class="headerlink" href="#3-already-have-both-sync-them" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git<span class="w"> </span>pull<span class="w"> </span>--rebase
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<p>If unrelated histories:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>--allow-unrelated-histories
+</span></code></pre></div>
+<hr />
+<h2 id="understanding-upstream">🌍 Understanding “Upstream”<a class="headerlink" href="#understanding-upstream" title="Permanent link">&para;</a></h2>
+<p>The <strong>upstream branch</strong> is what your local branch “tracks.”
+When you set it, <code>git pull</code> and <code>git push</code> automatically know which remote branch to sync with — no need to retype <code>origin main</code> every time.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-vv<span class="w">        </span><span class="c1"># see tracking info</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">   </span><span class="c1"># set upstream during first push</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>branch<span class="w"> </span>--set-upstream-to<span class="o">=</span>origin/main<span class="w"> </span>main<span class="w">  </span><span class="c1"># set manually</span>
+</span></code></pre></div>
+<p>After setting upstream:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>pull<span class="w">     </span><span class="c1"># pulls from origin/main automatically</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>push<span class="w">     </span><span class="c1"># pushes to origin/main automatically</span>
+</span></code></pre></div>
+<p>If you ever clone a repo, upstreams are usually set for you.
+You’ll only need to set them manually when creating new branches or pushing from a freshly inited local repo.</p>
+<blockquote>
+<p>Think of it this way:
+<code>origin</code> is the <em>remote name</em> (like a server nickname).
+<code>origin/main</code> is the <em>remote branch</em>.
+The <em>upstream</em> is your local branch’s connection to it.</p>
+</blockquote>
+<hr />
+<h2 id="folder-rules">📂 Folder Rules<a class="headerlink" href="#folder-rules" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>git clone &lt;url&gt;</code> → makes a new folder</li>
+<li><code>git clone &lt;url&gt; myfolder</code> → makes <em>myfolder</em></li>
+<li><code>git clone &lt;url&gt; .</code> → current empty folder</li>
+<li><strong>Always run Git inside the repo folder</strong></li>
+</ul>
+<hr />
+<h2 id="which-first">🤔 Which First?<a class="headerlink" href="#which-first" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Solo / quick test:</strong> local → push</li>
+<li><strong>Team / templates / CI:</strong> remote → clone</li>
+</ul>
+<hr />
+<h2 id="handy-commands">⚡ Handy Commands<a class="headerlink" href="#handy-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                    </span><span class="c1"># list remotes</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">          </span><span class="c1"># first push, set upstream</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w">                </span><span class="c1"># cleaner pulls</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>&lt;url&gt;<span class="w">  </span><span class="c1"># change remote</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>git<span class="w"> </span>branch<span class="w"> </span>-vv<span class="w">                   </span><span class="c1"># show tracking branches</span>
+</span></code></pre></div>
+<hr />
+<h2 id="pitfalls">⚠️ Pitfalls<a class="headerlink" href="#pitfalls" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Remote has README → <code>git pull --rebase --allow-unrelated-histories</code></li>
+<li>Wrong branch name → <code>git branch -M main</code></li>
+<li>Tracked junk files → fix <code>.gitignore</code>, then:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>--cached<span class="w"> </span>.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;clean tracked files&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="decision-tree">🗂️ Decision Tree<a class="headerlink" href="#decision-tree" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Have remote?</strong> → <code>git clone &lt;url&gt;</code></li>
+<li><strong>Have local only?</strong> → <code>git init</code> → <code>git push -u origin main</code></li>
+<li><strong>Both exist?</strong> → <code>git fetch</code> → <code>git pull --rebase</code> → <code>git push</code></li>
+</ul>
+<hr />
+<p>👉 This is the minimal flow you’ll use 99% of the time.</p>
+<p>```</p>
+<hr />
+<h3 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h3>
+<p>Without an upstream, every <code>git pull</code> or <code>git push</code> must specify remote + branch manually (<code>git push origin main</code>). Once set, you can just type <code>git push</code>. That’s why <code>-u</code> is quietly one of the most powerful flags in Git — it wires your local branch into the network.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../quick-start/" class="btn btn-neutral float-left" title="Quick Start"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../linux/core/filesystem-hierarchy/" class="btn btn-neutral float-right" title="Linux Filesystem Hierarchy">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../quick-start/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../linux/core/filesystem-hierarchy/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

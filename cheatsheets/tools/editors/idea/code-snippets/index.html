@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/editors/idea/code-snippets/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>IDEA Code Snippets - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "IDEA Code Snippets";
+        var mkdocs_page_input_path = "cheatsheets/tools/editors/idea/code-snippets.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/tools/editors/idea/code-snippets/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tools</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Editors</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Idea</a>
+    <ul class="current">
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">IDEA Code Snippets</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#introduction">🧭 Introduction</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#part-1-live-templates">🧩 PART 1 — Live Templates</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#what-live-templates-are">⚙️ What Live Templates Are</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#example-markdown-front-matter-with-auto-date">🧱 Example — Markdown Front Matter with Auto Date</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#insert-or-trigger-a-live-template">⚡ Insert or Trigger a Live Template</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#commonly-used-intellij-macros">🧰 Commonly Used IntelliJ Macros</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#power-tips">💡 Power Tips</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#part-2-file-templates">🏗️ PART 2 — File Templates</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#what-file-templates-are">⚙️ What File Templates Are</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#example-markdown-note-template">🧱 Example — Markdown Note Template</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#common-file-template-variables">📘 Common File Template Variables</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#power-tips_1">💡 Power Tips</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#quick-reference">🧭 Quick Reference</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#summary">🧠 Summary</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Tools</li>
+          <li class="breadcrumb-item">Editors</li>
+          <li class="breadcrumb-item">Idea</li>
+      <li class="breadcrumb-item active">IDEA Code Snippets</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/tools/editors/idea/code-snippets.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="intellij-idea-code-snippets-live-templates-file-templates">💡 IntelliJ IDEA — Code Snippets (Live Templates &amp; File Templates)<a class="headerlink" href="#intellij-idea-code-snippets-live-templates-file-templates" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="introduction">🧭 Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>IntelliJ IDEA supports two powerful snippet systems:</p>
+<ol>
+<li>
+<p><strong>Live Templates</strong> — dynamic, context-aware snippets you trigger manually inside existing files (e.g., typing <code>yfm</code> → Tab). They use IntelliJ <strong>macros</strong> like <code>date()</code>, <code>className()</code>, and <code>clipboard()</code> to inject live data.</p>
+</li>
+<li>
+<p><strong>File Templates</strong> — static, prefilled structures used when creating new files. They use <strong>Velocity-style variables</strong> like <code>${NAME}</code>, <code>${DATE}</code>, and <code>${YEAR}-${MONTH}-${DAY}</code>.</p>
+</li>
+</ol>
+<p>Together, they automate everything from boilerplate code to note headers and logging patterns — turning IntelliJ into a serious productivity engine.</p>
+<hr />
+<h2 id="part-1-live-templates">🧩 PART 1 — Live Templates<a class="headerlink" href="#part-1-live-templates" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="what-live-templates-are">⚙️ What Live Templates Are<a class="headerlink" href="#what-live-templates-are" title="Permanent link">&para;</a></h3>
+<p><strong>Live Templates</strong> let you expand small abbreviations into complete code or text blocks.
+They’re ideal for repeating structures (YAML headers, annotations, logging, test stubs, etc.) and can include dynamic macros that automatically fill in data such as the date, file name, or user.</p>
+<p><strong>Path:</strong>
+<code>Settings → Editor → Live Templates</code></p>
+<hr />
+<h3 id="example-markdown-front-matter-with-auto-date">🧱 Example — Markdown Front Matter with Auto Date<a class="headerlink" href="#example-markdown-front-matter-with-auto-date" title="Permanent link">&para;</a></h3>
+<p><strong>Abbreviation:</strong> <code>yfm</code></p>
+<p><strong>Template text:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>---
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>title: $TITLE$
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>date: $DATE$
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>tags: 
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>summary: $SUMMARY$
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>aliases:
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>---
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>$END$
+</span></code></pre></div>
+<p><strong>Variable setup (Edit Variables…):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Expression</th>
+<th>Stop at?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TITLE</code></td>
+<td><em>(empty)</em></td>
+<td>✅</td>
+<td>You fill it manually</td>
+</tr>
+<tr>
+<td><code>DATE</code></td>
+<td><code>date("yyyy-MM-dd")</code></td>
+<td>❌</td>
+<td>Auto-fills today’s date</td>
+</tr>
+<tr>
+<td><code>SUMMARY</code></td>
+<td><em>(empty)</em></td>
+<td>✅</td>
+<td>Optional summary</td>
+</tr>
+</tbody>
+</table>
+<p>Now type <code>yfm</code> → press <strong>Tab</strong> → IntelliJ expands to:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>---
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>title: 
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>date: 2025-10-17
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>tags: 
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>summary: 
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>aliases:
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>---
+</span></code></pre></div>
+<hr />
+<h3 id="insert-or-trigger-a-live-template">⚡ Insert or Trigger a Live Template<a class="headerlink" href="#insert-or-trigger-a-live-template" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expand template</td>
+<td><code>Tab</code></td>
+<td>Type abbreviation and press Tab</td>
+</tr>
+<tr>
+<td>Show available templates</td>
+<td><code>Ctrl + J</code> (Win/Linux) / <code>⌘J</code> (macOS)</td>
+<td>Lists all templates valid in this context</td>
+</tr>
+<tr>
+<td>Surround selected text</td>
+<td><code>Ctrl + Alt + J</code> / <code>⌥⌘J</code></td>
+<td>For templates with <code>$SELECTION$</code></td>
+</tr>
+<tr>
+<td>Manage templates</td>
+<td><code>Settings → Editor → Live Templates</code></td>
+<td>Template editor</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="commonly-used-intellij-macros">🧰 Commonly Used IntelliJ Macros<a class="headerlink" href="#commonly-used-intellij-macros" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Macro</th>
+<th>Example Output</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date("yyyy-MM-dd")</code></td>
+<td><code>2025-10-17</code></td>
+<td>Current date (custom format)</td>
+</tr>
+<tr>
+<td><code>time("HH:mm")</code></td>
+<td><code>08:42</code></td>
+<td>Current time</td>
+</tr>
+<tr>
+<td><code>user()</code></td>
+<td><code>edgaras</code></td>
+<td>Your system/IDE username</td>
+</tr>
+<tr>
+<td><code>clipboard()</code></td>
+<td><em>(clipboard text)</em></td>
+<td>Pastes clipboard content</td>
+</tr>
+<tr>
+<td><code>className()</code></td>
+<td><code>MainController</code></td>
+<td>Current class name</td>
+</tr>
+<tr>
+<td><code>methodName()</code></td>
+<td><code>getUserById</code></td>
+<td>Current method name</td>
+</tr>
+<tr>
+<td><code>packageName()</code></td>
+<td><code>com.example.app</code></td>
+<td>Current package</td>
+</tr>
+<tr>
+<td><code>fileName()</code></td>
+<td><code>UserService.java</code></td>
+<td>File name</td>
+</tr>
+<tr>
+<td><code>fileNameWithoutExtension()</code></td>
+<td><code>UserService</code></td>
+<td>File name stripped of extension</td>
+</tr>
+<tr>
+<td><code>uuid()</code></td>
+<td><code>2a4e...</code></td>
+<td>Generates a UUID</td>
+</tr>
+<tr>
+<td><code>selection()</code></td>
+<td><em>(selected code)</em></td>
+<td>Used in Surround templates</td>
+</tr>
+<tr>
+<td><code>capitalize(…)</code></td>
+<td><code>Hello</code></td>
+<td>Capitalizes text</td>
+</tr>
+<tr>
+<td><code>snakeCase(…)</code></td>
+<td><code>my_variable</code></td>
+<td>Converts to snake_case</td>
+</tr>
+<tr>
+<td><code>camelCase(…)</code></td>
+<td><code>myVariable</code></td>
+<td>Converts to camelCase</td>
+</tr>
+<tr>
+<td><code>prompt("Label")</code></td>
+<td><em>(asks user)</em></td>
+<td>Prompts for input</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="power-tips">💡 Power Tips<a class="headerlink" href="#power-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Prefix abbreviations by category (<code>md_</code>, <code>j_</code>, <code>r_</code>, etc.) to keep lists organized.</li>
+<li><code>$END$</code> marks where the cursor lands after expansion.</li>
+<li><code>$SELECTION$</code> allows templates that wrap selected text.</li>
+<li>
+<p>Combine macros:</p>
+</li>
+<li>
+<p><code>capitalize(fileNameWithoutExtension())</code> → <code>MyFile</code></p>
+</li>
+<li><code>camelCase(clipboard())</code> → convert copied text to variable name</li>
+<li><code>uuid().substring(0,8)</code> → short random ID</li>
+</ul>
+<hr />
+<h2 id="part-2-file-templates">🏗️ PART 2 — File Templates<a class="headerlink" href="#part-2-file-templates" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="what-file-templates-are">⚙️ What File Templates Are<a class="headerlink" href="#what-file-templates-are" title="Permanent link">&para;</a></h3>
+<p><strong>File Templates</strong> define prefilled content for <em>new</em> files.
+When you create a new file (e.g., “New → MD Note”), IntelliJ uses these templates to populate default text.</p>
+<p>They use a simpler syntax — <strong>Velocity variables</strong> — which look like <code>${VARIABLE}</code>.
+These are resolved at creation time, not live while editing.</p>
+<p><strong>Path:</strong>
+<code>Settings → Editor → File and Code Templates</code></p>
+<hr />
+<h3 id="example-markdown-note-template">🧱 Example — Markdown Note Template<a class="headerlink" href="#example-markdown-note-template" title="Permanent link">&para;</a></h3>
+<p><strong>Name:</strong> <code>MD Note</code>
+<strong>Extension:</strong> <code>md</code></p>
+<p><strong>Template text:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>---
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>title: ${NAME}
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>date: ${YEAR}-${MONTH}-${DAY}
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>tags: 
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>summary: 
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>aliases:
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>---
+</span></code></pre></div>
+<p><strong>Result when creating a new file:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>title: my-new-note
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>date: 2025-10-17
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>tags: 
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>summary: 
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>aliases:
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>---
+</span></code></pre></div>
+<hr />
+<h3 id="common-file-template-variables">📘 Common File Template Variables<a class="headerlink" href="#common-file-template-variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Example Output</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>${NAME}</code></td>
+<td><code>my-file</code></td>
+<td>New file name</td>
+</tr>
+<tr>
+<td><code>${USER}</code></td>
+<td><code>edgaras</code></td>
+<td>Current system user</td>
+</tr>
+<tr>
+<td><code>${DATE}</code></td>
+<td><code>17/10/2025</code></td>
+<td>Localized date</td>
+</tr>
+<tr>
+<td><code>${TIME}</code></td>
+<td><code>09:12</code></td>
+<td>Current time</td>
+</tr>
+<tr>
+<td><code>${YEAR}</code></td>
+<td><code>2025</code></td>
+<td>Current year</td>
+</tr>
+<tr>
+<td><code>${MONTH}</code></td>
+<td><code>10</code></td>
+<td>Current month</td>
+</tr>
+<tr>
+<td><code>${DAY}</code></td>
+<td><code>17</code></td>
+<td>Current day</td>
+</tr>
+<tr>
+<td><code>${PACKAGE_NAME}</code></td>
+<td><code>com.example</code></td>
+<td>Java package</td>
+</tr>
+<tr>
+<td><code>${CLASS_NAME}</code></td>
+<td><code>UserService</code></td>
+<td>Derived from file name</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Velocity Tip:</strong> You can use expressions like:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>${YEAR}-${MONTH}-${DAY}_${TIME}
+</span></code></pre></div>
+<p>to generate unique timestamps for file names.</p>
+<hr />
+<h3 id="power-tips_1">💡 Power Tips<a class="headerlink" href="#power-tips_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use File Templates for your recurring file types: configuration files, test classes, documentation stubs.</li>
+<li>Use <code>${DATE}</code> for locale-aware date or <code>${YEAR}-${MONTH}-${DAY}</code> for ISO-style.</li>
+<li>Add <strong>includes</strong> for shared blocks (Settings → File and Code Templates → Includes tab).</li>
+<li>Works great combined with <strong>Live Templates</strong> — start from a File Template, enhance later with dynamic snippets.</li>
+</ul>
+<hr />
+<h2 id="quick-reference">🧭 Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Template Type</th>
+<th>Purpose</th>
+<th>Syntax</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Live Template</strong></td>
+<td>Dynamic snippets inside existing files</td>
+<td><code>$VARIABLE$</code></td>
+<td>Abbrev + Tab</td>
+</tr>
+<tr>
+<td><strong>File Template</strong></td>
+<td>Prefilled structure for new files</td>
+<td><code>${VARIABLE}</code></td>
+<td>File → New</td>
+</tr>
+<tr>
+<td><strong>Postfix Template</strong></td>
+<td>Inline transformation (<code>.if</code>, <code>.for</code>, <code>.nn</code>)</td>
+<td>—</td>
+<td>After expression + Tab</td>
+</tr>
+<tr>
+<td><strong>Surround Template</strong></td>
+<td>Wrap selected code</td>
+<td><code>$SELECTION$</code></td>
+<td><code>Ctrl+Alt+J</code> / <code>⌥⌘J</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary">🧠 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p><strong>Live Templates</strong> — dynamic, context-aware snippets for existing files.
+Use IntelliJ <strong>macros</strong> such as <code>date()</code>, <code>className()</code>, <code>clipboard()</code>, <code>uuid()</code>, and <code>user()</code> to auto-fill information.</p>
+<p><strong>File Templates</strong> — static, prefilled structures for new files.
+Use <strong>Velocity-style variables</strong> like <code>${NAME}</code>, <code>${DATE}</code>, <code>${YEAR}-${MONTH}-${DAY}</code> to scaffold default content.</p>
+<p>Both systems complement each other:</p>
+<ul>
+<li><em>Live Templates</em> automate repetitive typing.</li>
+<li><em>File Templates</em> provide consistent starting points.
+  Together, they’re the backbone of a fast, error-free workflow inside IntelliJ IDEA.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../_meta/blueprint/" class="btn btn-neutral float-left" title="Editors — Future Blueprint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../vscode/code-snippets/" class="btn btn-neutral float-right" title="VS Code Snippets">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../_meta/blueprint/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../vscode/code-snippets/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

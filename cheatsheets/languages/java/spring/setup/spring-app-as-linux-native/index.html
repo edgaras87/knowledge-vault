@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/spring-app-as-linux-native/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>Spring Boot JAR the “Linux-native” way - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Spring Boot JAR the \u201cLinux-native\u201d way";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/setup/spring-app-as-linux-native.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/setup/spring-app-as-linux-native/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Setup</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">Spring Boot JAR the “Linux-native” way</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-what-is-the-fhs-filesystem-hierarchy-standard">1. What is the FHS (Filesystem Hierarchy Standard)?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-how-does-this-apply-to-any-app">2. How does this apply to any app?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-how-does-this-relate-to-a-spring-boot-app">3. How does this relate to a Spring Boot app?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-beginner-friendly-analogy">4. Beginner-friendly analogy</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#step-by-step-guide-to-deploy-a-spring-boot-jar-the-linux-native-way">Step-by-step guide to deploy a Spring Boot JAR the “Linux-native” way</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#0-assumptions">0) Assumptions</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#1-create-a-dedicated-user-and-folders">1) Create a dedicated user and folders</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-install-the-jar">2) Install the JAR</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-externalize-configuration">3) Externalize configuration</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#31-etcmyappapplicationyml">3.1 /etc/myapp/application.yml</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#32-etcmyappmyappenv-environment-variables">3.2 /etc/myapp/myapp.env (environment variables)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#4-create-a-systemd-service">4) Create a systemd service</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#5-optional-put-nginx-in-front-reverse-proxy-tls">5) (Optional) Put Nginx in front (reverse proxy + TLS)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#6-choose-your-logging-strategy">6) Choose your logging strategy</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#a-use-journald-only-simplest">A) Use journald only (simplest)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#b-write-to-files-in-varlogmyapp-if-you-must">B) Write to files in /var/log/myapp/ (if you must)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#7-app-data-persistent-state">7) App data (persistent state)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#8-health-check-firewall">8) Health check &amp; firewall</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#9-upgrades-zero-ish-downtime">9) Upgrades (zero-ish downtime)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#10-uninstall-clean-removal">10) Uninstall (clean removal)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#quick-mental-model-recap">Quick mental model (recap)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Setup</li>
+      <li class="breadcrumb-item active">Spring Boot JAR the “Linux-native” way</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/setup/spring-app-as-linux-native.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="deploy-a-spring-boot-jar-the-linux-native-way-using-fhs-systemd-optional-nginx">Deploy a Spring Boot JAR the “Linux-native” way using FHS + systemd + optional Nginx.<a class="headerlink" href="#deploy-a-spring-boot-jar-the-linux-native-way-using-fhs-systemd-optional-nginx" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-what-is-the-fhs-filesystem-hierarchy-standard">1. What is the <strong>FHS (Filesystem Hierarchy Standard)?</strong><a class="headerlink" href="#1-what-is-the-fhs-filesystem-hierarchy-standard" title="Permanent link">&para;</a></h2>
+<p>It’s a set of conventions that says <em>where</em> things should live on a Linux system.
+Why? So that all apps, tools, and sysadmins know where to look for stuff — no surprises.</p>
+<p>Example:</p>
+<ul>
+<li>Logs usually live in <code>/var/log/...</code> → so <code>logrotate</code>, <code>journalctl</code>, monitoring tools, etc. can find them.</li>
+<li>Configs go in <code>/etc/...</code> → so sysadmins know where to tweak settings.</li>
+<li>Binaries in <code>/usr/bin</code>, <code>/opt/...</code> → so they don’t clutter random places.</li>
+</ul>
+<p>Think of it like: <strong>a tidy house where the kitchen, bathroom, and bedroom are always in the same place.</strong></p>
+<hr />
+<h2 id="2-how-does-this-apply-to-any-app">2. How does this apply to <em>any</em> app?<a class="headerlink" href="#2-how-does-this-apply-to-any-app" title="Permanent link">&para;</a></h2>
+<p>Yes — this is the <strong>standard</strong> for <em>all Linux apps</em>.</p>
+<ul>
+<li>Apache, Nginx, MySQL, Postgres… they all follow this structure.</li>
+<li>If you build your app this way, sysadmins treat it just like those apps.</li>
+</ul>
+<p>It’s not “mandatory” (your app still runs if you just <code>java -jar myapp.jar</code> from your home folder), but following FHS makes it more <strong>professional and maintainable</strong>.</p>
+<hr />
+<h2 id="3-how-does-this-relate-to-a-spring-boot-app">3. How does this relate to a <strong>Spring Boot app</strong>?<a class="headerlink" href="#3-how-does-this-relate-to-a-spring-boot-app" title="Permanent link">&para;</a></h2>
+<p>Spring Boot gives you a “fat jar” (executable JAR) that can run anywhere with <code>java -jar</code>.
+That’s great for development, but in production you don’t want everything in one random folder. Instead:</p>
+<ul>
+<li>
+<p><strong>Executable JAR</strong>
+  Put it in <code>/opt/myapp/myapp.jar</code>
+  → <code>/opt</code> is where “add-on software” lives (things not part of the base system).</p>
+</li>
+<li>
+<p><strong>Configs</strong> (<code>application.yml</code>, <code>.env</code>)
+  Put in <code>/etc/myapp/</code>
+  → This way, when you redeploy a new JAR version, your configs survive.</p>
+</li>
+<li>
+<p><strong>Logs</strong>
+  Go to <code>/var/log/myapp/</code>
+  → Or you let <code>systemd</code> handle logs (view with <code>journalctl -u myapp</code>).</p>
+</li>
+<li>
+<p><strong>Persistent data</strong> (uploads, caches, DB files if embedded)
+  Put in <code>/var/lib/myapp/</code>
+  → That’s the “stateful data” place.</p>
+</li>
+<li>
+<p><strong>Service management</strong>
+  Create a <code>systemd</code> service file (<code>/etc/systemd/system/myapp.service</code>) so you can do:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>myapp
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myapp
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>myapp
+</span></code></pre></div>
+<p>→ This makes it behave like any system service.</p>
+<ul>
+<li>
+<p><strong>Reverse proxy / TLS</strong>
+  If you use Nginx, config goes in <code>/etc/nginx/sites-available/</code> (with a symlink into <code>sites-enabled/</code>).</p>
+</li>
+<li>
+<p><strong>Log rotation</strong>
+  If you write logs to files, put a config in <code>/etc/logrotate.d/myapp</code> → so old logs get rotated, compressed, and deleted automatically.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-beginner-friendly-analogy">4. Beginner-friendly analogy<a class="headerlink" href="#4-beginner-friendly-analogy" title="Permanent link">&para;</a></h2>
+<p>Imagine your Spring Boot JAR is a <strong>toy robot</strong> 🦾:</p>
+<ul>
+<li>By default, you just dump it on your desk (your dev machine) and it runs.</li>
+<li>
+<p>Following FHS is like putting it into a <strong>toolbox with labeled drawers</strong> in a workshop:</p>
+<ul>
+<li><code>/opt/myapp/</code> → where the robot itself lives.</li>
+<li><code>/etc/myapp/</code> → where you keep the robot’s instructions (configs).</li>
+<li><code>/var/log/myapp/</code> → where you store the robot’s diary (logs).</li>
+<li><code>/var/lib/myapp/</code> → where the robot stores its memory (persistent data).</li>
+<li><code>systemd</code> → the workshop switch to turn the robot on/off.</li>
+<li><code>nginx</code> → the receptionist who speaks to visitors and forwards requests to your robot.</li>
+</ul>
+</li>
+</ul>
+<p>This way, any mechanic (sysadmin) walking in knows exactly where to look — they don’t need to guess.</p>
+<hr />
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
+</span></code></pre></div>
+<h2 id="step-by-step-guide-to-deploy-a-spring-boot-jar-the-linux-native-way">Step-by-step guide to deploy a Spring Boot JAR the “Linux-native” way<a class="headerlink" href="#step-by-step-guide-to-deploy-a-spring-boot-jar-the-linux-native-way" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="0-assumptions">0) Assumptions<a class="headerlink" href="#0-assumptions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>App name: <code>myapp</code></li>
+<li>JAR file you built: <code>target/myapp-1.0.0.jar</code></li>
+<li>App listens on port <code>8080</code> (default Spring Boot)</li>
+</ul>
+<p>You can change names/ports—just keep paths consistent.</p>
+<hr />
+<h3 id="1-create-a-dedicated-user-and-folders">1) Create a dedicated user and folders<a class="headerlink" href="#1-create-a-dedicated-user-and-folders" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 1) Least-privilege system user (no login shell)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>--system<span class="w"> </span>--home<span class="w"> </span>/opt/myapp<span class="w"> </span>--shell<span class="w"> </span>/usr/sbin/nologin<span class="w"> </span>myapp
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 2) FHS directories</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/myapp
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/myapp
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/log/myapp
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/myapp
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># 3) Permissions (only myapp can read/write its stuff)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>myapp:myapp<span class="w"> </span>/opt/myapp<span class="w"> </span>/var/log/myapp<span class="w"> </span>/var/lib/myapp
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>sudo<span class="w"> </span>chown<span class="w"> </span>root:root<span class="w"> </span>/etc/myapp
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/opt/myapp<span class="w"> </span>/var/log/myapp<span class="w"> </span>/var/lib/myapp
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/etc/myapp
+</span></code></pre></div>
+<hr />
+<h3 id="2-install-the-jar">2) Install the JAR<a class="headerlink" href="#2-install-the-jar" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Copy your built jar into /opt/myapp and standardize the name</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>cp<span class="w"> </span>target/myapp-1.0.0.jar<span class="w"> </span>/opt/myapp/myapp.jar
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sudo<span class="w"> </span>chown<span class="w"> </span>myapp:myapp<span class="w"> </span>/opt/myapp/myapp.jar
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span>/opt/myapp/myapp.jar
+</span></code></pre></div>
+<p>Tip: for upgrades, replace <code>myapp.jar</code> atomically (see “Upgrades” below).</p>
+<hr />
+<h3 id="3-externalize-configuration">3) Externalize configuration<a class="headerlink" href="#3-externalize-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="31-etcmyappapplicationyml">3.1 <code>/etc/myapp/application.yml</code><a class="headerlink" href="#31-etcmyappapplicationyml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">server</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">profiles</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># If you want file logging (optional, see Section 6)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># logging:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">#   file:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">#     name: /var/log/myapp/app.log</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/myapp/application.yml
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>root:root<span class="w"> </span>/etc/myapp/application.yml
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span>/etc/myapp/application.yml
+</span></code></pre></div>
+<h4 id="32-etcmyappmyappenv-environment-variables">3.2 <code>/etc/myapp/myapp.env</code> (environment variables)<a class="headerlink" href="#32-etcmyappmyappenv-environment-variables" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Example secrets and tuning (do NOT commit this to git)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">JAVA_OPTS</span><span class="o">=</span><span class="s">&quot;-Xms256m -Xmx512m&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">SPRING_DATASOURCE_URL</span><span class="o">=</span><span class="s">&quot;jdbc:postgresql://db:5432/mydb&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">SPRING_DATASOURCE_USERNAME</span><span class="o">=</span><span class="s">&quot;myuser&quot;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">SPRING_DATASOURCE_PASSWORD</span><span class="o">=</span><span class="s">&quot;supersecret&quot;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># If you use a random secret:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_...=...</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/myapp/myapp.env
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>root:root<span class="w"> </span>/etc/myapp/myapp.env
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span>/etc/myapp/myapp.env
+</span></code></pre></div>
+<blockquote>
+<p>Spring Boot will read env vars automatically (<code>SPRING_*</code>). We’ll also pass <code>--spring.config.additional-location</code> so it loads <code>/etc/myapp/application.yml</code>.</p>
+</blockquote>
+<hr />
+<h3 id="4-create-a-systemd-service">4) Create a <code>systemd</code> service<a class="headerlink" href="#4-create-a-systemd-service" title="Permanent link">&para;</a></h3>
+<p><code>/etc/systemd/system/myapp.service</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[Unit]</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">MyApp Spring Boot Service</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">[Service]</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="na">User</span><span class="o">=</span><span class="s">myapp</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="na">Group</span><span class="o">=</span><span class="s">myapp</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/myapp</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="na">EnvironmentFile</span><span class="o">=</span><span class="s">/etc/myapp/myapp.env</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># Load external config from /etc plus allow env vars to override</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/java $JAVA_OPTS </span>\
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="s">-jar /opt/myapp/myapp.jar </span>\
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">  </span><span class="s">--spring.config.additional-location=file:/etc/myapp/application.yml</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># Restart rules</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="na">RestartSec</span><span class="o">=</span><span class="s">5</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="c1"># Security hardening (safe defaults; relax if needed)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="na">NoNewPrivileges</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="na">PrivateTmp</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="na">ProtectSystem</span><span class="o">=</span><span class="s">full</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="na">ProtectHome</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="na">ReadWritePaths</span><span class="o">=</span><span class="s">/var/log/myapp /var/lib/myapp</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="c1"># If you use port &lt;1024, you&#39;ll need capabilities or a reverse proxy</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="c1"># Logging to journald (journalctl -u myapp)</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="na">StandardOutput</span><span class="o">=</span><span class="s">journal</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="na">StandardError</span><span class="o">=</span><span class="s">journal</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="k">[Install]</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</span></code></pre></div>
+<p>Enable + start:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myapp
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>myapp
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>myapp
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># View logs</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>myapp<span class="w"> </span>-f
+</span></code></pre></div>
+<hr />
+<h3 id="5-optional-put-nginx-in-front-reverse-proxy-tls">5) (Optional) Put Nginx in front (reverse proxy + TLS)<a class="headerlink" href="#5-optional-put-nginx-in-front-reverse-proxy-tls" title="Permanent link">&para;</a></h3>
+<p><code>/etc/nginx/sites-available/myapp.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w">         </span><span class="s">http://127.0.0.1:8080</span><span class="p">;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w">   </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w">   </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w">   </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w">   </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="kn">proxy_read_timeout</span><span class="w"> </span><span class="s">60s</span><span class="p">;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Enable and test:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/etc/nginx/sites-available/myapp.conf<span class="w"> </span>/etc/nginx/sites-enabled/myapp.conf
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>nginx<span class="w"> </span>-t
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</span></code></pre></div>
+<p>TLS (recommended): use certbot/Let’s Encrypt to upgrade the server block to <code>listen 443 ssl</code> with real certs.</p>
+<hr />
+<h3 id="6-choose-your-logging-strategy">6) Choose your logging strategy<a class="headerlink" href="#6-choose-your-logging-strategy" title="Permanent link">&para;</a></h3>
+<h4 id="a-use-journald-only-simplest">A) <strong>Use journald only</strong> (simplest)<a class="headerlink" href="#a-use-journald-only-simplest" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Already configured in the service.</li>
+<li>Tail logs: <code>journalctl -u myapp -f</code></li>
+<li>No logrotate needed (journald handles rotation).</li>
+</ul>
+<h4 id="b-write-to-files-in-varlogmyapp-if-you-must">B) <strong>Write to files</strong> in <code>/var/log/myapp/</code> (if you must)<a class="headerlink" href="#b-write-to-files-in-varlogmyapp-if-you-must" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Enable file logging (uncomment in <code>application.yml</code> or use env vars):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">logging</span><span class="p">:</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/myapp/app.log</span>
+</span></code></pre></div>
+<ol>
+<li>Logrotate config <code>/etc/logrotate.d/myapp</code>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>/var/log/myapp/*.log {
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  daily
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  rotate 14
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  compress
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  missingok
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  notifempty
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>  copytruncate
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>}
+</span></code></pre></div>
+<ol>
+<li>Permissions:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>myapp:myapp<span class="w"> </span>/var/log/myapp
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/log/myapp
+</span></code></pre></div>
+<hr />
+<h3 id="7-app-data-persistent-state">7) App data (persistent state)<a class="headerlink" href="#7-app-data-persistent-state" title="Permanent link">&para;</a></h3>
+<p>Put any uploads/caches/db files under:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>/var/lib/myapp/
+</span></code></pre></div>
+<p>Make sure your app points there (via config/env). The systemd unit allows write access to this path.</p>
+<hr />
+<h3 id="8-health-check-firewall">8) Health check &amp; firewall<a class="headerlink" href="#8-health-check-firewall" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># If your app exposes /actuator/health</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>curl<span class="w"> </span>-i<span class="w"> </span>http://127.0.0.1:8080/actuator/health
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Optional firewall (UFW example—only expose 80/443 if using Nginx)</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Keep 8080 internal only (don’t allow from the internet)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="9-upgrades-zero-ish-downtime">9) Upgrades (zero-ish downtime)<a class="headerlink" href="#9-upgrades-zero-ish-downtime" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># 1) Copy new jar alongside (atomic swap)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>cp<span class="w"> </span>target/myapp-1.1.0.jar<span class="w"> </span>/opt/myapp/myapp.jar.new
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>sudo<span class="w"> </span>chown<span class="w"> </span>myapp:myapp<span class="w"> </span>/opt/myapp/myapp.jar.new
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span>/opt/myapp/myapp.jar.new
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># 2) Swap</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>sudo<span class="w"> </span>mv<span class="w"> </span>/opt/myapp/myapp.jar.new<span class="w"> </span>/opt/myapp/myapp.jar
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># 3) Restart service</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>myapp
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>myapp
+</span></code></pre></div>
+<blockquote>
+<p>Configs in <code>/etc/myapp</code> and data in <code>/var/lib/myapp</code> remain untouched.</p>
+</blockquote>
+<hr />
+<h3 id="10-uninstall-clean-removal">10) Uninstall (clean removal)<a class="headerlink" href="#10-uninstall-clean-removal" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>myapp
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>myapp
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/etc/systemd/system/myapp.service
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1"># Optional: remove files (careful: data/logs!)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># sudo rm -rf /opt/myapp /etc/myapp /var/lib/myapp /var/log/myapp</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># sudo userdel myapp</span>
+</span></code></pre></div>
+<hr />
+<h3 id="quick-mental-model-recap">Quick mental model (recap)<a class="headerlink" href="#quick-mental-model-recap" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/opt/myapp</code> → the <strong>program</strong> (jar)</li>
+<li><code>/etc/myapp</code> → <strong>settings/secrets</strong></li>
+<li><code>/var/log/myapp</code> → <strong>logs</strong></li>
+<li><code>/var/lib/myapp</code> → <strong>data</strong></li>
+<li><code>systemd</code> → <strong>start/stop/restart &amp; autostart</strong></li>
+<li><code>nginx</code> → <strong>public entry + TLS</strong></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../project-layout-structure/" class="btn btn-neutral float-left" title="Project Layout Structure for Development"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../python/basics/" class="btn btn-neutral float-right" title="Python Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../project-layout-structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../python/basics/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

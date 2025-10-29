@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/binding/request-param/" />
+      <link rel="shortcut icon" href="../../../../../../../../img/favicon.ico" />
+    <title>@RequestParam - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "@RequestParam";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/annotations/rest/binding/request-param.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/binding/request-param/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Annotations</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" >Rest</a>
+    <ul class="current">
+                <li class="toctree-l6"><a class="reference internal" href="../../controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6 current"><a class="reference internal current" >Binding</a>
+    <ul class="current">
+                <li class="toctree-l7"><a class="reference internal" href="../overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7 current"><a class="reference internal current" href="#">@RequestParam</a>
+    <ul class="current">
+    <li class="toctree-l8"><a class="reference internal" href="#1-fast-patterns-youll-use-daily">1) Fast patterns you’ll use daily</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#2-required-vs-default-vs-optional">2) Required vs default vs Optional</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#3-name-inference-renaming">3) Name inference &amp; renaming</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#4-multi-value-binding">4) Multi-value binding</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#5-supported-sources-spring-mvc">5) Supported sources (Spring MVC)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#6-file-upload-quickies">6) File upload quickies</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#7-type-conversion-custom-formats">7) Type conversion &amp; custom formats</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#8-validation">8) Validation</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#9-empty-vs-missing-vs-default-edge-cases">9) Empty vs missing vs default (edge-cases)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#10-encoding-weird-characters">10) Encoding &amp; weird characters</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#11-requestparam-vs-the-others">11) @RequestParam vs the others</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#12-defaults-that-mirror-product-behavior">12) Defaults that mirror product behavior</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#13-enum-handling">13) Enum handling</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#14-error-handling-missinginvalid-params">14) Error handling (missing/invalid params)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#15-records-small-dtos-with-modelattribute">15) Records / small DTOs with @ModelAttribute</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#16-webflux-notes-reactive">16) WebFlux notes (reactive)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#17-common-pitfalls-checklist">17) Common pitfalls checklist</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#18-minimal-idiomatic-examples">18) Minimal, idiomatic examples</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#19-quick-reference-table">19) Quick reference table</a>
+        <ul>
+    <li class="toctree-l9"><a class="reference internal" href="#mental-model">Mental model</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Annotations</li>
+          <li class="breadcrumb-item">Rest</li>
+          <li class="breadcrumb-item">Binding</li>
+      <li class="breadcrumb-item active">@RequestParam</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/annotations/rest/binding/request-param.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="requestparam-query-form-parameters">⚙️ <code>@RequestParam</code> — Query &amp; Form Parameters<a class="headerlink" href="#requestparam-query-form-parameters" title="Permanent link">&para;</a></h1>
+<p><strong>What it does:</strong> Binds <strong>query string</strong> parameters (<code>/api?q=java&amp;page=2</code>) and <strong>form fields</strong> (<code>application/x-www-form-urlencoded</code> or simple <code>multipart/form-data</code>) to your controller method arguments.</p>
+<p><strong>Remember:</strong> <code>@RequestParam</code> is for <em>simple scalars &amp; small structs</em>. For complex request bodies (JSON), use <code>@RequestBody</code>. For URL path pieces, use <code>@PathVariable</code>.</p>
+<hr />
+<h2 id="1-fast-patterns-youll-use-daily">1) Fast patterns you’ll use daily<a class="headerlink" href="#1-fast-patterns-youll-use-daily" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/search&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">BookDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w">                 </span><span class="c1">// required by default</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">lang</span><span class="w"> </span><span class="c1">// nullable wrapper</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Multi-values: ?tag=java&amp;tag=spring</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/articles&quot;</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ArticleDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">byTags</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Optional without defaults</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/users&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">users</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Arbitrary parameter bag: ?a=1&amp;b=2</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/echo&quot;</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">echo</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// MultiValueMap to preserve duplicates: ?k=1&amp;k=2</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/kv&quot;</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">kv</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">MultiValueMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="2-required-vs-default-vs-optional">2) Required vs default vs Optional<a class="headerlink" href="#2-required-vs-default-vs-optional" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Required by default:</strong> <code>@RequestParam String q</code> → 400 if missing.</li>
+<li><strong>Make optional:</strong> <code>@RequestParam(required = false) String q</code> or use <code>Optional&lt;String&gt;</code>.</li>
+<li>
+<p><strong>Provide a default:</strong> <code>@RequestParam(defaultValue = "java") String q</code></p>
+</li>
+<li>
+<p>Setting <code>defaultValue</code> <strong>implicitly makes it not required</strong>.</p>
+</li>
+<li>With <code>Optional&lt;T&gt;</code> <strong>and</strong> <code>defaultValue</code>, you’ll get <code>Optional.of(default)</code>.</li>
+</ul>
+<p><strong>Primitive vs wrapper:</strong> prefer wrappers (<code>Integer</code>, <code>Boolean</code>) for optional params; primitives can’t be <code>null</code>.</p>
+<hr />
+<h2 id="3-name-inference-renaming">3) Name inference &amp; renaming<a class="headerlink" href="#3-name-inference-renaming" title="Permanent link">&para;</a></h2>
+<p>Spring infers parameter name from the Java arg name (if compiled with <code>-parameters</code>, which Spring Boot enables by default). To use a different query key:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/files&quot;</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">FileDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="p">(</span><span class="s">&quot;dir&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">directory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4-multi-value-binding">4) Multi-value binding<a class="headerlink" href="#4-multi-value-binding" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// ?id=1&amp;id=2&amp;id=3</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/batch&quot;</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getBatch</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// Arrays also work</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getBatch</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">long</span><span class="o">[]</span><span class="w"> </span><span class="n">ids</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">// CSV? Not automatic. Parse yourself:</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/batch2&quot;</span><span class="p">)</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UserDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getBatchCsv</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">idsCsv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">idsCsv</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)).</span><span class="na">map</span><span class="p">(</span><span class="n">Long</span><span class="p">::</span><span class="n">parseLong</span><span class="p">).</span><span class="na">toList</span><span class="p">();</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="cm">/* ... */</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-supported-sources-spring-mvc">5) Supported sources (Spring MVC)<a class="headerlink" href="#5-supported-sources-spring-mvc" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Query string:</strong> <code>/api?q=java&amp;page=1</code></li>
+<li><strong>Form body:</strong> <code>Content-Type: application/x-www-form-urlencoded</code></li>
+<li><strong>Multipart fields:</strong> alongside files in <code>multipart/form-data</code> (see below)</li>
+</ul>
+<p>JSON bodies are <strong>not</strong> <code>@RequestParam</code>; use <code>@RequestBody</code>.</p>
+<hr />
+<h2 id="6-file-upload-quickies">6) File upload quickies<a class="headerlink" href="#6-file-upload-quickies" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@PostMapping</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/upload&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">consumes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MediaType</span><span class="p">.</span><span class="na">MULTIPART_FORM_DATA_VALUE</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">UploadResult</span><span class="w"> </span><span class="nf">upload</span><span class="p">(</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="s">&quot;file&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">MultipartFile</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w">                 </span><span class="c1">// single file</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">note</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="s">&quot;tags&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tags</span><span class="w">                   </span><span class="c1">// multi-values OK</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">// multiple files: @RequestParam(&quot;files&quot;) List&lt;MultipartFile&gt; files</span>
+</span></code></pre></div>
+<hr />
+<h2 id="7-type-conversion-custom-formats">7) Type conversion &amp; custom formats<a class="headerlink" href="#7-type-conversion-custom-formats" title="Permanent link">&para;</a></h2>
+<p>Spring converts strings → target types via the <strong>ConversionService</strong>.</p>
+<p>Works out-of-the-box for: primitives, wrappers, enums, UUID, <code>LocalDate/LocalDateTime</code>, <code>BigDecimal</code>, etc. For custom types:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@Component</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SlugToProductIdConverter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Converter</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ProductId</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ProductId</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ProductId</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">trim</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Then:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/product&quot;</span><span class="p">)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">ProductDto</span><span class="w"> </span><span class="nf">product</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">ProductId</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>Dates:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/events&quot;</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">EventDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="w"> </span><span class="nd">@DateTimeFormat</span><span class="p">(</span><span class="n">iso</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeFormat</span><span class="p">.</span><span class="na">ISO</span><span class="p">.</span><span class="na">DATE</span><span class="p">)</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">day</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="8-validation">8) Validation<a class="headerlink" href="#8-validation" title="Permanent link">&para;</a></h2>
+<p>You can validate <code>@RequestParam</code> arguments with <code>@Validated</code> on the controller and JSR-380/Bean Validation annotations:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@Validated</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nd">@RestController</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kd">class</span> <span class="nc">Api</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/offers&quot;</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OfferDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">offers</span><span class="p">(</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="nd">@RequestParam</span><span class="w"> </span><span class="nd">@Min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nd">@Max</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="nd">@RequestParam</span><span class="w"> </span><span class="nd">@Pattern</span><span class="p">(</span><span class="n">regexp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[a-z]{2}&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">lang</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>For compound inputs, bind to a small DTO via <code>@ModelAttribute</code> (still query/form backed) and validate that object.</p>
+<hr />
+<h2 id="9-empty-vs-missing-vs-default-edge-cases">9) Empty vs missing vs default (edge-cases)<a class="headerlink" href="#9-empty-vs-missing-vs-default-edge-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Missing</strong> param (no key) + required → 400.</li>
+<li><strong>Empty present</strong> (<code>?q=</code>) is <strong>present</strong> with <code>""</code>. With <code>required=true</code>, that’s fine; with <code>@NotBlank</code>, it will fail validation.</li>
+<li><strong>defaultValue</strong> triggers when <strong>missing</strong> or <strong>empty</strong> (<code>""</code>), i.e., <code>?q=</code> yields default.</li>
+</ul>
+<hr />
+<h2 id="10-encoding-weird-characters">10) Encoding &amp; weird characters<a class="headerlink" href="#10-encoding-weird-characters" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Browsers encode spaces as <code>+</code> in query/form; Spring decodes to space. <code>%2B</code> is literal <code>+</code>.</li>
+<li>If a value needs commas/semicolons, encode them. Don’t rely on CSV unless you control the client.</li>
+</ul>
+<hr />
+<h2 id="11-requestparam-vs-the-others">11) <code>@RequestParam</code> vs the others<a class="headerlink" href="#11-requestparam-vs-the-others" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>@PathVariable</code></strong> — part of the URL structure: <code>/users/{id}</code>. Good for identity.</li>
+<li><strong><code>@RequestParam</code></strong> — filters/toggles/pagination/search: <code>/users?active=true&amp;page=2</code>.</li>
+<li><strong><code>@RequestBody</code></strong> — JSON/XML payloads for create/update.</li>
+<li><strong><code>@ModelAttribute</code></strong> — groups many simple params into a bean (query/form), supports validation.</li>
+</ul>
+<hr />
+<h2 id="12-defaults-that-mirror-product-behavior">12) Defaults that mirror product behavior<a class="headerlink" href="#12-defaults-that-mirror-product-behavior" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/list&quot;</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">PageDto</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sortBy</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;asc&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">order</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>This keeps your API forgiving while still deterministic.</p>
+<hr />
+<h2 id="13-enum-handling">13) Enum handling<a class="headerlink" href="#13-enum-handling" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">enum</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ACTIVE</span><span class="p">,</span><span class="w"> </span><span class="n">SUSPENDED</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/accounts&quot;</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">AccountDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ?status=ACTIVE */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1">// Case-insensitive by default? No. Make a Converter or enable relaxed binding (WebDataBinder).</span>
+</span></code></pre></div>
+<hr />
+<h2 id="14-error-handling-missinginvalid-params">14) Error handling (missing/invalid params)<a class="headerlink" href="#14-error-handling-missinginvalid-params" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Missing required → <code>MissingServletRequestParameterException</code> (400).</li>
+<li>Type mismatch → <code>MethodArgumentTypeMismatchException</code> (400).</li>
+</ul>
+<p>Centralize with <code>@ControllerAdvice</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@RestControllerAdvice</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">class</span> <span class="nc">ApiErrors</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nd">@ExceptionHandler</span><span class="p">({</span><span class="w"> </span><span class="n">MissingServletRequestParameterException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">                      </span><span class="n">MethodArgumentTypeMismatchException</span><span class="p">.</span><span class="na">class</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ErrorDto</span><span class="w"> </span><span class="nf">badRequest</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ErrorDto</span><span class="p">(</span><span class="s">&quot;BAD_REQUEST&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="15-records-small-dtos-with-modelattribute">15) Records / small DTOs with <code>@ModelAttribute</code><a class="headerlink" href="#15-records-small-dtos-with-modelattribute" title="Permanent link">&para;</a></h2>
+<p>When a method has a POJO/record parameter <strong>without</strong> <code>@RequestBody</code>, Spring treats it as a <strong>model attribute</strong> backed by query/form params:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">record</span> <span class="nc">Filter</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/search&quot;</span><span class="p">)</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ItemDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">Filter</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* /search?q=java&amp;page=2 */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>You can combine with <code>@Validated</code> on the type.</p>
+<hr />
+<h2 id="16-webflux-notes-reactive">16) WebFlux notes (reactive)<a class="headerlink" href="#16-webflux-notes-reactive" title="Permanent link">&para;</a></h2>
+<p>Everything conceptually the same, but your method returns <code>Mono/Flux</code>. <code>@RequestParam</code> usage is identical; parameters are still decoded eagerly before the handler executes.</p>
+<hr />
+<h2 id="17-common-pitfalls-checklist">17) Common pitfalls checklist<a class="headerlink" href="#17-common-pitfalls-checklist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Using <code>@RequestParam</code> for JSON → don’t; use <code>@RequestBody</code>.</li>
+<li>Expecting CSV to auto-split → it won’t; use <code>List&lt;T&gt;</code> with repeated keys, or split yourself.</li>
+<li>Forgetting <code>defaultValue</code> makes it required → add it or use wrappers/<code>Optional</code>.</li>
+<li>Primitives for optional params → switch to wrappers.</li>
+<li>Enum case mismatches → add a <code>Converter&lt;String, Enum&gt;</code> or normalize input.</li>
+<li>Relying on empty string vs default → <code>defaultValue</code> fires for empty too.</li>
+</ul>
+<hr />
+<h2 id="18-minimal-idiomatic-examples">18) Minimal, idiomatic examples<a class="headerlink" href="#18-minimal-idiomatic-examples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// 1) Search with sane defaults</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/v1/search&quot;</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="p">,</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1">// 2) Filters: multi-value categories</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/v1/items&quot;</span><span class="p">)</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">byCategory</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">category</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="c1">// 3) Optional toggle</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/v1/users&quot;</span><span class="p">)</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">users</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="o">&gt;</span><span class="w"> </span><span class="n">active</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="c1">// 4) File + form fields</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="nd">@PostMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/v1/avatar&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">consumes</span><span class="o">=</span><span class="n">MediaType</span><span class="p">.</span><span class="na">MULTIPART_FORM_DATA_VALUE</span><span class="p">)</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">avatar</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">MultipartFile</span><span class="w"> </span><span class="n">file</span><span class="p">,</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">                   </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">note</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="19-quick-reference-table">19) Quick reference table<a class="headerlink" href="#19-quick-reference-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Annotation &amp; type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required scalar</td>
+<td><code>@RequestParam String</code></td>
+<td><code>?q=java</code></td>
+</tr>
+<tr>
+<td>Optional scalar</td>
+<td><code>@RequestParam(required=false) String</code> / <code>Optional&lt;String&gt;</code></td>
+<td><code>?q=</code> or missing</td>
+</tr>
+<tr>
+<td>Defaulted scalar</td>
+<td><code>@RequestParam(defaultValue="1") int</code></td>
+<td>missing → <code>1</code></td>
+</tr>
+<tr>
+<td>Multi-value</td>
+<td><code>@RequestParam List&lt;T&gt;</code> / <code>T[]</code></td>
+<td><code>?tag=a&amp;tag=b</code></td>
+</tr>
+<tr>
+<td>Arbitrary bag</td>
+<td><code>@RequestParam Map&lt;String,String&gt;</code></td>
+<td>any keys</td>
+</tr>
+<tr>
+<td>Preserve duplicates</td>
+<td><code>@RequestParam MultiValueMap&lt;String,String&gt;</code></td>
+<td><code>?k=1&amp;k=2</code></td>
+</tr>
+<tr>
+<td>File</td>
+<td><code>@RequestParam MultipartFile</code></td>
+<td><code>multipart/form-data</code></td>
+</tr>
+<tr>
+<td>Date/Time</td>
+<td><code>@DateTimeFormat(...)</code> + type</td>
+<td>ISO formats</td>
+</tr>
+<tr>
+<td>Custom type</td>
+<td><code>Converter&lt;String,T&gt;</code></td>
+<td>global converter</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mental-model">Mental model<a class="headerlink" href="#mental-model" title="Permanent link">&para;</a></h3>
+<p><code>@RequestParam</code> is <strong>thin glue</strong> between text in the URL or form and your Java types. Keep it small, explicit, and validated. When data gets complex, graduate to <code>@ModelAttribute</code> or <code>@RequestBody</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../request-body/" class="btn btn-neutral float-left" title="@RequestBody"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../serialization/json/" class="btn btn-neutral float-right" title="@Json">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../request-body/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../serialization/json/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../../../..";</script>
+    <script src="../../../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../../../js/theme.js"></script>
+      <script src="../../../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/database/id-generation%20/" />
+      <link rel="shortcut icon" href="../../../../../../../img/favicon.ico" />
+    <title>ID Generation - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ID Generation";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/annotations/database/id-generation .md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/annotations/database/id-generation%20/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Annotations</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" >Database</a>
+    <ul class="current">
+                <li class="toctree-l6 current"><a class="reference internal current" href="#">ID Generation</a>
+    <ul class="current">
+    <li class="toctree-l7"><a class="reference internal" href="#1-generationtypeauto">1. GenerationType.AUTO</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-generationtypesequence">2. GenerationType.SEQUENCE</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-generationtypeidentity">3. GenerationType.IDENTITY</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#4-generationtypetable">4. GenerationType.TABLE</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#5-uuid-guid-hibernate-specific">5. UUID / GUID (Hibernate-specific)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#key-cross-cutting-concepts">⚙️ Key Cross-Cutting Concepts</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#batching">🔄 Batching</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#allocation-prefetching">📦 Allocation / Prefetching</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#gaps">⚠️ Gaps</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#when-to-use-what-cheat-sheet">✅ When to Use What (Cheat Sheet)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#quick-rules-of-thumb">🚀 Quick Rules of Thumb</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#mysql">MySQL</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#uuid-primary-keys-compact-binary16-storage">UUID Primary Keys (Compact BINARY(16) Storage)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#1-mysql-table-compact-pk-easy-to-read-helper">1) MySQL table (compact PK + easy-to-read helper)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#2-hibernatejpa-entity-hibernate-6">2) Hibernate/JPA entity (Hibernate 6)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#3-springjpa-settings-example">3) Spring/JPA settings (example)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#4-using-it">4) Using it</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#5-handy-sql-when-querying-manually">5) Handy SQL when querying manually</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#notes-options">Notes &amp; options</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#faqs-uuid-vs-sequence-vs-identity">FAQs: UUID vs SEQUENCE vs IDENTITY</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#1-when-to-pick-uuid-guid-hibernate-6">1) When to pick UUID / GUID (Hibernate 6)</a>
+        <ul>
+    <li class="toctree-l9"><a class="reference internal" href="#trade-offs">Trade-offs</a>
+    </li>
+    <li class="toctree-l9"><a class="reference internal" href="#practical-mapping-tips">Practical mapping tips</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#2-if-we-can-pre-order-ids-with-sequence-why-do-we-need-identity-can-we-pre-fetch-50-and-use-them-one-by-one">2) “If we can pre-order IDs with SEQUENCE, why do we need IDENTITY? Can we pre-fetch 50 and use them one by one?”</a>
+        <ul>
+    <li class="toctree-l9"><a class="reference internal" href="#yes-you-can-pre-fetch-and-reuse">Yes, you can pre-fetch and reuse</a>
+    </li>
+    <li class="toctree-l9"><a class="reference internal" href="#so-why-use-identity-at-all">So… why use IDENTITY at all?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#quick-chooser">Quick chooser</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#extra-tips">Extra tips</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Annotations</li>
+          <li class="breadcrumb-item">Database</li>
+      <li class="breadcrumb-item active">ID Generation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/annotations/database/id-generation .md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="id-generation-in-hibernate-summary">🔑 ID Generation in Hibernate (Summary)<a class="headerlink" href="#id-generation-in-hibernate-summary" title="Permanent link">&para;</a></h1>
+<p>Hibernate/JPA gives you several ways to generate primary keys. Each has different trade-offs depending on your <strong>database</strong> and <strong>performance needs</strong>.</p>
+<p>Here’s the <strong>all-in-one master summary</strong> of Hibernate ID generation strategies (AUTO, SEQUENCE, IDENTITY, TABLE, UUID), including everything about batching, allocation, gaps, pros/cons, and when to use what.</p>
+<hr />
+<h2 id="1-generationtypeauto">1. <code>GenerationType.AUTO</code><a class="headerlink" href="#1-generationtypeauto" title="Permanent link">&para;</a></h2>
+<p><strong>Meaning</strong>
+Hibernate chooses the best strategy for the underlying database.</p>
+<p><strong>Behavior (typical)</strong></p>
+<ul>
+<li>PostgreSQL / Oracle → <code>SEQUENCE</code></li>
+<li>MySQL / MariaDB / SQL Server → <code>IDENTITY</code></li>
+<li>If nothing else fits → <code>TABLE</code></li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Very simple, portable, no DB-specific code.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Hibernate’s choice may change when you switch DBs → unpredictable performance.</li>
+</ul>
+<p><strong>Use when</strong></p>
+<ul>
+<li>Portability &gt; performance. Good for prototypes or apps that may switch DBs.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Id</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="2-generationtypesequence">2. <code>GenerationType.SEQUENCE</code><a class="headerlink" href="#2-generationtypesequence" title="Permanent link">&para;</a></h2>
+<p><strong>Meaning</strong>
+Use a <strong>database sequence object</strong> (<code>nextval</code> in PostgreSQL, <code>seq.NEXTVAL</code> in Oracle).</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li>Hibernate fetches IDs from the sequence.</li>
+<li>Can pre-fetch blocks of IDs (<code>allocationSize</code>).</li>
+<li>IDs are known <strong>before insert</strong>, so batching works well.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Best <strong>performance</strong> with JDBC batching.</li>
+<li>IDs assigned in memory before flush.</li>
+<li>Efficient for high-volume inserts.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Requires sequence object in DB (Hibernate can create one if allowed).</li>
+<li>With pooled allocation (<code>allocationSize &gt; 1</code>), gaps appear.</li>
+</ul>
+<p><strong>Use when</strong></p>
+<ul>
+<li>On PostgreSQL/Oracle (databases with strong sequence support).</li>
+<li>High-throughput insert-heavy workloads.</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Id</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nd">@SequenceGenerator</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_seq_gen&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">sequenceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_id_seq&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">allocationSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="c1">// prefetch 50 IDs at a time</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">SEQUENCE</span><span class="p">,</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_seq_gen&quot;</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>SQL (PostgreSQL)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">SEQUENCE</span><span class="w"> </span><span class="n">user_id_seq</span><span class="w"> </span><span class="k">START</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">INCREMENT</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3-generationtypeidentity">3. <code>GenerationType.IDENTITY</code><a class="headerlink" href="#3-generationtypeidentity" title="Permanent link">&para;</a></h2>
+<p><strong>Meaning</strong>
+Use DB’s <strong>auto-increment/identity column</strong>. The DB assigns IDs during <code>INSERT</code>.</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li>Hibernate issues the <code>INSERT</code>.</li>
+<li>The DB generates the ID.</li>
+<li>Hibernate fetches it afterward.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Very simple.</li>
+<li>Fits MySQL / SQL Server defaults.</li>
+<li>No sequence object needed.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Hibernate doesn’t know ID until <strong>after insert</strong> → batching is limited.</li>
+<li>Insert throughput lower than SEQUENCE.</li>
+</ul>
+<p><strong>Use when</strong></p>
+<ul>
+<li>On MySQL / SQL Server (legacy schemas).</li>
+<li>When simplicity matters more than insert performance.</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Id</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>DDL</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4-generationtypetable">4. <code>GenerationType.TABLE</code><a class="headerlink" href="#4-generationtypetable" title="Permanent link">&para;</a></h2>
+<p><strong>Meaning</strong>
+Use a <strong>special table</strong> as a pseudo-sequence.</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li>Hibernate stores current value in a table (<code>hibernate_sequences</code> or custom).</li>
+<li>Reads/updates the row to generate IDs.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Portable to <strong>any DB</strong>, even those without sequences or identity.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Slowest, requires extra table reads/writes.</li>
+<li>High contention under concurrency.</li>
+</ul>
+<p><strong>Use when</strong></p>
+<ul>
+<li>Extreme portability is needed.</li>
+<li>Rare in modern production apps.</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Id</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@TableGenerator</span><span class="p">(</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_tbl_gen&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id_generator&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">pkColumnName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gen_name&quot;</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">valueColumnName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gen_val&quot;</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="n">pkColumnValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_id&quot;</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">allocationSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">TABLE</span><span class="p">,</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_tbl_gen&quot;</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>SQL</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">id_generator</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="n">gen_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="n">gen_val</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">);</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">id_generator</span><span class="w"> </span><span class="p">(</span><span class="n">gen_name</span><span class="p">,</span><span class="w"> </span><span class="n">gen_val</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-uuid-guid-hibernate-specific">5. UUID / GUID (Hibernate-specific)<a class="headerlink" href="#5-uuid-guid-hibernate-specific" title="Permanent link">&para;</a></h2>
+<p><strong>Meaning</strong>
+Use <code>UUID</code> (128-bit identifier) instead of numeric IDs.</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li>Hibernate (6+) can generate UUIDs in the app (<code>@UuidGenerator</code>).</li>
+<li>Stored as <code>BINARY(16)</code> (compact) or <code>CHAR(36)</code> (readable) in DB.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Globally unique — good for distributed systems.</li>
+<li>IDs generated <strong>without DB round-trip</strong>.</li>
+<li>Known <strong>before persist</strong> — useful for references/events.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Larger (16 bytes vs 8).</li>
+<li>Random UUIDs fragment B-trees → prefer <strong>time-ordered UUIDs (v7/ULID)</strong>.</li>
+<li>Harder to debug than numbers.</li>
+</ul>
+<p><strong>Use when</strong></p>
+<ul>
+<li>You need distributed ID generation across multiple services/nodes.</li>
+<li>You want IDs before hitting the DB.</li>
+<li>Microservices, offline clients, event-driven systems.</li>
+</ul>
+<p><strong>Example (MySQL, compact storage)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Id</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nd">@UuidGenerator</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nd">@JdbcTypeCode</span><span class="p">(</span><span class="n">SqlTypes</span><span class="p">.</span><span class="na">BINARY</span><span class="p">)</span><span class="w"> </span><span class="c1">// store UUID in 16 bytes</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nd">@Column</span><span class="p">(</span><span class="n">columnDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BINARY(16)&quot;</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">private</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>DDL</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">BINARY</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="n">uuid_txt</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="n">BIN_TO_UUID</span><span class="p">(</span><span class="n">id</span><span class="p">))</span><span class="w"> </span><span class="n">STORED</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h2 id="key-cross-cutting-concepts">⚙️ Key Cross-Cutting Concepts<a class="headerlink" href="#key-cross-cutting-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="batching">🔄 Batching<a class="headerlink" href="#batching" title="Permanent link">&para;</a></h3>
+<ul>
+<li>JDBC batching = send multiple inserts in one round trip.</li>
+<li>Best with <strong>SEQUENCE</strong> (IDs known up front).</li>
+<li>Limited with <strong>IDENTITY</strong> (IDs only known after insert).</li>
+<li>Enable in Hibernate:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">hibernate.jdbc.batch_size</span><span class="o">=</span><span class="s">50</span>
+</span></code></pre></div>
+<hr />
+<h3 id="allocation-prefetching">📦 Allocation / Prefetching<a class="headerlink" href="#allocation-prefetching" title="Permanent link">&para;</a></h3>
+<ul>
+<li>With <code>SEQUENCE</code> and <code>TABLE</code>, Hibernate can <strong>fetch blocks of IDs</strong> using <code>allocationSize</code>.</li>
+<li>Example: <code>allocationSize=50</code> → Hibernate grabs 50 IDs and consumes them gradually.</li>
+<li>Benefits: fewer DB calls, better batching.</li>
+<li>Downsides: gaps if app crashes or restarts.</li>
+</ul>
+<hr />
+<h3 id="gaps">⚠️ Gaps<a class="headerlink" href="#gaps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>All strategies may produce gaps:</p>
+<ul>
+<li>Rollbacks</li>
+<li>Crashes</li>
+<li>Pooled allocations</li>
+<li><strong>Don’t use IDs as business order</strong> — always add a <code>created_at</code> column.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="when-to-use-what-cheat-sheet">✅ When to Use What (Cheat Sheet)<a class="headerlink" href="#when-to-use-what-cheat-sheet" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Best Fit</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AUTO</strong></td>
+<td>Portability</td>
+<td>Easiest, automatic choice</td>
+<td>Unpredictable per DB</td>
+</tr>
+<tr>
+<td><strong>SEQUENCE</strong></td>
+<td>PostgreSQL / Oracle</td>
+<td>Best batching, performance, pre-fetch</td>
+<td>Needs sequence object, gaps</td>
+</tr>
+<tr>
+<td><strong>IDENTITY</strong></td>
+<td>MySQL / SQL Server (legacy schemas)</td>
+<td>Simple, DB-native</td>
+<td>Weak batching, slower inserts</td>
+</tr>
+<tr>
+<td><strong>TABLE</strong></td>
+<td>Exotic DBs, portability needed</td>
+<td>Works everywhere</td>
+<td>Slow, contention-heavy</td>
+</tr>
+<tr>
+<td><strong>UUID</strong></td>
+<td>Distributed / microservices / offline</td>
+<td>Global uniqueness, no DB round-trip</td>
+<td>Larger index, may fragment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="quick-rules-of-thumb">🚀 Quick Rules of Thumb<a class="headerlink" href="#quick-rules-of-thumb" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>High throughput inserts (Postgres/Oracle)</strong> → <code>SEQUENCE</code> + batching.</li>
+<li><strong>MySQL/SQL Server legacy</strong> → <code>IDENTITY</code>.</li>
+<li><strong>Distributed/microservices</strong> → <code>UUID</code> (prefer time-ordered).</li>
+<li><strong>Extreme portability</strong> → <code>TABLE</code>.</li>
+<li><strong>Don’t care / just starting</strong> → <code>AUTO</code>.</li>
+</ul>
+<hr />
+<p>✅ In short:</p>
+<ul>
+<li>Use <strong>SEQUENCE</strong> when you can (best batching).</li>
+<li>Use <strong>IDENTITY</strong> if schema/DB requires it.</li>
+<li>Use <strong>UUID</strong> if you need IDs outside the DB or in distributed systems.</li>
+<li>Expect <strong>gaps</strong> with any method.</li>
+<li>Never use PK for business ordering → add timestamps.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>
+</span></code></pre></div>
+<h2 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h2>
+<h3 id="uuid-primary-keys-compact-binary16-storage">UUID Primary Keys (Compact BINARY(16) Storage)<a class="headerlink" href="#uuid-primary-keys-compact-binary16-storage" title="Permanent link">&para;</a></h3>
+<p>When using UUIDs as primary keys in MySQL, storing them as <code>CHAR(36)</code> strings is common but inefficient. A better approach is to store them in a compact binary format using <code>BINARY(16)</code>. This reduces storage space and improves index performance.</p>
+<p>Here’s a tiny, end-to-end example of <strong>UUID primary keys on MySQL</strong>, stored compactly as <code>BINARY(16)</code> and generated in the app with Hibernate 6.</p>
+<h3 id="1-mysql-table-compact-pk-easy-to-read-helper">1) MySQL table (compact PK + easy-to-read helper)<a class="headerlink" href="#1-mysql-table-compact-pk-easy-to-read-helper" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">BINARY</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">          </span><span class="c1">-- packed UUID</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="c1">-- Optional: human-readable mirror (handy for ad-hoc queries)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="n">uuid_txt</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="n">BIN_TO_UUID</span><span class="p">(</span><span class="n">id</span><span class="p">))</span><span class="w"> </span><span class="n">STORED</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>You don’t have to keep <code>uuid_txt</code>—it’s just convenient. The real PK is <code>BINARY(16)</code>.</p>
+</blockquote>
+<h3 id="2-hibernatejpa-entity-hibernate-6">2) Hibernate/JPA entity (Hibernate 6)<a class="headerlink" href="#2-hibernatejpa-entity-hibernate-6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.persistence.*</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Instant</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.UUID</span><span class="p">;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.hibernate.annotations.CreationTimestamp</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.hibernate.annotations.UuidGenerator</span><span class="p">;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.hibernate.annotations.JdbcTypeCode</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.hibernate.type.SqlTypes</span><span class="p">;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="nd">@Entity</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;users&quot;</span><span class="p">)</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">  </span><span class="nd">@Id</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span><span class="nd">@UuidGenerator</span><span class="w"> </span><span class="c1">// generates java.util.UUID in the app (no DB round-trip)</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span><span class="nd">@JdbcTypeCode</span><span class="p">(</span><span class="n">SqlTypes</span><span class="p">.</span><span class="na">BINARY</span><span class="p">)</span><span class="w">               </span><span class="c1">// map UUID -&gt; BINARY(16)</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span><span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">columnDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BINARY(16)&quot;</span><span class="p">)</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">  </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">  </span><span class="nd">@CreationTimestamp</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">  </span><span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;created_at&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">updatable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">createdAt</span><span class="p">;</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">  </span><span class="c1">// getters/setters ...</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>If your Hibernate exposes a time-ordered style, you can do
+<code>@UuidGenerator(style = UuidGenerator.Style.TIME)</code> to reduce index fragmentation vs random v4.</p>
+</blockquote>
+<h3 id="3-springjpa-settings-example">3) Spring/JPA settings (example)<a class="headerlink" href="#3-springjpa-settings-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.MySQL8Dialect</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">none          # or update/create at your own risk</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="na">spring.jpa.properties.hibernate.jdbc.batch_size</span><span class="o">=</span><span class="s">50</span>
+</span></code></pre></div>
+<h3 id="4-using-it">4) Using it<a class="headerlink" href="#4-using-it" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">User</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">u</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">userRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">u</span><span class="p">);</span><span class="w">          </span><span class="c1">// Hibernate generates UUID in-memory and sends as 16 bytes</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">   </span><span class="c1">// you already have the ID before insert</span>
+</span></code></pre></div>
+<h3 id="5-handy-sql-when-querying-manually">5) Handy SQL when querying manually<a class="headerlink" href="#5-handy-sql-when-querying-manually" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">-- Find by a textual UUID</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">users</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID_TO_BIN</span><span class="p">(</span><span class="s1">&#39;550e8400-e29b-41d4-a716-446655440000&#39;</span><span class="p">);</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1">-- See the UUIDs in text form (thanks to the generated column)</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">uuid_txt</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="notes-options">Notes &amp; options<a class="headerlink" href="#notes-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Why <code>BINARY(16)</code>?</strong> 2× smaller than <code>CHAR(36)</code>, faster indexes.</li>
+<li>
+<p><strong>Time-ordered UUIDs:</strong> Random v4 UUIDs fragment B-trees. Prefer <strong>v7</strong> (time-ordered) if possible:</p>
+<ul>
+<li>Generate UUIDv7 in your code (library) and assign it to <code>id</code> before <code>save()</code>, or</li>
+<li>Use a Hibernate generator with a time-ordered style if your version supports it.</li>
+<li><strong>MySQL’s <code>UUID_TO_BIN(..., 1)</code> trick:</strong> When you generate IDs <strong>in SQL</strong> (not here), using <code>UUID_TO_BIN(uuid, 1)</code> stores bytes in a time-friendly order. If you go that route, be consistent and also read with <code>BIN_TO_UUID(id, 1)</code>. With Hibernate generating IDs as Java <code>UUID</code>, you typically stick to the straightforward mapping above (no swap flag).</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>
+</span></code></pre></div>
+<h2 id="faqs-uuid-vs-sequence-vs-identity">FAQs: UUID vs SEQUENCE vs IDENTITY<a class="headerlink" href="#faqs-uuid-vs-sequence-vs-identity" title="Permanent link">&para;</a></h2>
+<h3 id="1-when-to-pick-uuid-guid-hibernate-6">1) When to pick UUID / GUID (Hibernate 6)<a class="headerlink" href="#1-when-to-pick-uuid-guid-hibernate-6" title="Permanent link">&para;</a></h3>
+<p>Choose a UUID/GUID primary key when one or more of these are true:</p>
+<ul>
+<li><strong>You need to generate IDs outside the DB</strong> (e.g., in services, message producers, offline/mobile clients) and later upsert/merge in the DB.</li>
+<li><strong>You have multiple writer nodes / multi-region</strong> and want globally unique IDs without coordinating with the DB first.</li>
+<li><strong>You want to avoid an extra DB round-trip</strong> per ID assignment (helpful when using <code>IDENTITY</code>, or when you don’t want to call a sequence).</li>
+<li><strong>You want stable IDs before persistence</strong> (useful for building relationships in memory, emitting events, logs, URLs, etc.).</li>
+<li><strong>You’re using an event-driven or CQRS setup</strong> and need IDs as soon as aggregates are created.</li>
+</ul>
+<h4 id="trade-offs">Trade-offs<a class="headerlink" href="#trade-offs" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Pros:</strong> globally unique across services, no DB trip to get an ID, easy replication/sharding, IDs exist before insert.</li>
+<li><strong>Cons:</strong> bigger indexes; random UUIDs (v4) <strong>fragment B-trees</strong> and bloat indexes. Prefer <strong>time-ordered</strong> IDs (UUIDv7, v1, ULID-style) to keep inserts mostly append-only and indexes tighter.</li>
+</ul>
+<h4 id="practical-mapping-tips">Practical mapping tips<a class="headerlink" href="#practical-mapping-tips" title="Permanent link">&para;</a></h4>
+<ul>
+<li>PostgreSQL: use <code>uuid</code> column type.</li>
+<li>MySQL/MariaDB: use <code>BINARY(16)</code> and store packed UUIDs (don’t store as 36-char strings).</li>
+<li>SQL Server: <code>UNIQUEIDENTIFIER</code>.</li>
+<li>Oracle: <code>RAW(16)</code>.</li>
+</ul>
+<p>Hibernate 6 examples:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// Postgres-friendly</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nd">@Id</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nd">@org.hibernate.annotations.UuidGenerator</span><span class="w"> </span><span class="c1">// Hibernate 6</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nd">@org.hibernate.annotations.JdbcTypeCode</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="na">hibernate</span><span class="p">.</span><span class="na">type</span><span class="p">.</span><span class="na">SqlTypes</span><span class="p">.</span><span class="na">UUID</span><span class="p">)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nd">@Column</span><span class="p">(</span><span class="n">columnDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;uuid&quot;</span><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kd">private</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1">// MySQL-friendly (packed)</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="nd">@Id</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="nd">@org.hibernate.annotations.UuidGenerator</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="nd">@org.hibernate.annotations.JdbcTypeCode</span><span class="p">(</span><span class="n">org</span><span class="p">.</span><span class="na">hibernate</span><span class="p">.</span><span class="na">type</span><span class="p">.</span><span class="na">SqlTypes</span><span class="p">.</span><span class="na">BINARY</span><span class="p">)</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="nd">@Column</span><span class="p">(</span><span class="n">columnDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BINARY(16)&quot;</span><span class="p">)</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="kd">private</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<p>(If your Hibernate version exposes a “time” style for the generator, use it to get time-ordered UUIDs.)</p>
+<hr />
+<h3 id="2-if-we-can-pre-order-ids-with-sequence-why-do-we-need-identity-can-we-pre-fetch-50-and-use-them-one-by-one">2) “If we can pre-order IDs with SEQUENCE, why do we need IDENTITY? Can we pre-fetch 50 and use them one by one?”<a class="headerlink" href="#2-if-we-can-pre-order-ids-with-sequence-why-do-we-need-identity-can-we-pre-fetch-50-and-use-them-one-by-one" title="Permanent link">&para;</a></h3>
+<h4 id="yes-you-can-pre-fetch-and-reuse">Yes, you can pre-fetch and reuse<a class="headerlink" href="#yes-you-can-pre-fetch-and-reuse" title="Permanent link">&para;</a></h4>
+<p>With <strong><code>GenerationType.SEQUENCE</code></strong> plus <code>@SequenceGenerator(allocationSize = 50)</code>, Hibernate will fetch a <strong>block of 50 IDs</strong> from the DB sequence and <strong>cache them in memory</strong>. It then consumes those IDs:</p>
+<ul>
+<li>for <strong>batched inserts</strong>, or</li>
+<li>for <strong>individual inserts over time</strong>, <strong>until the block is exhausted</strong>,</li>
+<li>then it fetches the next block automatically.</li>
+</ul>
+<p>This is <strong>not</strong> limited to a single “batch operation”. It’s a pool that gets used as your app persists entities. Note you may see <strong>gaps</strong> (e.g., app restarts with unused IDs in the block).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nd">@Id</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nd">@SequenceGenerator</span><span class="p">(</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_seq&quot;</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="n">sequenceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_id_seq&quot;</span><span class="p">,</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="n">allocationSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="c1">// prefetch 50 at a time</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="p">)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">SEQUENCE</span><span class="p">,</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;user_seq&quot;</span><span class="p">)</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<h4 id="so-why-use-identity-at-all">So… why use IDENTITY at all?<a class="headerlink" href="#so-why-use-identity-at-all" title="Permanent link">&para;</a></h4>
+<p><code>IDENTITY</code> remains common because:</p>
+<ul>
+<li><strong>Database choice / legacy:</strong> MySQL and SQL Server schemas traditionally rely on identity/auto-increment. Many shops, tools, and DBAs default to it.</li>
+<li><strong>Simplicity:</strong> No separate sequence object to manage. One column with <code>AUTO_INCREMENT</code>/<code>IDENTITY</code>.</li>
+<li><strong>Existing systems &amp; tooling:</strong> ETL, ORM defaults, migration scripts, audit triggers, etc., may expect identity columns.</li>
+<li><strong>DB feature set:</strong> Some environments don’t use sequences; identity is the “native” and operationally familiar option.</li>
+</ul>
+<p>Downside: with <code>IDENTITY</code>, Hibernate learns the key <strong>after</strong> each insert, which weakens true JDBC insert batching. (That’s exactly why sequences or UUIDs tend to perform better for heavy write loads.)</p>
+<hr />
+<h3 id="quick-chooser">Quick chooser<a class="headerlink" href="#quick-chooser" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>High write throughput on Postgres/Oracle:</strong> <code>SEQUENCE</code> + <code>allocationSize</code> (pooled) + JDBC batching.</li>
+<li><strong>Multi-service / offline ID generation / pre-persistence IDs:</strong> <strong>UUID</strong> (prefer time-ordered variants).</li>
+<li><strong>Legacy MySQL/SQL Server or simplest ops:</strong> <strong>IDENTITY</strong> is fine; accept weaker batching.</li>
+<li><strong>Maximum portability to odd DBs:</strong> <code>TABLE</code> (understand it’s slower).</li>
+</ul>
+<h3 id="extra-tips">Extra tips<a class="headerlink" href="#extra-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Don’t rely on PK order for business sorting; use created_at or a business key.</li>
+<li>Expect <strong>gaps</strong> with any strategy (rollbacks, pooling, restarts).</li>
+<li>If you use UUIDs on MySQL, store as <code>BINARY(16)</code> and consider time-ordered UUIDs (e.g., v7) to reduce index fragmentation.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../_meta/blueprint/" class="btn btn-neutral float-left" title="Spring Annotations — Future Blueprint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../rest/controllers-and-mapping/" class="btn btn-neutral float-right" title="Spring Controller Annotations & Mapping">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../_meta/blueprint/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../rest/controllers-and-mapping/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../../..";</script>
+    <script src="../../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../../js/theme.js"></script>
+      <script src="../../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

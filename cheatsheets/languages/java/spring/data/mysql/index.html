@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/data/mysql/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>MySQL setup - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MySQL setup";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/data/mysql.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/data/mysql/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Data</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">MySQL setup</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-add-mysql-driver">1. Add MySQL driver</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-configure-datasource">2. Configure datasource</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-schema-management-options">3. Schema management options</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#a-jpa-auto-ddl-fast-dev">A) JPA auto-DDL (fast dev)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#b-sql-scripts-deterministic-app-driven">B) SQL scripts (deterministic, app-driven)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#c-database-migrations-best-for-real-projects">C) Database migrations (best for real projects)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-using-db-users">4. Using DB users</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-testing-the-connection">5. Testing the connection</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#spring-boot-mysql-schema-strategy-cheatsheet">Spring Boot × MySQL schema strategy cheatsheet</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#tldr-recommendation">TL;DR recommendation</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#option-a-jpa-auto-ddl">Option A — JPA auto-DDL</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#option-b-spring-sql-scripts-schemasql-datasql">Option B — Spring SQL scripts (schema.sql, data.sql)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#option-c-migrations-flyway-liquibase">Option C — Migrations (Flyway / Liquibase) ✅</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#which-to-pick-by-environment">Which to pick by environment</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#typical-profile-files-quick-copy">Typical profile files (quick copy)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#common-workflows">Common workflows</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#starting-from-scratch-solo-dev">Starting from scratch (solo dev)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#teamci-from-day-1">Team/CI from day 1</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#troubleshooting-tips">Troubleshooting tips</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#quick-decision-helper">Quick decision helper</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Data</li>
+      <li class="breadcrumb-item active">MySQL setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/data/mysql.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-boot-mysql-running-in-docker">Spring Boot + MySQL (running in Docker)<a class="headerlink" href="#spring-boot-mysql-running-in-docker" title="Permanent link">&para;</a></h1>
+<p>👉 Prereq: MySQL container is up (see [Docker setup link]).</p>
+<hr />
+<h2 id="1-add-mysql-driver">1. Add MySQL driver<a class="headerlink" href="#1-add-mysql-driver" title="Permanent link">&para;</a></h2>
+<p><strong>Maven (pom.xml):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.mysql<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>mysql-connector-j<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></div>
+<p><strong>Gradle (build.gradle):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">implementation</span><span class="w"> </span><span class="s1">&#39;com.mysql:mysql-connector-j&#39;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="2-configure-datasource">2. Configure datasource<a class="headerlink" href="#2-configure-datasource" title="Permanent link">&para;</a></h2>
+<p><strong><code>src/main/resources/application.properties</code></strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://localhost:3306/appdb</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">appuser</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">apppass</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">spring.datasource.driver-class-name</span><span class="o">=</span><span class="s">com.mysql.cj.jdbc.Driver</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Choose ONE ddl-auto option (see below)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Tells Hibernate which SQL dialect to use so it can generate the correct SQL syntax</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># (MySQL 8 has features and keywords not in older versions, so use MySQL8Dialect).</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.MySQL8Dialect</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="na">spring.jpa.show-sql</span><span class="o">=</span><span class="s">true   # optional, for debugging</span>
+</span></code></pre></div>
+<p><strong>Alternative (YAML):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:mysql://localhost:3306/appdb</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appuser</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apppass</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.mysql.cj.jdbc.Driver</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">jpa</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">hibernate</span><span class="p">:</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">ddl-auto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span><span class="w">   </span><span class="c1"># or validate/create-drop</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nt">show-sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nt">properties</span><span class="p">:</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="nt">hibernate</span><span class="p">:</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.hibernate.dialect.MySQL8Dialect</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3-schema-management-options">3. Schema management options<a class="headerlink" href="#3-schema-management-options" title="Permanent link">&para;</a></h2>
+<p>Spring Boot can handle schema in several ways. Pick <strong>one strategy</strong>:</p>
+<h3 id="a-jpa-auto-ddl-fast-dev">A) JPA auto-DDL (fast dev)<a class="headerlink" href="#a-jpa-auto-ddl-fast-dev" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span></code></pre></div>
+<ul>
+<li><strong>update</strong> → tries to evolve schema without dropping data (dev-friendly).</li>
+<li><strong>create-drop</strong> → creates fresh schema on start, drops on shutdown (tests only).</li>
+<li><strong>create</strong> → drop + create on each startup.</li>
+<li><strong>validate</strong> → just checks schema matches entities; fails if not.</li>
+</ul>
+<hr />
+<h3 id="b-sql-scripts-deterministic-app-driven">B) SQL scripts (deterministic, app-driven)<a class="headerlink" href="#b-sql-scripts-deterministic-app-driven" title="Permanent link">&para;</a></h3>
+<p>Put files in <code>src/main/resources/</code>:</p>
+<ul>
+<li><code>schema.sql</code> → runs first</li>
+<li><code>data.sql</code> → runs after schema</li>
+</ul>
+<p><strong>Example</strong> <code>schema.sql</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Example</strong> <code>data.sql</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;admin@example.com&#39;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Enable init:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">none</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">spring.sql.init.mode</span><span class="o">=</span><span class="s">always</span>
+</span></code></pre></div>
+<hr />
+<h3 id="c-database-migrations-best-for-real-projects">C) Database migrations (best for real projects)<a class="headerlink" href="#c-database-migrations-best-for-real-projects" title="Permanent link">&para;</a></h3>
+<p>Use <strong>Flyway</strong> or <strong>Liquibase</strong> for versioned migrations.</p>
+<p><strong>Flyway example (recommended):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">none</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="na">spring.flyway.enabled</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="na">spring.flyway.locations</span><span class="o">=</span><span class="s">classpath:db/migration</span>
+</span></code></pre></div>
+<p>Place migrations in:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>src/main/resources/db/migration/V1__init.sql
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>src/main/resources/db/migration/V2__add_orders.sql
+</span></code></pre></div>
+<hr />
+<h2 id="4-using-db-users">4. Using DB users<a class="headerlink" href="#4-using-db-users" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <code>appuser/apppass</code> (created by Docker setup) in <code>application.properties</code>.</li>
+<li>Don’t use <code>root</code> for apps; keep root only for DB admin.</li>
+<li>If you add new users (e.g., <code>reporter</code>), just switch the credentials.</li>
+</ul>
+<hr />
+<h2 id="5-testing-the-connection">5. Testing the connection<a class="headerlink" href="#5-testing-the-connection" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Run <code>docker compose ps</code> → MySQL container must show as running.</li>
+<li>In Spring Boot logs you should see:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>...
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>HikariPool-1 - Start completed.
+</span></code></pre></div>
+* Try a simple JPA repository or JDBC query to confirm.</p>
+<hr />
+<p>✅ With this config:</p>
+<ul>
+<li>Spring Boot talks to the MySQL container via <code>localhost:3306</code>.</li>
+<li>You can decide whether JPA builds schema, you run SQL scripts, or Flyway manages migrations.</li>
+<li>Everything stays local, consistent, and reproducible.</li>
+</ul>
+<h2 id="spring-boot-mysql-schema-strategy-cheatsheet">Spring Boot × MySQL schema strategy cheatsheet<a class="headerlink" href="#spring-boot-mysql-schema-strategy-cheatsheet" title="Permanent link">&para;</a></h2>
+<h3 id="tldr-recommendation">TL;DR recommendation<a class="headerlink" href="#tldr-recommendation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Dev (local):</strong> JPA <strong><code>update</code></strong> or <strong>Flyway</strong></li>
+<li><strong>Test (integration):</strong> <strong><code>create-drop</code></strong> (throwaway DB) or Flyway clean+migrate</li>
+<li><strong>Prod:</strong> <strong>Flyway/Liquibase</strong> (versioned migrations). Avoid auto-DDL.</li>
+</ul>
+<hr />
+<h3 id="option-a-jpa-auto-ddl">Option A — JPA auto-DDL<a class="headerlink" href="#option-a-jpa-auto-ddl" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong> Hibernate creates/changes tables from your entities.</p>
+<p><strong>Use when</strong></p>
+<ul>
+<li>Fast local prototyping.</li>
+<li>Early-stage projects.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Zero SQL to write.</li>
+<li>Very quick iteration.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Not deterministic across environments.</li>
+<li>Risky in prod (unexpected alters/drops, subtle diffs).</li>
+</ul>
+<p><strong>Key settings</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># application-dev.properties</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update     # dev-friendly</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="na">spring.jpa.show-sql</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.MySQL8Dialect</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># application-test.properties</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">create-drop  # ephemeral DB for tests</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># application-prod.properties</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">validate     # guardrails only</span>
+</span></code></pre></div>
+<p><strong>Guardrails</strong></p>
+<ul>
+<li>Never use <code>create</code>/<code>create-drop</code> in prod.</li>
+<li>Switch to <code>validate</code> before deploying.</li>
+</ul>
+<hr />
+<h3 id="option-b-spring-sql-scripts-schemasql-datasql">Option B — Spring SQL scripts (<code>schema.sql</code>, <code>data.sql</code>)<a class="headerlink" href="#option-b-spring-sql-scripts-schemasql-datasql" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong> Spring runs <code>schema.sql</code> then <code>data.sql</code> at startup.</p>
+<p><strong>Use when</strong></p>
+<ul>
+<li>You want deterministic startup without a migration tool.</li>
+<li>Simple apps or demos.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Clear order: schema → data.</li>
+<li>Easy to reason about.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>No versioning/history out of the box.</li>
+<li>Harder to evolve schema over time.</li>
+</ul>
+<p><strong>Key settings</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># disable Hibernate DDL; let SQL files run</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">none</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="na">spring.sql.init.mode</span><span class="o">=</span><span class="s">always     # or &quot;embedded&quot; (defaults for H2)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="na">spring.sql.init.encoding</span><span class="o">=</span><span class="s">UTF-8</span>
+</span></code></pre></div>
+<p><strong>File layout</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>src/main/resources/schema.sql
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>src/main/resources/data.sql
+</span></code></pre></div>
+<p><strong>Tip</strong></p>
+<ul>
+<li>Make inserts idempotent when possible (<code>ON DUPLICATE KEY UPDATE</code>) so app restarts don’t explode.</li>
+</ul>
+<hr />
+<h3 id="option-c-migrations-flyway-liquibase">Option C — Migrations (Flyway / Liquibase) ✅<a class="headerlink" href="#option-c-migrations-flyway-liquibase" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong> Versioned, incremental SQL (or YAML/XML) migrations, applied automatically.</p>
+<p><strong>Use when</strong></p>
+<ul>
+<li>Teamwork, CI/CD, multiple environments.</li>
+<li>Long-lived apps with auditable schema changes.</li>
+</ul>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Deterministic &amp; repeatable across envs.</li>
+<li>Easy rollback strategies (by version).</li>
+<li>Plays great with CI/CD.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Slightly more setup.</li>
+<li>Requires discipline (one migration per change).</li>
+</ul>
+<p><strong>Flyway example</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">none</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="na">spring.flyway.enabled</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="na">spring.flyway.locations</span><span class="o">=</span><span class="s">classpath:db/migration</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Optional but handy:</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># spring.flyway.clean-disabled=true      # protect prod</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1"># spring.flyway.baseline-on-migrate=true # adopt existing DBs</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>src/main/resources/db/migration/
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a> ├─ V1__init.sql
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a> ├─ V2__add_orders.sql
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a> └─ V3__seed_lookup_data.sql
+</span></code></pre></div>
+<p><strong>Liquibase (alt)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">none</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="na">spring.liquibase.change-log</span><span class="o">=</span><span class="s">classpath:db/changelog/db.changelog-master.yaml</span>
+</span></code></pre></div>
+<hr />
+<h3 id="which-to-pick-by-environment">Which to pick by environment<a class="headerlink" href="#which-to-pick-by-environment" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Recommended</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dev (local)</strong></td>
+<td>JPA <code>update</code> <strong>or</strong> Flyway</td>
+<td>Speed vs. discipline. Flyway mirrors prod behavior.</td>
+</tr>
+<tr>
+<td><strong>Test (integration)</strong></td>
+<td><code>create-drop</code> <strong>or</strong> Flyway clean+migrate</td>
+<td>Fresh DB per run; predictable tests.</td>
+</tr>
+<tr>
+<td><strong>Prod</strong></td>
+<td><strong>Flyway/Liquibase</strong> + <code>ddl-auto=validate</code></td>
+<td>Versioned, controlled changes; fail fast on mismatches.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="typical-profile-files-quick-copy">Typical profile files (quick copy)<a class="headerlink" href="#typical-profile-files-quick-copy" title="Permanent link">&para;</a></h3>
+<p><strong><code>application-dev.properties</code></strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://localhost:3306/appdb</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">appuser</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">apppass</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="na">spring.jpa.show-sql</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.MySQL8Dialect</span>
+</span></code></pre></div>
+<p><strong><code>application-test.properties</code></strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://localhost:3306/appdb</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">appuser</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">apppass</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">create-drop</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.MySQL8Dialect</span>
+</span></code></pre></div>
+<p><strong><code>application-prod.properties</code></strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://localhost:3306/appdb</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">${DB_USER}</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">${DB_PASS}</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">validate</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="na">spring.jpa.properties.hibernate.dialect</span><span class="o">=</span><span class="s">org.hibernate.dialect.MySQL8Dialect</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="na">spring.flyway.enabled</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="na">spring.flyway.locations</span><span class="o">=</span><span class="s">classpath:db/migration</span>
+</span></code></pre></div>
+<hr />
+<h3 id="common-workflows">Common workflows<a class="headerlink" href="#common-workflows" title="Permanent link">&para;</a></h3>
+<h4 id="starting-from-scratch-solo-dev">Starting from scratch (solo dev)<a class="headerlink" href="#starting-from-scratch-solo-dev" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Begin with <strong>JPA <code>update</code></strong>.</li>
+<li>When entities stabilize, <strong>generate SQL</strong> (from DB or JPA tools) and move to <strong>Flyway V1</strong>.</li>
+<li>Set <code>ddl-auto=validate</code>, build new features with <strong>V2+, V3+</strong> migrations.</li>
+</ol>
+<h4 id="teamci-from-day-1">Team/CI from day 1<a class="headerlink" href="#teamci-from-day-1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Start with <strong>Flyway</strong>.</li>
+<li>Every schema change = new <code>Vx__description.sql</code>.</li>
+<li>CI runs app → Flyway migrates → integration tests run.</li>
+</ul>
+<hr />
+<h3 id="troubleshooting-tips">Troubleshooting tips<a class="headerlink" href="#troubleshooting-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Connection refused?</strong> Ensure Docker MySQL is up and mapped (<code>3306:3306</code>), and your URL matches the port.</li>
+<li><strong>Timezone warnings?</strong> Add <code>serverTimezone=UTC</code> only if you use older drivers; with modern MySQL 8 + <code>TZ</code> set in the container, you typically don’t need it.</li>
+<li><strong>Access denied?</strong> Use app-level user (not root). Confirm grants and password.</li>
+<li><strong>Migrations failing in prod?</strong> Enable <code>baseline-on-migrate</code> to adopt an existing DB; disable <code>clean</code> in prod.</li>
+</ul>
+<hr />
+<h3 id="quick-decision-helper">Quick decision helper<a class="headerlink" href="#quick-decision-helper" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Need <strong>speed</strong> today? → JPA <code>update</code>.</li>
+<li>Need <strong>consistency</strong> tomorrow? → Flyway/Liquibase.</li>
+<li>Need <strong>repeatable seeds</strong> for demos? → <code>schema.sql</code> + <code>data.sql</code> or Flyway with a <code>V2__seed.sql</code>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../h2/" class="btn btn-neutral float-left" title="H2 setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../layers/core-flow/" class="btn btn-neutral float-right" title="Core Flow">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../h2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../layers/core-flow/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

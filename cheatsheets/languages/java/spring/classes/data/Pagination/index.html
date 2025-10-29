@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/data/Pagination/" />
+      <link rel="shortcut icon" href="../../../../../../../img/favicon.ico" />
+    <title>Pagination - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pagination";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/classes/data/Pagination.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/classes/data/Pagination/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Classes</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" >Data</a>
+    <ul class="current">
+                <li class="toctree-l6 current"><a class="reference internal current" href="#">Pagination</a>
+    <ul class="current">
+    <li class="toctree-l7"><a class="reference internal" href="#tldr">TL;DR</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#core-types-where-they-live">Core Types (where they live)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#building-a-pagerequest">Building a PageRequest</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#repository-patterns">Repository patterns</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#controller-patterns">Controller patterns</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#1-return-paget-directly-quickest">1) Return Page&lt;T&gt; directly (quickest)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#2-wrap-into-dto-meta-client-friendly">2) Wrap into DTO + meta (client-friendly)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#3-add-pagination-headers-for-tablesinfinite-scroll-uis">3) Add pagination headers (for tables/infinite scroll UIs)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#sorting-safe-explicit">Sorting: safe, explicit</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#validating-page-size">Validating page / size</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#mapping-entities-dtos-without-n1-drama">Mapping Entities → DTOs (without N+1 drama)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#slicet-for-infinite-scroll">Slice&lt;T&gt; for infinite scroll</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#performance-notes-dont-learn-these-the-hard-way">Performance notes (don’t learn these the hard way)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#error-handling-edge-cases">Error handling &amp; edge cases</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#tests-webmvc">Tests (WebMvc)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#anti-patterns-to-avoid">Anti-patterns to avoid</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#copy-paste-templates">Copy-paste templates</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#when-to-graduate-beyond-paget">When to graduate beyond Page&lt;T&gt;</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#naming-recap">Naming recap</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Classes</li>
+          <li class="breadcrumb-item">Data</li>
+      <li class="breadcrumb-item active">Pagination</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/classes/data/Pagination.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-data-pagination-page-pageable-pagerequest-cheatsheet">Spring Data Pagination — <code>Page</code>, <code>Pageable</code>, <code>PageRequest</code> (Cheatsheet)<a class="headerlink" href="#spring-data-pagination-page-pageable-pagerequest-cheatsheet" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Offset pagination done right. Clean endpoints, predictable metadata, no hand-rolled foot-guns.</p>
+</blockquote>
+<hr />
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>Page&lt;T&gt;</code></strong> = results <strong>+</strong> metadata (total, pages, etc.).</li>
+<li><strong><code>Pageable</code></strong> = request (page, size, sort).</li>
+<li><strong><code>PageRequest.of(page, size, sort...)</code></strong> builds a <code>Pageable</code>.</li>
+<li><strong><code>Slice&lt;T&gt;</code></strong> = cheaper cousin when you don’t need totals.</li>
+</ul>
+<hr />
+<h2 id="core-types-where-they-live">Core Types (where they live)<a class="headerlink" href="#core-types-where-they-live" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.domain.Page</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.domain.Pageable</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.domain.PageRequest</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.domain.Sort</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="building-a-pagerequest">Building a <code>PageRequest</code><a class="headerlink" href="#building-a-pagerequest" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">requestedPage</span><span class="p">);</span><span class="w">     </span><span class="c1">// zero-based</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">requestedSize</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// clamp (e.g., 1..100)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">Sort</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">Sort</span><span class="p">.</span><span class="na">Order</span><span class="p">.</span><span class="na">desc</span><span class="p">(</span><span class="s">&quot;createdAt&quot;</span><span class="p">),</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">Sort</span><span class="p">.</span><span class="na">Order</span><span class="p">.</span><span class="na">asc</span><span class="p">(</span><span class="s">&quot;lastName&quot;</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">PageRequest</span><span class="w"> </span><span class="n">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">sort</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Common one-liners:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span><span class="s">&quot;lastName&quot;</span><span class="p">).</span><span class="na">ascending</span><span class="p">());</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span><span class="n">Sort</span><span class="p">.</span><span class="na">Order</span><span class="p">.</span><span class="na">desc</span><span class="p">(</span><span class="s">&quot;createdAt&quot;</span><span class="p">)));</span>
+</span></code></pre></div>
+<hr />
+<h2 id="repository-patterns">Repository patterns<a class="headerlink" href="#repository-patterns" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ContactRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Contact</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">(</span><span class="n">Pageable</span><span class="w"> </span><span class="n">pageable</span><span class="p">);</span><span class="w"> </span><span class="c1">// built-in</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByLastNameContainingIgnoreCase</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">Pageable</span><span class="w"> </span><span class="n">pageable</span><span class="p">);</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="controller-patterns">Controller patterns<a class="headerlink" href="#controller-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="1-return-paget-directly-quickest">1) Return <code>Page&lt;T&gt;</code> directly (quickest)<a class="headerlink" href="#1-return-paget-directly-quickest" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nd">@PageableDefault</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Pageable</span><span class="w"> </span><span class="n">pageable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">pageable</span><span class="p">);</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// supports: ?page=0&amp;size=50&amp;sort=lastName,desc&amp;sort=createdAt,asc</span>
+</span></code></pre></div>
+<h3 id="2-wrap-into-dto-meta-client-friendly">2) Wrap into DTO + meta (client-friendly)<a class="headerlink" href="#2-wrap-into-dto-meta-client-friendly" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">record</span> <span class="nc">PageMeta</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">totalElements</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">totalPages</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">record</span> <span class="nc">PageResponse</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">,</span><span class="w"> </span><span class="n">PageMeta</span><span class="w"> </span><span class="n">meta</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">PageResponse</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="n">PageRequest</span><span class="w"> </span><span class="n">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">),</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span><span class="n">Sort</span><span class="p">.</span><span class="na">Order</span><span class="p">.</span><span class="na">desc</span><span class="p">(</span><span class="s">&quot;createdAt&quot;</span><span class="p">))</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">pr</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">ContactDto</span><span class="p">::</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PageResponse</span><span class="o">&lt;&gt;</span><span class="p">(</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">      </span><span class="n">p</span><span class="p">.</span><span class="na">getContent</span><span class="p">(),</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">PageMeta</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getNumber</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getSize</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getTotalElements</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getTotalPages</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">isFirst</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">isLast</span><span class="p">())</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="3-add-pagination-headers-for-tablesinfinite-scroll-uis">3) Add pagination headers (for tables/infinite scroll UIs)<a class="headerlink" href="#3-add-pagination-headers-for-tablesinfinite-scroll-uis" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">Pageable</span><span class="w"> </span><span class="n">pageable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">pageable</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">ContactDto</span><span class="p">::</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">()</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="p">.</span><span class="na">header</span><span class="p">(</span><span class="s">&quot;X-Total-Count&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getTotalElements</span><span class="p">()))</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="p">.</span><span class="na">header</span><span class="p">(</span><span class="s">&quot;X-Total-Pages&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getTotalPages</span><span class="p">()))</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="p">.</span><span class="na">header</span><span class="p">(</span><span class="s">&quot;X-Page&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getNumber</span><span class="p">()))</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="p">.</span><span class="na">header</span><span class="p">(</span><span class="s">&quot;X-Size&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getSize</span><span class="p">()))</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Optional: RFC-5988 <code>Link</code> header for navigation:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Link: &lt;/contacts?page=0&amp;size=20&gt;; rel=&quot;first&quot;,
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>      &lt;/contacts?page=3&amp;size=20&gt;; rel=&quot;prev&quot;,
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>      &lt;/contacts?page=5&amp;size=20&gt;; rel=&quot;next&quot;,
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>      &lt;/contacts?page=12&amp;size=20&gt;; rel=&quot;last&quot;
+</span></code></pre></div>
+<hr />
+<h2 id="sorting-safe-explicit">Sorting: safe, explicit<a class="headerlink" href="#sorting-safe-explicit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Sort</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="n">Sort</span><span class="p">.</span><span class="na">Order</span><span class="p">.</span><span class="na">desc</span><span class="p">(</span><span class="s">&quot;createdAt&quot;</span><span class="p">).</span><span class="na">ignoreCase</span><span class="p">(),</span><span class="w"> </span><span class="c1">// ignoreCase only applies to strings</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="n">Sort</span><span class="p">.</span><span class="na">Order</span><span class="p">.</span><span class="na">asc</span><span class="p">(</span><span class="s">&quot;lastName&quot;</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">);</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">PageRequest</span><span class="w"> </span><span class="n">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">sort</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Multiple <code>sort</code> params are supported out of the box:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/contacts?sort=lastName,desc&amp;sort=createdAt,asc
+</span></code></pre></div>
+<hr />
+<h2 id="validating-page-size">Validating <code>page</code> / <code>size</code><a class="headerlink" href="#validating-page-size" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>page</code> is <strong>zero-based</strong>.</li>
+<li>Clamp <code>size</code> to a sane range (e.g., 1..100) to avoid DOS-by-oversized pages.</li>
+<li>Consider a global clamp:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@RestControllerAdvice</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">class</span> <span class="nc">PagingAdvice</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nd">@InitBinder</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="n">WebDataBinder</span><span class="w"> </span><span class="n">binder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">binder</span><span class="p">.</span><span class="na">registerCustomEditor</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;size&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PropertyEditorSupport</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAsText</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="n">setValue</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">));</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="p">});</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="mapping-entities-dtos-without-n1-drama">Mapping Entities → DTOs (without N+1 drama)<a class="headerlink" href="#mapping-entities-dtos-without-n1-drama" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Page</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">pr</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">ContactDto</span><span class="p">::</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">page</span><span class="p">.</span><span class="na">getContent</span><span class="p">();</span>
+</span></code></pre></div>
+<p>If DTO needs joined fields, prefer JPA projections or fetch joins in the repository to avoid lazy loading per row.</p>
+<hr />
+<h2 id="slicet-for-infinite-scroll"><code>Slice&lt;T&gt;</code> for infinite scroll<a class="headerlink" href="#slicet-for-infinite-scroll" title="Permanent link">&para;</a></h2>
+<ul>
+<li>No <code>COUNT(*)</code> → faster on large datasets.</li>
+<li>Still has <code>hasNext()</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Slice</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="n">slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAllByActiveTrue</span><span class="p">(</span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">));</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slice</span><span class="p">.</span><span class="na">hasNext</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h2 id="performance-notes-dont-learn-these-the-hard-way">Performance notes (don’t learn these the hard way)<a class="headerlink" href="#performance-notes-dont-learn-these-the-hard-way" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>COUNT(*) can dominate.</strong> On huge tables, <code>Page&lt;T&gt;</code> can be expensive. If you don’t need totals, switch to <code>Slice&lt;T&gt;</code>.</li>
+<li><strong>Index your sort keys.</strong> Sorting on unindexed columns = slow.</li>
+<li><strong>Deterministic sorting.</strong> Add a tiebreaker (e.g., <code>createdAt desc, id desc</code>) for stable paging.</li>
+<li><strong>Offset pagination drifts</strong> when rows are inserted/deleted between pages. For ultra-stable feeds, consider <strong>keyset (seek) pagination</strong> later.</li>
+</ul>
+<hr />
+<h2 id="error-handling-edge-cases">Error handling &amp; edge cases<a class="headerlink" href="#error-handling-edge-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Out-of-range page numbers still return <code>content: []</code> with valid meta. That’s fine.</li>
+<li>Do <strong>not</strong> return 204 for an empty page; clients expect paging metadata.</li>
+<li>Validate sort properties against a whitelist if you expose user-driven sorts.</li>
+</ul>
+<hr />
+<h2 id="tests-webmvc">Tests (WebMvc)<a class="headerlink" href="#tests-webmvc" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@WebMvcTest</span><span class="p">(</span><span class="n">ContactResource</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">class</span> <span class="nc">ContactResourcePagingTests</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nd">@Autowired</span><span class="w"> </span><span class="n">MockMvc</span><span class="w"> </span><span class="n">mvc</span><span class="p">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nd">@MockBean</span><span class="w"> </span><span class="n">ContactRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nd">@Test</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">list_paginated_ok</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="n">PageRequest</span><span class="w"> </span><span class="n">pr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">).</span><span class="na">ascending</span><span class="p">());</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PageImpl</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="mi">1L</span><span class="p">,</span><span class="s">&quot;A&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="mi">2L</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">pr</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="n">when</span><span class="p">(</span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">Pageable</span><span class="p">.</span><span class="na">class</span><span class="p">))).</span><span class="na">thenReturn</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="n">mvc</span><span class="p">.</span><span class="na">perform</span><span class="p">(</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;/contacts?page=0&amp;size=2&amp;sort=id,asc&quot;</span><span class="p">))</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">       </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">status</span><span class="p">().</span><span class="na">isOk</span><span class="p">())</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">       </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">jsonPath</span><span class="p">(</span><span class="s">&quot;$.items.length()&quot;</span><span class="p">).</span><span class="na">value</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">       </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">jsonPath</span><span class="p">(</span><span class="s">&quot;$.meta.totalElements&quot;</span><span class="p">).</span><span class="na">value</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="anti-patterns-to-avoid">Anti-patterns to avoid<a class="headerlink" href="#anti-patterns-to-avoid" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Building <code>PageRequest</code> from raw strings without clamping.</li>
+<li>Returning <code>List&lt;T&gt;</code> with separate “count” endpoint — brittle and chatty.</li>
+<li>Accepting a comma-delimited <code>sort</code> string and manually parsing it when <code>Pageable</code> already handles multi-sort.</li>
+<li>Doing DTO mapping <em>after</em> the transaction closes if you rely on lazy associations.</li>
+</ul>
+<hr />
+<h2 id="copy-paste-templates">Copy-paste templates<a class="headerlink" href="#copy-paste-templates" title="Permanent link">&para;</a></h2>
+<p><strong>Simple endpoint with <code>Pageable</code> injection</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nd">@PageableDefault</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Pageable</span><span class="w"> </span><span class="n">pageable</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">pageable</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">ContactDto</span><span class="p">::</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Explicit clamped params + DTO wrapper</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">PageResponse</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">);</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">(</span><span class="n">PageRequest</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">Sort</span><span class="p">.</span><span class="na">by</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">).</span><span class="na">ascending</span><span class="p">()))</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">                           </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">ContactDto</span><span class="p">::</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PageResponse</span><span class="o">&lt;&gt;</span><span class="p">(</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">      </span><span class="n">p</span><span class="p">.</span><span class="na">getContent</span><span class="p">(),</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">PageMeta</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">getNumber</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getSize</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getTotalElements</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getTotalPages</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">isFirst</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">isLast</span><span class="p">())</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">  </span><span class="p">));</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="when-to-graduate-beyond-paget">When to graduate beyond <code>Page&lt;T&gt;</code><a class="headerlink" href="#when-to-graduate-beyond-paget" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Timelines / streams</strong> where order is append-only → <strong>keyset (seek) pagination</strong>.</li>
+<li><strong>Very large datasets</strong> where global counts are expensive → <strong>Slice<T></strong> or <strong>approximate counts</strong>.</li>
+<li><strong>API contracts</strong> that need stable cursors → <strong>cursor pagination</strong>.</li>
+</ul>
+<hr />
+<h3 id="naming-recap">Naming recap<a class="headerlink" href="#naming-recap" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use: <code>cheatsheets/frameworks/spring/data/pageable.md</code></li>
+<li>If you plan sections like <code>slice.md</code>, <code>keyset-pagination.md</code>, keep this file focused on offset paging; otherwise rename to <code>pagination.md</code> and add sections over time.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../core/ApplicationContext/" class="btn btn-neutral float-left" title="ApplicationContext"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../web/http/HttpEntity/" class="btn btn-neutral float-right" title="HttpEntity<T>">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../core/ApplicationContext/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../web/http/HttpEntity/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../../..";</script>
+    <script src="../../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../../js/theme.js"></script>
+      <script src="../../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

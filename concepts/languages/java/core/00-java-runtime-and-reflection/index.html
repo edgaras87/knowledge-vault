@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/concepts/languages/java/core/00-java-runtime-and-reflection/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>Java Runtime & Reflection - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Java Runtime \u0026 Reflection";
+        var mkdocs_page_input_path = "concepts/languages/java/core/00-java-runtime-and-reflection.md";
+        var mkdocs_page_url = "/knowledge-vault/concepts/languages/java/core/00-java-runtime-and-reflection/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../cheatsheets/languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../cheatsheets/tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../cheatsheets/tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Core</a>
+    <ul class="current">
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">Java Runtime & Reflection</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#1-jvm-the-beating-heart-of-java">1. JVM — The Beating Heart of Java</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#2-jvm-memory-heap-and-metaspace">2. JVM Memory — Heap and Metaspace</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#heap">🧠 Heap</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#metaspace">📘 Metaspace</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#others-for-completeness">🧩 Others (for completeness)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#3-object-the-root-of-everything">3. Object — The Root of Everything</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#4-class-the-blueprint-of-a-type">4. Class&lt;?&gt; — The Blueprint of a Type</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#5-classloader-the-bridge-between-disk-and-memory">5. ClassLoader — The Bridge Between Disk and Memory</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#6-reflection-java-looking-at-itself">6. Reflection — Java Looking at Itself</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#7-jdk-jre-and-jvm-the-holy-trinity">7. JDK, JRE, and JVM — The Holy Trinity</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#8-spring-reflection-as-a-superpower">8. Spring — Reflection as a Superpower</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#how-it-uses-reflection">How it uses reflection:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#9-putting-it-all-together-the-flow">9. Putting It All Together — The Flow</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#final-thought">Final Thought</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Concepts</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Core</li>
+      <li class="breadcrumb-item active">Java Runtime & Reflection</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/concepts/languages/java/core/00-java-runtime-and-reflection.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="java-runtime-reflection-quick-starter">⚙️ Java Runtime &amp; Reflection — Quick Starter<a class="headerlink" href="#java-runtime-reflection-quick-starter" title="Permanent link">&para;</a></h1>
+<p>A guided chain from <strong>JVM internals → runtime behavior → reflection → Spring magic</strong>.</p>
+<hr />
+<h2 id="1-jvm-the-beating-heart-of-java">1. JVM — The Beating Heart of Java<a class="headerlink" href="#1-jvm-the-beating-heart-of-java" title="Permanent link">&para;</a></h2>
+<p>The <strong>Java Virtual Machine (JVM)</strong> is the engine that runs your compiled Java code.
+It doesn’t run <code>.java</code> source files directly. You write code, the <strong>compiler (<code>javac</code>)</strong> translates it into <strong>bytecode (<code>.class</code> files)</strong>, and the JVM interprets or JIT-compiles that bytecode into real CPU instructions.</p>
+<p>Think of the JVM as:</p>
+<ul>
+<li>A <strong>simulated computer inside your computer</strong>.</li>
+<li>It handles memory, threads, exceptions, and cross-platform behavior.</li>
+</ul>
+<p>The JVM is <em>platform-dependent</em>, but Java bytecode is <em>platform-independent</em> — that’s how Java stays “write once, run anywhere”.</p>
+<hr />
+<h2 id="2-jvm-memory-heap-and-metaspace">2. JVM Memory — Heap and Metaspace<a class="headerlink" href="#2-jvm-memory-heap-and-metaspace" title="Permanent link">&para;</a></h2>
+<p>Inside the JVM, memory is divided into several regions. The most important:</p>
+<h3 id="heap">🧠 Heap<a class="headerlink" href="#heap" title="Permanent link">&para;</a></h3>
+<p>Where <strong>objects live</strong>.</p>
+<ul>
+<li>Created when you use <code>new</code>.</li>
+<li>Garbage Collected (GC) when no references remain.</li>
+<li>Divided into generations: <strong>Young (Eden + Survivor)</strong> and <strong>Old (Tenured)</strong> space.</li>
+</ul>
+<h3 id="metaspace">📘 Metaspace<a class="headerlink" href="#metaspace" title="Permanent link">&para;</a></h3>
+<p>Where <strong>class metadata</strong> lives (replaced “PermGen” from Java 8+).</p>
+<ul>
+<li>Stores the structure of each loaded class (its methods, fields, annotations, etc.).</li>
+<li>Grows dynamically; not part of the heap.</li>
+</ul>
+<h3 id="others-for-completeness">🧩 Others (for completeness)<a class="headerlink" href="#others-for-completeness" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stack</strong> — each thread gets its own, holds method calls and local variables.</li>
+<li><strong>PC Register</strong> — keeps track of which instruction a thread is executing.</li>
+<li><strong>Native Method Area</strong> — used when calling C/C++ code through JNI.</li>
+</ul>
+<hr />
+<h2 id="3-object-the-root-of-everything">3. Object — The Root of Everything<a class="headerlink" href="#3-object-the-root-of-everything" title="Permanent link">&para;</a></h2>
+<p>Everything that lives on the heap is an <strong>Object</strong> (or derived from it).</p>
+<p><code>Object</code> is the <strong>universal superclass</strong> — the ancestor of all Java classes.
+It defines the methods that all Java entities inherit: <code>toString()</code>, <code>equals()</code>, <code>hashCode()</code>, etc.</p>
+<p>When you create an object:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>You’re creating an <strong>instance</strong> in the heap, and the JVM knows <em>which class definition</em> it belongs to — that definition lives in <strong>Metaspace</strong>.</p>
+<hr />
+<h2 id="4-class-the-blueprint-of-a-type">4. Class&lt;?&gt; — The Blueprint of a Type<a class="headerlink" href="#4-class-the-blueprint-of-a-type" title="Permanent link">&para;</a></h2>
+<p>Every loaded class in Java has a corresponding <strong><code>Class&lt;?&gt;</code> object</strong> in memory.</p>
+<p>This object lives in the Metaspace and acts like the <strong>blueprint</strong> for all instances of that type.
+You can access it like this:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
+</span></code></pre></div>
+<p>This <code>clazz</code> object contains:</p>
+<ul>
+<li>The class’s name</li>
+<li>Methods</li>
+<li>Fields</li>
+<li>Constructors</li>
+<li>Annotations</li>
+<li>And the <strong>ClassLoader</strong> that loaded it</li>
+</ul>
+<p>This is the foundation of <strong>reflection</strong> — it lets you <strong>inspect and modify code at runtime</strong>.</p>
+<hr />
+<h2 id="5-classloader-the-bridge-between-disk-and-memory">5. ClassLoader — The Bridge Between Disk and Memory<a class="headerlink" href="#5-classloader-the-bridge-between-disk-and-memory" title="Permanent link">&para;</a></h2>
+<p>The <strong>ClassLoader</strong> is what <strong>loads class bytecode</strong> into memory and turns it into <code>Class&lt;?&gt;</code> objects.</p>
+<p>Hierarchy of loaders:</p>
+<ul>
+<li><strong>Bootstrap</strong> — loads core JDK classes (like <code>java.lang.*</code>)</li>
+<li><strong>Platform</strong> — loads extension libraries</li>
+<li><strong>Application</strong> — loads your app’s classes from the classpath</li>
+<li>(Sometimes frameworks create custom loaders — like in Spring Boot or Tomcat)</li>
+</ul>
+<p>Think of ClassLoader as:</p>
+<blockquote>
+<p>The librarian that finds your <code>.class</code> file, reads it, and registers its “blueprint” in Metaspace.</p>
+</blockquote>
+<p>You can even get it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ClassLoader</span><span class="w"> </span><span class="n">loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getClassLoader</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h2 id="6-reflection-java-looking-at-itself">6. Reflection — Java Looking at Itself<a class="headerlink" href="#6-reflection-java-looking-at-itself" title="Permanent link">&para;</a></h2>
+<p><strong>Reflection</strong> lets your code inspect and manipulate itself at runtime.</p>
+<p>Using the <code>Class&lt;?&gt;</code> object, you can:</p>
+<ul>
+<li>List all methods, fields, and constructors.</li>
+<li>Get or set field values dynamically.</li>
+<li>Call methods by name (even private ones, if you bypass access checks).</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">Method</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="na">getMethod</span><span class="p">(</span><span class="s">&quot;getName&quot;</span><span class="p">);</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">));</span>
+</span></code></pre></div>
+<p>That line means: <em>“Find method getName in class User and call it.”</em></p>
+<p>Reflection is powerful but also <strong>slower</strong> and <strong>riskier</strong>, because it bypasses compile-time checks.</p>
+<hr />
+<h2 id="7-jdk-jre-and-jvm-the-holy-trinity">7. JDK, JRE, and JVM — The Holy Trinity<a class="headerlink" href="#7-jdk-jre-and-jvm-the-holy-trinity" title="Permanent link">&para;</a></h2>
+<p>To run Java programs, you need these three players:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>What it is</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JVM</strong></td>
+<td>The virtual machine</td>
+<td>Executes bytecode</td>
+</tr>
+<tr>
+<td><strong>JRE (Java Runtime Environment)</strong></td>
+<td>JVM + core libraries</td>
+<td>Lets you run programs</td>
+</tr>
+<tr>
+<td><strong>JDK (Java Development Kit)</strong></td>
+<td>JRE + compiler + tools</td>
+<td>Lets you build programs</td>
+</tr>
+</tbody>
+</table>
+<p>So:</p>
+<ul>
+<li>If you only <strong>run</strong> apps → you need JRE.</li>
+<li>If you <strong>develop</strong> apps → you need JDK.</li>
+<li>JVM is what’s <em>actually executing</em> inside both.</li>
+</ul>
+<hr />
+<h2 id="8-spring-reflection-as-a-superpower">8. Spring — Reflection as a Superpower<a class="headerlink" href="#8-spring-reflection-as-a-superpower" title="Permanent link">&para;</a></h2>
+<p>Spring is built <em>on top of</em> the reflection and classloading mechanisms.</p>
+<h3 id="how-it-uses-reflection">How it uses reflection:<a class="headerlink" href="#how-it-uses-reflection" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Dependency Injection (DI)</strong> — Finds constructors, fields, and methods annotated with <code>@Autowired</code>, and injects dependencies dynamically.</li>
+<li><strong>Annotation Scanning</strong> — Uses reflection to detect annotations like <code>@Component</code>, <code>@Service</code>, etc.</li>
+<li><strong>Proxy Creation (AOP)</strong> — Dynamically wraps beans with proxy classes at runtime.</li>
+<li><strong>Configuration</strong> — Reads <code>@Configuration</code> and <code>@Bean</code> annotations to register beans in the ApplicationContext.</li>
+</ol>
+<p>When Spring starts, it:</p>
+<ul>
+<li>Scans your classpath</li>
+<li>Uses <strong>ClassLoaders</strong> to find <code>.class</code> files</li>
+<li>Builds a map of all annotated classes (via reflection)</li>
+<li>Creates bean instances and wires them together</li>
+</ul>
+<p>So Spring is basically a <strong>meta-program that analyzes and constructs your program</strong> using the very same JVM tools you’ve now met.</p>
+<hr />
+<h2 id="9-putting-it-all-together-the-flow">9. Putting It All Together — The Flow<a class="headerlink" href="#9-putting-it-all-together-the-flow" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>source code (.java)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>       ↓  javac
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>bytecode (.class)
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>       ↓  ClassLoader
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Class&lt;?&gt; in Metaspace
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>       ↓  Reflection
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Objects on Heap
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       ↓  Framework Magic
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Spring uses Reflection → Builds App Context → Injects Dependencies
+</span></code></pre></div>
+<p>Everything connects:</p>
+<ul>
+<li><strong>JVM</strong> runs the show</li>
+<li><strong>Heap</strong> stores living instances</li>
+<li><strong>Metaspace</strong> stores their blueprints</li>
+<li><strong>ClassLoader</strong> loads those blueprints</li>
+<li><strong>Reflection</strong> lets code see and shape those blueprints</li>
+<li><strong>Spring</strong> automates that reflection to build entire systems dynamically</li>
+</ul>
+<hr />
+<h3 id="final-thought">Final Thought<a class="headerlink" href="#final-thought" title="Permanent link">&para;</a></h3>
+<p>Java was designed for <em>portability</em> and <em>safety</em>, yet its runtime is flexible enough to rewrite its own behavior on the fly.
+That balance — rigid typing at compile-time, elastic introspection at runtime — is what allows frameworks like Spring to exist at all.</p>
+<hr />
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>
+</span></code></pre></div>
+<hr />
+<h1 id="java-runtime-reflection-comprehensive-quick-starter">🧭 Java Runtime &amp; Reflection — Comprehensive Quick Starter<a class="headerlink" href="#java-runtime-reflection-comprehensive-quick-starter" title="Permanent link">&para;</a></h1>
+<p>A journey from the inner gears of the <strong>JVM</strong> to the elegant machinery of <strong>Spring</strong>, connecting how memory, class loading, and reflection form the foundation of modern Java.</p>
+<hr />
+<h2 id="1-jvm-the-living-machine-beneath-java">1. JVM — The Living Machine Beneath Java<a class="headerlink" href="#1-jvm-the-living-machine-beneath-java" title="Permanent link">&para;</a></h2>
+<p>When you run a Java program, you’re not running it <em>directly</em> on your CPU.
+Your code first gets compiled into <strong>bytecode</strong>, an intermediate language designed not for any particular processor, but for a <strong>virtual one</strong>: the Java Virtual Machine, or <strong>JVM</strong>.</p>
+<p>The JVM is the <strong>living organism</strong> at the center of all Java execution. It is the software abstraction of a computer — complete with memory management, execution engine, garbage collector, and a few tricks that physical CPUs can’t even dream of.</p>
+<p>It reads <code>.class</code> files, interprets or JIT-compiles them into native instructions, and handles all the lower-level chaos: memory allocation, stack frames, threading, and exception handling.</p>
+<p>Its most remarkable property is <strong>portability</strong>. You can compile your Java program once and run it anywhere a JVM exists — on Windows, Linux, macOS, Android, or even embedded devices.
+The physical hardware disappears; what remains is a consistent, predictable virtual world.</p>
+<hr />
+<h2 id="2-jvm-memory-the-world-inside-the-machine">2. JVM Memory — The World Inside the Machine<a class="headerlink" href="#2-jvm-memory-the-world-inside-the-machine" title="Permanent link">&para;</a></h2>
+<p>Like any living system, the JVM has <strong>organs</strong> — specialized memory areas that keep everything running.</p>
+<h3 id="the-heap-the-space-of-living-objects">The Heap — The Space of Living Objects<a class="headerlink" href="#the-heap-the-space-of-living-objects" title="Permanent link">&para;</a></h3>
+<p>The <strong>heap</strong> is where every object you create with <code>new</code> lives.
+It’s dynamic, expanding and contracting as objects are born and die.
+The <strong>garbage collector</strong> roams this space, reclaiming memory from objects that no longer have references.</p>
+<p>To keep things efficient, the heap is divided into regions:</p>
+<ul>
+<li><strong>Young Generation</strong>, where newborn objects are allocated.</li>
+<li><strong>Old Generation</strong>, where survivors of many GC cycles live longer lives.</li>
+</ul>
+<h3 id="metaspace-where-blueprints-reside">Metaspace — Where Blueprints Reside<a class="headerlink" href="#metaspace-where-blueprints-reside" title="Permanent link">&para;</a></h3>
+<p>If the heap holds the living objects, <strong>Metaspace</strong> holds their <strong>blueprints</strong>.
+When the JVM loads a class, its structure — fields, methods, annotations — is stored in Metaspace.
+Unlike the old PermGen space, Metaspace grows dynamically, constrained only by system memory.</p>
+<p>Every class in Java has a single shared representation in Metaspace.
+All instances (the objects on the heap) refer back to that single blueprint.</p>
+<h3 id="stacks-and-other-regions">Stacks and Other Regions<a class="headerlink" href="#stacks-and-other-regions" title="Permanent link">&para;</a></h3>
+<p>Each thread has its own <strong>stack</strong>, which holds local variables and method call frames.
+There’s also the <strong>Program Counter (PC) register</strong>, keeping track of which bytecode instruction a thread is executing.
+And then there’s the <strong>native method area</strong>, where code written in C/C++ and called via JNI resides.</p>
+<p>All these parts work together like organs in a body — the heap breathing objects in and out, the stack pulsing with method calls, and Metaspace serving as the collective memory of what "things" exist.</p>
+<hr />
+<h2 id="3-object-the-first-citizen-of-the-heap">3. Object — The First Citizen of the Heap<a class="headerlink" href="#3-object-the-first-citizen-of-the-heap" title="Permanent link">&para;</a></h2>
+<p>In Java, everything that exists in the heap — every <code>String</code>, every <code>ArrayList</code>, every <code>User</code> — ultimately descends from one ancestor: <code>java.lang.Object</code>.</p>
+<p>That single class is the root of the entire Java type system.
+It defines the fundamental behaviors shared by all entities — the ability to be compared (<code>equals</code>), described (<code>toString</code>), and hashed (<code>hashCode</code>).</p>
+<p>When you write:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>you’re creating an <strong>instance</strong>, an individual thing in the heap that conforms to the <strong>blueprint</strong> of the <code>User</code> class stored in Metaspace.
+The JVM knows exactly which blueprint this object follows and which methods it can use, because of the internal pointer from the object’s header to its class metadata.</p>
+<p>That connection between <em>object instance</em> and <em>class blueprint</em> is the bridge between the runtime world (heap) and the static world (code).</p>
+<hr />
+<h2 id="4-class-the-blueprint-of-existence">4. Class&lt;?&gt; — The Blueprint of Existence<a class="headerlink" href="#4-class-the-blueprint-of-existence" title="Permanent link">&para;</a></h2>
+<p>When Java loads a class, it creates a special object in Metaspace: an instance of <code>java.lang.Class</code>.
+Yes, the definition of a class is itself represented by an object.
+This is one of Java’s most elegant ideas — <strong>everything, even types, is data</strong>.</p>
+<p>You can get hold of it like this:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
+</span></code></pre></div>
+<p>That <code>clazz</code> object carries every detail about the class: its name, modifiers, methods, fields, annotations, constructors, and which loader brought it into existence.</p>
+<p>This is why the type parameter looks odd — <code>Class&lt;?&gt;</code>. The question mark (<code>?</code>) means “I don’t know what specific type this represents, but it’s a class of <em>something</em>.”</p>
+<p>Each loaded class has exactly one <code>Class</code> object representing it.
+All instances of that class refer back to the same <code>Class</code> object.
+That’s how the JVM maintains order and consistency: a single canonical definition per loaded type.</p>
+<hr />
+<h2 id="5-classloader-the-librarian-of-the-jvm">5. ClassLoader — The Librarian of the JVM<a class="headerlink" href="#5-classloader-the-librarian-of-the-jvm" title="Permanent link">&para;</a></h2>
+<p>Where do those <code>Class&lt;?&gt;</code> blueprints come from?
+From the <strong>ClassLoader</strong>, Java’s librarian.</p>
+<p>The ClassLoader is responsible for finding <code>.class</code> files, reading their bytecode, and turning them into live <code>Class</code> objects stored in Metaspace.</p>
+<p>There isn’t just one — ClassLoaders form a <strong>hierarchy</strong>:</p>
+<ul>
+<li><strong>Bootstrap Loader</strong> loads core Java classes from the JDK (<code>java.lang</code>, <code>java.util</code>, etc.).</li>
+<li><strong>Platform Loader</strong> loads JDK extensions and libraries.</li>
+<li><strong>Application Loader</strong> loads your project’s classes from the classpath.</li>
+</ul>
+<p>Frameworks often create <strong>custom classloaders</strong> — for example, Tomcat and Spring Boot both do this to isolate applications or support hot reloading.</p>
+<p>When a class is needed, the JVM asks the appropriate ClassLoader: <em>“Do you have this one?”</em>
+If not, it delegates to its parent. Only when the parent can’t provide it does it load the class itself.
+This mechanism guarantees that system classes remain consistent while still allowing user code to define its own world.</p>
+<hr />
+<h2 id="6-reflection-java-examining-itself">6. Reflection — Java Examining Itself<a class="headerlink" href="#6-reflection-java-examining-itself" title="Permanent link">&para;</a></h2>
+<p>Reflection is Java’s self-awareness.
+It’s the ability of a running program to <strong>inspect and manipulate its own structure</strong> — to look at classes, methods, and fields, and even invoke them dynamically.</p>
+<p>This capability comes from those <code>Class&lt;?&gt;</code> objects sitting in Metaspace.
+Once you have a <code>Class&lt;?&gt;</code>, you can start exploring:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Method</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="na">getDeclaredMethod</span><span class="p">(</span><span class="s">&quot;getName&quot;</span><span class="p">);</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">));</span>
+</span></code></pre></div>
+<p>This is Java code calling methods by <strong>name</strong>, discovered at runtime, not compile time.
+It’s slower and more dangerous — because you lose static type safety — but extraordinarily powerful.</p>
+<p>Reflection enables frameworks to perform <strong>meta-programming</strong>: code that writes or modifies other code dynamically.</p>
+<hr />
+<h2 id="7-jdk-jre-and-jvm-the-trinity-of-execution">7. JDK, JRE, and JVM — The Trinity of Execution<a class="headerlink" href="#7-jdk-jre-and-jvm-the-trinity-of-execution" title="Permanent link">&para;</a></h2>
+<p>At this point it’s worth separating the pieces you install and run:</p>
+<ul>
+<li>The <strong>JVM</strong> is the core engine that executes bytecode.</li>
+<li>The <strong>JRE</strong> (Java Runtime Environment) packages the JVM with standard libraries and runtime support — enough to <em>run</em> Java applications.</li>
+<li>The <strong>JDK</strong> (Java Development Kit) includes everything in the JRE plus compilers (<code>javac</code>), debugging tools, and build utilities — enough to <em>develop</em> applications.</li>
+</ul>
+<p>So:</p>
+<ul>
+<li>Users of Java programs need the <strong>JRE</strong>.</li>
+<li>Developers of Java programs need the <strong>JDK</strong>.</li>
+<li>Both rely on the <strong>JVM</strong>, which is where the bytecode lives and breathes.</li>
+</ul>
+<p>They form a nested hierarchy:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>JDK = JRE + compiler + tools
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>JRE = JVM + standard libraries
+</span></code></pre></div>
+<hr />
+<h2 id="8-spring-reflection-turned-into-engineering">8. Spring — Reflection Turned Into Engineering<a class="headerlink" href="#8-spring-reflection-turned-into-engineering" title="Permanent link">&para;</a></h2>
+<p>Everything that Spring does — dependency injection, configuration, AOP — rests on reflection and classloading.</p>
+<p>When you start a Spring application, it performs a grand act of <strong>introspection</strong>:</p>
+<ol>
+<li>It scans the <strong>classpath</strong>, asking ClassLoaders to enumerate every <code>.class</code> file available.</li>
+<li>It uses <strong>reflection</strong> to inspect those classes for specific annotations: <code>@Component</code>, <code>@Service</code>, <code>@Controller</code>, <code>@Configuration</code>.</li>
+<li>It constructs an internal registry (the <strong>ApplicationContext</strong>) that maps out all known classes and their dependencies.</li>
+<li>It instantiates those classes dynamically using reflection, often injecting one into another using constructor or field injection.</li>
+<li>It sometimes wraps them in <strong>proxies</strong> — dynamic subclasses or interfaces that intercept method calls to provide extra behavior (like transaction management or logging).</li>
+</ol>
+<p>Every piece of this process — scanning, loading, wiring — depends on the JVM’s built-in meta-system.
+Spring is not magic; it’s a disciplined orchestration of classloaders, metadata, and reflection.
+It turns static code into a <strong>living, configurable organism</strong>.</p>
+<hr />
+<h2 id="9-the-whole-flow-from-code-to-context">9. The Whole Flow — From Code to Context<a class="headerlink" href="#9-the-whole-flow-from-code-to-context" title="Permanent link">&para;</a></h2>
+<p>Here’s the conceptual journey in one unbroken line:</p>
+<ol>
+<li>You write <code>.java</code> source files.</li>
+<li><code>javac</code> compiles them into <code>.class</code> bytecode.</li>
+<li>ClassLoaders pull that bytecode into the JVM and store class metadata in Metaspace.</li>
+<li>The JVM uses those blueprints to create objects on the heap.</li>
+<li>Reflection allows runtime access and modification of those blueprints.</li>
+<li>Spring leverages reflection to wire up and manage those objects automatically.</li>
+</ol>
+<p>The entire stack — from low-level memory regions to high-level frameworks — is one continuous spectrum.
+The heap is the living matter.
+Metaspace is the genetic code.
+ClassLoaders are the reproduction system.
+Reflection is the consciousness.
+Spring is the civilization that emerges on top.</p>
+<hr />
+<h2 id="10-why-it-matters">10. Why It Matters<a class="headerlink" href="#10-why-it-matters" title="Permanent link">&para;</a></h2>
+<p>Understanding this chain transforms how you read errors, optimize performance, and design systems.
+When you see a <code>ClassNotFoundException</code>, you know it’s a <strong>ClassLoader problem</strong>.
+When you hit <code>OutOfMemoryError: Metaspace</code>, you know it’s a <strong>class metadata leak</strong>, not a heap issue.
+When you step into a Spring bean and see it’s a proxy class, you can trace the reflection trail back to the original.</p>
+<p>At its best, Java is not just a language — it’s a small self-contained universe.
+Its runtime introspection gives it a quality rarely found in compiled languages: the ability to evolve itself at runtime.
+That’s what makes Spring, Hibernate, and every major framework possible.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../_meta/blueprint/" class="btn btn-neutral float-left" title="📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../10-object-class-classloader-metaspace/" class="btn btn-neutral float-right" title="Object vs Class<?> in Java">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../_meta/blueprint/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../10-object-class-classloader-metaspace/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

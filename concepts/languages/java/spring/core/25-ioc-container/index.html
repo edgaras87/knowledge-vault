@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/25-ioc-container/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>IoC Container - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "IoC Container";
+        var mkdocs_page_input_path = "concepts/languages/java/spring/core/25-ioc-container.md";
+        var mkdocs_page_url = "/knowledge-vault/concepts/languages/java/spring/core/25-ioc-container/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../cheatsheets/languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../cheatsheets/tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../cheatsheets/tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Core</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">IoC Container</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-mental-model-from-you-control-to-framework-controls">🧩 1. Mental Model — From “You control” to “Framework controls”</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-the-core-idea">🌱 2. The Core Idea</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-the-container-the-heart-of-spring">🧬 3. The Container — The Heart of Spring</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#key-responsibilities">Key responsibilities:</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#the-two-main-levels">The two main levels:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-how-ioc-works-in-practice">⚙️ 4. How IoC Works in Practice</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-ioc-vs-di-the-relationship">🧭 5. IoC vs DI — The Relationship</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#6-from-configuration-to-reality">🧩 6. From Configuration to Reality</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#annotation-based-modern">Annotation-based (modern)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#xml-based-legacy">XML-based (legacy)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#programmatic-manual">Programmatic (manual)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#7-the-role-of-reflection-and-metadata">🧩 7. The Role of Reflection and Metadata</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#8-benefits-of-ioc">🪞 8. Benefits of IoC</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#9-example-ioc-in-action">⚡ 9. Example — IoC in Action</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#10-how-ioc-enables-spring-ecosystem">🧩 10. How IoC Enables Spring Ecosystem</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#11-debugging-understanding-the-container">🧱 11. Debugging &amp; Understanding the Container</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#12-common-misconceptions">🧬 12. Common Misconceptions</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#tldr-summary">🪞 TL;DR Summary</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#core-takeaway">🧩 Core Takeaway</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Concepts</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Core</li>
+      <li class="breadcrumb-item active">IoC Container</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/concepts/languages/java/spring/core/25-ioc-container.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-ioc-container-the-philosophy-behind-the-framework">🧠 Spring IoC Container — The Philosophy Behind the Framework<a class="headerlink" href="#spring-ioc-container-the-philosophy-behind-the-framework" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Essence:</strong>
+<em>Inversion of Control (IoC)</em> means <strong>your code stops controlling object creation and wiring — the framework does it for you.</strong>
+Spring’s IoC container is the <strong>conductor</strong> that builds, connects, and manages every bean, allowing you to focus on behavior, not plumbing.</p>
+</blockquote>
+<hr />
+<h2 id="1-mental-model-from-you-control-to-framework-controls">🧩 1. Mental Model — From “You control” to “Framework controls”<a class="headerlink" href="#1-mental-model-from-you-control-to-framework-controls" title="Permanent link">&para;</a></h2>
+<p>Traditional Java code:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserService</span><span class="p">();</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">PaymentService</span><span class="w"> </span><span class="n">paymentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PaymentService</span><span class="p">(</span><span class="n">userService</span><span class="p">);</span>
+</span></code></pre></div>
+<p>You create and wire everything manually — your code <strong>controls the flow</strong>.</p>
+<p>In Spring:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Service</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PaymentService</span><span class="p">(</span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>You no longer instantiate <code>UserService</code>.
+Spring’s container <strong>discovers</strong>, <strong>creates</strong>, and <strong>injects</strong> it for you.
+Your control is inverted — you declare <em>what</em> you need, not <em>how</em> to get it.</p>
+<hr />
+<h2 id="2-the-core-idea">🌱 2. The Core Idea<a class="headerlink" href="#2-the-core-idea" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>IoC = Objects don’t build their dependencies. They receive them.</strong></p>
+</blockquote>
+<p>It’s like a play:</p>
+<ul>
+<li>Your beans are the actors.</li>
+<li>The Spring container is the stage manager — providing props, calling actors on stage, cleaning up after the show.</li>
+</ul>
+<p>You no longer micromanage lifecycles. The container does.</p>
+<hr />
+<h2 id="3-the-container-the-heart-of-spring">🧬 3. The Container — The Heart of Spring<a class="headerlink" href="#3-the-container-the-heart-of-spring" title="Permanent link">&para;</a></h2>
+<p>The IoC container is any implementation of <code>BeanFactory</code> or its richer cousin <code>ApplicationContext</code>.</p>
+<h3 id="key-responsibilities">Key responsibilities:<a class="headerlink" href="#key-responsibilities" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Manage bean lifecycles</strong> — creation → injection → initialization → destruction.</li>
+<li><strong>Resolve dependencies</strong> — match required types and qualifiers.</li>
+<li><strong>Provide configuration context</strong> — environment, profiles, resources.</li>
+<li><strong>Handle events and listeners.</strong></li>
+</ul>
+<h3 id="the-two-main-levels">The two main levels:<a class="headerlink" href="#the-two-main-levels" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BeanFactory</code></td>
+<td>Core container; provides basic DI.</td>
+</tr>
+<tr>
+<td><code>ApplicationContext</code></td>
+<td>Extends <code>BeanFactory</code> with events, messages, and auto-configuration.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-how-ioc-works-in-practice">⚙️ 4. How IoC Works in Practice<a class="headerlink" href="#4-how-ioc-works-in-practice" title="Permanent link">&para;</a></h2>
+<p>At startup, Spring follows this flow:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Load configuration sources (annotations, XML, etc.)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2. Build BeanDefinitions (metadata about each bean)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3. Instantiate beans via reflection
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>4. Inject dependencies (constructor, setter, or field)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>5. Apply post-processors and lifecycle hooks
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>6. Serve fully-wired beans on request
+</span></code></pre></div>
+<p>You can retrieve beans manually:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnnotationConfigApplicationContext</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">PaymentService</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctx</span><span class="p">.</span><span class="na">getBean</span><span class="p">(</span><span class="n">PaymentService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span></code></pre></div>
+<p>…but in practice, the container injects them automatically wherever needed.</p>
+<hr />
+<h2 id="5-ioc-vs-di-the-relationship">🧭 5. IoC vs DI — The Relationship<a class="headerlink" href="#5-ioc-vs-di-the-relationship" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IoC (Inversion of Control)</strong></td>
+<td>The <em>architectural principle</em> — you hand over control to the container.</td>
+</tr>
+<tr>
+<td><strong>DI (Dependency Injection)</strong></td>
+<td>The <em>implementation pattern</em> — how the container supplies dependencies.</td>
+</tr>
+</tbody>
+</table>
+<p>So:
+<strong>IoC is the “why”; DI is the “how.”</strong></p>
+<p>IoC without DI is just delegation.
+DI without IoC is just parameter passing.
+Spring unites them both elegantly.</p>
+<hr />
+<h2 id="6-from-configuration-to-reality">🧩 6. From Configuration to Reality<a class="headerlink" href="#6-from-configuration-to-reality" title="Permanent link">&para;</a></h2>
+<p>Spring can define beans in several ways — all end up in the IoC container.</p>
+<h3 id="annotation-based-modern">Annotation-based (modern)<a class="headerlink" href="#annotation-based-modern" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Configuration</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@ComponentScan</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AppConfig</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<h3 id="xml-based-legacy">XML-based (legacy)<a class="headerlink" href="#xml-based-legacy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;beans&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&lt;bean</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;paymentService&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;com.app.PaymentService&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">&lt;/beans&gt;</span>
+</span></code></pre></div>
+<h3 id="programmatic-manual">Programmatic (manual)<a class="headerlink" href="#programmatic-manual" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">GenericApplicationContext</span><span class="w"> </span><span class="n">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GenericApplicationContext</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">ctx</span><span class="p">.</span><span class="na">registerBean</span><span class="p">(</span><span class="n">PaymentService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">ctx</span><span class="p">.</span><span class="na">refresh</span><span class="p">();</span>
+</span></code></pre></div>
+<p>All roads lead to a <strong>BeanDefinition</strong> — Spring’s internal record of what to create, how, and when.</p>
+<hr />
+<h2 id="7-the-role-of-reflection-and-metadata">🧩 7. The Role of Reflection and Metadata<a class="headerlink" href="#7-the-role-of-reflection-and-metadata" title="Permanent link">&para;</a></h2>
+<p>Spring’s IoC container is <strong>metadata-driven</strong>.</p>
+<p>It reads:</p>
+<ul>
+<li>Annotations like <code>@Component</code>, <code>@Autowired</code>, <code>@Configuration</code>, <code>@Bean</code></li>
+<li>XML bean definitions</li>
+<li>Programmatic registrations</li>
+</ul>
+<p>Then, using reflection:</p>
+<ul>
+<li>Loads class definitions (<code>ClassLoader</code>)</li>
+<li>Instantiates via constructors</li>
+<li>Injects fields and methods</li>
+<li>Invokes lifecycle callbacks</li>
+</ul>
+<p>So IoC isn’t runtime “magic” — it’s a <em>systematic use of reflection guided by metadata</em>.</p>
+<hr />
+<h2 id="8-benefits-of-ioc">🪞 8. Benefits of IoC<a class="headerlink" href="#8-benefits-of-ioc" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decoupling</strong></td>
+<td>Classes depend on interfaces, not implementations.</td>
+</tr>
+<tr>
+<td><strong>Configurability</strong></td>
+<td>Behavior changes via configuration, not code edits.</td>
+</tr>
+<tr>
+<td><strong>Testability</strong></td>
+<td>Dependencies can be replaced with mocks easily.</td>
+</tr>
+<tr>
+<td><strong>Lifecycle management</strong></td>
+<td>Framework ensures proper startup/shutdown.</td>
+</tr>
+<tr>
+<td><strong>Extensibility</strong></td>
+<td>Post-processors, events, and custom scopes are plug-ins, not hardcoded logic.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-example-ioc-in-action">⚡ 9. Example — IoC in Action<a class="headerlink" href="#9-example-ioc-in-action" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Service</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PaymentService</span><span class="w"> </span><span class="n">payment</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">InventoryService</span><span class="w"> </span><span class="n">inventory</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nd">@Autowired</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderService</span><span class="p">(</span><span class="n">PaymentService</span><span class="w"> </span><span class="n">payment</span><span class="p">,</span><span class="w"> </span><span class="n">InventoryService</span><span class="w"> </span><span class="n">inventory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">payment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">payment</span><span class="p">;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">inventory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inventory</span><span class="p">;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="n">inventory</span><span class="p">.</span><span class="na">reserve</span><span class="p">();</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="n">payment</span><span class="p">.</span><span class="na">process</span><span class="p">();</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>At runtime:</p>
+<ol>
+<li>Spring finds all <code>@Service</code> classes.</li>
+<li>Builds metadata for each.</li>
+<li>Reflectively creates <code>PaymentService</code> and <code>InventoryService</code>.</li>
+<li>Reflectively calls <code>new OrderService(payment, inventory)</code>.</li>
+<li>Registers it in the context.</li>
+<li>All three beans are now managed — reused, cached, and cleaned up automatically.</li>
+</ol>
+<hr />
+<h2 id="10-how-ioc-enables-spring-ecosystem">🧩 10. How IoC Enables Spring Ecosystem<a class="headerlink" href="#10-how-ioc-enables-spring-ecosystem" title="Permanent link">&para;</a></h2>
+<p>Once IoC exists, everything else in Spring “plugs in”:</p>
+<ul>
+<li><strong>AOP</strong> uses proxies around beans.</li>
+<li><strong>Spring Boot</strong> auto-registers beans dynamically.</li>
+<li><strong>Spring MVC</strong> injects controllers, services, and repositories automatically.</li>
+<li><strong>Spring Data</strong> builds repositories at runtime from interfaces.</li>
+</ul>
+<p>IoC turns your codebase into a <strong>self-assembling system</strong>.</p>
+<hr />
+<h2 id="11-debugging-understanding-the-container">🧱 11. Debugging &amp; Understanding the Container<a class="headerlink" href="#11-debugging-understanding-the-container" title="Permanent link">&para;</a></h2>
+<p>If you want to <em>see</em> the IoC container at work:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@SpringBootApplication</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DebugApp</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CommandLineRunner</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nd">@Autowired</span><span class="w"> </span><span class="n">ApplicationContext</span><span class="w"> </span><span class="n">ctx</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">String</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">ctx</span><span class="p">.</span><span class="na">getBeanDefinitionNames</span><span class="p">())</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">              </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Or listen to lifecycle events:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Component</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ContextEvents</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ApplicationListener</span><span class="o">&lt;</span><span class="n">ApplicationEvent</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onApplicationEvent</span><span class="p">(</span><span class="n">ApplicationEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;→ &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This reveals every bean and event during startup — the container’s heartbeat.</p>
+<hr />
+<h2 id="12-common-misconceptions">🧬 12. Common Misconceptions<a class="headerlink" href="#12-common-misconceptions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Myth</th>
+<th>Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“IoC just means using <code>@Autowired</code>.”</td>
+<td><code>@Autowired</code> is DI — IoC is the <strong>architecture</strong> enabling it.</td>
+</tr>
+<tr>
+<td>“Spring creates everything magically.”</td>
+<td>It’s deterministic reflection + metadata + lifecycle hooks.</td>
+</tr>
+<tr>
+<td>“IoC is only for frameworks.”</td>
+<td>The principle exists in many systems — even event loops invert control.</td>
+</tr>
+<tr>
+<td>“Manual <code>new</code> is bad.”</td>
+<td>Not always — small, independent objects can still be created manually outside the container.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tldr-summary">🪞 TL;DR Summary<a class="headerlink" href="#tldr-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+<th>Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IoC</strong></td>
+<td>Framework controls creation and flow</td>
+<td>You hand the steering wheel to the framework</td>
+</tr>
+<tr>
+<td><strong>DI</strong></td>
+<td>Container supplies dependencies</td>
+<td>Framework passes actors their props</td>
+</tr>
+<tr>
+<td><strong>ApplicationContext</strong></td>
+<td>Central brain managing beans</td>
+<td>The stage where everything performs</td>
+</tr>
+<tr>
+<td><strong>BeanDefinition</strong></td>
+<td>Metadata blueprint for beans</td>
+<td>DNA of each bean</td>
+</tr>
+<tr>
+<td><strong>Reflection</strong></td>
+<td>Mechanism enabling IoC</td>
+<td>The microscope Spring uses to see your classes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="core-takeaway">🧩 Core Takeaway<a class="headerlink" href="#core-takeaway" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Inversion of Control</strong> is the soul of Spring.
+Reflection and dependency injection are its hands, lifecycle is its pulse,
+and the ApplicationContext is its brain.
+You write <em>what</em> should happen — the container decides <em>when</em> and <em>how.</em></p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../20-dependency-injection-patterns/" class="btn btn-neutral float-left" title="Dependency Injection Patterns"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../30-aop-concepts/" class="btn btn-neutral float-right" title="Aspect-Oriented Programming (AOP)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../20-dependency-injection-patterns/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../30-aop-concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

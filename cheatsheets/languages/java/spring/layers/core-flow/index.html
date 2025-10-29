@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/layers/core-flow/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>Core Flow - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Core Flow";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/layers/core-flow.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/layers/core-flow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Layers</a>
+    <ul class="current">
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">Core Flow</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#rest-basics">✅ REST basics</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#dtos-use-instead-of-entities-for-io">✅ DTOs (use instead of Entities for I/O)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#why-not-use-entities-directly">Why not use entities directly?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#typical-pattern">Typical pattern</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#service-dependency-injection">✅ Service + Dependency Injection</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#entity-repository">✅ Entity + Repository</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#applicationyml">✅ application.yml</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#junit-test">✅ JUnit Test</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#running">✅ Running</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#product-inventory-example-java-spring-boot">📦 Product Inventory – Example (Java + Spring Boot)</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#1-entity-persistence-model">1) Entity (persistence model)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-dtos-requestresponse-validation">2) DTOs (request/response) + validation</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-mapper-entity-dto">3) Mapper (Entity ↔ DTO)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#4-repository">4) Repository</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#5-service-business-rules">5) Service (business rules)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#6-controller">6) Controller</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#7-basic-config-for-quick-runs">7) Basic config for quick runs</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#8-minimal-test-service">8) Minimal test (service)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#key-takeaways-tie-back-to-your-note">🔑 Key takeaways (tie back to your note)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Layers</li>
+      <li class="breadcrumb-item active">Core Flow</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/layers/core-flow.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="minimal-javaspring-core-flow-with-examples">📝 Minimal Java/Spring Core Flow (with Examples)<a class="headerlink" href="#minimal-javaspring-core-flow-with-examples" title="Permanent link">&para;</a></h1>
+<h3 id="rest-basics">✅ REST basics<a class="headerlink" href="#rest-basics" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@RestController</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/hello&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloController</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nd">@GetMapping</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="dtos-use-instead-of-entities-for-io">✅ DTOs (use instead of Entities for I/O)<a class="headerlink" href="#dtos-use-instead-of-entities-for-io" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Input DTO with validation</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">UserDto</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nd">@Email</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// In controller</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/users&quot;</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kd">public</span><span class="w"> </span><span class="n">UserDto</span><span class="w"> </span><span class="nf">createUser</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">UserDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dto</span><span class="p">;</span><span class="w"> </span><span class="c1">// later convert to Entity, save, return response DTO</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>👉 <strong>Note:</strong> Use DTOs for <strong>input validation</strong> and <strong>API responses</strong>.
+Don’t expose Entities directly — keep Entities for persistence logic only.</p>
+<p>👉 <strong>Why DTOs instead of Entities for input/return?</strong></p>
+<ul>
+<li><strong>Entities</strong> = your database model (tables, persistence rules).</li>
+<li><strong>DTOs (Data Transfer Objects)</strong> = what you expose to the outside world (API requests &amp; responses).</li>
+</ul>
+<h3 id="why-not-use-entities-directly">Why not use entities directly?<a class="headerlink" href="#why-not-use-entities-directly" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Security</strong> → prevents exposing internal DB fields (e.g. passwords, IDs).</li>
+<li><strong>Flexibility</strong> → API contract can evolve without breaking your DB schema.</li>
+<li><strong>Validation</strong> → DTOs are designed for request/response shape, so they fit <code>@Valid</code> checks.</li>
+<li><strong>Separation of concerns</strong> → Entities = persistence, DTOs = communication. Keeps your code cleaner.</li>
+</ul>
+<h3 id="typical-pattern">Typical pattern<a class="headerlink" href="#typical-pattern" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Incoming request</strong>: DTO with <code>@Valid</code> (only the fields you expect from client).</li>
+<li><strong>Service layer</strong>: Map DTO → Entity, persist.</li>
+<li><strong>Outgoing response</strong>: DTO again (so you don’t return raw Entity).</li>
+</ul>
+<hr />
+<h3 id="service-dependency-injection">✅ Service + Dependency Injection<a class="headerlink" href="#service-dependency-injection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Service</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">welcomeUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Welcome, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@RestController</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@RequiredArgsConstructor</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/users&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/{name}&quot;</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">userService</span><span class="p">.</span><span class="na">welcomeUser</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="entity-repository">✅ Entity + Repository<a class="headerlink" href="#entity-repository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Entity</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nd">@Id</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nd">@GeneratedValue</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="applicationyml">✅ <code>application.yml</code><a class="headerlink" href="#applicationyml" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:h2:mem:testdb</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.h2.Driver</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sa</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">password</span><span class="p">:</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">jpa</span><span class="p">:</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">hibernate</span><span class="p">:</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="nt">ddl-auto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nt">show-sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<hr />
+<h3 id="junit-test">✅ JUnit Test<a class="headerlink" href="#junit-test" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@SpringBootTest</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">class</span> <span class="nc">UserServiceTest</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nd">@Autowired</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">service</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nd">@Test</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testWelcomeUser</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Welcome, Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">welcomeUser</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">));</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="running">✅ Running<a class="headerlink" href="#running" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./gradlew<span class="w"> </span>bootRun
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>./gradlew<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<hr />
+<p>👉 <strong>Muscle-memory loop:</strong></p>
+<ul>
+<li>Controller → DTO (<code>@Valid</code>)</li>
+<li>Service → business logic</li>
+<li>Entity + Repo → persistence</li>
+<li>Return response DTO</li>
+<li>Config in <code>application.yml</code></li>
+<li>One test + run</li>
+</ul>
+<hr />
+<h2 id="product-inventory-example-java-spring-boot">📦 Product Inventory – Example (Java + Spring Boot)<a class="headerlink" href="#product-inventory-example-java-spring-boot" title="Permanent link">&para;</a></h2>
+<p>here’s a <strong>broader, realistic example</strong> that shows:</p>
+<ul>
+<li>an <strong>Entity</strong> with more fields,</li>
+<li><strong>DTOs</strong> for input/output with validation,</li>
+<li>a <strong>Service</strong> layer with business rules,</li>
+<li>a <strong>Repository</strong> and <strong>Controller</strong>, plus a tiny <strong>mapper</strong>.</li>
+</ul>
+<p>Domain: simple <strong>Product</strong> inventory.</p>
+<hr />
+<h3 id="1-entity-persistence-model">1) Entity (persistence model)<a class="headerlink" href="#1-entity-persistence-model" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// src/main/java/com/example/product/Product.java</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.persistence.*</span><span class="p">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Instant</span><span class="p">;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nd">@Entity</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;products&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">indexes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nd">@Index</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;idx_products_sku_unique&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">columnList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sku&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">})</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Product</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">DRAFT</span><span class="p">,</span><span class="w"> </span><span class="n">ACTIVE</span><span class="p">,</span><span class="w"> </span><span class="n">DISCONTINUED</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="nd">@Id</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sku</span><span class="p">;</span><span class="w"> </span><span class="c1">// business key, unique</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">160</span><span class="p">)</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">)</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">priceCents</span><span class="p">;</span><span class="w"> </span><span class="c1">// store money as integer</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">currency</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;EUR&quot;, &quot;USD&quot;</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">stock</span><span class="p">;</span><span class="w"> </span><span class="c1">// &gt;= 0</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">    </span><span class="nd">@Enumerated</span><span class="p">(</span><span class="n">EnumType</span><span class="p">.</span><span class="na">STRING</span><span class="p">)</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Status</span><span class="p">.</span><span class="na">DRAFT</span><span class="p">;</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">updatable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">createdAt</span><span class="p">;</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">updatedAt</span><span class="p">;</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="w">    </span><span class="nd">@PrePersist</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">prePersist</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="w">        </span><span class="n">createdAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="w">        </span><span class="n">updatedAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="w">    </span><span class="nd">@PreUpdate</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">preUpdate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="w">        </span><span class="n">updatedAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a><span class="w">    </span><span class="c1">// getters/setters omitted for brevity</span>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>Note: we keep entity constraints mostly DB-related (nullability, lengths, uniqueness). <strong>Validation annotations for requests live on DTOs</strong>.</p>
+</blockquote>
+<hr />
+<h3 id="2-dtos-requestresponse-validation">2) DTOs (request/response) + validation<a class="headerlink" href="#2-dtos-requestresponse-validation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// src/main/java/com/example/product/dto/ProductCreateDto.java</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product.dto</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.validation.constraints.*</span><span class="p">;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ProductCreateDto</span><span class="p">(</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="w"> </span><span class="nd">@Size</span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">sku</span><span class="p">,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="w"> </span><span class="nd">@Size</span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">160</span><span class="p">)</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nd">@Size</span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">)</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="nd">@Positive</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="n">priceCents</span><span class="p">,</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="w"> </span><span class="nd">@Pattern</span><span class="p">(</span><span class="n">regexp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;^[A-Z]{3}$&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Use ISO currency like EUR/USD&quot;</span><span class="p">)</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">currency</span><span class="p">,</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">    </span><span class="nd">@NotNull</span><span class="w"> </span><span class="nd">@PositiveOrZero</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">stock</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// src/main/java/com/example/product/dto/ProductUpdateDto.java</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product.dto</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.validation.constraints.*</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.product.Product.Status</span><span class="p">;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ProductUpdateDto</span><span class="p">(</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nd">@Size</span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">160</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="nd">@Size</span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">)</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="nd">@Positive</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="n">priceCents</span><span class="p">,</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="nd">@Pattern</span><span class="p">(</span><span class="n">regexp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;^[A-Z]{3}$&quot;</span><span class="p">)</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">currency</span><span class="p">,</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="nd">@PositiveOrZero</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">stock</span><span class="p">,</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="n">Status</span><span class="w"> </span><span class="n">status</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// src/main/java/com/example/product/dto/ProductResponseDto.java</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product.dto</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Instant</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.product.Product.Status</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ProductResponseDto</span><span class="p">(</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">sku</span><span class="p">,</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="n">Long</span><span class="w"> </span><span class="n">priceCents</span><span class="p">,</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">currency</span><span class="p">,</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">stock</span><span class="p">,</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="n">Status</span><span class="w"> </span><span class="n">status</span><span class="p">,</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="n">Instant</span><span class="w"> </span><span class="n">createdAt</span><span class="p">,</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="n">Instant</span><span class="w"> </span><span class="n">updatedAt</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="3-mapper-entity-dto">3) Mapper (Entity ↔ DTO)<a class="headerlink" href="#3-mapper-entity-dto" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// src/main/java/com/example/product/ProductMapper.java</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.product.dto.*</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProductMapper</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Product</span><span class="w"> </span><span class="nf">toEntity</span><span class="p">(</span><span class="n">ProductCreateDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">();</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setSku</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">sku</span><span class="p">().</span><span class="na">trim</span><span class="p">());</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">name</span><span class="p">().</span><span class="na">trim</span><span class="p">());</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">description</span><span class="p">());</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setPriceCents</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">priceCents</span><span class="p">());</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setCurrency</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">currency</span><span class="p">());</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setStock</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">());</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">Product</span><span class="p">.</span><span class="na">Status</span><span class="p">.</span><span class="na">DRAFT</span><span class="p">);</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">applyUpdate</span><span class="p">(</span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ProductUpdateDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">name</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">name</span><span class="p">().</span><span class="na">trim</span><span class="p">());</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">description</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">setDescription</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">description</span><span class="p">());</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">priceCents</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">setPriceCents</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">priceCents</span><span class="p">());</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">currency</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">setCurrency</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">currency</span><span class="p">());</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">setStock</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">());</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">status</span><span class="p">());</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ProductResponseDto</span><span class="w"> </span><span class="nf">toResponse</span><span class="p">(</span><span class="n">Product</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProductResponseDto</span><span class="p">(</span>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">            </span><span class="n">p</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getSku</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getDescription</span><span class="p">(),</span>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">            </span><span class="n">p</span><span class="p">.</span><span class="na">getPriceCents</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getCurrency</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getStock</span><span class="p">(),</span>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">            </span><span class="n">p</span><span class="p">.</span><span class="na">getStatus</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getCreatedAt</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getUpdatedAt</span><span class="p">()</span>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">        </span><span class="p">);</span>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="4-repository">4) Repository<a class="headerlink" href="#4-repository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// src/main/java/com/example/product/ProductRepository.java</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Optional</span><span class="p">;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ProductRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Product</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findBySku</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sku</span><span class="p">);</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">existsBySku</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sku</span><span class="p">);</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="5-service-business-rules">5) Service (business rules)<a class="headerlink" href="#5-service-business-rules" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// src/main/java/com/example/product/ProductService.java</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product</span><span class="p">;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.product.dto.*</span><span class="p">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.transaction.Transactional</span><span class="p">;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">lombok.RequiredArgsConstructor</span><span class="p">;</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Service</span><span class="p">;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nd">@Service</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nd">@RequiredArgsConstructor</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProductService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ProductRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">    </span><span class="nd">@Transactional</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ProductResponseDto</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">ProductCreateDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">        </span><span class="c1">// business rule: SKU must be unique</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">repo</span><span class="p">.</span><span class="na">existsBySku</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">sku</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;SKU already exists: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dto</span><span class="p">.</span><span class="na">sku</span><span class="p">());</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">        </span><span class="c1">// business rule: enforce EUR only (example)</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="s">&quot;EUR&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">currency</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Only EUR supported for now.&quot;</span><span class="p">);</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ProductMapper</span><span class="p">.</span><span class="na">toEntity</span><span class="p">(</span><span class="n">dto</span><span class="p">);</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="w">        </span><span class="c1">// business rule: newly created ACTIVE products must have stock &gt; 0</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="w">        </span><span class="c1">// (we start as DRAFT; activate via update when ready)</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ProductMapper</span><span class="p">.</span><span class="na">toResponse</span><span class="p">(</span><span class="n">saved</span><span class="p">);</span>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="w">    </span><span class="nd">@Transactional</span>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ProductResponseDto</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">ProductUpdateDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Product not found&quot;</span><span class="p">));</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="w">        </span><span class="c1">// business rule: stock cannot be negative</span>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Stock cannot be negative&quot;</span><span class="p">);</span>
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a><span class="w">        </span><span class="c1">// business rule: if switching to ACTIVE, ensure stock &gt; 0 and has price</span>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dto</span><span class="p">.</span><span class="na">status</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Product</span><span class="p">.</span><span class="na">Status</span><span class="p">.</span><span class="na">ACTIVE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="n">newStock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">dto</span><span class="p">.</span><span class="na">stock</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="na">getStock</span><span class="p">();</span>
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="n">newPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dto</span><span class="p">.</span><span class="na">priceCents</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">dto</span><span class="p">.</span><span class="na">priceCents</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="na">getPriceCents</span><span class="p">();</span>
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">newStock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">newStock</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;ACTIVE requires stock &gt; 0&quot;</span><span class="p">);</span>
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">newPrice</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">newPrice</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;ACTIVE requires price &gt; 0&quot;</span><span class="p">);</span>
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a><span class="w">        </span><span class="n">ProductMapper</span><span class="p">.</span><span class="na">applyUpdate</span><span class="p">(</span><span class="n">product</span><span class="p">,</span><span class="w"> </span><span class="n">dto</span><span class="p">);</span>
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">product</span><span class="p">);</span>
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ProductMapper</span><span class="p">.</span><span class="na">toResponse</span><span class="p">(</span><span class="n">saved</span><span class="p">);</span>
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ProductResponseDto</span><span class="w"> </span><span class="nf">getById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a><span class="w">                   </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">ProductMapper</span><span class="p">::</span><span class="n">toResponse</span><span class="p">)</span>
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a><span class="w">                   </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Product not found&quot;</span><span class="p">));</span>
+</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="6-controller">6) Controller<a class="headerlink" href="#6-controller" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// src/main/java/com/example/product/ProductController.java</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product</span><span class="p">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.product.dto.*</span><span class="p">;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.validation.Valid</span><span class="p">;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">lombok.RequiredArgsConstructor</span><span class="p">;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.http.ResponseEntity</span><span class="p">;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.*</span><span class="p">;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nd">@RestController</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/products&quot;</span><span class="p">)</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nd">@RequiredArgsConstructor</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProductController</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ProductService</span><span class="w"> </span><span class="n">service</span><span class="p">;</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="nd">@PostMapping</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ProductResponseDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">ProductCreateDto</span><span class="w"> </span><span class="n">dto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">dto</span><span class="p">));</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">    </span><span class="nd">@PatchMapping</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ProductResponseDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">            </span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">            </span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">ProductUpdateDto</span><span class="w"> </span><span class="n">dto</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">dto</span><span class="p">));</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ProductResponseDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">service</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="7-basic-config-for-quick-runs">7) Basic config for quick runs<a class="headerlink" href="#7-basic-config-for-quick-runs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># src/main/resources/application.yml</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:h2:mem:demo;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.h2.Driver</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sa</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="nt">password</span><span class="p">:</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">  </span><span class="nt">jpa</span><span class="p">:</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="nt">hibernate</span><span class="p">:</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">      </span><span class="nt">ddl-auto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="nt">show-sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">  </span><span class="nt">jackson</span><span class="p">:</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="nt">serialization</span><span class="p">:</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">      </span><span class="nt">WRITE_DATES_AS_TIMESTAMPS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</span></code></pre></div>
+<hr />
+<h3 id="8-minimal-test-service">8) Minimal test (service)<a class="headerlink" href="#8-minimal-test-service" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// src/test/java/com/example/product/ProductServiceTest.java</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.example.product</span><span class="p">;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.product.dto.ProductCreateDto</span><span class="p">;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="p">;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="p">;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="nd">@SpringBootTest</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="kd">class</span> <span class="nc">ProductServiceTest</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="nd">@Autowired</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">    </span><span class="n">ProductService</span><span class="w"> </span><span class="n">service</span><span class="p">;</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="nd">@Test</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">create_ok</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">dto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProductCreateDto</span><span class="p">(</span><span class="s">&quot;SKU-123&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mouse&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ergonomic&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2999L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EUR&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">dto</span><span class="p">);</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">        </span><span class="n">assertNotNull</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">id</span><span class="p">());</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;SKU-123&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">sku</span><span class="p">());</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">stock</span><span class="p">());</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="key-takeaways-tie-back-to-your-note">🔑 Key takeaways (tie back to your note)<a class="headerlink" href="#key-takeaways-tie-back-to-your-note" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Use DTOs</strong> for input (<code>@Valid</code>) and output; <strong>keep Entities internal</strong> to persistence.</li>
+<li><strong>Service layer</strong> = place for business rules (unique SKU, currency support, state transitions).</li>
+<li><strong>Entity</strong> holds DB-focused constraints; <strong>DTO</strong> holds request/response validation.</li>
+<li>If you can wire: <code>Controller → DTO → Service → Repo/Entity → Response DTO</code>, plus <code>application.yml</code> and one <strong>test</strong>, you’ve hit the muscle-memory loop.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../data/mysql/" class="btn btn-neutral float-left" title="MySQL setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dto-vs-entities/" class="btn btn-neutral float-right" title="DTOs vs Entities">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../data/mysql/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dto-vs-entities/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

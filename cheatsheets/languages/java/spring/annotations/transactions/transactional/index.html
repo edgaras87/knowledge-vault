@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/transactions/transactional/" />
+      <link rel="shortcut icon" href="../../../../../../../img/favicon.ico" />
+    <title>@Transactional - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "@Transactional";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/annotations/transactions/transactional.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/annotations/transactions/transactional/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Annotations</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" >Transactions</a>
+    <ul class="current">
+                <li class="toctree-l6 current"><a class="reference internal current" href="#">@Transactional</a>
+    <ul class="current">
+    <li class="toctree-l7"><a class="reference internal" href="#1-the-essence-of-transactional">🧩 1. The essence of @Transactional</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#default-rules">Default rules</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-rollback-in-practice">⚙️ 2. Rollback in practice</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#a-unchecked-exception-rollback-automatically">A) Unchecked exception → rollback automatically</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#b-checked-exception-commits-unless-configured">B) Checked exception → commits unless configured</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#c-fix-include-checked-in-rollback">C) Fix: include checked in rollback</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#d-jakarta-equivalent">D) Jakarta equivalent</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-propagation-behavior">🔄 3. Propagation behavior</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#4-read-only-transactions">📘 4. Read-only transactions</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#5-isolation-levels-and-timeout">🧮 5. Isolation levels and timeout</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#6-catching-exceptions-marking-rollback">🧰 6. Catching exceptions &amp; marking rollback</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#7-self-invocation-pitfall-proxy-mechanics">🧱 7. Self-invocation pitfall (proxy mechanics)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#8-choosing-between-spring-jakarta">⚖️ 8. Choosing between Spring &amp; Jakarta</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#9-targeting-specific-transaction-managers">🧭 9. Targeting specific transaction managers</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#10-common-pitfalls-checklist">🔐 10. Common pitfalls checklist</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#summary-table">🧾 Summary Table</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#tldr-mental-model">🚀 TL;DR Mental Model</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Annotations</li>
+          <li class="breadcrumb-item">Transactions</li>
+      <li class="breadcrumb-item active">@Transactional</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/annotations/transactions/transactional.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-transactional-rollback-rules-propagation-and-read-only-patterns">🧾 Spring <code>@Transactional</code> — Rollback Rules, Propagation, and Read-Only Patterns<a class="headerlink" href="#spring-transactional-rollback-rules-propagation-and-read-only-patterns" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>A hands-on reference for <strong>Spring and Jakarta/JTA</strong> transaction management.<br />
+Focuses on what actually bites developers in production: <strong>rollback semantics</strong>, <strong>propagation chains</strong>, and <strong>read-only optimizations</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="1-the-essence-of-transactional">🧩 1. The essence of <code>@Transactional</code><a class="headerlink" href="#1-the-essence-of-transactional" title="Permanent link">&para;</a></h2>
+<p>Transactions wrap a series of DB operations into an <strong>atomic unit</strong> — all succeed or all fail.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Transactional</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="n">repo</span><span class="p">.</span><span class="na">update</span><span class="p">(...);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">somethingWrong</span><span class="p">())</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">();</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>If an unchecked exception occurs, Spring marks the transaction for <strong>rollback</strong>.</p>
+<hr />
+<h3 id="default-rules">Default rules<a class="headerlink" href="#default-rules" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Type of Exception</th>
+<th>Spring Default</th>
+<th>Jakarta Default</th>
+<th>Fix / Override</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RuntimeException / Error</td>
+<td>rollback</td>
+<td>rollback</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Checked Exception</td>
+<td><strong>commit</strong></td>
+<td><strong>commit</strong></td>
+<td>add <code>rollbackFor=Exception.class</code> (Spring) or <code>rollbackOn=Exception.class</code> (Jakarta)</td>
+</tr>
+<tr>
+<td>Caught exception</td>
+<td>commit</td>
+<td>commit</td>
+<td>call <code>setRollbackOnly()</code> manually</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-rollback-in-practice">⚙️ 2. Rollback in practice<a class="headerlink" href="#2-rollback-in-practice" title="Permanent link">&para;</a></h2>
+<h3 id="a-unchecked-exception-rollback-automatically">A) Unchecked exception → rollback automatically<a class="headerlink" href="#a-unchecked-exception-rollback-automatically" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Transactional</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(...));</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">paymentRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Payment</span><span class="p">(...));</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;payment gateway down&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// rollback</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Both inserts roll back.</p>
+<hr />
+<h3 id="b-checked-exception-commits-unless-configured">B) Checked exception → commits unless configured<a class="headerlink" href="#b-checked-exception-commits-unless-configured" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Transactional</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrderChecked</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IOException</span><span class="p">(</span><span class="s">&quot;printer failed&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// commits</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="c-fix-include-checked-in-rollback">C) Fix: include checked in rollback<a class="headerlink" href="#c-fix-include-checked-in-rollback" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">rollbackFor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrderCheckedRollback</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IOException</span><span class="p">(</span><span class="s">&quot;printer failed&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// rolls back</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="d-jakarta-equivalent">D) Jakarta equivalent<a class="headerlink" href="#d-jakarta-equivalent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.transaction.Transactional</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">rollbackOn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrderJakarta</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3-propagation-behavior">🔄 3. Propagation behavior<a class="headerlink" href="#3-propagation-behavior" title="Permanent link">&para;</a></h2>
+<p>Each transaction can join, suspend, or create a new one.</p>
+<table>
+<thead>
+<tr>
+<th>Propagation</th>
+<th>Meaning</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQUIRED (default)</td>
+<td>Join if exists, else start new</td>
+<td>Normal service calls</td>
+</tr>
+<tr>
+<td>REQUIRES_NEW</td>
+<td>Suspend current, start new</td>
+<td>Auditing/logging</td>
+</tr>
+<tr>
+<td>NESTED</td>
+<td>Create savepoint (rollback inner only)</td>
+<td>Partial rollback inside parent</td>
+</tr>
+<tr>
+<td>SUPPORTS</td>
+<td>Run within tx if one exists</td>
+<td>Read-only operations</td>
+</tr>
+<tr>
+<td>NOT_SUPPORTED</td>
+<td>Run non-transactionally</td>
+<td>Reporting</td>
+</tr>
+<tr>
+<td>NEVER</td>
+<td>Throw error if a tx exists</td>
+<td>Safety guard</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Transactional</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">saveOrder</span><span class="p">();</span><span class="w">           </span><span class="c1">// same tx</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="n">audit_requiresNew</span><span class="p">();</span><span class="w">   </span><span class="c1">// separate tx</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;outer fails&quot;</span><span class="p">);</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">audit_requiresNew</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="n">auditRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AuditLog</span><span class="p">(</span><span class="s">&quot;order saved&quot;</span><span class="p">));</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Audit commits, even though the outer one rolls back.</p>
+<hr />
+<h2 id="4-read-only-transactions">📘 4. Read-only transactions<a class="headerlink" href="#4-read-only-transactions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">listRecentOrders</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">orderRepo</span><span class="p">.</span><span class="na">findTopNByOrderByCreatedAtDesc</span><span class="p">(</span><span class="n">limit</span><span class="p">);</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Hints ORM and drivers that <strong>no writes</strong> will occur.
+Improves performance (skips dirty checking, can use read-only DB replicas).</p>
+<hr />
+<h2 id="5-isolation-levels-and-timeout">🧮 5. Isolation levels and timeout<a class="headerlink" href="#5-isolation-levels-and-timeout" title="Permanent link">&para;</a></h2>
+<p><strong>Spring-only</strong> attributes:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Transactional</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">REPEATABLE_READ</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">queryActiveUsers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li><code>Isolation.READ_COMMITTED</code> (default) → prevents dirty reads.</li>
+<li><code>Isolation.REPEATABLE_READ</code> → consistent view of rows.</li>
+<li><code>Isolation.SERIALIZABLE</code> → full locking, slowest but safest.</li>
+<li><code>timeout</code> (seconds) → rollback if exceeded.</li>
+</ul>
+<p>Jakarta/JTA <code>@Transactional</code> lacks these attributes — you configure them via the datasource.</p>
+<hr />
+<h2 id="6-catching-exceptions-marking-rollback">🧰 6. Catching exceptions &amp; marking rollback<a class="headerlink" href="#6-catching-exceptions-marking-rollback" title="Permanent link">&para;</a></h2>
+<p>If you catch an exception, the framework assumes everything’s fine — <strong>it will commit</strong> unless you mark rollback manually.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.transaction.interceptor.TransactionAspectSupport</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nd">@Transactional</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">catchButRollback</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="n">doWork</span><span class="p">();</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="n">TransactionAspectSupport</span><span class="p">.</span><span class="na">currentTransactionStatus</span><span class="p">().</span><span class="na">setRollbackOnly</span><span class="p">();</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Jakarta equivalent:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.transaction.TransactionSynchronizationRegistry</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.annotation.Resource</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nd">@Resource</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">TransactionSynchronizationRegistry</span><span class="w"> </span><span class="n">tsr</span><span class="p">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nd">@jakarta.transaction.Transactional</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">catchButRollbackJta</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="n">doWork</span><span class="p">();</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">tsr</span><span class="p">.</span><span class="na">setRollbackOnly</span><span class="p">();</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="7-self-invocation-pitfall-proxy-mechanics">🧱 7. Self-invocation pitfall (proxy mechanics)<a class="headerlink" href="#7-self-invocation-pitfall-proxy-mechanics" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@Service</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nd">@Transactional</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">outer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">inner</span><span class="p">();</span><span class="w"> </span><span class="c1">// self-call bypasses proxy — no tx applied</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">inner</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Spring proxies intercept <strong>external</strong> calls only.
+Solutions:</p>
+<ul>
+<li>Call via another bean (<code>otherBean.inner()</code>).</li>
+<li>Use interface-based proxy injection.</li>
+<li>Or enable AspectJ mode (<code>@EnableAspectJAutoProxy(exposeProxy = true)</code>).</li>
+</ul>
+<hr />
+<h2 id="8-choosing-between-spring-jakarta">⚖️ 8. Choosing between Spring &amp; Jakarta<a class="headerlink" href="#8-choosing-between-spring-jakarta" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Spring <code>@Transactional</code></th>
+<th>Jakarta/JTA <code>@Transactional</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isolation</code>, <code>timeout</code>, <code>readOnly</code></td>
+<td>✅ yes</td>
+<td>❌ no</td>
+</tr>
+<tr>
+<td><code>rollbackFor</code>, <code>noRollbackFor</code></td>
+<td>✅ yes</td>
+<td>❌ no</td>
+</tr>
+<tr>
+<td><code>propagation</code> (REQUIRES_NEW, NESTED)</td>
+<td>✅ yes</td>
+<td>limited (TxType.*)</td>
+</tr>
+<tr>
+<td>Multiple transaction managers</td>
+<td>✅ yes</td>
+<td>❌ global TM only</td>
+</tr>
+<tr>
+<td>XA / JTA compatibility</td>
+<td>✅ via JtaTransactionManager</td>
+<td>✅ native</td>
+</tr>
+<tr>
+<td>Simplicity / portability</td>
+<td>moderate</td>
+<td>lightweight</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong>
+Use <strong>Spring</strong> if you rely on JPA, multiple datasources, or fine-grained control.
+Use <strong>Jakarta</strong> if you’re targeting EE containers or minimal portability.</p>
+<hr />
+<h2 id="9-targeting-specific-transaction-managers">🧭 9. Targeting specific transaction managers<a class="headerlink" href="#9-targeting-specific-transaction-managers" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">transactionManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ordersTxManager&quot;</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writeOrder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nd">@Transactional</span><span class="p">(</span><span class="n">transactionManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;billingTxManager&quot;</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writeInvoice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>Used when your app has multiple datasources or distinct persistence contexts.</p>
+<hr />
+<h2 id="10-common-pitfalls-checklist">🔐 10. Common pitfalls checklist<a class="headerlink" href="#10-common-pitfalls-checklist" title="Permanent link">&para;</a></h2>
+<p>☑ Rollback only happens if the framework <em>sees</em> the exception.
+☑ Checked exceptions need <code>rollbackFor</code> or <code>rollbackOn</code>.
+☑ Self-calls bypass proxy transactions.
+☑ <code>readOnly=true</code> is a hint, not a guarantee.
+☑ Use <code>REQUIRES_NEW</code> for independent commits (audits, logs).
+☑ Catching exceptions? Set rollback manually.
+☑ Pick one annotation style consistently.
+☑ Log transaction boundaries when debugging (<code>DEBUG org.springframework.transaction</code>).</p>
+<hr />
+<h2 id="summary-table">🧾 Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Spring syntax</th>
+<th>Jakarta syntax</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rollback on RuntimeException</td>
+<td>✔️ (default)</td>
+<td>✔️ (default)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Rollback on checked Exception</td>
+<td><code>rollbackFor=Exception.class</code></td>
+<td><code>rollbackOn=Exception.class</code></td>
+<td>must opt-in</td>
+</tr>
+<tr>
+<td>Independent tx</td>
+<td><code>Propagation.REQUIRES_NEW</code></td>
+<td><code>TxType.REQUIRES_NEW</code></td>
+<td>inner commit survives outer failure</td>
+</tr>
+<tr>
+<td>Read-only</td>
+<td><code>@Transactional(readOnly=true)</code></td>
+<td>—</td>
+<td>optimization hint</td>
+</tr>
+<tr>
+<td>Isolation/timeout</td>
+<td>attributes</td>
+<td>container config</td>
+<td>Spring feature</td>
+</tr>
+<tr>
+<td>Nested tx</td>
+<td><code>Propagation.NESTED</code></td>
+<td>—</td>
+<td>savepoint-based, JDBC only</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tldr-mental-model">🚀 TL;DR Mental Model<a class="headerlink" href="#tldr-mental-model" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A transaction begins at the first <code>@Transactional</code> boundary.</li>
+<li>If an exception <em>escapes</em> the boundary, rollback occurs (runtime-only by default).</li>
+<li>Nested calls usually share the same tx unless marked otherwise.</li>
+<li>Caught exceptions commit unless you flag rollback manually.</li>
+<li>Read-only methods are lighter, safer for queries.</li>
+<li>Always log resolved propagation chains when debugging weird commits.</li>
+</ul>
+<hr />
+<p><strong>Outcome:</strong> You now have a complete transactional playbook — clear rollback rules, predictable propagation, and a memory-safe mental map for every <code>@Transactional</code> boundary.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../serialization/json/" class="btn btn-neutral float-left" title="@Json"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../classes/core/ApplicationContext/" class="btn btn-neutral float-right" title="ApplicationContext">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../serialization/json/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../classes/core/ApplicationContext/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../../..";</script>
+    <script src="../../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../../js/theme.js"></script>
+      <script src="../../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

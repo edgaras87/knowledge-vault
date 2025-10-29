@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/Stream/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>Stream - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Stream";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/classes/Stream.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/classes/Stream/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Classes</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">Stream</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#what-is-a-stream-why-its-useful">What is a Stream? Why it’s useful</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#quick-glossary">Quick glossary</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#creating-instances">Creating instances</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#reading-state-accessors-terminal">Reading state / accessors (terminal)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#checking-properties">Checking properties</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#transformations-pure-ops-no-side-effects">Transformations (pure ops, no side effects)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#conversions-to-other-types">Conversions (to other types)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#iteration-comparison">Iteration &amp; comparison</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#common-utilities-helpers-youll-reach-for">Common utilities (helpers you’ll reach for)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#gotchas-anti-patterns-version-notes">Gotchas / anti-patterns / version notes</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#mini-reference-table">Mini reference table</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#end-to-end-example-typical-outputs-shown">End-to-end example (typical outputs shown)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#bottom-line-best-practices">Bottom line (best practices)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#wildcards-in-stream-api">🔑 Wildcards in Stream API</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#super-t-consumer">? super T → Consumer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#extends-r-producer">? extends R → Producer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#rule-of-thumb-pecs">📌 Rule of Thumb (PECS)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Classes</li>
+      <li class="breadcrumb-item active">Stream</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/classes/Stream.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="java-stream-api-cheat-sheet">Java Stream API Cheat Sheet<a class="headerlink" href="#java-stream-api-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-a-stream-why-its-useful">What is a Stream? Why it’s useful<a class="headerlink" href="#what-is-a-stream-why-its-useful" title="Permanent link">&para;</a></h2>
+<p>A <strong>Stream</strong> is a sequence of elements supporting <strong>functional-style operations</strong> (map, filter, reduce) on collections, arrays, files, etc. It helps you write <strong>concise, readable, parallelizable</strong> code without manual loops and temporary lists.</p>
+<hr />
+<h2 id="quick-glossary">Quick glossary<a class="headerlink" href="#quick-glossary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Source</strong>: Where elements come from (e.g., <code>List</code>, array, file).</li>
+<li><strong>Intermediate op</strong>: Returns a new stream (lazy). Examples: <code>filter</code>, <code>map</code>, <code>sorted</code>.</li>
+<li><strong>Terminal op</strong>: Triggers processing, produces a value/collection/side-effect. Examples: <code>collect</code>, <code>count</code>, <code>forEach</code>.</li>
+<li><strong>Lazy</strong>: Nothing runs until a terminal operation is called.</li>
+<li><strong>Stateless vs stateful</strong>: <code>map</code> is stateless; <code>sorted</code>/<code>distinct</code> are stateful (need to see more than one element).</li>
+<li><strong>Boxed vs primitive streams</strong>: <code>Stream&lt;T&gt;</code> vs <code>IntStream/LongStream/DoubleStream</code> (no boxing, extra math ops).</li>
+<li><strong>Collector</strong>: Strategy to accumulate stream results (e.g., <code>Collectors.toList()</code>).</li>
+<li><strong>Short-circuiting</strong>: Stops early (e.g., <code>findFirst</code>, <code>anyMatch</code>, <code>limit</code>).</li>
+<li><strong>Ordered</strong>: Some sources are ordered (<code>List</code>); some aren’t (<code>HashSet</code>).</li>
+</ul>
+<hr />
+<h2 id="creating-instances">Creating instances<a class="headerlink" href="#creating-instances" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// From collections &amp; arrays</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">,</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="s">&quot;Anya&quot;</span><span class="p">,</span><span class="s">&quot;Bo&quot;</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">stream</span><span class="p">();</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">();</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">IntStream</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">});</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// Literals / empty</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">// Ranges / iterate / generate</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">IntStream</span><span class="w"> </span><span class="n">s6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">           </span><span class="c1">// 0,1,2</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">IntStream</span><span class="w"> </span><span class="n">s7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">     </span><span class="c1">// 1,2,3</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">iterate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">).</span><span class="na">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">    </span><span class="c1">// 1,2,3</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">iterate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// Java 9+ bounded</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="n">Math</span><span class="p">::</span><span class="n">random</span><span class="p">).</span><span class="na">limit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1">// Files, regex, builder</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1">// (wrap in try-with-resources in real code)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">file</span><span class="p">.</span><span class="na">Files</span><span class="p">.</span><span class="na">lines</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">nio</span><span class="p">.</span><span class="na">file</span><span class="p">.</span><span class="na">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">)))</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">regex</span><span class="p">.</span><span class="na">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">&quot;\\s+&quot;</span><span class="p">).</span><span class="na">splitAsStream</span><span class="p">(</span><span class="s">&quot;hi there&quot;</span><span class="p">);</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">built</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="n">builder</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>Typical output (examples):</strong></p>
+<ul>
+<li><code>IntStream.range(0,3).boxed().toList()</code> → <code>[0, 1, 2]</code></li>
+<li><code>Stream.of("a","b").toList()</code> (J16+) → <code>["a", "b"]</code></li>
+</ul>
+<hr />
+<h2 id="reading-state-accessors-terminal">Reading state / accessors (terminal)<a class="headerlink" href="#reading-state-accessors-terminal" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">count</span><span class="p">();</span><span class="w">                     </span><span class="c1">// -&gt; 5</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">).</span><span class="na">min</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; 1</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">).</span><span class="na">max</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; 5</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">avg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="n">i</span><span class="p">).</span><span class="na">average</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; 2.8</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">findFirst</span><span class="p">();</span><span class="w"> </span><span class="c1">// -&gt; Optional[3]</span>
+</span></code></pre></div>
+<hr />
+<h2 id="checking-properties">Checking properties<a class="headerlink" href="#checking-properties" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;bb&quot;</span><span class="p">,</span><span class="s">&quot;ccc&quot;</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">anyLong</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">anyMatch</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; true</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">allShort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">allMatch</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; true</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">noneEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">noneMatch</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">isEmpty</span><span class="p">);</span><span class="w">    </span><span class="c1">// -&gt; true</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">isPar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">().</span><span class="na">isParallel</span><span class="p">();</span><span class="w">              </span><span class="c1">// -&gt; true</span>
+</span></code></pre></div>
+<hr />
+<h2 id="transformations-pure-ops-no-side-effects">Transformations (pure ops, no side effects)<a class="headerlink" href="#transformations-pure-ops-no-side-effects" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;  a&quot;</span><span class="p">,</span><span class="s">&quot;b  &quot;</span><span class="p">,</span><span class="s">&quot;  c  &quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">);</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cleaned</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">raw</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">     </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">trim</span><span class="p">)</span><span class="w">          </span><span class="c1">// [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;b&quot;]</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">     </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w">  </span><span class="c1">// same</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">     </span><span class="p">.</span><span class="na">distinct</span><span class="p">()</span><span class="w">                 </span><span class="c1">// [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;] (order preserved)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">     </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span><span class="w">                   </span><span class="c1">// [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">     </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// J16+</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">// flatMap</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">phrases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">);</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="n">phrases</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">         </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\s+&quot;</span><span class="p">)))</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">         </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// -&gt; [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1">// limit / skip</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">).</span><span class="na">limit</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="na">boxed</span><span class="p">().</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// [1,2]</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">skip2</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">).</span><span class="na">skip</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="na">boxed</span><span class="p">().</span><span class="na">toList</span><span class="p">();</span><span class="w">  </span><span class="c1">// [3,4,5]</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="c1">// peek (debug only, don’t mutate state!)</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">           </span><span class="p">.</span><span class="na">peek</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;saw &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="c1">// prints 1,2,3 during terminal op</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">           </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">           </span><span class="p">.</span><span class="na">boxed</span><span class="p">()</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">           </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// -&gt; [1,4,9]</span>
+</span></code></pre></div>
+<hr />
+<h2 id="conversions-to-other-types">Conversions (to other types)<a class="headerlink" href="#conversions-to-other-types" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// To collections</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">).</span><span class="na">toList</span><span class="p">();</span><span class="w">             </span><span class="c1">// J16+ (unmodifiable)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w"> </span><span class="c1">// modifiable (usually)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toSet</span><span class="p">());</span><span class="w"> </span><span class="c1">// -&gt; [&quot;a&quot;,&quot;b&quot;] (order undefined)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;bb&quot;</span><span class="p">,</span><span class="s">&quot;ccc&quot;</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">));</span><span class="w"> </span><span class="c1">// beware duplicate keys</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// To array</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">).</span><span class="na">toArray</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">// To primitives / from primitives</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">IntStream</span><span class="w"> </span><span class="n">ints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">Integer</span><span class="p">::</span><span class="n">intValue</span><span class="p">);</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">boxed</span><span class="p">();</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1">// Joining &amp; reducing</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">String</span><span class="w"> </span><span class="n">joined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; &quot;a,b,c&quot;</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">sum</span><span class="p">();</span><span class="w">               </span><span class="c1">// -&gt; 6</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="kt">int</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">reduce</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; 6</span>
+</span></code></pre></div>
+<hr />
+<h2 id="iteration-comparison">Iteration &amp; comparison<a class="headerlink" href="#iteration-comparison" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Iterate (with side effects) — prefer terminal ops for side effects, not intermediate</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">items</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span><span class="w">          </span><span class="c1">// prints in encounter order (or use forEachOrdered)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">items</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">forEachOrdered</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span><span class="w">   </span><span class="c1">// stable order even in parallel streams</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// Compare two sequences (content equality)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">stream</span><span class="p">().</span><span class="na">toList</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span><span class="w"> </span><span class="c1">// -&gt; true</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">// Or compare after materializing (common &amp; simple):</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">same2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">stream</span><span class="p">().</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">Integer</span><span class="p">::</span><span class="n">intValue</span><span class="p">).</span><span class="na">toArray</span><span class="p">(),</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="n">IntStream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">).</span><span class="na">toArray</span><span class="p">()</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">);</span><span class="w"> </span><span class="c1">// -&gt; true</span>
+</span></code></pre></div>
+<hr />
+<h2 id="common-utilities-helpers-youll-reach-for">Common utilities (helpers you’ll reach for)<a class="headerlink" href="#common-utilities-helpers-youll-reach-for" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Comparators</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">record</span> <span class="nc">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Bo&quot;</span><span class="p">,</span><span class="mi">25</span><span class="p">));</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">byAgeThenName</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingInt</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">age</span><span class="p">).</span><span class="na">thenComparing</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">name</span><span class="p">))</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// -&gt; [(Bob,25),(Bo,25),(Ana,30)]</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1">// Grouping / partitioning</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">byAge</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">age</span><span class="p">));</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1">// -&gt; {25=[(Bob,25),(Bo,25)], 30=[(Ana,30)]}</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">  </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">partitioningBy</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">age</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="p">));</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">// -&gt; {true=[(Ana,30)], false=[(Bob,25),(Bo,25)]}</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1">// Summarizing</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">IntSummaryStatistics</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">  </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">summarizingInt</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">age</span><span class="p">));</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="c1">// stats.getCount()=3, getMin()=25, getMax()=30, getAverage()=26.666...</span>
+</span></code></pre></div>
+<hr />
+<h2 id="gotchas-anti-patterns-version-notes">Gotchas / anti-patterns / version notes<a class="headerlink" href="#gotchas-anti-patterns-version-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Streams are single-use</strong>: Once a terminal op runs, the stream is consumed. Create a new stream if you need to run another terminal op.</li>
+<li><strong>Side effects in intermediate ops</strong> (<code>map</code>, <code>filter</code>, <code>peek</code>) are error-prone. Keep them <em>pure</em>. Use <code>peek</code> only for debugging/logging.</li>
+<li><strong><code>parallelStream()</code></strong>: Only beneficial for CPU-heavy, stateless, large workloads. Avoid for small lists, IO-bound work, or when order matters. Be careful with thread-unsafe code.</li>
+<li><strong>Ordering</strong>: <code>HashSet.stream()</code> has no deterministic order; operations like <code>sorted()</code> will impose order at a cost.</li>
+<li><strong><code>Collectors.toMap</code> duplicate keys</strong> throw <code>IllegalStateException</code>. Provide a merge function:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;bb&quot;</span><span class="p">,</span><span class="s">&quot;aa&quot;</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span><span class="n">String</span><span class="p">::</span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">));</span><span class="w"> </span><span class="c1">// keep first</span>
+</span></code></pre></div>
+* <strong><code>Stream.toList()</code> (Java 16+)</strong> returns <strong>unmodifiable</strong> list; <code>Collectors.toList()</code> usually returns a <strong>mutable</strong> list (implementation-dependent).
+* <strong><code>Files.lines(...)</code></strong> holds file resources—use try-with-resources.
+* <strong>Boxing overhead</strong>: Prefer <code>IntStream/LongStream/DoubleStream</code> for numeric crunching.
+* <strong>Don’t store streams</strong> in fields; build &amp; consume locally.
+* <strong>Java 9+ goodies</strong>: <code>Stream.iterate(seed, hasNext, next)</code>, <code>takeWhile</code>, <code>dropWhile</code> (on ordered streams).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">firstSmall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">).</span><span class="na">takeWhile</span><span class="p">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">).</span><span class="na">boxed</span><span class="p">().</span><span class="na">toList</span><span class="p">();</span><span class="w"> </span><span class="c1">// [1,2]</span>
+</span></code></pre></div>
+<hr />
+<h2 id="mini-reference-table">Mini reference table<a class="headerlink" href="#mini-reference-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it does</th>
+<th>Example → Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter(p)</code></td>
+<td>Keep elements matching predicate</td>
+<td><code>List.of(1,2,3).stream().filter(i-&gt;i%2==1).toList()</code> → <code>[1,3]</code></td>
+</tr>
+<tr>
+<td><code>map(f)</code></td>
+<td>Transform each element</td>
+<td><code>Stream.of("a","bb").map(String::length).toList()</code> → <code>[1,2]</code></td>
+</tr>
+<tr>
+<td><code>flatMap(f)</code></td>
+<td>Flatten nested streams</td>
+<td><code>Stream.of("a b","c").flatMap(s-&gt;Arrays.stream(s.split(" "))).toList()</code> → <code>[a,b,c]</code></td>
+</tr>
+<tr>
+<td><code>distinct()</code></td>
+<td>Remove duplicates (keeps first)</td>
+<td><code>Stream.of(1,1,2).distinct().toList()</code> → <code>[1,2]</code></td>
+</tr>
+<tr>
+<td><code>sorted()</code></td>
+<td>Sort using natural order</td>
+<td><code>Stream.of(3,1,2).sorted().toList()</code> → <code>[1,2,3]</code></td>
+</tr>
+<tr>
+<td><code>limit(n)</code> / <code>skip(n)</code></td>
+<td>Truncate / skip</td>
+<td><code>IntStream.range(1,6).limit(3).boxed().toList()</code> → <code>[1,2,3]</code></td>
+</tr>
+<tr>
+<td><code>anyMatch/allMatch/noneMatch</code></td>
+<td>Check membership conditions</td>
+<td><code>Stream.of("a","bb").anyMatch(s-&gt;s.length()==2)</code> → <code>true</code></td>
+</tr>
+<tr>
+<td><code>findFirst/findAny</code></td>
+<td>Get an element (Optional)</td>
+<td><code>Stream.of(10,20).findFirst()</code> → <code>Optional[10]</code></td>
+</tr>
+<tr>
+<td><code>reduce(id,acc)</code></td>
+<td>Fold elements</td>
+<td><code>IntStream.of(1,2,3).reduce(0,Integer::sum)</code> → <code>6</code></td>
+</tr>
+<tr>
+<td><code>collect(...)</code></td>
+<td>Aggregate via collectors</td>
+<td><code>Stream.of("a","b").collect(Collectors.joining(","))</code> → <code>"a,b"</code></td>
+</tr>
+<tr>
+<td><code>mapToInt/boxed</code></td>
+<td>Convert between primitive/boxed</td>
+<td><code>Stream.of(1,2).mapToInt(i-&gt;i).sum()</code> → <code>3</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="end-to-end-example-typical-outputs-shown">End-to-end example (typical outputs shown)<a class="headerlink" href="#end-to-end-example-typical-outputs-shown" title="Permanent link">&para;</a></h2>
+<p><strong>Task:</strong> From a list of people, get the top 2 cities by average age, list residents per city alphabetically, and produce some quick stats.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.*</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">import static</span><span class="w"> </span><span class="nn">java.util.stream.Collectors.*</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">record</span> <span class="nc">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">city</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Demo</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">,</span><span class="s">&quot;Vilnius&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="s">&quot;Kaunas&quot;</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Bo&quot;</span><span class="p">,</span><span class="s">&quot;Kaunas&quot;</span><span class="p">,</span><span class="mi">27</span><span class="p">),</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Anya&quot;</span><span class="p">,</span><span class="s">&quot;Vilnius&quot;</span><span class="p">,</span><span class="mi">34</span><span class="p">),</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">      </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Cara&quot;</span><span class="p">,</span><span class="s">&quot;Klaipeda&quot;</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="c1">// Group by city and compute average age</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">avgAgeByCity</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">      </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">groupingBy</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">city</span><span class="p">,</span><span class="w"> </span><span class="n">averagingInt</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">age</span><span class="p">)));</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;avgAgeByCity=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">avgAgeByCity</span><span class="p">);</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="c1">// -&gt; avgAgeByCity={Kaunas=26.0, Klaipeda=22.0, Vilnius=32.0}</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="c1">// Top 2 cities by average age (desc)</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">top2Cities</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">      </span><span class="n">avgAgeByCity</span><span class="p">.</span><span class="na">entrySet</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">        </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="p">.</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Double</span><span class="o">&gt;</span><span class="n">comparingByValue</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">reverseOrder</span><span class="p">()))</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">        </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">        </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="p">::</span><span class="n">getKey</span><span class="p">)</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="p">.</span><span class="na">toList</span><span class="p">();</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;top2Cities=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">top2Cities</span><span class="p">);</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">    </span><span class="c1">// -&gt; top2Cities=[Vilnius, Kaunas]</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">    </span><span class="c1">// Residents per city alphabetically (for only top2)</span>
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">residents</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="w">      </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">top2Cities</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">city</span><span class="p">()))</span>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a><span class="w">        </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">groupingBy</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">city</span><span class="p">,</span>
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="w">                            </span><span class="n">mapping</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="w">                                    </span><span class="n">collectingAndThen</span><span class="p">(</span><span class="n">toList</span><span class="p">(),</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="w">                                      </span><span class="n">l</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">naturalOrder</span><span class="p">());</span>
+</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="w">                                      </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="w">                                    </span><span class="p">}))));</span>
+</span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;residents=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">residents</span><span class="p">);</span>
+</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a><span class="w">    </span><span class="c1">// -&gt; residents={Kaunas=[Bo, Bob], Vilnius=[Ana, Anya]}</span>
+</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a>
+</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a><span class="w">    </span><span class="c1">// Quick stats overall</span>
+</span><span id="__span-9-47"><a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a><span class="w">    </span><span class="n">IntSummaryStatistics</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">people</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">summarizingInt</span><span class="p">(</span><span class="n">Person</span><span class="p">::</span><span class="n">age</span><span class="p">));</span>
+</span><span id="__span-9-48"><a id="__codelineno-9-48" name="__codelineno-9-48" href="#__codelineno-9-48"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;count=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stats</span><span class="p">.</span><span class="na">getCount</span><span class="p">()</span>
+</span><span id="__span-9-49"><a id="__codelineno-9-49" name="__codelineno-9-49" href="#__codelineno-9-49"></a><span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, min=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stats</span><span class="p">.</span><span class="na">getMin</span><span class="p">()</span>
+</span><span id="__span-9-50"><a id="__codelineno-9-50" name="__codelineno-9-50" href="#__codelineno-9-50"></a><span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, max=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stats</span><span class="p">.</span><span class="na">getMax</span><span class="p">()</span>
+</span><span id="__span-9-51"><a id="__codelineno-9-51" name="__codelineno-9-51" href="#__codelineno-9-51"></a><span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, avg=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">stats</span><span class="p">.</span><span class="na">getAverage</span><span class="p">()));</span>
+</span><span id="__span-9-52"><a id="__codelineno-9-52" name="__codelineno-9-52" href="#__codelineno-9-52"></a><span class="w">    </span><span class="c1">// -&gt; count=5, min=22, max=34, avg=27.60</span>
+</span><span id="__span-9-53"><a id="__codelineno-9-53" name="__codelineno-9-53" href="#__codelineno-9-53"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-54"><a id="__codelineno-9-54" name="__codelineno-9-54" href="#__codelineno-9-54"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="bottom-line-best-practices">Bottom line (best practices)<a class="headerlink" href="#bottom-line-best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Think pipelines</strong>: <code>source → (map/filter/…)* → terminal</code>.</li>
+<li><strong>Keep intermediate ops pure</strong>; put side effects in terminal ops (<code>forEach</code>, I/O).</li>
+<li><strong>Prefer <code>toList()</code> (J16+)</strong> for concise unmodifiable results; use <code>Collectors.toList()</code> when you need a mutable list.</li>
+<li><strong>Mind order &amp; cost</strong>: Put cheap filters early; avoid unnecessary <code>sorted</code>/<code>distinct</code>.</li>
+<li><strong>Prefer primitive streams</strong> for numeric performance.</li>
+<li><strong>Avoid <code>parallelStream()</code></strong> unless you’ve measured a win and your operations are thread-safe, stateless, and CPU-bound.</li>
+<li><strong>Handle <code>Optional</code></strong> properly—use <code>orElse</code>, <code>orElseGet</code>, <code>ifPresent</code>, not <code>get()</code> blindly.</li>
+<li><strong>Don’t over-stream</strong>: A plain <code>for</code> loop is fine for very simple, stateful, or performance-critical mutations.</li>
+</ul>
+<hr />
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>
+</span></code></pre></div>
+<h2 id="wildcards-in-stream-api">🔑 Wildcards in Stream API<a class="headerlink" href="#wildcards-in-stream-api" title="Permanent link">&para;</a></h2>
+<h3 id="super-t-consumer"><code>? super T</code> → <strong>Consumer</strong><a class="headerlink" href="#super-t-consumer" title="Permanent link">&para;</a></h3>
+<p>Use when the API <strong>feeds stream elements into something</strong>.</p>
+<ul>
+<li><strong><code>forEach(Consumer&lt;? super T&gt;)</code></strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Number</span><span class="o">&gt;</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">s</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">print</span><span class="p">);</span><span class="w"> </span><span class="c1">// OK because Consumer&lt;? super Integer&gt;</span>
+</span></code></pre></div>
+<ul>
+<li><strong><code>allMatch(Predicate&lt;? super T&gt;)</code></strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bb&quot;</span><span class="p">);</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">notNull</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Objects</span><span class="p">::</span><span class="n">nonNull</span><span class="p">;</span><span class="w"> </span><span class="c1">// Predicate&lt;Object&gt; is super of String</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">words</span><span class="p">.</span><span class="na">allMatch</span><span class="p">(</span><span class="n">notNull</span><span class="p">);</span>
+</span></code></pre></div>
+<ul>
+<li><strong><code>sorted(Comparator&lt;? super T&gt;)</code></strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">);</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="n">o2</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">o1</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">o2</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">s</span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">cmp</span><span class="p">).</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h3 id="extends-r-producer"><code>? extends R</code> → <strong>Producer</strong><a class="headerlink" href="#extends-r-producer" title="Permanent link">&para;</a></h3>
+<p>Use when the API <strong>returns new elements produced from the stream</strong>.</p>
+<ul>
+<li><strong><code>map(Function&lt;? super T, ? extends R&gt;)</code></strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">Function</span><span class="o">&lt;</span><span class="n">Number</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Num:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"> </span><span class="c1">// R is String</span>
+</span></code></pre></div>
+<ul>
+<li><strong><code>flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt;)</code></strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a,b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">);</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">Stream</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)));</span>
+</span></code></pre></div>
+<hr />
+<h3 id="rule-of-thumb-pecs">📌 Rule of Thumb (PECS)<a class="headerlink" href="#rule-of-thumb-pecs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Producer → Extends</strong>: output side (<code>map</code>, <code>flatMap</code>)</li>
+<li><strong>Consumer → Super</strong>: input side (<code>forEach</code>, <code>allMatch</code>, <code>sorted</code>)</li>
+</ul>
+<hr />
+<p>👉 That’s really all you need:</p>
+<ul>
+<li>If the stream <strong>gives elements to</strong> your function = <code>? super T</code>.</li>
+<li>If your function <strong>produces new elements</strong> = <code>? extends R</code>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ClassLoader/" class="btn btn-neutral float-left" title="ClassLoader"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../nio/path/" class="btn btn-neutral float-right" title="Path">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../ClassLoader/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../nio/path/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

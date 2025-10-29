@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/project-layout-structure/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>Project Layout Structure for Development - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Project Layout Structure for Development";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/setup/project-layout-structure.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/setup/project-layout-structure/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Setup</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">Project Layout Structure for Development</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-project-tree-dev-first">1) Project tree (dev-first)</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#why-this-layout">Why this layout?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-minimal-gitignore">2) Minimal .gitignore</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-spring-config-profiles-externalized-location">3) Spring config: profiles + externalized location</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-logging-to-both-console-and-file">4) Logging to both console and file</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-docker-compose-for-local-stack">5) Docker Compose for local stack</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#6-run-scripts">6) Run scripts</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#7-gradlemaven-snippets">7) Gradle/Maven snippets</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#8-conventions-tips">8) Conventions &amp; tips</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Setup</li>
+      <li class="breadcrumb-item active">Project Layout Structure for Development</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/setup/project-layout-structure.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="project-layout-dev-first">Project layout (dev-first)<a class="headerlink" href="#project-layout-dev-first" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-project-tree-dev-first">1) Project tree (dev-first)<a class="headerlink" href="#1-project-tree-dev-first" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my-service/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ build.gradle / pom.xml
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─ settings.gradle
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├─ .gitignore
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├─ README.md
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├─ .env                           # local-only env vars for compose/scripts (never commit secrets)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├─ src/
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  ├─ main/
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  │  ├─ java/...                 # app code
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  │  ├─ resources/
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  │  │  ├─ application.yml       # shared defaults (safe to commit)
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  │  │  ├─ application-dev.yml   # dev profile overrides (safe to commit)
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  │  │  └─ logback-spring.xml    # logging config: console + file (to ./var/log)
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  └─ test/java/...               # tests
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>├─ config/                        # **externalized config** mounted/loaded in dev
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│  ├─ application-local.yml       # machine-specific overrides; not committed
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│  └─ secrets.example.yml         # example only (commit), copy to secrets.yml locally
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>├─ var/                           # dev runtime artifacts (git-ignored)
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│  ├─ log/                        # app logs in dev
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│  │  └─ app.log
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│  ├─ data/                       # app writable data (e.g., file uploads)
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│  └─ tmp/                        # ephemeral scratch files
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>├─ db/                            # dev database assets
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>│  ├─ migrations/                 # Flyway/Liquibase scripts (commit)
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│  └─ data/                       # local DB files or mounted volume (git-ignored)
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>├─ docker/
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│  ├─ Dockerfile
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>│  └─ compose.yml                 # local stack (app + postgres + pgadmin, etc.)
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>│
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>└─ scripts/
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>   ├─ run-dev.sh                  # runs app with dev profile + external config
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>   ├─ format.sh
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>   └─ wait-for-it.sh
+</span></code></pre></div>
+<h3 id="why-this-layout">Why this layout?<a class="headerlink" href="#why-this-layout" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>src/main/resources/application.yml</code> holds <strong>safe defaults</strong> (commit).</li>
+<li><code>application-dev.yml</code> contains <strong>dev profile</strong> overrides you’re happy to commit (e.g., use H2 or a local Postgres, verbose logging).</li>
+<li><code>config/</code> is for <strong>externalized, machine-specific</strong> config (don’t commit secrets). Load via <code>SPRING_CONFIG_ADDITIONAL_LOCATION</code>.</li>
+<li><code>var/log</code>, <code>var/data</code>, <code>var/tmp</code> keep runtime files <strong>out of your code</strong> and are <strong>git-ignored</strong>.</li>
+<li><code>db/migrations</code> is versioned; <code>db/data</code> is not (local volumes only).</li>
+</ul>
+<h2 id="2-minimal-gitignore">2) Minimal .gitignore<a class="headerlink" href="#2-minimal-gitignore" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Build
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/target/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>/build/
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>/out/
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a># IDE
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>.idea/
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>.project
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>.classpath
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>.settings/
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>*.iml
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a># Runtime (dev)
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>/var/
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>/config/application-local.yml
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>/config/secrets.yml
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>/db/data/
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>/*.log
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a># OS cruft
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>.DS_Store
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>Thumbs.db
+</span></code></pre></div>
+<h2 id="3-spring-config-profiles-externalized-location">3) Spring config: profiles + externalized location<a class="headerlink" href="#3-spring-config-profiles-externalized-location" title="Permanent link">&para;</a></h2>
+<p><code>src/main/resources/application.yml</code> (safe defaults)</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">application</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-service</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://localhost:5432/my_service</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_service</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">changeme</span><span class="w">     </span><span class="c1"># defaults for dev only; override via external config or env</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">jpa</span><span class="p">:</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">hibernate</span><span class="p">:</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nt">ddl-auto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">validate</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="nt">flyway</span><span class="p">:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">locations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classpath:db/migration</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nt">logging</span><span class="p">:</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">var/log/app.log</span><span class="w">    </span><span class="c1"># relative to project root when run from there</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="nt">level</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INFO</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nt">server</span><span class="p">:</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+</span></code></pre></div>
+<p><code>src/main/resources/application-dev.yml</code></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">activate</span><span class="p">:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">on-profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">jpa</span><span class="p">:</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">show-sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">logging</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">level</span><span class="p">:</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">org.springframework</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span>
+</span></code></pre></div>
+<p>External (not committed): <code>config/application-local.yml</code></p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">spring</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://localhost:5432/my_service</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_service</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">supersecret</span><span class="w">   </span><span class="c1"># local only</span>
+</span></code></pre></div>
+<p>Load it in dev with either:</p>
+<ul>
+<li>Env var:
+  <code>SPRING_PROFILES_ACTIVE=dev</code>
+  <code>SPRING_CONFIG_ADDITIONAL_LOCATION=./config/</code></li>
+<li>Or via CLI:
+  <code>./gradlew bootRun --args='--spring.profiles.active=dev --spring.config.additional-location=./config/'</code></li>
+</ul>
+<h2 id="4-logging-to-both-console-and-file">4) Logging to both console and file<a class="headerlink" href="#4-logging-to-both-console-and-file" title="Permanent link">&para;</a></h2>
+<p><code>src/main/resources/logback-spring.xml</code></p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;configuration</span><span class="w"> </span><span class="na">scan=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;LOG_FILE&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;var/log/app.log&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;CONSOLE&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&lt;encoder&gt;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">&lt;pattern&gt;</span>%d{HH:mm:ss.SSS}<span class="w"> </span>[%thread]<span class="w"> </span>%-5level<span class="w"> </span>%logger{36}<span class="w"> </span>-<span class="w"> </span>%msg%n<span class="nt">&lt;/pattern&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&lt;/encoder&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&lt;/appender&gt;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FILE&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">&lt;file&gt;</span>${LOG_FILE}<span class="nt">&lt;/file&gt;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">&lt;rollingPolicy</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="nt">&lt;fileNamePattern&gt;</span>var/log/app.%d{yyyy-MM-dd}.log<span class="nt">&lt;/fileNamePattern&gt;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="nt">&lt;maxHistory&gt;</span>7<span class="nt">&lt;/maxHistory&gt;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nt">&lt;/rollingPolicy&gt;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nt">&lt;encoder&gt;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">      </span><span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd<span class="w"> </span>HH:mm:ss.SSS}<span class="w"> </span>%-5level<span class="w"> </span>%logger<span class="w"> </span>-<span class="w"> </span>%msg%n<span class="nt">&lt;/pattern&gt;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="nt">&lt;/encoder&gt;</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="nt">&lt;/appender&gt;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="nt">&lt;root</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="nt">&lt;appender-ref</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;CONSOLE&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="nt">&lt;appender-ref</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;FILE&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">  </span><span class="nt">&lt;/root&gt;</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="nt">&lt;/configuration&gt;</span>
+</span></code></pre></div>
+<h2 id="5-docker-compose-for-local-stack">5) Docker Compose for local stack<a class="headerlink" href="#5-docker-compose-for-local-stack" title="Permanent link">&para;</a></h2>
+<p><code>docker/compose.yml</code></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_service_db</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_service</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_service</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">supersecret</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../db/data:/var/lib/postgresql/data</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">..</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/Dockerfile</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">      </span><span class="nt">SPRING_PROFILES_ACTIVE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="nt">SPRING_CONFIG_ADDITIONAL_LOCATION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/workspace/config/</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">..:/workspace</span><span class="w">           </span><span class="c1"># mount code (hot reload with DevTools)</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../var/log:/workspace/var/log</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../config:/workspace/config</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+</span></code></pre></div>
+<h2 id="6-run-scripts">6) Run scripts<a class="headerlink" href="#6-run-scripts" title="Permanent link">&para;</a></h2>
+<p><code>scripts/run-dev.sh</code></p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/usr/bin/env bash</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">set</span><span class="w"> </span>-euo<span class="w"> </span>pipefail
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SPRING_PROFILES_ACTIVE</span><span class="o">=</span><span class="si">${</span><span class="nv">SPRING_PROFILES_ACTIVE</span><span class="k">:-</span><span class="nv">dev</span><span class="si">}</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SPRING_CONFIG_ADDITIONAL_LOCATION</span><span class="o">=</span><span class="si">${</span><span class="nv">SPRING_CONFIG_ADDITIONAL_LOCATION</span><span class="k">:-</span><span class="p">./config/</span><span class="si">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Gradle</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>./gradlew<span class="w"> </span>bootRun<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span>--args<span class="o">=</span><span class="s2">&quot;--spring.config.additional-location=</span><span class="si">${</span><span class="nv">SPRING_CONFIG_ADDITIONAL_LOCATION</span><span class="si">}</span><span class="s2"> --spring.profiles.active=</span><span class="si">${</span><span class="nv">SPRING_PROFILES_ACTIVE</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h2 id="7-gradlemaven-snippets">7) Gradle/Maven snippets<a class="headerlink" href="#7-gradlemaven-snippets" title="Permanent link">&para;</a></h2>
+<p><strong>Gradle (Kotlin DSL) — add Spring Boot DevTools for hot reload</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">developmentOnly</span><span class="p">(</span><span class="s">&quot;org.springframework.boot:spring-boot-devtools&quot;</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">runtimeOnly</span><span class="p">(</span><span class="s">&quot;org.postgresql:postgresql&quot;</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;org.flywaydb:flyway-core&quot;</span><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="n">testImplementation</span><span class="p">(</span><span class="s">&quot;org.springframework.boot:spring-boot-starter-test&quot;</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Maven</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;dependencies&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>spring-boot-devtools<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.flywaydb<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>flyway-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="nt">&lt;/dependencies&gt;</span>
+</span></code></pre></div>
+<h2 id="8-conventions-tips">8) Conventions &amp; tips<a class="headerlink" href="#8-conventions-tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Never commit</strong> anything in <code>var/</code>, <code>config/application-local.yml</code>, or <code>db/data/</code>.</li>
+<li>Keep <strong>sane defaults</strong> in <code>application.yml</code>; put <strong>dev overrides</strong> in <code>application-dev.yml</code>; put <strong>machine secrets</strong> in <code>config/application-local.yml</code>.</li>
+<li>Point file-based resources (uploads, temp exports) to <code>var/data</code> and <code>var/tmp</code>.</li>
+<li>If you need multiple services later, keep this shape per service and add a <code>/infra</code> repo or a root-level <code>compose.yml</code> that wires them together.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../project-configuration/" class="btn btn-neutral float-left" title="Project Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../spring-app-as-linux-native/" class="btn btn-neutral float-right" title="Spring Boot JAR the “Linux-native” way">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../project-configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../spring-app-as-linux-native/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

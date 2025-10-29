@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/quickstart/podman/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>🚀 Podman Quickstart - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\ude80 Podman Quickstart";
+        var mkdocs_page_input_path = "cheatsheets/containers/quickstart/podman.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/containers/quickstart/podman/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Containers</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Quickstart</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">🚀 Podman Quickstart</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#what-podman-is">🔧 What Podman Is</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-big-architectural-difference">🧱 The Big Architectural Difference</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#core-podman-concepts-same-as-docker">🧠 Core Podman Concepts (same as Docker)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#podman-basics-command-equivalents">⚙️ Podman Basics — Command Equivalents</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rootless-containers-podmans-superpower">🧍 Rootless Containers (Podman’s Superpower)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pods-built-in-kubernetes-style-grouping">🧩 Pods — Built-in Kubernetes-Style Grouping</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#systemd-integration-quadlet">🧰 Systemd Integration — Quadlet</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#compose-multi-container-dev-environments">🪄 Compose (Multi-Container Dev Environments)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#networking-under-the-hood">🛰️ Networking (Under the Hood)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#volumes-and-storage">📦 Volumes and Storage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#security-isolation">🔐 Security &amp; Isolation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#maintenance-cleanup">🧹 Maintenance &amp; Cleanup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quick-comparison-summary">⚡ Quick Comparison Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mental-model">🧭 Mental Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-setup-mysql-backend">🧩 Example Setup (MySQL + Backend)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rule-of-thumb">✅ Rule of Thumb</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Containers</li>
+          <li class="breadcrumb-item">Quickstart</li>
+      <li class="breadcrumb-item active">🚀 Podman Quickstart</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/containers/quickstart/podman.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="simple-guide-to-podman-and-containers">🚀 Simple Guide to <code>Podman</code> and Containers<a class="headerlink" href="#simple-guide-to-podman-and-containers" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="what-podman-is">🔧 What Podman Is<a class="headerlink" href="#what-podman-is" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Podman</strong> (“Pod Manager”) is a <strong>container engine</strong> — just like Docker — but it runs <strong>without a daemon</strong>.
+  Instead of one background service (<code>dockerd</code>) managing everything, Podman runs containers as <strong>regular Linux processes</strong> owned by the user who starts them.</p>
+</li>
+<li>
+<p>It fully supports the <strong>OCI (Open Container Initiative)</strong> standards, meaning:</p>
+</li>
+<li>
+<p>Docker and Podman use the same image format.</p>
+</li>
+<li>You can pull from the same registries (<code>docker.io</code>, <code>quay.io</code>, <code>ghcr.io</code>, etc.).</li>
+<li>
+<p>Images built by one work in the other.</p>
+</li>
+<li>
+<p>Podman can manage:</p>
+</li>
+<li>
+<p>Single containers</p>
+</li>
+<li>Groups of containers (called <strong>Pods</strong>)</li>
+<li>Containers as <strong>systemd services</strong> via <strong>Quadlet</strong></li>
+</ul>
+<hr />
+<h2 id="the-big-architectural-difference">🧱 The Big Architectural Difference<a class="headerlink" href="#the-big-architectural-difference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Docker</th>
+<th>Podman</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Daemon</td>
+<td>Central background process (<code>dockerd</code>)</td>
+<td><strong>Daemonless</strong> — every container is a direct child process</td>
+</tr>
+<tr>
+<td>Privileges</td>
+<td>Root daemon (even for non-root users)</td>
+<td><strong>Rootless by default</strong> — containers run under your own UID</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td><code>/var/run/docker.sock</code></td>
+<td>Optional: <code>/run/user/$UID/podman/podman.sock</code></td>
+</tr>
+<tr>
+<td>Compose</td>
+<td>Built-in <code>docker compose</code></td>
+<td>External tool: <code>podman-compose</code></td>
+</tr>
+<tr>
+<td>Pods</td>
+<td>Docker: only in Kubernetes</td>
+<td><strong>First-class feature</strong> — group containers like mini-K8s pods</td>
+</tr>
+<tr>
+<td>System integration</td>
+<td>Docker runs as service</td>
+<td>Podman integrates natively with <strong>systemd</strong> via Quadlet</td>
+</tr>
+</tbody>
+</table>
+<p>In short: Docker = one big engine. Podman = small, self-contained tools running directly on Linux.</p>
+<hr />
+<h2 id="core-podman-concepts-same-as-docker">🧠 Core Podman Concepts (same as Docker)<a class="headerlink" href="#core-podman-concepts-same-as-docker" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Image</strong></p>
+</li>
+<li>
+<p>Template for containers, read-only, immutable.</p>
+</li>
+<li>
+<p>Example: <code>podman pull mysql:8.4</code></p>
+</li>
+<li>
+<p><strong>Container</strong></p>
+</li>
+<li>
+<p>A running instance of an image.</p>
+</li>
+<li>Starts quickly, isolated by namespaces and cgroups.</li>
+<li>
+<p>Example: <code>podman run -d --name mysql mysql:8.4</code></p>
+</li>
+<li>
+<p><strong>Volume</strong></p>
+</li>
+<li>
+<p>Persistent data storage — survives container deletion.</p>
+</li>
+<li>
+<p>Example: <code>podman volume create mysql-data</code></p>
+</li>
+<li>
+<p><strong>Ports</strong></p>
+</li>
+<li>
+<p>Expose container ports to the host.</p>
+</li>
+<li>
+<p>Example: <code>-p 8080:80</code> → access on <code>localhost:8080</code>.</p>
+</li>
+<li>
+<p><strong>Containerfile</strong></p>
+</li>
+<li>
+<p>Same as Dockerfile, just name-neutral.</p>
+</li>
+<li>
+<p>Example: <code>podman build -t myapp .</code></p>
+</li>
+<li>
+<p><strong>Compose</strong></p>
+</li>
+<li>
+<p>Use <code>podman-compose</code> (separate package) to run multi-container stacks.</p>
+</li>
+</ul>
+<hr />
+<h2 id="podman-basics-command-equivalents">⚙️ Podman Basics — Command Equivalents<a class="headerlink" href="#podman-basics-command-equivalents" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Docker</th>
+<th>Podman</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run container</td>
+<td><code>docker run -d nginx</code></td>
+<td><code>podman run -d nginx</code></td>
+</tr>
+<tr>
+<td>List containers</td>
+<td><code>docker ps</code></td>
+<td><code>podman ps</code></td>
+</tr>
+<tr>
+<td>Stop container</td>
+<td><code>docker stop nginx</code></td>
+<td><code>podman stop nginx</code></td>
+</tr>
+<tr>
+<td>Remove container</td>
+<td><code>docker rm nginx</code></td>
+<td><code>podman rm nginx</code></td>
+</tr>
+<tr>
+<td>View logs</td>
+<td><code>docker logs nginx</code></td>
+<td><code>podman logs nginx</code></td>
+</tr>
+<tr>
+<td>Inspect</td>
+<td><code>docker inspect nginx</code></td>
+<td><code>podman inspect nginx</code></td>
+</tr>
+<tr>
+<td>View images</td>
+<td><code>docker images</code></td>
+<td><code>podman images</code></td>
+</tr>
+<tr>
+<td>Build image</td>
+<td><code>docker build -t app .</code></td>
+<td><code>podman build -t app .</code></td>
+</tr>
+</tbody>
+</table>
+<p>They’re nearly identical — Podman was intentionally built to be CLI-compatible.</p>
+<hr />
+<h2 id="rootless-containers-podmans-superpower">🧍 Rootless Containers (Podman’s Superpower)<a class="headerlink" href="#rootless-containers-podmans-superpower" title="Permanent link">&para;</a></h2>
+<p>By default, Podman runs containers <strong>without root privileges</strong> — each container runs inside a <strong>user namespace</strong>, isolated from the real system.</p>
+<ul>
+<li>You don’t need <code>sudo</code>.</li>
+<li>You can run multiple user-isolated container sets on the same machine.</li>
+<li>Security improves because even a breakout from the container stays inside your user sandbox.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>podman<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh
+</span></code></pre></div>
+<p>→ Runs as your own user, not root.
+Inside the container, you <em>appear</em> as root — but it’s <strong>mapped</strong> to your normal UID on the host.</p>
+<hr />
+<h2 id="pods-built-in-kubernetes-style-grouping">🧩 Pods — Built-in Kubernetes-Style Grouping<a class="headerlink" href="#pods-built-in-kubernetes-style-grouping" title="Permanent link">&para;</a></h2>
+<p>A <strong>Pod</strong> is a group of containers that share the same network and storage namespace.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>podman<span class="w"> </span>pod<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>webpod<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>podman<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--pod<span class="w"> </span>webpod<span class="w"> </span>nginx
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>podman<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--pod<span class="w"> </span>webpod<span class="w"> </span>redis
+</span></code></pre></div>
+<p>Now both <code>nginx</code> and <code>redis</code> share the same network — just like a Kubernetes pod.</p>
+<p>You can inspect:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>podman<span class="w"> </span>pod<span class="w"> </span>ps
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>podman<span class="w"> </span>pod<span class="w"> </span>inspect<span class="w"> </span>webpod
+</span></code></pre></div>
+<p>Use pods when you want tight coupling between containers (e.g., app + sidecar).</p>
+<hr />
+<h2 id="systemd-integration-quadlet">🧰 Systemd Integration — Quadlet<a class="headerlink" href="#systemd-integration-quadlet" title="Permanent link">&para;</a></h2>
+<p>Podman talks natively with <strong>systemd</strong>, which means your containers can become permanent user or system services.</p>
+<p>You don’t write <code>systemctl start podman</code> — instead, you drop a <code>.container</code> or <code>.pod</code> file in your systemd config.</p>
+<p>Example: <code>~/.config/containers/systemd/mysql.container</code></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[Container]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">Image</span><span class="o">=</span><span class="s">mysql:8.4</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">PublishPort</span><span class="o">=</span><span class="s">3306:3306</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">Env</span><span class="o">=</span><span class="s">MYSQL_ROOT_PASSWORD=root</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="na">Volume</span><span class="o">=</span><span class="s">mysql-data:/var/lib/mysql</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">[Install]</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">default.target</span>
+</span></code></pre></div>
+<p>Enable it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mysql.service
+</span></code></pre></div>
+<p>Podman + Quadlet replaces the Docker daemon entirely — systemd manages the container lifecycle.</p>
+<hr />
+<h2 id="compose-multi-container-dev-environments">🪄 Compose (Multi-Container Dev Environments)<a class="headerlink" href="#compose-multi-container-dev-environments" title="Permanent link">&para;</a></h2>
+<p>Podman doesn’t bundle Compose by default, but you can install <code>podman-compose</code>.</p>
+<p>It uses <strong>the same <code>docker-compose.yml</code> files</strong>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>podman-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>podman-compose<span class="w"> </span>down
+</span></code></pre></div>
+<p>That means all your old Compose projects (MySQL + backend + Nginx) run untouched.
+Behind the scenes, it creates pods for you automatically.</p>
+<hr />
+<h2 id="networking-under-the-hood">🛰️ Networking (Under the Hood)<a class="headerlink" href="#networking-under-the-hood" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Podman uses <strong>CNI plugins</strong> to manage networking.</li>
+<li>Containers on the same pod share the same network namespace.</li>
+<li>For external exposure, use <code>-p hostPort:containerPort</code> just like Docker.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>podman<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>nginx
+</span></code></pre></div>
+<p>To connect multiple containers:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>podman<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>appnet
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>podman<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--network<span class="w"> </span>appnet<span class="w"> </span>--name<span class="w"> </span>db<span class="w"> </span>mysql:8.4
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>podman<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--network<span class="w"> </span>appnet<span class="w"> </span>--name<span class="w"> </span>app<span class="w"> </span>backend:latest
+</span></code></pre></div>
+<p>They can talk to each other via <code>db:3306</code>, just like in Docker networks.</p>
+<hr />
+<h2 id="volumes-and-storage">📦 Volumes and Storage<a class="headerlink" href="#volumes-and-storage" title="Permanent link">&para;</a></h2>
+<p>Persistent data works the same way as Docker, but stored under your user directory for rootless containers.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>podman<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>mysql-data
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>podman<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>mysql-data:/var/lib/mysql<span class="w"> </span>mysql:8.4
+</span></code></pre></div>
+<p>List and inspect volumes:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>podman<span class="w"> </span>volume<span class="w"> </span>ls
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>podman<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>mysql-data
+</span></code></pre></div>
+<hr />
+<h2 id="security-isolation">🔐 Security &amp; Isolation<a class="headerlink" href="#security-isolation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Rootless mode prevents host compromise.</li>
+<li>Supports <strong>SELinux</strong>, <strong>AppArmor</strong>, and <strong>seccomp</strong> natively.</li>
+<li>You can drop capabilities, restrict syscalls, or limit resources:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>podman<span class="w"> </span>run<span class="w"> </span>--cap-drop<span class="o">=</span>ALL<span class="w"> </span>--read-only<span class="w"> </span>nginx
+</span></code></pre></div>
+* Default network isolation is tighter than Docker’s, but can be configured.</p>
+<hr />
+<h2 id="maintenance-cleanup">🧹 Maintenance &amp; Cleanup<a class="headerlink" href="#maintenance-cleanup" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>podman<span class="w"> </span>ps<span class="w"> </span>-a
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>podman<span class="w"> </span>images
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>podman<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a
+</span></code></pre></div>
+<p>Equivalent to Docker — just without daemon interaction.</p>
+<hr />
+<h2 id="quick-comparison-summary">⚡ Quick Comparison Summary<a class="headerlink" href="#quick-comparison-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Docker</th>
+<th>Podman</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Daemon</td>
+<td>Required (<code>dockerd</code>)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Rootless mode</td>
+<td>Partial</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Compose</td>
+<td>Built-in</td>
+<td>Separate tool (<code>podman-compose</code>)</td>
+</tr>
+<tr>
+<td>Pods</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>systemd integration</td>
+<td>Indirect</td>
+<td>Native (Quadlet)</td>
+</tr>
+<tr>
+<td>Socket API</td>
+<td><code>/var/run/docker.sock</code></td>
+<td>Optional (<code>podman.sock</code>)</td>
+</tr>
+<tr>
+<td>CLI commands</td>
+<td><code>docker</code></td>
+<td><code>podman</code> (or use <code>podman-docker</code> alias)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mental-model">🧭 Mental Model<a class="headerlink" href="#mental-model" title="Permanent link">&para;</a></h2>
+<p>Think of <strong>Docker</strong> as “one big boss” (the daemon) that manages your containers for you.
+Think of <strong>Podman</strong> as “direct control” — you manage containers like regular Linux processes, optionally grouped into pods and controlled by systemd.</p>
+<p>You lose the babysitter daemon, but you gain:</p>
+<ul>
+<li>Simpler architecture</li>
+<li>Rootless safety</li>
+<li>Native system integration</li>
+<li>Kubernetes-aligned concepts (pods, Quadlet)</li>
+</ul>
+<hr />
+<h2 id="example-setup-mysql-backend">🧩 Example Setup (MySQL + Backend)<a class="headerlink" href="#example-setup-mysql-backend" title="Permanent link">&para;</a></h2>
+<p><code>docker-compose.yml</code> still works unchanged:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:8.4</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appdb</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3306:3306&quot;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql_data:/var/lib/mysql</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend:latest</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:mysql://mysql:3306/appdb</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">  </span><span class="nt">mysql_data</span><span class="p">:</span>
+</span></code></pre></div>
+<p>Run it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>podman-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<hr />
+<h2 id="rule-of-thumb">✅ Rule of Thumb<a class="headerlink" href="#rule-of-thumb" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Everything you know from Docker works here.</li>
+<li>
+<p>The key differences:</p>
+</li>
+<li>
+<p>No daemon (each container is its own process).</p>
+</li>
+<li>Rootless by default.</li>
+<li>Pods and Quadlet add system-level flexibility.</li>
+<li>Compose exists separately but behaves the same.</li>
+</ul>
+<p>Podman is Docker’s spiritual successor — same workflow, just stripped of the daemon and built with Linux-native elegance.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../docker/" class="btn btn-neutral float-left" title="🐳 Docker Quickstart"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../templates/compose/mysql/" class="btn btn-neutral float-right" title="MySQL">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../docker/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../templates/compose/mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

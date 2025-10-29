@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/project-configuration/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>Project Configuration - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Project Configuration";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/setup/project-configuration.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/setup/project-configuration/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Setup</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">Project Configuration</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-core-principles">1. Core Principles</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-configuration-sources-precedence">2. Configuration Sources &amp; Precedence</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-spring-boot-binding-the-foundation">3. Spring Boot Binding — The Foundation</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#value">@Value</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#configurationproperties">@ConfigurationProperties</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-file-storage-path-management-practical-example">4. File Storage Path Management (Practical Example)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-generalized-path-registry-pattern">5. Generalized Path Registry Pattern</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#6-validation-observability">6. Validation &amp; Observability</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#commandlinerunner-log-validate-at-startup">CommandLineRunner — log + validate at startup</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#healthindicator-continuous-livenessreadiness">HealthIndicator — continuous liveness/readiness</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#7-path-directory-rules-crossplatform">7. Path &amp; Directory Rules (Cross‑Platform)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#8-quick-spring-boot-notes">8. Quick Spring Boot Notes</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#summary">✅ Summary</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Setup</li>
+      <li class="breadcrumb-item active">Project Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/setup/project-configuration.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="project-configuration-path-management-the-complete-cheatsheet">🧭 Project Configuration &amp; Path Management — The Complete Cheatsheet<a class="headerlink" href="#project-configuration-path-management-the-complete-cheatsheet" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Goal:</strong> Manage configuration in a way that is <strong>portable</strong>, <strong>safe</strong>, and <strong>predictable</strong> across environments — from local dev to containers and cloud.</p>
+</blockquote>
+<hr />
+<h2 id="1-core-principles">1. Core Principles<a class="headerlink" href="#1-core-principles" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Externalize configuration</strong> — keep code constant; change values via YAML, profiles, or environment variables.</li>
+<li><strong>Single source of truth</strong> — for every property, define exactly one authoritative source at runtime.</li>
+<li><strong>Typed + validated</strong> — define schema and validate at startup.</li>
+<li><strong>Profile-based environments</strong> — dev, test, staging, prod.</li>
+<li><strong>Never hard-code paths</strong> — resolve <code>Path</code>s dynamically at startup.</li>
+<li><strong>Immutable builds, mutable config</strong> — identical JARs, different configs.</li>
+<li><strong>Expose effective config</strong> — redacted, layered view for observability.</li>
+</ol>
+<hr />
+<h2 id="2-configuration-sources-precedence">2. Configuration Sources &amp; Precedence<a class="headerlink" href="#2-configuration-sources-precedence" title="Permanent link">&para;</a></h2>
+<p><strong>Typical precedence (low → high):</strong>
+<code>defaults.yml</code> → <code>application-{profile}.yml</code> → <code>local.yml</code> → env vars → CLI/system props → secrets manager.</p>
+<p><strong>Locations:</strong></p>
+<ul>
+<li>Defaults: <code>src/main/resources/application.yml</code></li>
+<li>Profiles: <code>application-prod.yml</code></li>
+<li>Local overrides: <code>.env</code> or <code>application-local.yml</code></li>
+<li>Secrets: <code>/run/secrets/*</code> or cloud secret store.</li>
+</ul>
+<hr />
+<h2 id="3-spring-boot-binding-the-foundation">3. Spring Boot Binding — The Foundation<a class="headerlink" href="#3-spring-boot-binding-the-foundation" title="Permanent link">&para;</a></h2>
+<p>Spring Boot automatically maps config values to fields.</p>
+<h3 id="value"><code>@Value</code><a class="headerlink" href="#value" title="Permanent link">&para;</a></h3>
+<p>For one-off keys:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${paths.entries.uploads:data/uploads}&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">uploadsDir</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="configurationproperties"><code>@ConfigurationProperties</code><a class="headerlink" href="#configurationproperties" title="Permanent link">&para;</a></h3>
+<p>For structured configs:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;paths&quot;</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">PathsProps</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">home</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">entries</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<p>Environment variable mapping: <code>PATHS_ENTRIES_UPLOADS → paths.entries.uploads</code>.</p>
+<hr />
+<h2 id="4-file-storage-path-management-practical-example">4. File Storage Path Management (Practical Example)<a class="headerlink" href="#4-file-storage-path-management-practical-example" title="Permanent link">&para;</a></h2>
+<p>Define in <code>application.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">myapp</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${user.home}/IdeaProjects/playground/contacts&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">photos-dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data/photos&quot;</span>
+</span></code></pre></div>
+<p><strong>Properties class:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Component</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;myapp&quot;</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAppProperties</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">home</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">photosDir</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">appHomePath</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">home</span><span class="p">).</span><span class="na">toAbsolutePath</span><span class="p">().</span><span class="na">normalize</span><span class="p">();</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">photosPath</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">photosDir</span><span class="p">);</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">isAbsolute</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">toAbsolutePath</span><span class="p">().</span><span class="na">normalize</span><span class="p">()</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">                          </span><span class="p">:</span><span class="w"> </span><span class="n">appHomePath</span><span class="p">().</span><span class="na">resolve</span><span class="p">(</span><span class="n">p</span><span class="p">).</span><span class="na">toAbsolutePath</span><span class="p">().</span><span class="na">normalize</span><span class="p">();</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>File storage service:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Service</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FileStorageService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="n">photos</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">FileStorageService</span><span class="p">(</span><span class="n">MyAppProperties</span><span class="w"> </span><span class="n">props</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">photos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="na">photosPath</span><span class="p">();</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">Files</span><span class="p">.</span><span class="na">createDirectories</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">photos</span><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">savePhoto</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bytes</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">photos</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="n">filename</span><span class="p">).</span><span class="na">normalize</span><span class="p">();</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">target</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="n">photos</span><span class="p">))</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Invalid filename&quot;</span><span class="p">);</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">);</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Best practices:</strong></p>
+<ul>
+<li>Validate directory existence on startup.</li>
+<li>Log absolute resolved paths.</li>
+<li>Allow environment overrides (<code>MYAPP_HOME</code>, <code>MYAPP_PHOTOS_DIR</code>).</li>
+</ul>
+<hr />
+<h2 id="5-generalized-path-registry-pattern">5. Generalized Path Registry Pattern<a class="headerlink" href="#5-generalized-path-registry-pattern" title="Permanent link">&para;</a></h2>
+<p>One central class to manage <em>all</em> logical paths — uploads, logs, cache, configs, etc.</p>
+<p><strong>application.yml:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">paths</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${user.home}/IdeaProjects/playground/myapp&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">entries</span><span class="p">:</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">uploads</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data/uploads&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;var/cache&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">logs</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/log/myapp&quot;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">keystore</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;config/keystore.p12&quot;</span>
+</span></code></pre></div>
+<p><strong>Properties:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@Component</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;paths&quot;</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PathsProperties</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">home</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">entries</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">homePath</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">home</span><span class="p">).</span><span class="na">toAbsolutePath</span><span class="p">().</span><span class="na">normalize</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">entries</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">entries</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Registry:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Component</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PathRegistry</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="n">home</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PathRegistry</span><span class="p">(</span><span class="n">PathsProperties</span><span class="w"> </span><span class="n">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">home</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="na">homePath</span><span class="p">();</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">raw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="na">entries</span><span class="p">();</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">resolve</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">raw</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Unknown path: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">isAbsolute</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">home</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="n">p</span><span class="p">)).</span><span class="na">toAbsolutePath</span><span class="p">().</span><span class="na">normalize</span><span class="p">();</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">ensureDir</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resolve</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="n">Files</span><span class="p">.</span><span class="na">createDirectories</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dir</span><span class="p">;</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="nf">safeChild</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">dirKey</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resolve</span><span class="p">(</span><span class="n">dirKey</span><span class="p">);</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="n">Path</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="n">filename</span><span class="p">).</span><span class="na">normalize</span><span class="p">();</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">child</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="n">base</span><span class="p">))</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Traversal: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@Service</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CacheService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="n">cache</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">CacheService</span><span class="p">(</span><span class="n">PathRegistry</span><span class="w"> </span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paths</span><span class="p">.</span><span class="na">ensureDir</span><span class="p">(</span><span class="s">&quot;cache&quot;</span><span class="p">);</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="6-validation-observability">6. Validation &amp; Observability<a class="headerlink" href="#6-validation-observability" title="Permanent link">&para;</a></h2>
+<h3 id="commandlinerunner-log-validate-at-startup">CommandLineRunner — log + validate at startup<a class="headerlink" href="#commandlinerunner-log-validate-at-startup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Component</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nd">@Order</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PathsStartupRunner</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CommandLineRunner</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">PathsStartupRunner</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PathRegistry</span><span class="w"> </span><span class="n">paths</span><span class="p">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">requiredDirs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;uploads&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cache&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;temp&quot;</span><span class="p">);</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PathsStartupRunner</span><span class="p">(</span><span class="n">PathRegistry</span><span class="w"> </span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paths</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nd">@Override</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">String</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;=== Resolving paths ===&quot;</span><span class="p">);</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">requiredDirs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">      </span><span class="n">Path</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paths</span><span class="p">.</span><span class="na">ensureDir</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">      </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;paths.{} -&gt; {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">dir</span><span class="p">);</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Files</span><span class="p">.</span><span class="na">isWritable</span><span class="p">(</span><span class="n">dir</span><span class="p">))</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Not writable: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dir</span><span class="p">);</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;=== Path validation complete ===&quot;</span><span class="p">);</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="healthindicator-continuous-livenessreadiness">HealthIndicator — continuous liveness/readiness<a class="headerlink" href="#healthindicator-continuous-livenessreadiness" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@Component</span><span class="p">(</span><span class="s">&quot;paths&quot;</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PathsHealthIndicator</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">HealthIndicator</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PathRegistry</span><span class="w"> </span><span class="n">paths</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;uploads&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cache&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;temp&quot;</span><span class="p">};</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PathsHealthIndicator</span><span class="p">(</span><span class="n">PathRegistry</span><span class="w"> </span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paths</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nd">@Override</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Health</span><span class="w"> </span><span class="nf">health</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">allOk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">keys</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">      </span><span class="n">Path</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paths</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">exists</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">isDirectory</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">      </span><span class="kt">boolean</span><span class="w"> </span><span class="n">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">isWritable</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">      </span><span class="n">details</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;exists&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">exists</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dir&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;writable&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">writable</span><span class="p">));</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">      </span><span class="n">allOk</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">writable</span><span class="p">;</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">allOk</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">Health</span><span class="p">.</span><span class="na">up</span><span class="p">().</span><span class="na">withDetails</span><span class="p">(</span><span class="n">details</span><span class="p">).</span><span class="na">build</span><span class="p">()</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">                 </span><span class="p">:</span><span class="w"> </span><span class="n">Health</span><span class="p">.</span><span class="na">down</span><span class="p">().</span><span class="na">withDetails</span><span class="p">(</span><span class="n">details</span><span class="p">).</span><span class="na">build</span><span class="p">();</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Enable Actuator:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">management</span><span class="p">:</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">endpoints.web.exposure.include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">health,info</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">endpoint.health.show-details</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">when_authorized</span>
+</span></code></pre></div>
+<hr />
+<h2 id="7-path-directory-rules-crossplatform">7. Path &amp; Directory Rules (Cross‑Platform)<a class="headerlink" href="#7-path-directory-rules-crossplatform" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Always resolve to <strong>absolute</strong> paths at startup.</li>
+<li>Normalize (<code>..</code>, <code>.</code>), unify separators, avoid trailing slashes.</li>
+<li>Use <strong>API joins</strong> (<code>Path.resolve</code>, not string concatenation).</li>
+<li>Avoid non‑ASCII or space characters for portability.</li>
+<li>Containers: mount writable volumes; never write inside image filesystem.</li>
+<li>Respect XDG dirs (<code>~/.config</code>, <code>~/.cache</code>) for user apps.</li>
+</ul>
+<p><strong>Environment vars mapping:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">PATHS_HOME</span><span class="o">=</span>/data
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">PATHS_ENTRIES_UPLOADS</span><span class="o">=</span>data/uploads
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">PATHS_ENTRIES_LOGS</span><span class="o">=</span>/var/log/myapp
+</span></code></pre></div>
+<p><strong>Dockerfile:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATHS_HOME</span><span class="o">=</span>/data
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATHS_ENTRIES_UPLOADS</span><span class="o">=</span>data/uploads
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATHS_ENTRIES_CACHE</span><span class="o">=</span>var/cache
+</span></code></pre></div>
+<hr />
+<h2 id="8-quick-spring-boot-notes">8. Quick Spring Boot Notes<a class="headerlink" href="#8-quick-spring-boot-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>File order: <code>application.yml</code> &lt; profile YAML &lt; env &lt; system props &lt; CLI.</li>
+<li>Use <code>${VAR:default}</code> placeholders.</li>
+<li><code>spring.config.import=optional:file:…</code> to add layered configs.</li>
+<li><code>@ConfigurationProperties</code> = typed binding; use <code>@Validated</code> for constraints.</li>
+<li>Default to stdout logging in containers; configurable via <code>logging.file.name</code>.</li>
+</ul>
+<hr />
+<h2 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Keep <strong>logical</strong> paths in config, not code.</li>
+<li>Bind them via <code>@ConfigurationProperties</code>.</li>
+<li>Resolve into <strong>absolute, normalized</strong> <code>Path</code>s.</li>
+<li>Validate + log at startup (fail fast).</li>
+<li>Use HealthIndicator for runtime monitoring.</li>
+<li>Containers + env vars should map cleanly.</li>
+<li>Result: portable, observable, safe configuration across every environment.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../development-in-containers/" class="btn btn-neutral float-left" title="Development in Containers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../project-layout-structure/" class="btn btn-neutral float-right" title="Project Layout Structure for Development">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../development-in-containers/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../project-layout-structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/mkdocs/setup/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>MkDocs Setup - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MkDocs Setup";
+        var mkdocs_page_input_path = "cheatsheets/tools/mkdocs/setup.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/tools/mkdocs/setup/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tools</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Mkdocs</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">MkDocs Setup</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#0-prereqs">0) Prereqs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#1-repo-layout-the-shape-were-aiming-for">1) Repo layout (the shape we’re aiming for)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-one-time-install">2) One-time install</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#25-obsidian-setup-optional-but-useful">2.5) Obsidian setup (optional but useful)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-create-folders-fast-scaffold">3) Create folders fast (scaffold)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-mkdocsyml-configuration">4) mkdocs.yml configuration</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-homepages-three-indexmd-files">5) Homepages (three index.md files)</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#51-docsindexmd-site-homepage">5.1 docs/index.md (site homepage)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#52-docscheatsheetsindexmd-section-landing">5.2 docs/cheatsheets/index.md (section landing)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#53-docsconceptsindexmd-section-landing">5.3 docs/concepts/index.md (section landing)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-front-matter-templates-copypaste-into-pages">6) Front-matter templates (copy/paste into pages)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-local-dev-deploy">7) Local dev &amp; deploy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-faq-gotchas">8) FAQ / Gotchas</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-mental-model-why-this-works">9) Mental model (why this works)</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Tools</li>
+          <li class="breadcrumb-item">Mkdocs</li>
+      <li class="breadcrumb-item active">MkDocs Setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/tools/mkdocs/setup.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mkdocs-setup-structure-for-knowledge-vaultdocs">MkDocs — Setup &amp; Structure (for <code>knowledge-vault/docs</code>)<a class="headerlink" href="#mkdocs-setup-structure-for-knowledge-vaultdocs" title="Permanent link">&para;</a></h1>
+<p><strong>Goal:</strong> Write in Obsidian with <code>[[wikilinks]]</code> → publish a polished docs site via MkDocs Material.</p>
+<p><strong>Two modes:</strong> <strong>Cheatsheets</strong> (quick lookup) and <strong>Concepts</strong> (deep understanding). Keep them separate but cross-linked.</p>
+<hr />
+<h2 id="0-prereqs">0) Prereqs<a class="headerlink" href="#0-prereqs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 3.8+</li>
+<li>Git</li>
+<li>Obsidian app (optional but recommended for writing)</li>
+</ul>
+<hr />
+<h2 id="1-repo-layout-the-shape-were-aiming-for">1) Repo layout (the shape we’re aiming for)<a class="headerlink" href="#1-repo-layout-the-shape-were-aiming-for" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>knowledge-vault/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ mkdocs.yml                # site config (we’ll create it below)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─ README.md                 # for GitHub visitors (how to run/deploy)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└─ docs/                     # all site content lives here
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   ├─ index.md               # site homepage
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   ├─ cheatsheets/           # quick references (APIs, commands, patterns)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   │  ├─ index.md            # cheatsheets landing page
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   │  ├─ languages/
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   │  │  ├─ java/
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>   │  │  │  ├─ core/
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>   │  │  │  │  └─ streams.md
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>   │  │  │  └─ frameworks/
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>   │  │  │     └─ spring/
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>   │  │  │        ├─ annotations.md
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>   │  │  │        └─ rest-controller.md
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>   │  │  └─ python/
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>   │  │     └─ basics.md
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>   │  ├─ databases/
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>   │  │  ├─ sql/
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>   │  │  │  ├─ basics.md
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>   │  │  │  └─ joins.md
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>   │  │  ├─ mysql/
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>   │  │  │  ├─ setup/
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>   │  │  │  │  ├─ java.md
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>   │  │  │  │  └─ python.md
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>   │  │  │  └─ queries.md
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>   │  │  └─ orm/
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>   │  │     ├─ jpa-java-annotations.md
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>   │  │     └─ sqlalchemy-python-cheats.md
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>   │  ├─ networking/
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>   │  │  └─ http/
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>   │  │     ├─ basics.md
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>   │  │     └─ headers.md
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>   │  └─ tools/
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>   │     ├─ git.md
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>   │     ├─ docker.md
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>   │     └─ obsidian-mkdocs-setup.md    ← this cheatsheet
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>   └─ concepts/              # deeper explanations and trade-offs
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>      ├─ index.md            # concepts landing page
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>      ├─ backend/
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>      │  ├─ http.md
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>      │  ├─ rest-api.md
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>      │  └─ caching.md
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>      ├─ databases/
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>      │  ├─ normalization.md
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>      │  ├─ indexing.md
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>      │  ├─ transactions-acid.md
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>      │  └─ orm/
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>      │     ├─ orm-concepts.md
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>      │     └─ jpa-vs-sqlalchemy.md
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>      ├─ frameworks/
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>      │  ├─ spring-core.md
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>      │  └─ hibernate.md
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>      └─ design/
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>         ├─ dependency-injection.md
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>         └─ microservices.md
+</span></code></pre></div>
+<p><strong>Why this structure?</strong> </p>
+<ul>
+<li>Cheatsheets = fast lookup (language/framework/API); </li>
+<li>Concepts = how/why/architecture. </li>
+</ul>
+<p>It mirrors how your brain flips between coding and understanding, and keeps search results clean.</p>
+<hr />
+<h2 id="2-one-time-install">2) One-time install<a class="headerlink" href="#2-one-time-install" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>knowledge-vault
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># (Optional) keep Python deps isolated</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">      </span><span class="c1"># Windows: .venv\Scripts\activate</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Core: MkDocs + Material + &quot;Last updated&quot; git plugin</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-git-revision-date-localized-plugin
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># themes:    https://pawamoy.github.io/mkdocs-gallery/themes/readthedocs/</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># 1) Material</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># 2) Windmill</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1">#pip install mkdocs-windmill</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1"># 3) Bootstrap / Bootswatch</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="c1">#pip install mkdocs-bootstrap mkdocs-bootswatch</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="c1"># Pick ONE wikilinks plugin (to convert [[Page]] to proper links):</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="c1"># Option A (popular): Roam/Obsidian-style wikilinks + Obsidian-style callouts</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-roamlinks-plugin<span class="w"> </span>mkdocs-callouts
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="c1"># Option B (also good): Wikilinks via &quot;ezlinks&quot; (plugin name is mkdocs-wikilinks-plugin)</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c1"># pip install mkdocs-wikilinks-plugin</span>
+</span></code></pre></div>
+<p>Open the repo as an <strong>Obsidian vault</strong> (Obsidian → Open folder as vault → select <code>knowledge-vault/</code>).
+Recommended Obsidian settings:</p>
+<ul>
+<li>Files &amp; Links → <strong>Use [[Wikilinks]]</strong>: On</li>
+<li>Files &amp; Links → <strong>New link format</strong>: Shortest</li>
+<li>Files &amp; Links → <strong>Default location for new notes</strong>: Same folder as current file</li>
+<li>Editor → <strong>Show frontmatter</strong>: On</li>
+</ul>
+<hr />
+<h3 id="25-obsidian-setup-optional-but-useful">2.5) Obsidian setup (optional but useful)<a class="headerlink" href="#25-obsidian-setup-optional-but-useful" title="Permanent link">&para;</a></h3>
+<p><strong>Core plugins to enable</strong></p>
+<ul>
+<li>Backlinks, Outgoing Links → fast x-ref navigation</li>
+<li>Templates → front-matter snippets</li>
+<li>Daily Notes (optional) → scratchpad/logs that won’t be published</li>
+</ul>
+<p><strong>Community plugins that play nicely with MkDocs Material</strong></p>
+<ul>
+<li><strong>Admonition</strong> — renders MkDocs <code>!!! note|tip|warning</code> blocks <em>inside Obsidian</em>.
+  Use this in your notes so one syntax works everywhere:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>!!! tip
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    Use the search bar for method names, error snippets, or concepts.
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Advanced Tables</strong> <em>(or Table Editor 2)</em> — auto-align pipes, tab to next column.</p>
+</li>
+<li>
+<p><strong>Linter</strong> — auto-fix headings, trailing spaces, YAML ordering (keep <code>title/tags/summary</code> neat).</p>
+</li>
+<li>
+<p><strong>Templater</strong> — quick scaffolds for cheatsheets/concepts.</p>
+</li>
+<li>
+<p>Example templates:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>title: &lt;% tp.file.title %&gt; — Quickref
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>tags: [cheatsheet, &lt;topic&gt;, &lt;tech&gt;]
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="gu">summary: One-liner for why this exists.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="gu">---</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="gh"># &lt;% tp.file.title %&gt; — Quickref</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">&gt; </span><span class="ge">See concepts: [concepts/...](&lt;../../../concepts/...&gt;)</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>---
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>title: &lt;% tp.file.title %&gt;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>tags: [concept, &lt;domain&gt;]
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="gu">summary: What it is, why it matters, trade-offs.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gu">---</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="gh"># &lt;% tp.file.title %&gt;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">&gt; </span><span class="ge">See cheatsheet: [cheatsheets/...](&lt;../../...&gt;)</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Markdown Attributes</strong> — previews <code>{#id .class}</code> so Obsidian shows what <code>attr_list</code> does in MkDocs.</p>
+</li>
+<li>
+<p><strong>Paste URL into Selection</strong> — speeds up linking text → <code>[text](url)</code>.</p>
+</li>
+<li>
+<p><strong>Tag Wrangler</strong> — bulk-rename/merge tags.</p>
+</li>
+<li>
+<p><strong>Obsidian Git</strong> <em>(optional)</em> — commit/pull from inside Obsidian if you’re not using IDEA for VCS.</p>
+</li>
+</ul>
+<p><strong>Nice-to-have (safe, but non-exporting)</strong></p>
+<ul>
+<li><strong>Dataview</strong> — dashboards/lists in the vault. Remember: Dataview queries <strong>don’t render in MkDocs</strong>. Use it for in-vault discovery, not for pages you publish, or export the results as static lists before publishing.</li>
+</ul>
+<p><strong>Syntax alignment cheats</strong></p>
+<ul>
+<li><strong>Admonitions:</strong> Prefer MkDocs syntax (<code>!!! note</code>) + Admonition plugin → same source renders well in both places. Avoid Obsidian callouts (<code>&gt; [!NOTE]</code>) if you want one true syntax.</li>
+<li><strong>Tabs:</strong> <code>pymdownx.tabbed</code> looks great on the site but won’t render as tabs inside Obsidian. In notes, keep tab blocks short; Obsidian will show them as plain headings—good enough for editing.</li>
+<li><strong>Wikilinks:</strong> Keep writing <code>[[wikilinks]]</code>. <code>mkdocs-obsidian</code> resolves them on build, so reorganizing folders won’t break links.</li>
+</ul>
+<p><strong>Ignore these in publish</strong>
+Your <code>.obsidian/</code> stays out of the site—already covered by:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>excluded_dirs: [&#39;.obsidian&#39;, &#39;.trash&#39;]
+</span></code></pre></div>
+<p>and <code>.gitignore</code> should include:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.obsidian/
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>.trash/
+</span></code></pre></div>
+<p><strong>Gotchas</strong></p>
+<ul>
+<li>Dataview, buttons, or any Obsidian-only syntax isn’t rendered by MkDocs. Keep publishable pages in plain Markdown + MkDocs features.</li>
+<li>If Linter rewrites YAML keys, make sure it doesn’t nuke custom fields you care about.</li>
+<li>If you switch to Obsidian callouts, you’ll need a pre-processor to convert them to <code>!!!</code> blocks; staying with <code>!!!</code> avoids that whole dance.</li>
+</ul>
+<hr />
+<h2 id="3-create-folders-fast-scaffold">3) Create folders fast (scaffold)<a class="headerlink" href="#3-create-folders-fast-scaffold" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Run in repo root (<code>knowledge-vault/</code>). Adjust to taste.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>docs/<span class="o">{</span>cheatsheets/<span class="o">{</span>languages/<span class="o">{</span>java/<span class="o">{</span>core,frameworks/spring<span class="o">}</span>,python<span class="o">}</span>,databases/<span class="o">{</span>sql,mysql/setup,orm<span class="o">}</span>,networking/http,tools<span class="o">}</span>,concepts/<span class="o">{</span>backend,databases/orm,frameworks,design<span class="o">}}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="4-mkdocsyml-configuration">4) <code>mkdocs.yml</code> configuration<a class="headerlink" href="#4-mkdocsyml-configuration" title="Permanent link">&para;</a></h2>
+<p>Create <code>knowledge-vault/mkdocs.yml</code> with this content:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># mkdocs.yml — Site configuration for &quot;Knowledge Vault&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># MkDocs reads Markdown from ./docs and outputs static HTML into ./site</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Knowledge Vault</span><span class="w">                 </span><span class="c1"># Shown in header and metadata</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nt">site_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://&lt;your-username&gt;.github.io/knowledge-vault</span><span class="w">  </span><span class="c1"># Used for canonical links/sitemaps</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nt">repo_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/&lt;your-username&gt;/knowledge-vault</span><span class="w">  </span><span class="c1"># “Edit on GitHub” links</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nt">edit_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edit/main/docs/</span><span class="w">                  </span><span class="c1"># Path to open files in GitHub’s editor</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nt">use_directory_urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                   </span><span class="c1"># Pretty URLs: /path/ instead of /path.html</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1">#https://pawamoy.github.io/mkdocs-gallery/themes/readthedocs/</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nt">extra_css</span><span class="p">:</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">css/overrides.css</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nt">theme</span><span class="p">:</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">readthedocs</span><span class="w">                         </span><span class="c1"># A classic, documentation-focused theme</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="nt">navigation_depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span><span class="w">                       </span><span class="c1"># how deep the sidebar goes</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="c1">#name: dracula                            # A dark theme</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span><span class="c1">#name: material                           # Material for MkDocs theme (feature-rich)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="c1">#name: windmill                           # A simple, responsive theme</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">  </span><span class="c1">#name: bootstrap                          # or a Bootswatch variant via the bootswatch package</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">  </span><span class="nt">features</span><span class="p">:</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.instant</span><span class="w">                   </span><span class="c1"># Faster page transitions</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.tracking</span><span class="w">                  </span><span class="c1"># Highlight active section as you scroll</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.sections</span><span class="w">                  </span><span class="c1"># Group pages by top-level sections</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">navigation.tabs</span><span class="w">                      </span><span class="c1"># Top-level sections as tabs</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toc.integrate</span><span class="w">                        </span><span class="c1"># Merge page TOC into the sidebar</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.code.copy</span><span class="w">                    </span><span class="c1"># Copy button on code blocks</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.code.annotate</span><span class="w">                </span><span class="c1"># Inline annotations on code</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.action.edit</span><span class="w">                  </span><span class="c1"># “Edit this page” button</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search.suggest</span><span class="w">                       </span><span class="c1"># Search autocomplete</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search.highlight</span><span class="w">                     </span><span class="c1"># Highlight matches on page</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="c1">#  # Color schemes (light/dark) that follow OS preference</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="c1">#  palette:</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="c1">#    # --- Scheme 1: Light (shown when OS prefers light) ---</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="c1">#    - media: &quot;(prefers-color-scheme: light)&quot;  # follow OS light mode</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="c1">#      scheme: default                          # Material&#39;s default light scheme</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="c1">#      primary: indigo                          # header / accents</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="c1">#      accent: indigo                           # buttons / highlights</span>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="c1">#      toggle:</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="c1">#        icon: material/weather-night           # icon shown while in light mode</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="c1">#        name: Switch to dark mode              # accessible label (tooltip)</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="c1">#</span>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="c1">#    # --- Scheme 2: Dark (shown when OS prefers dark) ---</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="c1">#    - media: &quot;(prefers-color-scheme: dark)&quot;   # follow OS dark mode</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a><span class="c1">#      scheme: slate                            # Material&#39;s dark scheme</span>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="c1">#      primary: indigo</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="c1">#      accent: indigo</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="c1">#      toggle:</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a><span class="c1">#        icon: material/weather-sunny           # icon shown while in dark mode</span>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="c1">#        name: Switch to light mode</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a><span class="c1"># docs_dir defaults to &quot;docs&quot;. Keeping it implicit = cleaner config.</span>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="c1"># docs_dir: docs</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a><span class="nt">plugins</span><span class="p">:</span>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search</span><span class="w">                                 </span><span class="c1"># Full-text search</span>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="w">  </span><span class="c1"># If you installed Option A:</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roamlinks</span>
+</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">callouts</span>
+</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a><span class="w">  </span><span class="c1"># If you installed Option B instead:</span>
+</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a><span class="w">  </span><span class="c1"># - ezlinks</span>
+</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">git-revision-date-localized</span><span class="p">:</span><span class="w">           </span><span class="c1"># “Last updated” timestamps</span>
+</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a><span class="w">      </span><span class="nt">fallback_to_build_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>
+</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a><span class="nt">markdown_extensions</span><span class="p">:</span>
+</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admonition</span><span class="w">                             </span><span class="c1"># !!! note/tip/warning blocks</span>
+</span><span id="__span-8-70"><a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attr_list</span><span class="w">                              </span><span class="c1"># {#id .class} on elements</span>
+</span><span id="__span-8-71"><a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">def_list</span><span class="w">                               </span><span class="c1"># Definition lists</span>
+</span><span id="__span-8-72"><a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">md_in_html</span><span class="w">                             </span><span class="c1"># Markdown inside HTML blocks</span>
+</span><span id="__span-8-73"><a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tables</span><span class="w">                                 </span><span class="c1"># Advanced tables</span>
+</span><span id="__span-8-74"><a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toc</span><span class="p">:</span>
+</span><span id="__span-8-75"><a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="w">      </span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                      </span><span class="c1"># Link anchors for headings</span>
+</span><span id="__span-8-76"><a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.details</span><span class="w">                       </span><span class="c1"># &lt;details&gt; collapsible sections</span>
+</span><span id="__span-8-77"><a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.highlight</span><span class="p">:</span>
+</span><span id="__span-8-78"><a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">      </span><span class="nt">anchor_linenums</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                </span><span class="c1"># Clickable line numbers in code</span>
+</span><span id="__span-8-79"><a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">      </span><span class="nt">line_spans</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__span</span><span class="w">                   </span><span class="c1"># For precise CSS targeting</span>
+</span><span id="__span-8-80"><a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.inlinehilite</span><span class="w">                  </span><span class="c1"># `==inline code==` highlighting</span>
+</span><span id="__span-8-81"><a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.magiclink</span><span class="w">                     </span><span class="c1"># Autolink URLs and issues</span>
+</span><span id="__span-8-82"><a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.superfences</span><span class="w">                   </span><span class="c1"># Fenced code blocks inside lists, tabs</span>
+</span><span id="__span-8-83"><a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.tabbed</span><span class="p">:</span>
+</span><span id="__span-8-84"><a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">      </span><span class="nt">alternate_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                </span><span class="c1"># Nice UI for tabbed code examples</span>
+</span><span id="__span-8-85"><a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pymdownx.tasklist</span><span class="p">:</span>
+</span><span id="__span-8-86"><a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">      </span><span class="nt">custom_checkbox</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                </span><span class="c1"># Pretty checkboxes in lists</span>
+</span><span id="__span-8-87"><a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a>
+</span><span id="__span-8-88"><a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a><span class="c1"># Exclude meta folders from the documentation build</span>
+</span><span id="__span-8-89"><a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="c1">#exclude_docs: |</span>
+</span><span id="__span-8-90"><a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="c1">#  **/_meta/**</span>
+</span><span id="__span-8-91"><a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="c1">#  **/meta/**</span>
+</span><span id="__span-8-92"><a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a>
+</span><span id="__span-8-93"><a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="c1"># Navigation:</span>
+</span><span id="__span-8-94"><a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="c1"># Option A (recommended): start minimal and let filesystem drive nav while drafting — comment out nav.</span>
+</span><span id="__span-8-95"><a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="c1"># Option B: curate the nav to control order/labels (uncomment to use).</span>
+</span><span id="__span-8-96"><a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="c1">#</span>
+</span><span id="__span-8-97"><a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="c1"># nav:</span>
+</span><span id="__span-8-98"><a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="c1">#   - Home: index.md</span>
+</span><span id="__span-8-99"><a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="c1">#   - Cheatsheets:</span>
+</span><span id="__span-8-100"><a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="c1">#       - Overview: cheatsheets/index.md</span>
+</span><span id="__span-8-101"><a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a><span class="c1">#       - Languages:</span>
+</span><span id="__span-8-102"><a id="__codelineno-8-102" name="__codelineno-8-102" href="#__codelineno-8-102"></a><span class="c1">#           - Java:</span>
+</span><span id="__span-8-103"><a id="__codelineno-8-103" name="__codelineno-8-103" href="#__codelineno-8-103"></a><span class="c1">#               - Streams: cheatsheets/languages/java/core/streams.md</span>
+</span><span id="__span-8-104"><a id="__codelineno-8-104" name="__codelineno-8-104" href="#__codelineno-8-104"></a><span class="c1">#               - Spring Annotations: cheatsheets/languages/java/frameworks/spring/annotations.md</span>
+</span><span id="__span-8-105"><a id="__codelineno-8-105" name="__codelineno-8-105" href="#__codelineno-8-105"></a><span class="c1">#               - REST Controller: cheatsheets/languages/java/frameworks/spring/rest-controller.md</span>
+</span><span id="__span-8-106"><a id="__codelineno-8-106" name="__codelineno-8-106" href="#__codelineno-8-106"></a><span class="c1">#           - Python:</span>
+</span><span id="__span-8-107"><a id="__codelineno-8-107" name="__codelineno-8-107" href="#__codelineno-8-107"></a><span class="c1">#               - Basics: cheatsheets/languages/python/basics.md</span>
+</span><span id="__span-8-108"><a id="__codelineno-8-108" name="__codelineno-8-108" href="#__codelineno-8-108"></a><span class="c1">#       - Databases:</span>
+</span><span id="__span-8-109"><a id="__codelineno-8-109" name="__codelineno-8-109" href="#__codelineno-8-109"></a><span class="c1">#           - SQL:</span>
+</span><span id="__span-8-110"><a id="__codelineno-8-110" name="__codelineno-8-110" href="#__codelineno-8-110"></a><span class="c1">#               - Basics: cheatsheets/databases/sql/basics.md</span>
+</span><span id="__span-8-111"><a id="__codelineno-8-111" name="__codelineno-8-111" href="#__codelineno-8-111"></a><span class="c1">#               - Joins: cheatsheets/databases/sql/joins.md</span>
+</span><span id="__span-8-112"><a id="__codelineno-8-112" name="__codelineno-8-112" href="#__codelineno-8-112"></a><span class="c1">#           - MySQL:</span>
+</span><span id="__span-8-113"><a id="__codelineno-8-113" name="__codelineno-8-113" href="#__codelineno-8-113"></a><span class="c1">#               - Setup (Java): cheatsheets/databases/mysql/setup/java.md</span>
+</span><span id="__span-8-114"><a id="__codelineno-8-114" name="__codelineno-8-114" href="#__codelineno-8-114"></a><span class="c1">#               - Setup (Python): cheatsheets/databases/mysql/setup/python.md</span>
+</span><span id="__span-8-115"><a id="__codelineno-8-115" name="__codelineno-8-115" href="#__codelineno-8-115"></a><span class="c1">#               - Queries: cheatsheets/databases/mysql/queries.md</span>
+</span><span id="__span-8-116"><a id="__codelineno-8-116" name="__codelineno-8-116" href="#__codelineno-8-116"></a><span class="c1">#           - ORM:</span>
+</span><span id="__span-8-117"><a id="__codelineno-8-117" name="__codelineno-8-117" href="#__codelineno-8-117"></a><span class="c1">#               - JPA Annotations (Java): cheatsheets/databases/orm/jpa-java-annotations.md</span>
+</span><span id="__span-8-118"><a id="__codelineno-8-118" name="__codelineno-8-118" href="#__codelineno-8-118"></a><span class="c1">#               - SQLAlchemy Cheats (Python): cheatsheets/databases/orm/sqlalchemy-python-cheats.md</span>
+</span><span id="__span-8-119"><a id="__codelineno-8-119" name="__codelineno-8-119" href="#__codelineno-8-119"></a><span class="c1">#       - Networking:</span>
+</span><span id="__span-8-120"><a id="__codelineno-8-120" name="__codelineno-8-120" href="#__codelineno-8-120"></a><span class="c1">#           - HTTP Basics: cheatsheets/networking/http/basics.md</span>
+</span><span id="__span-8-121"><a id="__codelineno-8-121" name="__codelineno-8-121" href="#__codelineno-8-121"></a><span class="c1">#           - Headers: cheatsheets/networking/http/headers.md</span>
+</span><span id="__span-8-122"><a id="__codelineno-8-122" name="__codelineno-8-122" href="#__codelineno-8-122"></a><span class="c1">#       - Tools:</span>
+</span><span id="__span-8-123"><a id="__codelineno-8-123" name="__codelineno-8-123" href="#__codelineno-8-123"></a><span class="c1">#           - Git: cheatsheets/tools/git.md</span>
+</span><span id="__span-8-124"><a id="__codelineno-8-124" name="__codelineno-8-124" href="#__codelineno-8-124"></a><span class="c1">#           - Docker: cheatsheets/tools/docker.md</span>
+</span><span id="__span-8-125"><a id="__codelineno-8-125" name="__codelineno-8-125" href="#__codelineno-8-125"></a><span class="c1">#           - Obsidian + MkDocs Setup: cheatsheets/tools/obsidian-mkdocs-setup.md</span>
+</span><span id="__span-8-126"><a id="__codelineno-8-126" name="__codelineno-8-126" href="#__codelineno-8-126"></a><span class="c1">#   - Concepts:</span>
+</span><span id="__span-8-127"><a id="__codelineno-8-127" name="__codelineno-8-127" href="#__codelineno-8-127"></a><span class="c1">#       - Overview: concepts/index.md</span>
+</span><span id="__span-8-128"><a id="__codelineno-8-128" name="__codelineno-8-128" href="#__codelineno-8-128"></a><span class="c1">#       - Backend:</span>
+</span><span id="__span-8-129"><a id="__codelineno-8-129" name="__codelineno-8-129" href="#__codelineno-8-129"></a><span class="c1">#           - HTTP: concepts/backend/http.md</span>
+</span><span id="__span-8-130"><a id="__codelineno-8-130" name="__codelineno-8-130" href="#__codelineno-8-130"></a><span class="c1">#           - REST API: concepts/backend/rest-api.md</span>
+</span><span id="__span-8-131"><a id="__codelineno-8-131" name="__codelineno-8-131" href="#__codelineno-8-131"></a><span class="c1">#           - Caching: concepts/backend/caching.md</span>
+</span><span id="__span-8-132"><a id="__codelineno-8-132" name="__codelineno-8-132" href="#__codelineno-8-132"></a><span class="c1">#       - Databases:</span>
+</span><span id="__span-8-133"><a id="__codelineno-8-133" name="__codelineno-8-133" href="#__codelineno-8-133"></a><span class="c1">#           - Normalization: concepts/databases/normalization.md</span>
+</span><span id="__span-8-134"><a id="__codelineno-8-134" name="__codelineno-8-134" href="#__codelineno-8-134"></a><span class="c1">#           - Indexing: concepts/databases/indexing.md</span>
+</span><span id="__span-8-135"><a id="__codelineno-8-135" name="__codelineno-8-135" href="#__codelineno-8-135"></a><span class="c1">#           - Transactions (ACID): concepts/databases/transactions-acid.md</span>
+</span><span id="__span-8-136"><a id="__codelineno-8-136" name="__codelineno-8-136" href="#__codelineno-8-136"></a><span class="c1">#           - ORM:</span>
+</span><span id="__span-8-137"><a id="__codelineno-8-137" name="__codelineno-8-137" href="#__codelineno-8-137"></a><span class="c1">#               - ORM Concepts: concepts/databases/orm/orm-concepts.md</span>
+</span><span id="__span-8-138"><a id="__codelineno-8-138" name="__codelineno-8-138" href="#__codelineno-8-138"></a><span class="c1">#               - JPA vs SQLAlchemy: concepts/databases/orm/jpa-vs-sqlalchemy.md</span>
+</span><span id="__span-8-139"><a id="__codelineno-8-139" name="__codelineno-8-139" href="#__codelineno-8-139"></a><span class="c1">#       - Frameworks:</span>
+</span><span id="__span-8-140"><a id="__codelineno-8-140" name="__codelineno-8-140" href="#__codelineno-8-140"></a><span class="c1">#           - Spring Core: concepts/frameworks/spring-core.md</span>
+</span><span id="__span-8-141"><a id="__codelineno-8-141" name="__codelineno-8-141" href="#__codelineno-8-141"></a><span class="c1">#           - Hibernate: concepts/frameworks/hibernate.md</span>
+</span><span id="__span-8-142"><a id="__codelineno-8-142" name="__codelineno-8-142" href="#__codelineno-8-142"></a><span class="c1">#       - Design:</span>
+</span><span id="__span-8-143"><a id="__codelineno-8-143" name="__codelineno-8-143" href="#__codelineno-8-143"></a><span class="c1">#           - Dependency Injection: concepts/design/dependency-injection.md</span>
+</span><span id="__span-8-144"><a id="__codelineno-8-144" name="__codelineno-8-144" href="#__codelineno-8-144"></a><span class="c1">#           - Microservices: concepts/design/microservices.md</span>
+</span></code></pre></div>
+<p><strong>Why comment out <code>nav:</code> at first?</strong> While you’re building content, filesystem ordering is simpler. Later, un-comment <code>nav:</code> to curate labels and order.</p>
+<hr />
+<h2 id="5-homepages-three-indexmd-files">5) Homepages (three <code>index.md</code> files)<a class="headerlink" href="#5-homepages-three-indexmd-files" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><code>index.md</code> turns a folder into a <strong>landing page</strong> and gives you clean URLs:</p>
+<ul>
+<li><code>docs/index.md</code> → <code>/</code></li>
+<li><code>docs/cheatsheets/index.md</code> → <code>/cheatsheets/</code></li>
+<li><code>docs/concepts/index.md</code> → <code>/concepts/</code></li>
+</ul>
+</blockquote>
+<h3 id="51-docsindexmd-site-homepage">5.1 <code>docs/index.md</code> (site homepage)<a class="headerlink" href="#51-docsindexmd-site-homepage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>---
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>title: Knowledge Vault
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="gu">summary: Personal developer wiki — cheatsheets for speed, concepts for mastery.</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="gu">---</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="gh"># 🧠 Knowledge Vault</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Two modes, one brain:
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Cheatsheets**</span> → quick reference while coding
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Concepts**</span> → deeper understanding and architecture
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="gu">## 🚪 Start Here</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Java Streams — Quickref</span>](<span class="na">&lt;../../languages/java/core/streams.md&gt;</span>)
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">SQL Basics — Cheatsheet</span>](<span class="na">&lt;../../databases/sql/basics.md&gt;</span>)
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">HTTP — Concepts</span>](<span class="na">&lt;concepts/backend/http&gt;</span>)
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Git — Commands</span>](<span class="na">&lt;../git.md&gt;</span>)
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">HTTP Headers — Quickref</span>](<span class="na">&lt;cheatsheets/networking/http/headers&gt;</span>)
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="gu">## 🔎 How to Use</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>!!! tip
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>    Use the search bar for method names, error snippets, or concepts (e.g., <span class="sb">`@Transactional`</span>, <span class="sb">`N+1`</span>, <span class="sb">`Content-Type`</span>).
+</span></code></pre></div>
+<h3 id="52-docscheatsheetsindexmd-section-landing">5.2 <code>docs/cheatsheets/index.md</code> (section landing)<a class="headerlink" href="#52-docscheatsheetsindexmd-section-landing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>---
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>title: Cheatsheets
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="gu">summary: Quick references for languages, frameworks, databases, tools, and commands.</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="gu">---</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="gh"># ⚡ Cheatsheets</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>Fast lookup. Minimal theory. Maximum clarity.
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="gu">## 🧱 Categories</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="gu">### Languages</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">-</span><span class="w"> </span>Java: [<span class="nt">Streams</span>](<span class="na">&lt;../../languages/java/core/streams.md&gt;</span>) · [<span class="nt">Spring Annotations</span>](<span class="na">&lt;../../languages/java/frameworks/spring/annotations.md&gt;</span>)
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="k">-</span><span class="w"> </span>Python: [<span class="nt">Basics</span>](<span class="na">&lt;../../languages/python/basics.md&gt;</span>)
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="gu">### Databases</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="k">-</span><span class="w"> </span>SQL: [<span class="nt">Basics</span>](<span class="na">&lt;../../databases/sql/basics.md&gt;</span>) · [<span class="nt">Joins</span>](<span class="na">&lt;../../databases/sql/joins.md&gt;</span>)
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="k">-</span><span class="w"> </span>MySQL: [<span class="nt">Setup (Java)</span>](<span class="na">&lt;../../databases/mysql/setup/java.md&gt;</span>) · [<span class="nt">Setup (Python)</span>](<span class="na">&lt;../../databases/mysql/setup/python.md&gt;</span>) · [<span class="nt">Queries</span>](<span class="na">&lt;../../databases/mysql/queries.md&gt;</span>)
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="k">-</span><span class="w"> </span>ORM: [<span class="nt">JPA Annotations</span>](<span class="na">&lt;../../databases/orm/jpa-java-annotations.md&gt;</span>) · [<span class="nt">SQLAlchemy</span>](<span class="na">&lt;../../databases/orm/sqlalchemy-python-cheats.md&gt;</span>)
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="gu">### Networking</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">HTTP Basics</span>](<span class="na">&lt;cheatsheets/networking/http/basics&gt;</span>) · [<span class="nt">Headers</span>](<span class="na">&lt;cheatsheets/networking/http/headers&gt;</span>)
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="gu">### Tools</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Git</span>](<span class="na">&lt;../git.md&gt;</span>) · [<span class="nt">Docker</span>](<span class="na">&lt;../docker.md&gt;</span>) · [<span class="nt">Obsidian + MkDocs Setup</span>](<span class="na">&lt;../obsidian-mkdocs-setup.md&gt;</span>)
+</span></code></pre></div>
+<h3 id="53-docsconceptsindexmd-section-landing">5.3 <code>docs/concepts/index.md</code> (section landing)<a class="headerlink" href="#53-docsconceptsindexmd-section-landing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>---
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>title: Concepts
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gu">summary: Deep dives into how systems work — theory, trade-offs, and reasoning.</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="gu">---</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="gh"># 🧠 Concepts</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Where understanding replaces memorization.
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="gu">## 🧩 Topics</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="gu">### Backend</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">HTTP</span>](<span class="na">&lt;concepts/backend/http&gt;</span>) · [<span class="nt">REST API</span>](<span class="na">&lt;../../../concepts/backend/rest-api.md&gt;</span>) · [<span class="nt">Caching</span>](<span class="na">&lt;../../../concepts/backend/caching.md&gt;</span>)
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="gu">### Databases</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Normalization</span>](<span class="na">&lt;../../../concepts/databases/normalization.md&gt;</span>) · [<span class="nt">Indexing</span>](<span class="na">&lt;../../../concepts/databases/indexing.md&gt;</span>) · [<span class="nt">Transactions (ACID)</span>](<span class="na">&lt;../../../concepts/databases/transactions-acid.md&gt;</span>)
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="k">-</span><span class="w"> </span>ORM: [<span class="nt">ORM Concepts</span>](<span class="na">&lt;../../../concepts/databases/orm/orm-concepts.md&gt;</span>) · [<span class="nt">JPA vs SQLAlchemy</span>](<span class="na">&lt;../../../concepts/databases/orm/jpa-vs-sqlalchemy.md&gt;</span>)
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="gu">### Frameworks</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Spring Core</span>](<span class="na">&lt;../../../concepts/frameworks/spring-core.md&gt;</span>) · [<span class="nt">Hibernate</span>](<span class="na">&lt;../../../concepts/frameworks/hibernate.md&gt;</span>)
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="gu">### Design</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="k">-</span><span class="w"> </span>[<span class="nt">Dependency Injection</span>](<span class="na">&lt;../../../concepts/design/dependency-injection.md&gt;</span>) · [<span class="nt">Microservices</span>](<span class="na">&lt;../../../concepts/design/microservices.md&gt;</span>)
+</span></code></pre></div>
+<p><strong>Do you need to define folder structure in <code>index.md</code>?</strong>
+No. <code>index.md</code> is <em>content</em>, not configuration. It’s a curated landing page for the folder. The <strong>site structure</strong> is driven by the filesystem and (optionally) the <code>nav:</code> in <code>mkdocs.yml</code>.</p>
+<hr />
+<h2 id="6-front-matter-templates-copypaste-into-pages">6) Front-matter templates (copy/paste into pages)<a class="headerlink" href="#6-front-matter-templates-copypaste-into-pages" title="Permanent link">&para;</a></h2>
+<p>Cheatsheet:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>---
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>title: &lt;Title&gt; — Quickref
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>tags: [cheatsheet, &lt;topic&gt;, &lt;tech&gt;]
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="gu">summary: One-line reason this exists (lookup while coding).</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="gu">---</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="gh"># &lt;Title&gt; — Quickref</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="k">&gt; </span><span class="ge">See concepts: [concepts/...](&lt;../../../concepts/...&gt;)</span>
+</span></code></pre></div>
+<p>Concept:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>---
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>title: &lt;Concept Name&gt;
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>tags: [concept, &lt;domain&gt;]
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="gu">summary: What it is, why it matters, trade-offs.</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="gu">---</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="gh"># &lt;Concept Name&gt;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">&gt; </span><span class="ge">See cheatsheet: [cheatsheets/...](&lt;../../...&gt;)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="7-local-dev-deploy">7) Local dev &amp; deploy<a class="headerlink" href="#7-local-dev-deploy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Local preview (auto-reload)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>mkdocs<span class="w"> </span>serve
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># open http://127.0.0.1:8000/</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Deploy to GitHub Pages</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>mkdocs<span class="w"> </span>gh-deploy
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># your site: https://&lt;your-username&gt;.github.io/knowledge-vault/</span>
+</span></code></pre></div>
+<hr />
+<h2 id="8-faq-gotchas">8) FAQ / Gotchas<a class="headerlink" href="#8-faq-gotchas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Where should README.md live?</strong> At repo root. It explains the project + how to run/deploy. The site homepage is <code>docs/index.md</code>.</li>
+<li><strong>Do I need <code>docs_dir: docs</code>?</strong> No. That’s the default; keeping it implicit is cleaner.</li>
+<li><strong>What makes <code>/cheatsheets/</code> and <code>/concepts/</code> routes work?</strong> The <code>index.md</code> files in those folders + <code>use_directory_urls: true</code>.</li>
+<li><strong>What if I move files around?</strong> <code>[[wikilinks]]</code> are updated by <code>mkdocs-obsidian</code> on build. Rebuild after reorganizing.</li>
+<li><strong>Should I curate <code>nav:</code> now?</strong> Early on, skip it. When structure stabilizes, un-comment <code>nav:</code> in <code>mkdocs.yml</code> to control order and labels.</li>
+</ul>
+<hr />
+<h2 id="9-mental-model-why-this-works">9) Mental model (why this works)<a class="headerlink" href="#9-mental-model-why-this-works" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Separation of concerns:</strong> <code>README.md</code> (GitHub), <code>docs/index.md</code> (site), <code>mkdocs.yml</code> (wiring).</li>
+<li><strong>Two modes = less friction:</strong> Cheatsheets for speed, Concepts for depth.</li>
+<li><strong>Wikilinks = future-proof:</strong> Rearrange folders without rewriting links.</li>
+<li><strong>Indexes = clean URLs:</strong> Section <code>index.md</code> gives <code>/cheatsheets/</code> and <code>/concepts/</code> real landing pages.</li>
+</ul>
+<p>Ship it. Then iterate. The vault grows with you, not against you.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../linux/fedora/installing-and-managing-software/" class="btn btn-neutral float-left" title="Installing/Managing Software (DNF guide)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../nginx/quick-start/" class="btn btn-neutral float-right" title="Quick Start">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../linux/fedora/installing-and-managing-software/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../nginx/quick-start/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/templates/compose/sql-server/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>SQL Server - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SQL Server";
+        var mkdocs_page_input_path = "cheatsheets/containers/templates/compose/sql-server.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/containers/templates/compose/sql-server/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Containers</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Templates</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" >Compose</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">SQL Server</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#engine-setup">Engine setup</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#sql-server-compose-file">SQL Server Compose File</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#run-inspect">🧭 Run &amp; Inspect</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#connect-eg-dbeaver">🧩 Connect (e.g., DBeaver)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#init-scripts-initdb">📁 Init scripts (./initdb)</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#example-create-db-login-user-01-database-and-loginsql">Example — Create DB, login, user (01-database-and-login.sql)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#example-schema-02-schemasql">Example — Schema (02-schema.sql)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#example-seed-03-seedsql">Example — Seed (03-seed.sql)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#create-additional-loginsusers-interactive">🔑 Create additional logins/users (interactive)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#re-run-init-scripts">♻️ Re-run init scripts</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#backups-inside-container">💾 Backups (inside container)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#spring-boot-jdbc-quick-ref">⚙️ Spring Boot JDBC quick ref</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#admin-troubleshooting">🧱 Admin &amp; troubleshooting</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Containers</li>
+          <li class="breadcrumb-item">Templates</li>
+          <li class="breadcrumb-item">Compose</li>
+      <li class="breadcrumb-item active">SQL Server</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/containers/templates/compose/sql-server.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sql-server-with-compose-docker-or-podman">🧱 SQL Server with Compose (Docker or Podman)<a class="headerlink" href="#sql-server-with-compose-docker-or-podman" title="Permanent link">&para;</a></h1>
+<p>This cheat sheet spins up <strong>Microsoft SQL Server 2022</strong> in a container with persistent storage,
+adds a <strong>portable init job</strong> (runs <code>.sql</code> files once), and connects from <strong>DBeaver</strong>.
+The YAML works with <strong>Docker</strong> or <strong>Podman</strong>.</p>
+<hr />
+<h2 id="engine-setup">Engine setup<a class="headerlink" href="#engine-setup" title="Permanent link">&para;</a></h2>
+<p>Alias one variable to make commands engine-agnostic:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Optional global engine switch</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">ENGINE</span><span class="o">=</span><span class="si">${</span><span class="nv">ENGINE</span><span class="k">:-</span><span class="nv">docker</span><span class="si">}</span><span class="w">  </span><span class="c1"># set ENGINE=podman if you use Podman</span>
+</span></code></pre></div>
+<p>Then every command is the same:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>mssql
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">$ENGINE</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mssql<span class="w"> </span>/bin/bash
+</span></code></pre></div>
+<hr />
+<h2 id="sql-server-compose-file">SQL Server Compose File<a class="headerlink" href="#sql-server-compose-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># File: compose.yaml</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Purpose: Local SQL Server 2022 with a one-time init job. Works on Docker or Podman.</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">mssql</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mcr.microsoft.com/mssql/server:2022-latest</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mssql</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">ACCEPT_EULA</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Y&quot;</span><span class="w">                </span><span class="c1"># Mandatory</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">MSSQL_SA_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Str0ng!Passw0rd&quot;</span><span class="w">  </span><span class="c1"># Must meet SQL Server complexity rules</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">MSSQL_PID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Developer&quot;</span><span class="w">          </span><span class="c1"># Developer (free) | Express | Standard | Enterprise (licensed)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Europe/Vilnius&quot;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;1433:1433&quot;</span><span class="w">                   </span><span class="c1"># If busy, use &quot;11433:1433&quot; and adjust clients to port 11433</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mssql_data:/var/opt/mssql</span><span class="w">           </span><span class="c1"># Data files live here</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backups:/var/opt/mssql/backups:Z</span><span class="w">  </span><span class="c1"># Optional: host-mounted backups dir (SELinux :Z ok on Docker too)</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="c1"># Simple TCP healthcheck that doesn&#39;t rely on sqlcmd being present in this image</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bash</span><span class="nv"> </span><span class="s">-c</span><span class="nv"> </span><span class="s">&#39;echo</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">/dev/tcp/127.0.0.1/1433&#39;&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3s</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">      </span><span class="nt">start_period</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span><span class="c1"># One-time init job: runs *.sql in ./initdb against the mssql service after it&#39;s healthy</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span><span class="nt">mssql-init</span><span class="p">:</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mcr.microsoft.com/mssql-tools:latest</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mssql-init</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">      </span><span class="nt">mssql</span><span class="p">:</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">      </span><span class="nt">MSSQL_SA_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Str0ng!Passw0rd&quot;</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./initdb:/initdb:ro,Z</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">    </span><span class="nt">entrypoint</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/bin/bash&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-lc&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">      </span><span class="no">&#39;</span>
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">      </span><span class="no">set -euo pipefail;</span>
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">      </span><span class="no">HOST=mssql; PORT=1433; USER=sa; PASS=&quot;$MSSQL_SA_PASSWORD&quot;;</span>
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">      </span><span class="no"># wait for TCP just in case</span>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">      </span><span class="no">for i in {1..60}; do</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">        </span><span class="no">(echo &gt; /dev/tcp/${HOST}/${PORT}) &gt;/dev/null 2&gt;&amp;1 &amp;&amp; break || sleep 2;</span>
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">      </span><span class="no">done;</span>
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">      </span><span class="no"># run all .sql files in lexical order; ignore if directory empty</span>
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">      </span><span class="no">shopt -s nullglob;</span>
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">      </span><span class="no">for f in /initdb/*.sql; do</span>
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">        </span><span class="no">echo \&quot;[mssql-init] Running: $f\&quot;;</span>
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="w">        </span><span class="no">/opt/mssql-tools/bin/sqlcmd -S ${HOST},${PORT} -U ${USER} -P \&quot;${PASS}\&quot; -i \&quot;$f\&quot;;</span>
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="w">      </span><span class="no">done;</span>
+</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="w">      </span><span class="no">echo \&quot;[mssql-init] Done.\&quot;</span>
+</span><span id="__span-2-58"><a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a><span class="w">      </span><span class="no">&#39;</span>
+</span><span id="__span-2-59"><a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>
+</span><span id="__span-2-60"><a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a><span class="w">    </span><span class="c1"># Run once on first `up`; remove after success</span>
+</span><span id="__span-2-61"><a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;no&quot;</span>
+</span><span id="__span-2-62"><a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>
+</span><span id="__span-2-63"><a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-2-64"><a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a><span class="w">  </span><span class="nt">mssql_data</span><span class="p">:</span>
+</span></code></pre></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The <strong>official SQL Server image does not auto-run</strong> <code>docker-entrypoint-initdb.d</code> like MySQL/Postgres.
+  The <code>mssql-init</code> job above is the portable way to run your own <code>.sql</code> on first boot (or whenever you want).</li>
+<li>On SELinux systems (Fedora/RHEL), the <code>:Z</code> suffix safely relabels host mounts. It’s harmless elsewhere.</li>
+<li>For <strong>Podman rootless</strong>, published ports are on the user namespace (localhost) — perfect for dev.</li>
+</ul>
+<hr />
+<h2 id="run-inspect">🧭 Run &amp; Inspect<a class="headerlink" href="#run-inspect" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>mssql<span class="w">      </span><span class="c1"># wait for: &quot;SQL Server is now ready for client connections&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>mssql-init<span class="w"> </span><span class="c1"># see init job output (it exits when done)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">$ENGINE</span><span class="w"> </span>ps
+</span></code></pre></div>
+<hr />
+<h2 id="connect-eg-dbeaver">🧩 Connect (e.g., DBeaver)<a class="headerlink" href="#connect-eg-dbeaver" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Driver</strong>: SQL Server (Microsoft)</li>
+<li><strong>Host</strong>: <code>localhost</code></li>
+<li><strong>Port</strong>: <code>1433</code> (or your remapped host port)</li>
+<li><strong>Database</strong>: e.g., <code>AppDb</code> (if you create one)</li>
+<li><strong>User/Pass</strong>: <code>sa</code> / <code>Str0ng!Passw0rd</code></li>
+</ul>
+<p>If the driver requires, set properties such as:</p>
+<ul>
+<li><code>encrypt=true;trustServerCertificate=true</code> for local dev,</li>
+<li>or import a proper certificate and set <code>trustServerCertificate=false</code>.</li>
+</ul>
+<hr />
+<h2 id="init-scripts-initdb">📁 Init scripts (<code>./initdb</code>)<a class="headerlink" href="#init-scripts-initdb" title="Permanent link">&para;</a></h2>
+<p>All <code>.sql</code> files in <code>./initdb</code> are run by the <strong>mssql-tools</strong> job, in lexical order.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./initdb/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> ├─ 01-database-and-login.sql
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> ├─ 02-schema.sql
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> └─ 03-seed.sql
+</span></code></pre></div>
+<h3 id="example-create-db-login-user-01-database-and-loginsql">Example — Create DB, login, user (<code>01-database-and-login.sql</code>)<a class="headerlink" href="#example-create-db-login-user-01-database-and-loginsql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- Create database</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">IF</span><span class="w"> </span><span class="n">DB_ID</span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;AppDb&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AppDb</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">GO</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">-- Create server login</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">IF</span><span class="w"> </span><span class="n">SUSER_ID</span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;app_login&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">app_login</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;AppUser!234&#39;</span><span class="p">;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">GO</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">-- Map a database user to the login</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">USE</span><span class="w"> </span><span class="n">AppDb</span><span class="p">;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">GO</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">IF</span><span class="w"> </span><span class="n">USER_ID</span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;app_user&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">app_user</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">app_login</span><span class="p">;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">GO</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1">-- Grant a sane role; tighten later as needed</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">db_owner</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">MEMBER</span><span class="w"> </span><span class="n">app_user</span><span class="p">;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="k">GO</span>
+</span></code></pre></div>
+<h3 id="example-schema-02-schemasql">Example — Schema (<code>02-schema.sql</code>)<a class="headerlink" href="#example-schema-02-schemasql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">AppDb</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">GO</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">IF</span><span class="w"> </span><span class="n">OBJECT_ID</span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;dbo.customers&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">BEGIN</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">customers</span><span class="p">(</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="n">DATETIME2</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">SYSDATETIME</span><span class="p">()</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">END</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">GO</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">IX_customers_email</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">customers</span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="k">GO</span>
+</span></code></pre></div>
+<h3 id="example-seed-03-seedsql">Example — Seed (<code>03-seed.sql</code>)<a class="headerlink" href="#example-seed-03-seedsql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">AppDb</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">GO</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">MERGE</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">customers</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">tgt</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="k">VALUES</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;ada@example.com&#39;</span><span class="p">,</span><span class="w">  </span><span class="n">N</span><span class="s1">&#39;Ada&#39;</span><span class="p">,</span><span class="w">   </span><span class="n">N</span><span class="s1">&#39;Lovelace&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">),</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;grace@example.com&#39;</span><span class="p">,</span><span class="n">N</span><span class="s1">&#39;Grace&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;Hopper&#39;</span><span class="p">,</span><span class="w">   </span><span class="n">N</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">)</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">src</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">ON</span><span class="w"> </span><span class="n">tgt</span><span class="p">.</span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">email</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">WHEN</span><span class="w"> </span><span class="n">MATCHED</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">status</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="k">WHEN</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">MATCHED</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="k">INSERT</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="k">VALUES</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">status</span><span class="p">);</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">GO</span>
+</span></code></pre></div>
+<hr />
+<h2 id="create-additional-loginsusers-interactive">🔑 Create additional logins/users (interactive)<a class="headerlink" href="#create-additional-loginsusers-interactive" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Start an interactive sqlcmd without installing tools on the host</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">$ENGINE</span><span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span>mcr.microsoft.com/mssql-tools:latest<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>/opt/mssql-tools/bin/sqlcmd<span class="w"> </span>-S<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>sa<span class="w"> </span>-P<span class="w"> </span><span class="s1">&#39;Str0ng!Passw0rd&#39;</span>
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">dev_login</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Dev!Passw0rd&#39;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">GO</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">USE</span><span class="w"> </span><span class="n">AppDb</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">GO</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">dev_user</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">dev_login</span><span class="p">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">GO</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">db_datareader</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="n">MEMBER</span><span class="w"> </span><span class="n">dev_user</span><span class="p">;</span><span class="w">  </span><span class="c1">-- read-only example</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">GO</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">QUIT</span>
+</span></code></pre></div>
+<blockquote>
+<p>On Docker for Linux, <code>--network host</code> works. On Podman, it also works in rootless mode.
+If you’d rather use the Compose network, replace <code>--network host</code> with <code>--network &lt;yourstack_default&gt;</code> and <code>-S mssql</code>.</p>
+</blockquote>
+<hr />
+<h2 id="re-run-init-scripts">♻️ Re-run init scripts<a class="headerlink" href="#re-run-init-scripts" title="Permanent link">&para;</a></h2>
+<p>Want to rerun everything from <code>./initdb</code>?</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>mssql-init
+</span></code></pre></div>
+<p>Want a <strong>fresh</strong> database?</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v<span class="w">     </span><span class="c1"># WARNING: also deletes the mssql_data volume (all data)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<hr />
+<h2 id="backups-inside-container">💾 Backups (inside container)<a class="headerlink" href="#backups-inside-container" title="Permanent link">&para;</a></h2>
+<p>Mount <code>./backups</code> (already in YAML) and run:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># open a shell in the server container</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">$ENGINE</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mssql<span class="w"> </span>/bin/bash
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># then:</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># Full backup to the mounted host directory</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>/opt/mssql-tools/bin/sqlcmd<span class="w"> </span>-S<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>sa<span class="w"> </span>-P<span class="w"> </span><span class="s1">&#39;Str0ng!Passw0rd&#39;</span><span class="w"> </span>-Q<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="s2">&quot;BACKUP DATABASE AppDb TO DISK = N&#39;/var/opt/mssql/backups/AppDb_full.bak&#39; WITH INIT, COMPRESSION, STATS = 10;&quot;</span>
+</span></code></pre></div>
+<p>Restore example (target DB must be unused):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">-- inside sqlcmd</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AppDb</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">SINGLE_USER</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">IMMEDIATE</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">RESTORE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AppDb</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">DISK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;/var/opt/mssql/backups/AppDb_full.bak&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">,</span><span class="w"> </span><span class="n">STATS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AppDb</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">MULTI_USER</span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">GO</span>
+</span></code></pre></div>
+<hr />
+<h2 id="spring-boot-jdbc-quick-ref">⚙️ Spring Boot JDBC quick ref<a class="headerlink" href="#spring-boot-jdbc-quick-ref" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:sqlserver://localhost:1433;databaseName=AppDb;encrypt=true;trustServerCertificate=true</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">app_login</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">AppUser!234</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">validate</span>
+</span></code></pre></div>
+<hr />
+<h2 id="admin-troubleshooting">🧱 Admin &amp; troubleshooting<a class="headerlink" href="#admin-troubleshooting" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>mssql
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">$ENGINE</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mssql<span class="w"> </span>/opt/mssql-tools/bin/sqlcmd<span class="w"> </span>-S<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>sa<span class="w"> </span>-P<span class="w"> </span><span class="s1">&#39;Str0ng!Passw0rd&#39;</span><span class="w"> </span>-Q<span class="w"> </span><span class="s2">&quot;SELECT @@VERSION;&quot;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nv">$ENGINE</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mssql<span class="w"> </span>/bin/bash
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>down
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nv">$ENGINE</span><span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v<span class="w">   </span><span class="c1"># DANGER: wipes data</span>
+</span></code></pre></div>
+<p><strong>Common pitfalls</strong></p>
+<ul>
+<li><strong>Password rejected</strong>: must include upper, lower, digit, and symbol; length ≥ 8–12 (use strong values).</li>
+<li><strong>Port clash</strong>: remap to <code>"11433:1433"</code> and point clients to port <strong>11433</strong>.</li>
+<li><strong>SSL nags in JDBC</strong>: use <code>encrypt=true;trustServerCertificate=true</code> locally, and proper certs for shared envs.</li>
+<li><strong>SELinux denials</strong>: keep <code>:Z</code> on host mounts or switch to named volumes only.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../postgresql/" class="btn btn-neutral float-left" title="PostgreSQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/" class="btn btn-neutral float-right" title="quick-refresher">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../postgresql/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

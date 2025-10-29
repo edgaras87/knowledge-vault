@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/python/environments/venv/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>.venv - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = ".venv";
+        var mkdocs_page_input_path = "cheatsheets/languages/python/environments/venv.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/python/environments/venv/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Python</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../../basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Environments</a>
+    <ul class="current">
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">.venv</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#what-it-is">🧩 What It Is</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#why-use-it">🎯 Why Use It</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#how-to-create-and-use">⚙️ How To Create and Use</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#in-gitignore">🧹 In .gitignore</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#quick-summary-table">🧠 Quick Summary Table</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#mental-model">🧩 Mental Model</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Python</li>
+          <li class="breadcrumb-item">Environments</li>
+      <li class="breadcrumb-item active">.venv</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/python/environments/venv.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="python-virtual-environments-venv-cheatsheet">🧠 Python Virtual Environments (<code>venv</code>) — Cheatsheet<a class="headerlink" href="#python-virtual-environments-venv-cheatsheet" title="Permanent link">&para;</a></h1>
+<h3 id="what-it-is">🧩 What It Is<a class="headerlink" href="#what-it-is" title="Permanent link">&para;</a></h3>
+<p><code>venv</code> means <em>virtual environment</em>.
+It’s a <strong>self-contained Python environment</strong> that lives inside your project folder.
+Think of it as a <em>sandbox</em> where you can install Python packages without messing up your system or other projects.</p>
+<p>Each <code>venv</code>:</p>
+<ul>
+<li>Has its own <strong>Python interpreter</strong> (copied from your system’s).</li>
+<li>Has its own <strong><code>site-packages</code></strong> folder (where libraries get installed).</li>
+<li>Ignores all global packages unless told otherwise.</li>
+</ul>
+<hr />
+<h3 id="why-use-it">🎯 Why Use It<a class="headerlink" href="#why-use-it" title="Permanent link">&para;</a></h3>
+<p>Without <code>venv</code>, if you install libraries like this:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs
+</span></code></pre></div>
+<p>they go into your <em>global Python</em> — polluting everything.
+Soon you’ll have version conflicts and dependency chaos between projects.</p>
+<p>With <code>venv</code>:</p>
+<ul>
+<li>Every project has <strong>isolated dependencies</strong>.</li>
+<li>You can safely use different library versions per project.</li>
+<li>You can delete or recreate it anytime — your system stays clean.</li>
+</ul>
+<hr />
+<h3 id="how-to-create-and-use">⚙️ How To Create and Use<a class="headerlink" href="#how-to-create-and-use" title="Permanent link">&para;</a></h3>
+<p><strong>1. Create a venv</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span></code></pre></div>
+<p>This makes a folder <code>.venv</code> with a fresh Python setup inside.</p>
+<p><strong>2. Activate it</strong></p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux / macOS</td>
+<td><code>source .venv/bin/activate</code></td>
+</tr>
+<tr>
+<td>Windows (cmd)</td>
+<td><code>.venv\Scripts\activate</code></td>
+</tr>
+<tr>
+<td>Windows (PowerShell)</td>
+<td><code>.venv\Scripts\Activate.ps1</code></td>
+</tr>
+</tbody>
+</table>
+<p>When active, your shell prompt changes — usually you’ll see <code>(.venv)</code> in front.</p>
+<p><strong>3. Install libraries</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-obsidian
+</span></code></pre></div>
+<p>They’ll install <strong>inside <code>.venv</code> only</strong>, not globally.</p>
+<p><strong>4. Freeze (optional)</strong>
+If you want to share exact versions with others:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<p>Then anyone can recreate your setup with:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<p><strong>5. Deactivate</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>deactivate
+</span></code></pre></div>
+<hr />
+<h3 id="in-gitignore">🧹 In <code>.gitignore</code><a class="headerlink" href="#in-gitignore" title="Permanent link">&para;</a></h3>
+<p>You always exclude <code>.venv/</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.venv/
+</span></code></pre></div>
+<p>Because it’s bulky, system-specific, and can be recreated from <code>requirements.txt</code>.</p>
+<hr />
+<h3 id="quick-summary-table">🧠 Quick Summary Table<a class="headerlink" href="#quick-summary-table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td><code>python3 -m venv .venv</code></td>
+<td>Makes environment in <code>.venv/</code></td>
+</tr>
+<tr>
+<td>Activate</td>
+<td><code>source .venv/bin/activate</code></td>
+<td>Start using it</td>
+</tr>
+<tr>
+<td>Deactivate</td>
+<td><code>deactivate</code></td>
+<td>Return to system Python</td>
+</tr>
+<tr>
+<td>Install packages</td>
+<td><code>pip install &lt;package&gt;</code></td>
+<td>Only affects this project</td>
+</tr>
+<tr>
+<td>List packages</td>
+<td><code>pip list</code></td>
+<td>Shows installed inside venv</td>
+</tr>
+<tr>
+<td>Export dependencies</td>
+<td><code>pip freeze &gt; requirements.txt</code></td>
+<td>For version tracking</td>
+</tr>
+<tr>
+<td>Reinstall from file</td>
+<td><code>pip install -r requirements.txt</code></td>
+<td>Recreates setup</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mental-model">🧩 Mental Model<a class="headerlink" href="#mental-model" title="Permanent link">&para;</a></h3>
+<p>Imagine your computer is a city.
+Each Python project is its own <em>apartment</em>.
+<code>venv</code> gives each apartment:</p>
+<ul>
+<li>Its own kitchen (libraries)</li>
+<li>Its own utilities (interpreter)</li>
+<li>But shares the city’s infrastructure (OS-level Python)</li>
+</ul>
+<p>So if one apartment burns its kitchen down (dependency conflict), the others stay safe.</p>
+<hr />
+<h1 id="venv-troubleshooting-common-pitfalls">⚠️ <code>venv</code> Troubleshooting &amp; Common Pitfalls<a class="headerlink" href="#venv-troubleshooting-common-pitfalls" title="Permanent link">&para;</a></h1>
+<h3 id="1-i-installed-a-package-but-python-says-modulenotfounderror">🧩 1. “I installed a package, but Python says ‘ModuleNotFoundError’”<a class="headerlink" href="#1-i-installed-a-package-but-python-says-modulenotfounderror" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> You forgot to activate your virtual environment.
+<strong>Fix:</strong>
+Activate it <em>before</em> installing or running:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span></code></pre></div>
+<p>You’ll know it’s active when you see <code>(.venv)</code> before your prompt.</p>
+<hr />
+<h3 id="2-i-have-multiple-python-versions-which-one-is-used">🐍 2. “I have multiple Python versions — which one is used?”<a class="headerlink" href="#2-i-have-multiple-python-versions-which-one-is-used" title="Permanent link">&para;</a></h3>
+<p>Each venv is tied to the Python version that created it.
+Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span></code></pre></div>
+<p>means your venv uses <strong>Python 3.11</strong>, even if your system later upgrades to 3.12.
+If you remove or change your system Python, that venv might break.</p>
+<p><strong>Tip:</strong> Always note your Python version in your README.</p>
+<hr />
+<h3 id="3-the-venv-folder-got-corrupted-or-too-big">💀 3. “The venv folder got corrupted or too big”<a class="headerlink" href="#3-the-venv-folder-got-corrupted-or-too-big" title="Permanent link">&para;</a></h3>
+<p>Don’t panic — just <strong>delete <code>.venv/</code></strong> and recreate it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>.venv
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<p>That’s it. Your clean sandbox returns, good as new.</p>
+<hr />
+<h3 id="4-mkdocs-or-some-tool-not-found-even-though-i-installed-it">🧠 4. “MkDocs (or some tool) not found even though I installed it”<a class="headerlink" href="#4-mkdocs-or-some-tool-not-found-even-though-i-installed-it" title="Permanent link">&para;</a></h3>
+<p>That means the tool was installed inside the venv, but your shell isn’t using that path.
+<strong>Fix:</strong> activate the venv before running:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>mkdocs<span class="w"> </span>serve
+</span></code></pre></div>
+<p>or run it explicitly from inside:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>.venv/bin/mkdocs<span class="w"> </span>serve
+</span></code></pre></div>
+<hr />
+<h3 id="5-do-i-need-to-commit-venv-to-git">💼 5. “Do I need to commit <code>.venv</code> to Git?”<a class="headerlink" href="#5-do-i-need-to-commit-venv-to-git" title="Permanent link">&para;</a></h3>
+<p><strong>Never.</strong>
+Just commit your <code>requirements.txt</code>.
+<code>.venv</code> is like your temporary workbench — everyone can rebuild it from the list of dependencies.</p>
+<hr />
+<h3 id="6-can-i-have-more-than-one-venv">⚙️ 6. “Can I have more than one venv?”<a class="headerlink" href="#6-can-i-have-more-than-one-venv" title="Permanent link">&para;</a></h3>
+<p>Absolutely.
+You can have one per project, or even multiple inside one project for different experiments:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>.venv/
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>.venv-py311/
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>.venv-py312/
+</span></code></pre></div>
+<p>Just activate whichever one you need.</p>
+<hr />
+<h3 id="7-i-closed-the-terminal-do-i-have-to-activate-again">🔄 7. “I closed the terminal — do I have to activate again?”<a class="headerlink" href="#7-i-closed-the-terminal-do-i-have-to-activate-again" title="Permanent link">&para;</a></h3>
+<p>Yes.
+The activation is per shell session.
+Once you close it, your environment resets, and you’ll need to:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span></code></pre></div>
+<p>again when reopening your project.</p>
+<hr />
+<h3 id="quick-diagnosis-checklist">🧠 Quick Diagnosis Checklist<a class="headerlink" href="#quick-diagnosis-checklist" title="Permanent link">&para;</a></h3>
+<p>If something isn’t working:</p>
+<ol>
+<li>Is your prompt showing <code>(.venv)</code>?
+   → If not, activate it.</li>
+<li>Does <code>which python</code> or <code>where python</code> show <code>.venv/bin/python</code>?
+   → If not, wrong environment.</li>
+<li>Did you reinstall dependencies after deleting <code>.venv</code>?
+   → Run <code>pip install -r requirements.txt</code>.</li>
+</ol>
+<hr />
+<h3 id="golden-rule">💡 Golden Rule<a class="headerlink" href="#golden-rule" title="Permanent link">&para;</a></h3>
+<p>When in doubt:</p>
+<blockquote>
+<p>Delete <code>.venv</code>, recreate it, reinstall.
+It’s faster than debugging a broken environment.</p>
+</blockquote>
+<hr />
+<h1 id="advanced-venv-tricks-integrations">⚙️ Advanced <code>venv</code> Tricks &amp; Integrations<a class="headerlink" href="#advanced-venv-tricks-integrations" title="Permanent link">&para;</a></h1>
+<h3 id="1-auto-activate-in-vs-code">🧠 1. Auto-activate in VS Code<a class="headerlink" href="#1-auto-activate-in-vs-code" title="Permanent link">&para;</a></h3>
+<p>VS Code has native support for virtual environments.</p>
+<ol>
+<li>Open your project folder in VS Code (the one with <code>.venv/</code>).</li>
+<li>Open Command Palette → <code>Python: Select Interpreter</code>.</li>
+<li>Choose the one that points to <code>.venv/bin/python</code> (or <code>.venv\Scripts\python.exe</code> on Windows).</li>
+</ol>
+<p>Now every terminal inside VS Code <strong>auto-activates the venv</strong>, and “Run” or “Debug” commands use it automatically.</p>
+<p><strong>Tip:</strong> Add this to your project’s <code>.vscode/settings.json</code> (optional, but nice):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;python.defaultInterpreterPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.venv/bin/python&quot;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="2-auto-activate-when-entering-folder-shell-level-trick">🐚 2. Auto-activate when entering folder (shell-level trick)<a class="headerlink" href="#2-auto-activate-when-entering-folder-shell-level-trick" title="Permanent link">&para;</a></h3>
+<p>If you live in your terminal, you can make the venv activate automatically whenever you <code>cd</code> into the project.</p>
+<h4 id="for-bash-or-zsh">For <strong>bash</strong> or <strong>zsh</strong>:<a class="headerlink" href="#for-bash-or-zsh" title="Permanent link">&para;</a></h4>
+<p>Append to your <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Auto-activate venv when entering project folder</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>cd<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nb">builtin</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;.venv/bin/activate&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="k">fi</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="o">}</span>
+</span></code></pre></div>
+<p>That makes the environment self-starting — no more “forgot to activate” moments.</p>
+<hr />
+<h3 id="3-use-venv-in-docker-for-consistent-builds">🐳 3. Use venv in Docker (for consistent builds)<a class="headerlink" href="#3-use-venv-in-docker-for-consistent-builds" title="Permanent link">&para;</a></h3>
+<p>You usually don’t need <code>venv</code> <em>inside</em> Docker because Docker itself isolates environments —
+but it’s sometimes useful when developing locally <em>and</em> deploying via container.</p>
+<p>A typical lightweight pattern:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">RUN</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/venv
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/venv/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mkdocs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;serve&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0:8000&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<p>This way, the container runs everything inside <code>/venv</code>, giving full reproducibility between your laptop and the container.</p>
+<hr />
+<h3 id="4-use-venv-in-cicd-github-actions-gitlab-etc">🔄 4. Use venv in CI/CD (GitHub Actions, GitLab, etc.)<a class="headerlink" href="#4-use-venv-in-cicd-github-actions-gitlab-etc" title="Permanent link">&para;</a></h3>
+<p>Virtual environments integrate beautifully in automation.
+Example GitHub Actions job for MkDocs:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m venv .venv</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source .venv/bin/activate &amp;&amp; pip install -r requirements.txt</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source .venv/bin/activate &amp;&amp; mkdocs build</span>
+</span></code></pre></div>
+<p>That ensures each run is clean, reproducible, and isolated — no dependency drift over time.</p>
+<hr />
+<h3 id="5-use-venv-executables-directly-no-activation-needed">🧩 5. Use venv executables directly (no activation needed)<a class="headerlink" href="#5-use-venv-executables-directly-no-activation-needed" title="Permanent link">&para;</a></h3>
+<p>Sometimes automation scripts shouldn’t depend on interactive activation.</p>
+<p>You can run any installed tool directly from inside <code>.venv/bin</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>.venv/bin/mkdocs<span class="w"> </span>serve
+</span></code></pre></div>
+<p>That works even if the venv isn’t “activated.”
+It’s cleaner in scripts, cron jobs, or Dockerfiles.</p>
+<hr />
+<h3 id="6-clean-up-and-reset-your-environment-fast">🧹 6. Clean up and reset your environment fast<a class="headerlink" href="#6-clean-up-and-reset-your-environment-fast" title="Permanent link">&para;</a></h3>
+<p>When you want a fresh start:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>.venv<span class="w"> </span>site/<span class="w"> </span>__pycache__/
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<p>That gives you a sterile lab again, like hitting “reset” on a scientific experiment.</p>
+<hr />
+<h3 id="rule-of-thumb-for-power-users">🧠 Rule of Thumb for Power Users<a class="headerlink" href="#rule-of-thumb-for-power-users" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Local dev</strong> → always use <code>.venv</code></li>
+<li><strong>Dockerized app</strong> → system Python inside container is fine, or one global <code>/venv</code></li>
+<li><strong>CI/CD</strong> → recreate venv per run for reliability</li>
+</ul>
+<hr />
+<p>Next level from here would be <strong>environment management tools</strong> like:</p>
+<ul>
+<li><code>pip-tools</code> → for precise dependency pinning</li>
+<li><code>poetry</code> → combines venv + dependency management + packaging</li>
+<li><code>pyenv</code> → handles multiple Python versions on one system</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../basics/" class="btn btn-neutral float-left" title="Python Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../networking/http/00-quickstart/" class="btn btn-neutral float-right" title="Quick Start">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../basics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../networking/http/00-quickstart/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

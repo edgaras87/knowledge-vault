@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/quickstart/docker/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>🐳 Docker Quickstart - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udc33 Docker Quickstart";
+        var mkdocs_page_input_path = "cheatsheets/containers/quickstart/docker.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/containers/quickstart/docker/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Containers</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Quickstart</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">🐳 Docker Quickstart</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#1-controlling-docker-as-a-service-systemctl">⚙️ 1. Controlling Docker as a Service (systemctl)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-container-networking-the-hallway-between-containers">📦 3. Container Networking (the hallway between containers)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-example-multi-container-app-spring-boot-mysql-nginx">🧰 4. Example: Multi-Container App (Spring Boot + MySQL + Nginx)</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#backend-dockerfile-example">🏗️ Backend Dockerfile example</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#application-properties-spring-boot">🧩 Application properties (Spring Boot)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-housekeeping-and-troubleshooting">🧼 5. Housekeeping and Troubleshooting</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#cleanups">Cleanups</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#debugging">Debugging</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#advanced-concepts-for-later">🧠 Advanced Concepts (for later)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary">✅ Summary</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#further-expansion-when-youre-ready">🧭 Further expansion (when you’re ready)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Containers</li>
+          <li class="breadcrumb-item">Quickstart</li>
+      <li class="breadcrumb-item active">🐳 Docker Quickstart</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/containers/quickstart/docker.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="docker-from-service-basics-to-multi-container-setup">🐳 Docker: From Service Basics to Multi-Container Setup<a class="headerlink" href="#docker-from-service-basics-to-multi-container-setup" title="Permanent link">&para;</a></h1>
+<p>Docker packages software into <strong>portable, isolated containers</strong>.
+Each container runs a process with its own filesystem, network, and dependencies.
+Whether you’re controlling Docker as a Linux service or orchestrating multiple apps, its real power lies in <strong>repeatability</strong> and <strong>consistency</strong> across environments.</p>
+<hr />
+<h2 id="1-controlling-docker-as-a-service-systemctl">⚙️ 1. Controlling Docker as a Service (systemctl)<a class="headerlink" href="#1-controlling-docker-as-a-service-systemctl" title="Permanent link">&para;</a></h2>
+<p><code>systemctl</code> manages background services (daemons) on Linux via <code>systemd</code>.
+Docker runs as one such service — you manage it like any other system process.</p>
+<p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker<span class="w">       </span><span class="c1"># Start Docker service</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>docker<span class="w">        </span><span class="c1"># Stop Docker service</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker<span class="w">     </span><span class="c1"># Restart service</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>docker<span class="w">      </span><span class="c1"># Check status and logs</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker<span class="w">      </span><span class="c1"># Start at boot</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>docker<span class="w">     </span><span class="c1"># Disable auto-start</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sb">````</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>👉<span class="w"> </span>In<span class="w"> </span>short:
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="sb">`</span>systemctl<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>tool,<span class="w"> </span><span class="sb">`</span>systemd<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>manager,<span class="w"> </span>and<span class="w"> </span><span class="sb">`</span>docker<span class="sb">`</span><span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>service<span class="w"> </span>you’re<span class="w"> </span>controlling.
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>---
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">## 🧱 2. Core Docker Concepts</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">|</span><span class="w"> </span>Concept<span class="w">                </span><span class="p">|</span><span class="w"> </span>Description<span class="w">                                                                                      </span><span class="p">|</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">|</span><span class="w"> </span>----------------------<span class="w"> </span><span class="p">|</span><span class="w"> </span>------------------------------------------------------------------------------------------------<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">|</span><span class="w"> </span>**Image**<span class="w">              </span><span class="p">|</span><span class="w"> </span>Blueprint<span class="w"> </span><span class="k">for</span><span class="w"> </span>running<span class="w"> </span>software<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span><span class="sb">`</span>nginx:latest<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>mysql:8.4<span class="sb">`</span><span class="o">)</span>.<span class="w"> </span>Immutable<span class="w"> </span>and<span class="w"> </span>versioned.<span class="w">     </span><span class="p">|</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">|</span><span class="w"> </span>**Container**<span class="w">          </span><span class="p">|</span><span class="w"> </span>A<span class="w"> </span>running<span class="w"> </span>instance<span class="w"> </span>of<span class="w"> </span>an<span class="w"> </span>image.<span class="w"> </span>Ephemeral<span class="w"> </span>—<span class="w"> </span>stops<span class="w"> </span>and<span class="w"> </span>vanishes<span class="w"> </span>unless<span class="w"> </span>data<span class="w"> </span>is<span class="w"> </span>stored<span class="w"> </span>externally.<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">|</span><span class="w"> </span>**Volume**<span class="w">             </span><span class="p">|</span><span class="w"> </span>Persistent<span class="w"> </span>storage<span class="w"> </span>outside<span class="w"> </span>the<span class="w"> </span>container<span class="w"> </span>lifecycle<span class="w"> </span><span class="o">(</span>e.g.,<span class="w"> </span>database<span class="w"> </span>data<span class="o">)</span>.<span class="w">                        </span><span class="p">|</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">|</span><span class="w"> </span>**Port<span class="w"> </span>Mapping**<span class="w">       </span><span class="p">|</span><span class="w"> </span>Bridge<span class="w"> </span>between<span class="w"> </span>host<span class="w"> </span>and<span class="w"> </span>container<span class="w"> </span><span class="o">(</span><span class="sb">`</span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="sb">`</span><span class="w"> </span>means<span class="w"> </span>host:8080<span class="w"> </span>→<span class="w"> </span>container:80<span class="o">)</span>.<span class="w">                 </span><span class="p">|</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">|</span><span class="w"> </span>**Dockerfile**<span class="w">         </span><span class="p">|</span><span class="w"> </span>Script<span class="w"> </span>describing<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>an<span class="w"> </span>image.<span class="w"> </span>Defines<span class="w"> </span>base<span class="w"> </span>image,<span class="w"> </span>files,<span class="w"> </span>commands,<span class="w"> </span>and<span class="w"> </span>exposed<span class="w"> </span>ports.<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">|</span><span class="w"> </span>**docker-compose.yml**<span class="w"> </span><span class="p">|</span><span class="w"> </span>Declarative<span class="w"> </span>config<span class="w"> </span><span class="k">for</span><span class="w"> </span>running<span class="w"> </span>multiple<span class="w"> </span>containers<span class="w"> </span>together<span class="w"> </span><span class="o">(</span>services,<span class="w"> </span>networks,<span class="w"> </span>volumes<span class="o">)</span>.<span class="w">       </span><span class="p">|</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>🧭<span class="w"> </span>**Learn<span class="w"> </span>Docker<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span>order:**
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="m">1</span>.<span class="w"> </span>Run<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>container<span class="w"> </span><span class="o">(</span><span class="sb">`</span>docker<span class="w"> </span>run<span class="w"> </span>nginx<span class="sb">`</span><span class="o">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="m">2</span>.<span class="w"> </span>Build<span class="w"> </span>your<span class="w"> </span>own<span class="w"> </span>image<span class="w"> </span><span class="o">(</span>write<span class="w"> </span>a<span class="w"> </span>Dockerfile<span class="o">)</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="m">3</span>.<span class="w"> </span>Persist<span class="w"> </span>data<span class="w"> </span>with<span class="w"> </span>volumes
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="m">4</span>.<span class="w"> </span>Connect<span class="w"> </span>containers<span class="w"> </span>with<span class="w"> </span>networks
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="m">5</span>.<span class="w"> </span>Orchestrate<span class="w"> </span>everything<span class="w"> </span>using<span class="w"> </span>Compose
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>---
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1">### 🔁 Container Lifecycle</span>
+</span></code></pre></div>
+Image → Container → Process → Exit → Removed
+      ↑
+   (built from Dockerfile)
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>A container is just a **process with boundaries** — lightweight isolation using Linux namespaces and cgroups.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>It’s not a VM; it shares the host kernel but runs with its own view of the system.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>---
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>## 🔧 Quick Command Reference
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>```bash
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># Core commands
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>docker ps                   # running containers
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>docker ps -a                # all containers (including stopped)
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>docker images               # list local images
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>docker run -d -p 8080:80 nginx
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>docker exec -it &lt;container&gt; bash
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>docker logs -f &lt;container&gt;
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>docker stop &lt;container&gt;
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>docker rm &lt;container&gt;
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>docker system prune -a      # cleanup everything unused
+</span></code></pre></div></p>
+<hr />
+<h2 id="3-container-networking-the-hallway-between-containers">📦 3. Container Networking (the hallway between containers)<a class="headerlink" href="#3-container-networking-the-hallway-between-containers" title="Permanent link">&para;</a></h2>
+<p>Each container lives in its own isolated network namespace.
+They can communicate when they share a <strong>Docker network</strong>.</p>
+<p><strong>Bridge network (default):</strong>
+Containers can reach each other via IP, but not by name unless you define a user network.</p>
+<p><strong>User-defined network (recommended):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>mynet
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>db<span class="w"> </span>--network<span class="w"> </span>mynet<span class="w"> </span>mysql:8.4
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>app<span class="w"> </span>--network<span class="w"> </span>mynet<span class="w"> </span>myapp
+</span></code></pre></div>
+<p>Now <code>app</code> can reach <code>db</code> simply at hostname <code>db:3306</code>.</p>
+<p><strong>Ports and host access:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>nginx
+</span></code></pre></div>
+<p>Maps port 8080 on your host to port 80 inside the container.</p>
+<p>✅ <strong>Best practice:</strong>
+Use Docker networks for container-to-container comms.
+Expose ports only when the host or outside world must connect.</p>
+<hr />
+<h2 id="4-example-multi-container-app-spring-boot-mysql-nginx">🧰 4. Example: Multi-Container App (Spring Boot + MySQL + Nginx)<a class="headerlink" href="#4-example-multi-container-app-spring-boot-mysql-nginx" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># docker-compose.yml</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">mysql</span><span class="p">:</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:mysql://mysql:3306/appdb?allowPublicKeyRetrieval=true&amp;useSSL=false</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appuser</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-pass</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:8.4</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appdb</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appuser</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-pass</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql_data:/var/lib/mysql</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3306:3306&quot;</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;mysqladmin</span><span class="nv"> </span><span class="s">ping</span><span class="nv"> </span><span class="s">-h</span><span class="nv"> </span><span class="s">127.0.0.1</span><span class="nv"> </span><span class="s">-p$${MYSQL_ROOT_PASSWORD}</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">exit</span><span class="nv"> </span><span class="s">1&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">backend</span><span class="p p-Indicator">]</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">  </span><span class="nt">mysql_data</span><span class="p">:</span>
+</span></code></pre></div>
+<p>Inside this network:</p>
+<ul>
+<li><code>backend</code> talks to DB at <strong><code>mysql:3306</code></strong></li>
+<li><code>nginx</code> proxies to <strong><code>backend:8080</code></strong></li>
+<li>You access via <strong><code>localhost:80</code></strong></li>
+</ul>
+<hr />
+<h3 id="backend-dockerfile-example">🏗️ Backend Dockerfile example<a class="headerlink" href="#backend-dockerfile-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">eclipse-temurin:21-jre</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">COPY</span><span class="w"> </span>target/app.jar<span class="w"> </span>app.jar
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="s2">&quot;/app/app.jar&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="application-properties-spring-boot">🧩 Application properties (Spring Boot)<a class="headerlink" href="#application-properties-spring-boot" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://mysql:3306/appdb</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">appuser</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">app-pass</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">spring.jpa.show-sql</span><span class="o">=</span><span class="s">true</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-housekeeping-and-troubleshooting">🧼 5. Housekeeping and Troubleshooting<a class="headerlink" href="#5-housekeeping-and-troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="cleanups">Cleanups<a class="headerlink" href="#cleanups" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>container<span class="w"> </span>prune<span class="w">        </span><span class="c1"># remove stopped containers</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w">            </span><span class="c1"># remove dangling images</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a<span class="w">        </span><span class="c1"># full cleanup (containers, images, volumes, networks)</span>
+</span></code></pre></div>
+<h3 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w">                  </span><span class="c1"># find exited containers</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;name&gt;<span class="w">            </span><span class="c1"># read logs</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;name&gt;<span class="w">         </span><span class="c1"># metadata, IPs, mounts</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;name&gt;<span class="w"> </span>bash<span class="w">   </span><span class="c1"># open shell inside container</span>
+</span></code></pre></div>
+<hr />
+<h2 id="advanced-concepts-for-later">🧠 Advanced Concepts (for later)<a class="headerlink" href="#advanced-concepts-for-later" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Image layers:</strong> Every Dockerfile instruction adds a cached layer — build faster by ordering instructions wisely.</li>
+<li><strong>Isolation vs VMs:</strong> Containers share the host kernel, making them lightweight and fast to start.</li>
+<li><strong>Security basics:</strong> Avoid running containers as root in production; use minimal base images (e.g., <code>distroless</code>, <code>alpine</code>).</li>
+<li><strong>BuildKit:</strong> Modern Docker build engine with parallel builds, inline caching, and secrets support (<code>DOCKER_BUILDKIT=1</code>).</li>
+</ul>
+<hr />
+<h2 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <strong><code>systemctl</code></strong> to manage the Docker daemon.</li>
+<li>Use <strong><code>docker</code></strong> commands to run individual containers.</li>
+<li>Use <strong><code>docker-compose</code></strong> to run multi-container setups.</li>
+<li>Use <strong>volumes</strong> for persistence, <strong>networks</strong> for communication, and <strong>healthchecks</strong> for reliability.</li>
+<li>Start small, automate gradually, and remember: <strong>containers are processes, not magic</strong>.</li>
+</ul>
+<hr />
+<h3 id="further-expansion-when-youre-ready">🧭 Further expansion (when you’re ready)<a class="headerlink" href="#further-expansion-when-youre-ready" title="Permanent link">&para;</a></h3>
+<p>Later, you can split this file into:</p>
+<ul>
+<li><code>docker_basics.md</code></li>
+<li><code>docker_compose.md</code></li>
+<li><code>docker_networking.md</code></li>
+<li><code>docker_troubleshooting.md</code></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../_meta/blueprint/" class="btn btn-neutral float-left" title="Containers — Future Blueprint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../podman/" class="btn btn-neutral float-right" title="🚀 Podman Quickstart">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../_meta/blueprint/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../podman/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/serialization/json/" />
+      <link rel="shortcut icon" href="../../../../../../../img/favicon.ico" />
+    <title>@Json - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "@Json";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/annotations/serialization/json.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/annotations/serialization/json/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Annotations</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" >Serialization</a>
+    <ul class="current">
+                <li class="toctree-l6 current"><a class="reference internal current" href="#">@Json</a>
+    <ul class="current">
+    <li class="toctree-l7"><a class="reference internal" href="#jackson-common-annotations-patterns">jackson common annotations &amp; patterns</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#1-jsonproperty-rename-or-control-access">1) @JsonProperty — rename or control access</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#2-jsoninclude-drop-noise-nulls-empties-defaults">2) @JsonInclude — drop noise (nulls, empties, defaults)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#3-jsonignore-jsonignoreproperties-hide-or-tolerate-extras">3) @JsonIgnore / @JsonIgnoreProperties — hide or tolerate extras</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#4-jsonformat-make-dates-predictable">4) @JsonFormat — make dates predictable</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#5-jsonalias-accept-many-input-names-output-one">5) @JsonAlias — accept many input names, output one</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#6-jsoncreator-build-immutable-objects-from-json">6) @JsonCreator — build immutable objects from JSON</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#7-jsonvalue-serialize-as-a-single-value-enumsvalue-objects">7) @JsonValue — serialize as a single value (enums/value objects)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#8-bidirectional-relations-stop-infinite-loops">8) Bidirectional relations — stop infinite loops</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#9-polymorphism-jsontypeinfo-jsonsubtypes">9) Polymorphism — @JsonTypeInfo + @JsonSubTypes</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#quick-when-do-i-use-what-map">quick “when do i use what?” map</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#tiny-end-to-end-example-mixing-a-few">tiny end-to-end example (mixing a few)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#jackson-advanced-annotations-patterns">jackson advanced annotations &amp; patterns</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#1-global-vs-per-class-when-to-annotate-vs-configure">1) global vs per-class: when to annotate vs configure</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#2-jsoninclude-advanced-tricks-field-level-value-filters">2) @JsonInclude — advanced tricks (field-level + value filters)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#3-jsonproperty-access-required-defaults-ordering-partner">3) @JsonProperty — access, required, defaults, ordering partner</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#4-jsonsetter-jsondeserialize-input-rules-null-handling">4) @JsonSetter / @JsonDeserialize — input rules &amp; null handling</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#5-jsonserialize-output-shaping-single-field-or-keyselements">5) @JsonSerialize — output shaping (single field or keys/elements)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#6-jsonanysetter-jsonanygetter-the-rest-of-the-fields">6) @JsonAnySetter / @JsonAnyGetter — “the rest of the fields”</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#7-jsonunwrapped-flatten-nested-objects">7) @JsonUnwrapped — flatten nested objects</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#8-jsonnaming-automatic-casing-conventions">8) @JsonNaming — automatic casing conventions</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#9-jsonview-role-based-field-visibility">9) @JsonView — role-based field visibility</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#10-polymorphism-deeper-names-existingexternal-type-ids-wrappers">10) polymorphism deeper — names, existing/external type ids, wrappers</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#11-identity-cycles-advanced-scopes-and-resolvers">11) identity &amp; cycles advanced — scopes and resolvers</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#12-mixins-annotate-without-touching-the-class">12) mixins — annotate without touching the class</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#13-dynamic-filters-jsonfilter">13) dynamic filters — @JsonFilter</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#14-records-immutables-minimal-ceremony">14) records &amp; immutables — minimal ceremony</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#quick-chooser-deep-cut">quick chooser (deep cut)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Annotations</li>
+          <li class="breadcrumb-item">Serialization</li>
+      <li class="breadcrumb-item active">@Json</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/annotations/serialization/json.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="jackson-json-serialization-deserialization-annotations-cheat-sheet">jackson JSON serialization &amp; deserialization annotations — cheat sheet<a class="headerlink" href="#jackson-json-serialization-deserialization-annotations-cheat-sheet" title="Permanent link">&para;</a></h1>
+<p><strong>jackson in one sentence</strong></p>
+<p>Jackson turns <strong>Java objects ⇄ JSON</strong>. It works out of the box, and you use <strong>annotations on your DTOs</strong> when the default JSON isn’t what you want.</p>
+<hr />
+<h2 id="jackson-common-annotations-patterns">jackson common annotations &amp; patterns<a class="headerlink" href="#jackson-common-annotations-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="1-jsonproperty-rename-or-control-access">1) <code>@JsonProperty</code> — rename or control access<a class="headerlink" href="#1-jsonproperty-rename-or-control-access" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: your Java field names don’t match the API JSON, or you want a field to be read-only/write-only in JSON.</p>
+<p><strong>How it affects direction</strong></p>
+<ul>
+<li>Serialization (object → JSON): field <strong>appears</strong> using the name you give.</li>
+<li>Deserialization (JSON → object): field <strong>is read</strong> from that JSON name.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;user_id&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;email&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonProperty</span><span class="p">.</span><span class="na">Access</span><span class="p">.</span><span class="na">WRITE_ONLY</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span><span class="w"> </span><span class="c1">// accepted on input but hidden in output</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a@b.com&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Handy flags (max 5)</strong></p>
+<ul>
+<li><code>value = "name"</code> → JSON field name.</li>
+<li><code>access = READ_ONLY</code> → show in output only.</li>
+<li><code>access = WRITE_ONLY</code> → accept on input only.</li>
+<li><code>required = true</code> → fail if missing on input.</li>
+<li><code>defaultValue = "..."</code> → used if absent on input.</li>
+</ul>
+<hr />
+<h3 id="2-jsoninclude-drop-noise-nulls-empties-defaults">2) <code>@JsonInclude</code> — drop noise (nulls, empties, defaults)<a class="headerlink" href="#2-jsoninclude-drop-noise-nulls-empties-defaults" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: make responses smaller/cleaner.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_NULL</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProfileDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">bio</span><span class="p">;</span><span class="w"> </span><span class="c1">// null → omitted</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lin&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful modes (pick what you need)</strong></p>
+<ol>
+<li><code>ALWAYS</code> — include everything (default).</li>
+<li><code>NON_NULL</code> — drop only <code>null</code>.</li>
+<li><code>NON_EMPTY</code> — drop <code>null</code>, <code>""</code>, <code>[]</code>, <code>{}</code>.</li>
+<li><code>NON_DEFAULT</code> — drop values equal to field defaults (e.g., <code>0</code>, <code>false</code>, empty).</li>
+<li><code>NON_ABSENT</code> — drop <code>Optional.empty()</code> (keeps non-empty Optionals).</li>
+</ol>
+<p><strong>Per-field override</strong>: you can also put <code>@JsonInclude(...)</code> directly on a field.</p>
+<hr />
+<h3 id="3-jsonignore-jsonignoreproperties-hide-or-tolerate-extras">3) <code>@JsonIgnore</code> / <code>@JsonIgnoreProperties</code> — hide or tolerate extras<a class="headerlink" href="#3-jsonignore-jsonignoreproperties-hide-or-tolerate-extras" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: hide sensitive/internal fields, or ignore unknown JSON fields so clients don’t break you.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@JsonIgnoreProperties</span><span class="p">(</span><span class="n">ignoreUnknown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">// ignore extra JSON input</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AccountDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nd">@JsonIgnore</span><span class="w"> </span><span class="c1">// never show in JSON</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">passwordHash</span><span class="p">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input with extras → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a@b.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;unexpected&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a@b.com&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>ignoreUnknown = true</code> — skip unexpected input fields.</li>
+<li><code>value = {"field1","field2"}</code> — ignore these by name.</li>
+<li><code>allowGetters = true</code> — still serialize (getters allowed).</li>
+<li><code>allowSetters = true</code> — still deserialize (setters allowed).</li>
+<li><code>@JsonIgnore</code> (field or getter) — hard hide that one property.</li>
+</ul>
+<blockquote>
+<p>Tip: prefer <code>@JsonIgnore</code> for single fields; use <code>@JsonIgnoreProperties</code> for class-level rules.</p>
+</blockquote>
+<hr />
+<h3 id="4-jsonformat-make-dates-predictable">4) <code>@JsonFormat</code> — make dates predictable<a class="headerlink" href="#4-jsonformat-make-dates-predictable" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: you control the exact text format instead of gambling on defaults.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EventDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nd">@JsonFormat</span><span class="p">(</span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonFormat</span><span class="p">.</span><span class="na">Shape</span><span class="p">.</span><span class="na">STRING</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">              </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssXXX&quot;</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ZonedDateTime</span><span class="w"> </span><span class="n">startsAt</span><span class="p">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;startsAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-10-04T09:30:00+03:00&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>shape = STRING</code> — format as text (common for dates).</li>
+<li><code>shape = NUMBER</code> — epoch millis/seconds (with <code>@JsonFormat</code> + config).</li>
+<li><code>pattern = "..."</code> — custom date pattern.</li>
+<li><code>timezone = "UTC"</code> — force a TZ (or <code>Europe/Vilnius</code>).</li>
+<li><code>locale = "en"</code> — locale for month/day names, etc.</li>
+</ul>
+<hr />
+<h3 id="5-jsonalias-accept-many-input-names-output-one">5) <code>@JsonAlias</code> — accept many input names, output one<a class="headerlink" href="#5-jsonalias-accept-many-input-names-output-one" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: smooth migrations: multiple incoming names map to one field.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProductDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;price&quot;</span><span class="p">)</span><span class="w">                </span><span class="c1">// output as &quot;price&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nd">@JsonAlias</span><span class="p">({</span><span class="s">&quot;cost&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;amount&quot;</span><span class="p">})</span><span class="w">        </span><span class="c1">// accept these on input</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Valid Inputs</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.99</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;cost&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.99</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.99</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.99</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="6-jsoncreator-build-immutable-objects-from-json">6) <code>@JsonCreator</code> — build immutable objects from JSON<a class="headerlink" href="#6-jsoncreator-build-immutable-objects-from-json" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: records/immutables or no no-arg constructor? Tell Jackson which ctor/factory to use.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PointDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nd">@JsonCreator</span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonCreator</span><span class="p">.</span><span class="na">Mode</span><span class="p">.</span><span class="na">PROPERTIES</span><span class="p">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PointDto</span><span class="p">(</span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">                  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful modes (max 5)</strong></p>
+<ul>
+<li><code>Mode.PROPERTIES</code> — match by property names (most common).</li>
+<li><code>Mode.DELEGATING</code> — pass the whole input into one param (single-value wrapper).</li>
+<li>Works with <strong>static factory</strong> + <code>@JsonCreator</code> too.</li>
+<li>Combine with <code>@JsonProperty(required = true)</code> on params.</li>
+<li>Pair with <code>@JsonValue</code> on the <em>other</em> side to serialize as a single value.</li>
+</ul>
+<hr />
+<h3 id="7-jsonvalue-serialize-as-a-single-value-enumsvalue-objects">7) <code>@JsonValue</code> — serialize as a single value (enums/value objects)<a class="headerlink" href="#7-jsonvalue-serialize-as-a-single-value-enumsvalue-objects" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: make an enum or tiny object show up as a simple string/number.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Role</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="n">ADMIN</span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">USER</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">);</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="n">Role</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nd">@JsonValue</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toJson</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Enum → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="s2">&quot;admin&quot;</span>
+</span></code></pre></div>
+<p><em>For deserializing back</em>, add a <code>@JsonCreator</code> factory that turns the string into the enum/value object.</p>
+<hr />
+<h3 id="8-bidirectional-relations-stop-infinite-loops">8) Bidirectional relations — stop infinite loops<a class="headerlink" href="#8-bidirectional-relations-stop-infinite-loops" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: parent → child → parent → … during serialization.</p>
+<p><strong>Option A: “managed/back” pair</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nd">@JsonManagedReference</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderItemDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">}</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderItemDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nd">@JsonBackReference</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">OrderDto</span><span class="w"> </span><span class="n">order</span><span class="p">;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output (simplified)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* no &quot;order&quot; back-ref here */</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Option B: identity by id</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nd">@JsonIdentityInfo</span><span class="p">(</span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectIdGenerators</span><span class="p">.</span><span class="na">PropertyGenerator</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CategoryDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">CategoryDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">children</span><span class="p">;</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">CategoryDto</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Root&quot;</span><span class="p">,</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Child&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>When to choose</strong></p>
+<ul>
+<li>Use <strong>A</strong> for simple parent↔child where you just want to drop the back link.</li>
+<li>Use <strong>B</strong> when the graph is more complex or you want references by id.</li>
+</ul>
+<hr />
+<h3 id="9-polymorphism-jsontypeinfo-jsonsubtypes">9) Polymorphism — <code>@JsonTypeInfo</code> + <code>@JsonSubTypes</code><a class="headerlink" href="#9-polymorphism-jsontypeinfo-jsonsubtypes" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: a field/collection holds different concrete types; you need a type hint.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nd">@JsonTypeInfo</span><span class="p">(</span><span class="n">use</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonTypeInfo</span><span class="p">.</span><span class="na">Id</span><span class="p">.</span><span class="na">NAME</span><span class="p">,</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">              </span><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonTypeInfo</span><span class="p">.</span><span class="na">As</span><span class="p">.</span><span class="na">PROPERTY</span><span class="p">,</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">              </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;type&quot;</span><span class="p">)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nd">@JsonSubTypes</span><span class="p">({</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nd">@JsonSubTypes.Type</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardPaymentDto</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;card&quot;</span><span class="p">),</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nd">@JsonSubTypes.Type</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BankTransferDto</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bank&quot;</span><span class="p">)</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">})</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentDto</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CardPaymentDto</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentDto</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cardLast4</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BankTransferDto</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentDto</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">iban</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;card&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;cardLast4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4242&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bank&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;iban&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LT12 3456 7890 1234&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options for <code>@JsonTypeInfo</code> (max 5)</strong></p>
+<ul>
+<li><code>use = Id.NAME</code> — symbolic names (most common with <code>@JsonSubTypes</code>).</li>
+<li><code>use = Id.CLASS</code> — fully qualified class name (tightly couples API to Java).</li>
+<li><code>include = As.PROPERTY</code> — add <code>"type": "..."</code> field (most common).</li>
+<li><code>include = As.EXISTING_PROPERTY</code> — reuse an existing field as the type key.</li>
+<li><code>property = "type"</code> — name of that discriminator field.</li>
+</ul>
+<hr />
+<h3 id="quick-when-do-i-use-what-map">quick “when do i use what?” map<a class="headerlink" href="#quick-when-do-i-use-what-map" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Names don’t match? → <code>@JsonProperty</code> (maybe with <code>access</code>).</li>
+<li>Hide or tolerate extras? → <code>@JsonIgnore</code>, <code>@JsonIgnoreProperties</code>.</li>
+<li>Too many nulls/empties? → <code>@JsonInclude</code> with <code>NON_NULL</code>/<code>NON_EMPTY</code>.</li>
+<li>Dates weird? → <code>@JsonFormat</code> (pattern + timezone).</li>
+<li>Legacy input names? → <code>@JsonAlias</code>.</li>
+<li>Immutable DTOs? → <code>@JsonCreator</code> (+ <code>@JsonProperty</code> params).</li>
+<li>Graph cycles? → managed/back <strong>or</strong> identity ids.</li>
+<li>Mixed subtypes? → <code>@JsonTypeInfo</code> + <code>@JsonSubTypes</code>.</li>
+</ul>
+<hr />
+<h3 id="tiny-end-to-end-example-mixing-a-few">tiny end-to-end example (mixing a few)<a class="headerlink" href="#tiny-end-to-end-example-mixing-a-few" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w">               </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w">             </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">  </span><span class="nd">@JsonIgnore</span><span class="w">                       </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">internalNote</span><span class="p">;</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;email&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonProperty</span><span class="p">.</span><span class="na">Access</span><span class="p">.</span><span class="na">WRITE_ONLY</span><span class="p">)</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span><span class="w"> </span><span class="c1">// input only</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">  </span><span class="nd">@JsonFormat</span><span class="p">(</span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonFormat</span><span class="p">.</span><span class="na">Shape</span><span class="p">.</span><span class="na">STRING</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yyyy-MM-dd&quot;</span><span class="p">)</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">birthday</span><span class="p">;</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;role&quot;</span><span class="p">)</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Role</span><span class="w"> </span><span class="n">role</span><span class="p">;</span><span class="w"> </span><span class="c1">// enum with @JsonValue as shown earlier</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sam&quot;</span><span class="p">,</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sam@ex.com&quot;</span><span class="p">,</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span><span class="nt">&quot;birthday&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1990-05-01&quot;</span><span class="p">,</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">  </span><span class="nt">&quot;extra&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ignored client junk&quot;</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sam&quot;</span><span class="p">,</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="nt">&quot;birthday&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1990-05-01&quot;</span><span class="p">,</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>
+</span></code></pre></div>
+<h2 id="jackson-advanced-annotations-patterns">jackson advanced annotations &amp; patterns<a class="headerlink" href="#jackson-advanced-annotations-patterns" title="Permanent link">&para;</a></h2>
+<p>Jackson has many more annotations and patterns for advanced use cases. Here are some of the most useful ones, explained with examples.</p>
+<hr />
+<h3 id="1-global-vs-per-class-when-to-annotate-vs-configure">1) global vs per-class: when to annotate vs configure<a class="headerlink" href="#1-global-vs-per-class-when-to-annotate-vs-configure" title="Permanent link">&para;</a></h3>
+<p><strong>Rule of thumb</strong></p>
+<ul>
+<li>If it’s <strong>about a DTO’s contract</strong>, prefer annotations (portable, self-documenting).</li>
+<li>If it’s <strong>a cross-cutting policy</strong>, prefer mapper config (Spring Boot auto-config or your <code>ObjectMapper</code> bean).</li>
+</ul>
+<p><em>(No snippet here because you asked to include code only where annotations appear. Below, everything is annotation-first.)</em></p>
+<hr />
+<h3 id="2-jsoninclude-advanced-tricks-field-level-value-filters">2) <code>@JsonInclude</code> — advanced tricks (field-level + value filters)<a class="headerlink" href="#2-jsoninclude-advanced-tricks-field-level-value-filters" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: fine-tune which values are omitted.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1">// class-level: drop nulls by default</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_NULL</span><span class="p">)</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProductDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">  </span><span class="c1">// field override: drop empty strings/collections too</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">  </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">;</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">  </span><span class="c1">// drop defaults (e.g., 0, false, empty) — great for PATCH-like responses</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">  </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_DEFAULT</span><span class="p">)</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stock</span><span class="p">;</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">  </span><span class="c1">// drop Optional.empty but keep present values</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">  </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_ABSENT</span><span class="p">)</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ean</span><span class="p">;</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">  </span><span class="c1">// contentInclude: drop nulls inside collections/maps (keeps container)</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">  </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_NULL</span><span class="p">)</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tags</span><span class="p">;</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">{</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Desk&quot;</span><span class="p">,</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="nt">&quot;stock&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">              </span><span class="c1">// NOTE: kept unless default value is actually 0 at field init</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">               </span><span class="c1">// container kept; null elements dropped</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful modes (max 5)</strong></p>
+<ul>
+<li><code>ALWAYS</code>, <code>NON_NULL</code>, <code>NON_EMPTY</code>, <code>NON_DEFAULT</code>, <code>NON_ABSENT</code></li>
+<li><code>content = ...</code> — apply rule to elements of collections/maps</li>
+</ul>
+<blockquote>
+<p>tip: <code>NON_DEFAULT</code> compares to the field’s <strong>initialized default</strong>. If <code>int stock = 0;</code>, zero will be dropped; if uninitialized, zero may be kept.</p>
+</blockquote>
+<hr />
+<h3 id="3-jsonproperty-access-required-defaults-ordering-partner">3) <code>@JsonProperty</code> — access, required, defaults, ordering partner<a class="headerlink" href="#3-jsonproperty-access-required-defaults-ordering-partner" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: total control over naming and read/write visibility.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nd">@JsonPropertyOrder</span><span class="p">({</span><span class="s">&quot;id&quot;</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="s">&quot;email&quot;</span><span class="p">})</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">  </span><span class="c1">// write-only: accepted on input, hidden on output</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;email&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonProperty</span><span class="p">.</span><span class="na">Access</span><span class="p">.</span><span class="na">WRITE_ONLY</span><span class="p">,</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;unknown@local&quot;</span><span class="p">)</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">  </span><span class="c1">// read-only: shown in output, ignored on input</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonProperty</span><span class="p">.</span><span class="na">Access</span><span class="p">.</span><span class="na">READ_ONLY</span><span class="p">)</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a@b.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ignored on input&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ada Lovelace&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>value = "..."</code> (json name)</li>
+<li><code>access = READ_ONLY | WRITE_ONLY | READ_WRITE</code></li>
+<li><code>required = true</code></li>
+<li><code>defaultValue = "..."</code> (used if missing on input)</li>
+<li>pair with <code>@JsonPropertyOrder</code> (stable field order)</li>
+</ul>
+<hr />
+<h3 id="4-jsonsetter-jsondeserialize-input-rules-null-handling">4) <code>@JsonSetter</code> / <code>@JsonDeserialize</code> — input rules &amp; null handling<a class="headerlink" href="#4-jsonsetter-jsondeserialize-input-rules-null-handling" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: control <em>how</em> JSON becomes fields.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SettingsDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="c1">// treat empty string as null on input</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="nd">@JsonSetter</span><span class="p">(</span><span class="n">nulls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nulls</span><span class="p">.</span><span class="na">SKIP</span><span class="p">,</span><span class="w"> </span><span class="n">contentNulls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nulls</span><span class="p">.</span><span class="na">SKIP</span><span class="p">)</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">theme</span><span class="p">;</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">  </span><span class="c1">// custom deserializer for tricky field (e.g., &quot;yes&quot;/&quot;no&quot; → boolean)</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">  </span><span class="nd">@JsonDeserialize</span><span class="p">(</span><span class="n">using</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">YesNoBooleanDeserializer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">marketingConsent</span><span class="p">;</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;theme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;marketingConsent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>→ <code>theme</code> stays <code>null</code> (skipped), <code>marketingConsent</code> becomes <code>true</code>.</p>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>@JsonSetter(nulls = Nulls.SKIP | Nulls.SET | Nulls.FAIL)</code></li>
+<li><code>contentNulls = ...</code> (for collection/map elements)</li>
+<li><code>@JsonDeserialize(using = YourDeserializer.class)</code></li>
+<li><code>@JsonDeserialize(contentUsing = ... , keyUsing = ...)</code> (elements/keys)</li>
+<li><code>@JsonDeserialize(builder = ...)</code> (for builder patterns)</li>
+</ul>
+<hr />
+<h3 id="5-jsonserialize-output-shaping-single-field-or-keyselements">5) <code>@JsonSerialize</code> — output shaping (single field or keys/elements)<a class="headerlink" href="#5-jsonserialize-output-shaping-single-field-or-keyselements" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: teach Jackson how to write a field.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReportDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="c1">// custom serializer: mask last 6 of IBAN</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">  </span><span class="nd">@JsonSerialize</span><span class="p">(</span><span class="n">using</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaskingSerializer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">iban</span><span class="p">;</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">  </span><span class="c1">// map with non-string keys — serialize keys in a custom way</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">  </span><span class="nd">@JsonSerialize</span><span class="p">(</span><span class="n">keyUsing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ComplexKeySerializer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">UUID</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">balancesByAccount</span><span class="p">;</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output (conceptual)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;iban&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LT****************90&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;balancesByAccount&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;acc:550e8400-e29b-41d4-a716-446655440000&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>using = ...</code> (value serializer)</li>
+<li><code>keyUsing = ...</code> (map key serializer)</li>
+<li><code>contentUsing = ...</code> (collection/map element serializer)</li>
+<li>works with <code>@JsonFormat</code> (dates/numbers) — format first, then serialize</li>
+<li>combine with <code>@JsonInclude</code> to omit post-serialization empties</li>
+</ul>
+<hr />
+<h3 id="6-jsonanysetter-jsonanygetter-the-rest-of-the-fields">6) <code>@JsonAnySetter</code> / <code>@JsonAnyGetter</code> — “the rest of the fields”<a class="headerlink" href="#6-jsonanysetter-jsonanygetter-the-rest-of-the-fields" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: capture unknown/variable properties into a map and optionally emit them back.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FlexibleDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">  </span><span class="nd">@JsonAnySetter</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">  </span><span class="nd">@JsonAnyGetter</span>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getOther</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">other</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Input → Object</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;anythingElse&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;anythingElse&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful notes (max 5)</strong></p>
+<ul>
+<li>great with evolving schemas</li>
+<li>coexists with <code>@JsonIgnoreProperties(ignoreUnknown = true)</code> (but you usually pick one)</li>
+<li>values can be typed (<code>Map&lt;String, JsonNode&gt;</code> or specific DTO)</li>
+<li>pair with validation after deserialization</li>
+<li>beware of over-accepting junk (log or validate)</li>
+</ul>
+<hr />
+<h3 id="7-jsonunwrapped-flatten-nested-objects">7) <code>@JsonUnwrapped</code> — flatten nested objects<a class="headerlink" href="#7-jsonunwrapped-flatten-nested-objects" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: emit a child object’s fields at the parent level (and read them back).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">  </span><span class="nd">@JsonUnwrapped</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ship_&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">suffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">AddressDto</span><span class="w"> </span><span class="n">shipping</span><span class="p">;</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">{</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;o1&quot;</span><span class="p">,</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="nt">&quot;ship_street&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Baker St&quot;</span><span class="p">,</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">  </span><span class="nt">&quot;ship_city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Vilnius&quot;</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>prefix = "..."</code>, <code>suffix = "..."</code> (avoid collisions)</li>
+<li>works both ways (serialize + deserialize)</li>
+<li>avoid name clashes with parent fields</li>
+<li>can nest multiple unwrapped sub-objects with careful prefixes</li>
+<li>combine with <code>@JsonInclude</code> on the nested type</li>
+</ul>
+<hr />
+<h3 id="8-jsonnaming-automatic-casing-conventions">8) <code>@JsonNaming</code> — automatic casing conventions<a class="headerlink" href="#8-jsonnaming-automatic-casing-conventions" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: avoid sprinkling <code>@JsonProperty</code> everywhere for simple case mappings.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nd">@JsonNaming</span><span class="p">(</span><span class="n">PropertyNamingStrategies</span><span class="p">.</span><span class="na">SnakeCaseStrategy</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MetricsDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">requestCount</span><span class="p">;</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">errorRate</span><span class="p">;</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Object → Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;request_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;error_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful strategies (max 5)</strong></p>
+<ul>
+<li><code>SnakeCaseStrategy</code></li>
+<li><code>SNAKE_CASE</code> (enum alias)</li>
+<li><code>LowerCamelCaseStrategy</code> (default)</li>
+<li><code>KebabCaseStrategy</code></li>
+<li><code>UpperCamelCaseStrategy</code></li>
+</ul>
+<blockquote>
+<p>tip: prefer <code>@JsonProperty</code> for <strong>exceptions</strong>, <code>@JsonNaming</code> for <strong>bulk</strong> rules.</p>
+</blockquote>
+<hr />
+<h3 id="9-jsonview-role-based-field-visibility">9) <code>@JsonView</code> — role-based field visibility<a class="headerlink" href="#9-jsonview-role-based-field-visibility" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: one DTO, different audiences (public vs admin).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Views</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Public</span><span class="p">{}</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Admin</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Public</span><span class="p">{}</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">  </span><span class="nd">@JsonView</span><span class="p">(</span><span class="n">Views</span><span class="p">.</span><span class="na">Public</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">  </span><span class="nd">@JsonView</span><span class="p">(</span><span class="n">Views</span><span class="p">.</span><span class="na">Public</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">displayName</span><span class="p">;</span>
+</span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>
+</span><span id="__span-44-10"><a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">  </span><span class="nd">@JsonView</span><span class="p">(</span><span class="n">Views</span><span class="p">.</span><span class="na">Admin</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-44-11"><a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+</span><span id="__span-44-12"><a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Serialize with a view (Spring controller example)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1">// @JsonView(Views.Public.class) on method or return type</span>
+</span></code></pre></div>
+<p><strong>Public Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;displayName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Admin Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;displayName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ada@b.com&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful notes (max 5)</strong></p>
+<ul>
+<li>views compose via inheritance</li>
+<li>annotate fields and/or getters</li>
+<li>controller-level <code>@JsonView</code> applies to response</li>
+<li>tests: use <code>mapper.writerWithView(Views.Public.class)</code></li>
+<li>don’t overuse; it increases complexity</li>
+</ul>
+<hr />
+<h3 id="10-polymorphism-deeper-names-existingexternal-type-ids-wrappers">10) polymorphism deeper — names, existing/external type ids, wrappers<a class="headerlink" href="#10-polymorphism-deeper-names-existingexternal-type-ids-wrappers" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: control where the type info lives.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1">// common base</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="nd">@JsonTypeInfo</span><span class="p">(</span><span class="n">use</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonTypeInfo</span><span class="p">.</span><span class="na">Id</span><span class="p">.</span><span class="na">NAME</span><span class="p">,</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">              </span><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonTypeInfo</span><span class="p">.</span><span class="na">As</span><span class="p">.</span><span class="na">PROPERTY</span><span class="p">,</span>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">              </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;type&quot;</span><span class="p">)</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="nd">@JsonSubTypes</span><span class="p">({</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="w">  </span><span class="nd">@JsonSubTypes.Type</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardPaymentDto</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;card&quot;</span><span class="p">),</span>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">  </span><span class="nd">@JsonSubTypes.Type</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BankTransferDto</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bank&quot;</span><span class="p">)</span>
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="p">})</span>
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentDto</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a>
+</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a><span class="c1">// optional: name at subtype (instead of listing in @JsonSubTypes)</span>
+</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="nd">@JsonTypeName</span><span class="p">(</span><span class="s">&quot;card&quot;</span><span class="p">)</span>
+</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CardPaymentDto</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PaymentDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cardLast4</span><span class="p">;</span>
+</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Variants (most used)</strong></p>
+<ul>
+<li><code>include = As.EXISTING_PROPERTY</code> — reuse a real field as the discriminator.</li>
+<li><code>include = As.EXTERNAL_PROPERTY</code> — type sits next to the property holding the object (used inside containers).</li>
+<li><code>include = As.WRAPPER_OBJECT</code> — <code>{"card": {...}}</code> style.</li>
+</ul>
+<p><strong>I/O (wrapper example)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c1">// With As.WRAPPER_OBJECT</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="p">{</span><span class="w"> </span><span class="s">&quot;card&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;cardLast4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4242&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful options (max 5)</strong></p>
+<ul>
+<li><code>use = Id.NAME | Id.CLASS | Id.MINIMAL_CLASS</code></li>
+<li><code>include = As.PROPERTY | As.EXISTING_PROPERTY | As.EXTERNAL_PROPERTY | As.WRAPPER_OBJECT</code></li>
+<li><code>property = "type"</code></li>
+<li><code>visible = true</code> (keep the type property in POJO if also a real field)</li>
+<li><code>defaultImpl = ...</code> (fallback subtype)</li>
+</ul>
+<hr />
+<h3 id="11-identity-cycles-advanced-scopes-and-resolvers">11) identity &amp; cycles advanced — scopes and resolvers<a class="headerlink" href="#11-identity-cycles-advanced-scopes-and-resolvers" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: control how object identity is generated and resolved.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nd">@JsonIdentityInfo</span><span class="p">(</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">  </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectIdGenerators</span><span class="p">.</span><span class="na">PropertyGenerator</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">  </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">,</span>
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">  </span><span class="n">resolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyIdResolver</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional custom lookups</span>
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="w">  </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ProjectDto</span><span class="p">.</span><span class="na">class</span><span class="w">        </span><span class="c1">// id uniqueness per scope</span>
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="p">)</span>
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ProjectDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-50-9"><a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-50-10"><a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ProjectDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">children</span><span class="p">;</span>
+</span><span id="__span-50-11"><a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output (with refs)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Root&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Child&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Useful knobs (max 5)</strong></p>
+<ul>
+<li><code>generator = PropertyGenerator | IntSequenceGenerator | UUIDGenerator</code></li>
+<li><code>property = "..."</code> for property-based ids</li>
+<li><code>scope = ...</code> limit id space</li>
+<li><code>resolver = ...</code> custom id resolution</li>
+<li>pair with <code>@JsonIdentityReference(alwaysAsId = true)</code> to always emit just the id</li>
+</ul>
+<hr />
+<h3 id="12-mixins-annotate-without-touching-the-class">12) mixins — annotate without touching the class<a class="headerlink" href="#12-mixins-annotate-without-touching-the-class" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: 3rd-party classes or you want “annotation profiles”.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c1">// mixin type: only annotations, same shape as target</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserMixin</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">getId</span><span class="p">();</span>
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="w">  </span><span class="nd">@JsonIgnore</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getInternalNote</span><span class="p">();</span>
+</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="p">}</span>
+</span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>
+</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="c1">// register mixin with mapper (Spring bean config, not shown per your ask)</span>
+</span></code></pre></div>
+<p><strong>Effect</strong>: your DTO JSON changes as if you had annotated the original class.</p>
+<p><strong>Useful notes (max 5)</strong></p>
+<ul>
+<li>great for libraries/records you can’t modify</li>
+<li>test different API contracts in tests</li>
+<li>combine with views or filters</li>
+<li>keep mixins close to config for discoverability</li>
+<li>annotate getters/setters/fields in the mixin</li>
+</ul>
+<hr />
+<h3 id="13-dynamic-filters-jsonfilter">13) dynamic filters — <code>@JsonFilter</code><a class="headerlink" href="#13-dynamic-filters-jsonfilter" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: choose at runtime which fields to include.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nd">@JsonFilter</span><span class="p">(</span><span class="s">&quot;userFilter&quot;</span><span class="p">)</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserDto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><em>(You apply a <code>FilterProvider</code> at write time — code lives outside the DTO; included here just to show the annotation anchor.)</em></p>
+<p><strong>Useful notes (max 5)</strong></p>
+<ul>
+<li>per-write control (good for ad-hoc projections)</li>
+<li>combine with <code>SimpleBeanPropertyFilter</code></li>
+<li>can whitelist or blacklist fields</li>
+<li>filters stack with other annotations</li>
+<li>more flexible but harder to reason about than <code>@JsonView</code></li>
+</ul>
+<hr />
+<h3 id="14-records-immutables-minimal-ceremony">14) records &amp; immutables — minimal ceremony<a class="headerlink" href="#14-records-immutables-minimal-ceremony" title="Permanent link">&para;</a></h3>
+<p><strong>Why</strong>: concise DTOs with stable contracts.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">CustomerDto</span><span class="p">(</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w">  </span><span class="nd">@JsonProperty</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">  </span><span class="nd">@JsonFormat</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;yyyy-MM-dd&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">since</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<p><strong>Input</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mila&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;since&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-01&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mila&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;since&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-01&quot;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="quick-chooser-deep-cut">quick chooser (deep cut)<a class="headerlink" href="#quick-chooser-deep-cut" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mass renaming</strong> → <code>@JsonNaming</code>; exceptions → <code>@JsonProperty</code>.</li>
+<li><strong>Selective omission</strong> → <code>@JsonInclude</code> (field or content-level).</li>
+<li><strong>Input cleanup</strong> → <code>@JsonSetter(nulls=...)</code> or custom <code>@JsonDeserialize</code>.</li>
+<li><strong>Dynamic &amp; role-based views</strong> → <code>@JsonView</code> or <code>@JsonFilter</code> (runtime).</li>
+<li><strong>Graphy models</strong> → <code>@JsonManagedReference/@JsonBackReference</code> (simple) or <code>@JsonIdentityInfo</code> (complex).</li>
+<li><strong>Flat API shape</strong> → <code>@JsonUnwrapped</code> (use prefixes).</li>
+<li><strong>Polymorphism</strong> → <code>@JsonTypeInfo</code> + <code>@JsonSubTypes</code> (pick <code>include</code> mode carefully).</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../rest/binding/request-param/" class="btn btn-neutral float-left" title="@RequestParam"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../transactions/transactional/" class="btn btn-neutral float-right" title="@Transactional">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../rest/binding/request-param/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../transactions/transactional/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../../..";</script>
+    <script src="../../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../../js/theme.js"></script>
+      <script src="../../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

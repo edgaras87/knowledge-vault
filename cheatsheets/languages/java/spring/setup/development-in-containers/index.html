@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/development-in-containers/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>Development in Containers - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Development in Containers";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/setup/development-in-containers.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/setup/development-in-containers/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Setup</a>
+    <ul class="current">
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">Development in Containers</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-why-develop-inside-containers">1. Why develop inside containers?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-core-setup">2. Core setup</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#dev-compose-docker-composedevyml">Dev Compose (docker-compose.dev.yml)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#remote-debugging">Remote Debugging</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-keeping-host-clean">3. Keeping host clean</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-workflow">4. Workflow</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-prod-like-image">5. Prod-like image</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#6-extensions">6. Extensions</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#7-fedora-podman-specifics">7. Fedora / Podman specifics</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Setup</li>
+      <li class="breadcrumb-item active">Development in Containers</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/setup/development-in-containers.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-boot-development-in-containers-podman-on-fedora">🚀 Spring Boot Development in Containers (Podman on Fedora)<a class="headerlink" href="#spring-boot-development-in-containers-podman-on-fedora" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-why-develop-inside-containers">1. Why develop inside containers?<a class="headerlink" href="#1-why-develop-inside-containers" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Reproducible &amp; clean</strong> → Same JDK, Maven, OS libs as prod. No “works on my machine.”</li>
+<li><strong>No host pollution</strong> → No global JDK/Maven installs, no messy <code>~/.m2</code>, no system packages.</li>
+<li><strong>Faster onboarding</strong> → Teammates just clone repo, run <code>podman compose up</code>, and it works.</li>
+<li><strong>Easy reset</strong> → <code>podman compose down --volumes</code> wipes everything clean.</li>
+<li><strong>Prod-like testing</strong> → Multi-stage Dockerfile ensures runtime is identical to deploy image.</li>
+</ul>
+<hr />
+<h2 id="2-core-setup">2. Core setup<a class="headerlink" href="#2-core-setup" title="Permanent link">&para;</a></h2>
+<h3 id="dev-compose-docker-composedevyml">Dev Compose (<code>docker-compose.dev.yml</code>)<a class="headerlink" href="#dev-compose-docker-composedevyml" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Runs Spring app via <code>maven:temurin</code> image.</li>
+<li>Mounts your project source (<code>.:/workspace:Z</code>) → hot reload with Spring DevTools.</li>
+<li>
+<p>Exposes:</p>
+<ul>
+<li><code>8080</code> → app HTTP port</li>
+<li><code>5005</code> → JVM remote debug</li>
+<li>Uses <strong>named Maven repo volume</strong> to cache dependencies without polluting host.</li>
+</ul>
+</li>
+</ul>
+<h3 id="remote-debugging">Remote Debugging<a class="headerlink" href="#remote-debugging" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The app JVM runs inside container.</li>
+<li>IntelliJ attaches over <code>localhost:5005</code>.</li>
+<li>This is the standard way to debug any “remote” JVM (container, VM, Kubernetes, etc.).</li>
+</ul>
+<hr />
+<h2 id="3-keeping-host-clean">3. Keeping host clean<a class="headerlink" href="#3-keeping-host-clean" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Source code</strong>: mounted into container with <code>:Z</code> (SELinux relabel).</li>
+<li><strong>Dependencies</strong>: Maven repo isolated in named volume (<code>maven-repo</code>).</li>
+<li><strong>Configs/env</strong>: use <code>environment:</code> in Compose or <code>.env</code> files → no leaking into host.</li>
+<li><strong>User IDs</strong>: run container with <code>user: "${UID}:${GID}"</code> to avoid root-owned files on host.</li>
+</ul>
+<p>Reset at any time:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>podman<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>down<span class="w"> </span>--volumes
+</span></code></pre></div>
+<hr />
+<h2 id="4-workflow">4. Workflow<a class="headerlink" href="#4-workflow" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Start dev container</strong></li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>podman<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up
+</span></code></pre></div>
+2. <strong>Open in IntelliJ</strong> → attach <strong>Remote JVM Debug</strong> at <code>localhost:5005</code>.
+3. <strong>Edit code on host</strong> → Spring DevTools reloads inside container.
+4. <strong>Test via browser</strong> at <a href="http://localhost:8080">http://localhost:8080</a>.
+5. <strong>Stop/reset</strong> with <code>podman compose down</code>.</p>
+<p>Optional: wrap commands in a <code>Makefile</code> so you can do <code>make run</code>, <code>make test</code>, <code>make clean</code>.</p>
+<hr />
+<h2 id="5-prod-like-image">5. Prod-like image<a class="headerlink" href="#5-prod-like-image" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Multi-stage Dockerfile</strong> builds <code>.jar</code> in Maven image, copies it into slim JRE image.</li>
+<li>Runtime container runs as <strong>non-root user</strong>.</li>
+<li>Useful for testing “real deployment” locally, CI/CD pipelines, or production itself.</li>
+</ul>
+<hr />
+<h2 id="6-extensions">6. Extensions<a class="headerlink" href="#6-extensions" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Databases</strong>: Add Postgres or others as services in Compose (<code>depends_on: [db]</code>).</li>
+<li><strong>Multiple profiles</strong>: <code>SPRING_PROFILES_ACTIVE=local | dev | prod</code> → separate configs.</li>
+<li><strong>Secrets</strong>: For local dev, keep in <code>.env</code>; for production, use Podman secrets/K8s secrets.</li>
+<li><strong>Resource tuning</strong>: JVM flags (<code>JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75.0</code>) if needed.</li>
+</ul>
+<hr />
+<h2 id="7-fedora-podman-specifics">7. Fedora / Podman specifics<a class="headerlink" href="#7-fedora-podman-specifics" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <code>:Z</code> on <strong>all bind mounts</strong> → required for SELinux.</li>
+<li><strong>Rootless Podman</strong> works fine for ports ≥1024 (8080/5005 safe).</li>
+<li>Shell access (when needed):</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>podman<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>dev<span class="w"> </span>sh
+</span></code></pre></div>
+* Increase inotify watches if hot reload doesn’t pick up changes:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span>fs.inotify.max_user_watches<span class="o">=</span><span class="m">524288</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.conf
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</span></code></pre></div>
+<hr />
+<h1 id="tldr">✅ TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Run dev in container</strong>, edit locally → hot reload + remote debug.</li>
+<li><strong>Host stays clean</strong> → Maven repo, JDK, dependencies live inside containers/volumes.</li>
+<li><strong>Debug like remote app</strong> → attach IntelliJ to <code>localhost:5005</code>.</li>
+<li><strong>Reproducible prod builds</strong> → Multi-stage Dockerfile.</li>
+<li><strong>Isolation + flexibility</strong> → configs in env, volumes for data, no root pollution.</li>
+</ul>
+<p>This gives you a <strong>clean, repeatable, “as-it-runs-in-prod” dev setup</strong>, without cluttering your Fedora host, while still keeping a smooth inner loop for coding + debugging.</p>
+<hr />
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>
+</span></code></pre></div>
+<hr />
+<h1 id="spring-boot-development-with-podman-fedora-friendly-guide">🐳 Spring Boot Development with Podman (Fedora-friendly Guide)<a class="headerlink" href="#spring-boot-development-with-podman-fedora-friendly-guide" title="Permanent link">&para;</a></h1>
+<h2 id="1-why-use-podman-for-dev">1. Why use Podman for dev?<a class="headerlink" href="#1-why-use-podman-for-dev" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Native on Fedora</strong> → runs rootless, integrates with SELinux.</li>
+<li><strong>Clean host</strong> → no global JDK/Maven installs, no clutter in <code>~/.m2</code>.</li>
+<li><strong>Same as prod</strong> → your app runs inside the same Java/Maven image you’ll use for deployment.</li>
+<li><strong>Reproducible</strong> → Dockerfile + Compose = self-documenting environment.</li>
+<li><strong>Fast feedback</strong> → bind mounts + Spring DevTools = hot reload.</li>
+<li><strong>Debug-friendly</strong> → remote JVM debug works seamlessly.</li>
+</ul>
+<hr />
+<h2 id="2-key-building-blocks">2. Key building blocks<a class="headerlink" href="#2-key-building-blocks" title="Permanent link">&para;</a></h2>
+<h3 id="dev-container-docker-composedevyml">Dev container (<code>docker-compose.dev.yml</code>)<a class="headerlink" href="#dev-container-docker-composedevyml" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Runs app using <strong>maven + JDK image</strong>.</li>
+<li>Mounts your project source so changes are seen instantly.</li>
+<li>Caches Maven dependencies in a <strong>named volume</strong>.</li>
+<li>Exposes <strong>8080 (HTTP)</strong> and <strong>5005 (debug)</strong>.</li>
+<li>Example:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">dev</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven:3.9-eclipse-temurin-21</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/workspace</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn spring-boot:run</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5005:5005&quot;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MAVEN_OPTS=-Xmx1g</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/workspace:Z</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maven-repo:/root/.m2:Z</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="nt">maven-repo</span><span class="p">:</span>
+</span></code></pre></div>
+<h3 id="production-like-image-dockerfile">Production-like image (<code>Dockerfile</code>)<a class="headerlink" href="#production-like-image-dockerfile" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multi-stage build: compile in Maven image → run in slim JRE image.</li>
+<li>App runs as <strong>non-root user</strong>.</li>
+<li>Example:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">maven:3.9-eclipse-temurin-21</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">COPY</span><span class="w"> </span>pom.xml<span class="w"> </span>.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>-B<span class="w"> </span>-q<span class="w"> </span>-DskipTests<span class="w"> </span>dependency:go-offline
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>./src
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>-B<span class="w"> </span>-DskipTests<span class="w"> </span>package
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">FROM</span><span class="w"> </span><span class="s">eclipse-temurin:21-jre</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/*.jar<span class="w"> </span>app.jar
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>--no-create-home<span class="w"> </span>spring<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chown<span class="w"> </span>spring:spring<span class="w"> </span>/app/app.jar
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">USER</span><span class="w"> </span><span class="s">spring</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="s2">&quot;/app/app.jar&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3-development-workflow">3. Development workflow<a class="headerlink" href="#3-development-workflow" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Start dev container</strong></li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>podman<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up
+</span></code></pre></div>
+2. <strong>Open project in IntelliJ IDEA</strong> (Community is fine).
+3. <strong>Attach debugger</strong>:</p>
+<div class="highlight"><pre><span></span><code>* Run → Edit Configurations → Remote JVM Debug.
+* Host `localhost`, Port `5005`.
+* Breakpoints will hit.
+</code></pre></div>
+<ol>
+<li><strong>Edit code locally</strong> → DevTools reloads in container → refresh browser.</li>
+<li><strong>Stop/reset</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>podman<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>down
+</span></code></pre></div>
+<p>Add <code>--volumes</code> if you want a totally fresh environment.</p>
+<hr />
+<h2 id="4-keeping-host-clean-consistent">4. Keeping host clean &amp; consistent<a class="headerlink" href="#4-keeping-host-clean-consistent" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Bind mount code</strong>: <code>.:/workspace:Z</code> → edit on host, run in container.</li>
+<li><strong>Named volume for Maven repo</strong>: keeps dependencies out of host home.</li>
+<li><strong>Environment-as-code</strong>: use <code>.env</code> or <code>environment:</code> in Compose.</li>
+<li><strong>User mapping</strong>: run with your UID/GID to avoid root-owned files:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${UID}:${GID}&quot;</span>
+</span></code></pre></div>
+<p>and export:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">UID</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">GID</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="5-extras">5. Extras<a class="headerlink" href="#5-extras" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Database (e.g., Postgres)</strong> → add as service in Compose:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appdb</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgdata:/var/lib/postgresql/data:Z</span>
+</span></code></pre></div>
+* <strong>Profiles</strong> → use <code>SPRING_PROFILES_ACTIVE=local|dev|prod</code>.
+* <strong>Secrets</strong> → in <code>.env</code> for dev, Podman/K8s secrets for production.
+* <strong>Automation</strong> → wrap commands in <code>Makefile</code> for easy <code>make run/test/clean</code>.</p>
+<hr />
+<h2 id="6-fedora-podman-specifics">6. Fedora / Podman specifics<a class="headerlink" href="#6-fedora-podman-specifics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>SELinux</strong>: always add <code>:Z</code> to bind mounts.</li>
+<li><strong>Rootless</strong>: ports ≥1024 (8080/5005) work fine.</li>
+<li><strong>Debug</strong>: remote JVM debug is the normal way.</li>
+<li><strong>File change detection</strong>: if reload is flaky, bump inotify:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">echo</span><span class="w"> </span>fs.inotify.max_user_watches<span class="o">=</span><span class="m">524288</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.conf
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</span></code></pre></div>
+* <strong>Container shell</strong> (when needed):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>podman<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>dev<span class="w"> </span>sh
+</span></code></pre></div>
+<hr />
+<h1 id="final-takeaway">✅ Final Takeaway<a class="headerlink" href="#final-takeaway" title="Permanent link">&para;</a></h1>
+<p>Using <strong>Podman for Spring Boot development</strong> gives you:</p>
+<ul>
+<li><strong>Reproducibility</strong> → same environment as teammates &amp; prod.</li>
+<li><strong>Isolation</strong> → no clutter on host, easy reset with one command.</li>
+<li><strong>Fast inner loop</strong> → local edits reload instantly in container.</li>
+<li><strong>Debug power</strong> → attach IntelliJ via remote JVM debug.</li>
+<li><strong>Flexibility</strong> → databases, profiles, secrets all defined in Compose.</li>
+<li><strong>Fedora-native</strong> → SELinux-friendly, rootless, lightweight.</li>
+</ul>
+<p>👉 The combination of <code>docker-compose.dev.yml</code> (for hot reload + debug) and a multi-stage <code>Dockerfile</code> (for prod-like builds) is the <strong>golden setup</strong> for containerized Spring Boot development on Fedora with Podman.</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../layers/dto-vs-entities/" class="btn btn-neutral float-left" title="DTOs vs Entities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../project-configuration/" class="btn btn-neutral float-right" title="Project Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../layers/dto-vs-entities/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../project-configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

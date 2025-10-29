@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/nginx/quick-start/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Quick Start - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quick Start";
+        var mkdocs_page_input_path = "cheatsheets/tools/nginx/quick-start.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/tools/nginx/quick-start/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/java/classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../languages/java/spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../languages/java/spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../languages/python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../languages/python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Tools</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Nginx</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Quick Start</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#1-what-nginx-actually-does">⚙️ 1. What Nginx Actually Does</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-core-concepts">🧱 2. Core Concepts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-file-structure-overview">🧩 3. File Structure Overview</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-basic-http-server-example">🧰 4. Basic HTTP Server Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-reverse-proxy-setup">🔁 5. Reverse Proxy Setup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-https-tls-configuration">🔒 6. HTTPS (TLS) Configuration</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-load-balancing-example">⚡ 7. Load Balancing Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-useful-directives-variables">🧠 8. Useful Directives &amp; Variables</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-logging-and-monitoring">🧩 9. Logging and Monitoring</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#10-caching-static-assets">🧩 10. Caching Static Assets</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#11-security-hardening">🧱 11. Security Hardening</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#12-example-full-setup-static-api-proxy-https">🧩 12. Example Full Setup (Static + API Proxy + HTTPS)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#13-nginx-in-development-environments">🧩 13. Nginx in Development Environments</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#jetbrains-idea-pycharm">JetBrains (IDEA / PyCharm)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#vs-code">VS Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#14-troubleshooting">🧰 14. Troubleshooting</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#15-advanced-topics-for-later">🧠 15. Advanced Topics (for later)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#16-nginx-in-developer-workflows-jetbrains-vs-code">💻 16. Nginx in Developer Workflows (JetBrains &amp; VS Code)</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#jetbrains-ides-intellij-idea-pycharm-etc">🧩 JetBrains IDEs (IntelliJ IDEA, PyCharm, etc.)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#vs-code-integration">🧠 VS Code Integration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#17-nginx-docker-compose-in-local-development">🧰 17. Nginx + Docker Compose in Local Development</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#18-staging-vs-production-patterns">🚀 18. Staging vs. Production Patterns</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#19-common-cicd-integrations">🧩 19. Common CI/CD Integrations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#20-best-practices-developer-habits">🧠 20. Best Practices &amp; Developer Habits</a>
+        <ul>
+    <li class="toctree-l5"><a class="reference internal" href="#configuration-hygiene">Configuration Hygiene</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#developer-sanity-checklist">Developer sanity checklist</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#ide-habit">IDE habit</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary-developer-edition">✅ Summary (Developer Edition)</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Tools</li>
+          <li class="breadcrumb-item">Nginx</li>
+      <li class="breadcrumb-item active">Quick Start</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/tools/nginx/quick-start.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="nginx-from-basics-to-high-performance-web-serving">🌐 Nginx: From Basics to High-Performance Web Serving<a class="headerlink" href="#nginx-from-basics-to-high-performance-web-serving" title="Permanent link">&para;</a></h1>
+<p>Nginx (“engine-x”) is a <strong>high-performance web server, reverse proxy, and load balancer</strong>.<br />
+It’s lightweight, event-driven, and designed to handle thousands of concurrent connections with minimal resources.<br />
+You’ll find it serving static sites, routing API traffic, proxying backend apps, or terminating SSL — often all at once.</p>
+<hr />
+<h2 id="1-what-nginx-actually-does">⚙️ 1. What Nginx Actually Does<a class="headerlink" href="#1-what-nginx-actually-does" title="Permanent link">&para;</a></h2>
+<p>Nginx can play multiple roles depending on configuration:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Web server</strong></td>
+<td>Serves static files directly (HTML, JS, CSS, images).</td>
+</tr>
+<tr>
+<td><strong>Reverse proxy</strong></td>
+<td>Forwards client requests to backend apps (e.g., Node, Spring Boot).</td>
+</tr>
+<tr>
+<td><strong>Load balancer</strong></td>
+<td>Distributes requests across multiple backend servers.</td>
+</tr>
+<tr>
+<td><strong>TLS terminator</strong></td>
+<td>Handles HTTPS encryption before passing traffic internally.</td>
+</tr>
+<tr>
+<td><strong>Cache layer</strong></td>
+<td>Stores responses to reduce backend load.</td>
+</tr>
+</tbody>
+</table>
+<p>👉 In short: Nginx sits <strong>between the internet and your application</strong>, managing how traffic flows.</p>
+<hr />
+<h2 id="2-core-concepts">🧱 2. Core Concepts<a class="headerlink" href="#2-core-concepts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Worker processes</strong></td>
+<td>Handle client connections. Nginx scales by using multiple workers efficiently.</td>
+</tr>
+<tr>
+<td><strong>Directives</strong></td>
+<td>Configuration commands that define behavior (e.g., <code>listen</code>, <code>server_name</code>).</td>
+</tr>
+<tr>
+<td><strong>Context blocks</strong></td>
+<td>Hierarchical sections: <code>main</code>, <code>http</code>, <code>server</code>, and <code>location</code>.</td>
+</tr>
+<tr>
+<td><strong>Server block</strong></td>
+<td>Defines a virtual host — domain, ports, SSL, routes.</td>
+</tr>
+<tr>
+<td><strong>Location block</strong></td>
+<td>Defines how to handle requests matching specific URIs.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-file-structure-overview">🧩 3. File Structure Overview<a class="headerlink" href="#3-file-structure-overview" title="Permanent link">&para;</a></h2>
+<p>Typical Linux layout after install:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/etc/nginx/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ nginx.conf          # main config (includes others)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─ conf.d/             # custom site configs (enabled by default)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├─ sites-available/    # optional (Debian/Ubuntu layout)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├─ sites-enabled/      # symlinks to active sites
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├─ snippets/           # reusable config fragments
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└─ logs/
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├─ access.log
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└─ error.log
+</span></code></pre></div>
+<p>Test and reload Nginx safely:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nginx<span class="w"> </span>-t<span class="w">       </span><span class="c1"># test syntax</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nginx
+</span></code></pre></div>
+<hr />
+<h2 id="4-basic-http-server-example">🧰 4. Basic HTTP Server Example<a class="headerlink" href="#4-basic-http-server-example" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Serve static files from <code>/var/www/html</code> on port 80.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/html</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="kn">access_log</span><span class="w"> </span><span class="s">/var/log/nginx/access.log</span><span class="p">;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kn">error_log</span><span class="w"> </span><span class="s">/var/log/nginx/error.log</span><span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>👉 This is Nginx as a <strong>pure web server</strong> — no proxying, just serving files.</p>
+<hr />
+<h2 id="5-reverse-proxy-setup">🔁 5. Reverse Proxy Setup<a class="headerlink" href="#5-reverse-proxy-setup" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Forward traffic from Nginx → backend app (e.g., Spring Boot or Node).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">api.example.com</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://127.0.0.1:8080</span><span class="p">;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>✅ Best practice:</p>
+<ul>
+<li>Always pass client IP headers.</li>
+<li>Use <code>proxy_pass</code> <strong>without trailing slash</strong> unless you understand path rewriting.</li>
+<li>Protect upstreams (never expose raw app ports to the internet).</li>
+</ul>
+<hr />
+<h2 id="6-https-tls-configuration">🔒 6. HTTPS (TLS) Configuration<a class="headerlink" href="#6-https-tls-configuration" title="Permanent link">&para;</a></h2>
+<p>Using <strong>Let’s Encrypt</strong> certificates (managed by <code>certbot</code>):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>example.com<span class="w"> </span>-d<span class="w"> </span>www.example.com
+</span></code></pre></div>
+<p>Manual example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w">     </span><span class="s">/etc/letsencrypt/live/example.com/fullchain.pem</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/example.com/privkey.pem</span><span class="p">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://127.0.0.1:8080</span><span class="p">;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>👉 Always redirect HTTP → HTTPS.</p>
+<hr />
+<h2 id="7-load-balancing-example">⚡ 7. Load Balancing Example<a class="headerlink" href="#7-load-balancing-example" title="Permanent link">&para;</a></h2>
+<p>Round-robin across two backend servers:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">upstream</span><span class="w"> </span><span class="s">backend_cluster</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">10.0.0.2</span><span class="p">:</span><span class="mi">8080</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">10.0.0.3</span><span class="p">:</span><span class="mi">8080</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">app.example.com</span><span class="p">;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend_cluster</span><span class="p">;</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Variants:</p>
+<ul>
+<li><code>ip_hash;</code> for sticky sessions</li>
+<li><code>least_conn;</code> for even load</li>
+</ul>
+<hr />
+<h2 id="8-useful-directives-variables">🧠 8. Useful Directives &amp; Variables<a class="headerlink" href="#8-useful-directives-variables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>root</code></td>
+<td>Directory to serve files from</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>Default file to serve</td>
+</tr>
+<tr>
+<td><code>server_name</code></td>
+<td>Hostname match for requests</td>
+</tr>
+<tr>
+<td><code>error_page</code></td>
+<td>Custom error responses</td>
+</tr>
+<tr>
+<td><code>rewrite</code></td>
+<td>URL rewriting</td>
+</tr>
+<tr>
+<td><code>try_files</code></td>
+<td>Fallbacks for static serving</td>
+</tr>
+<tr>
+<td><code>proxy_pass</code></td>
+<td>Forward to backend</td>
+</tr>
+<tr>
+<td><code>proxy_set_header</code></td>
+<td>Pass headers to backend</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Common variables:</strong></p>
+<ul>
+<li><code>$remote_addr</code> → client IP</li>
+<li><code>$host</code> → domain in request</li>
+<li><code>$uri</code> → path part of request</li>
+<li><code>$request_uri</code> → original request including query</li>
+<li><code>$upstream_addr</code> → backend server used</li>
+</ul>
+<hr />
+<h2 id="9-logging-and-monitoring">🧩 9. Logging and Monitoring<a class="headerlink" href="#9-logging-and-monitoring" title="Permanent link">&para;</a></h2>
+<p>Logs are your best debugging friend:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nginx/access.log
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nginx/error.log
+</span></code></pre></div>
+<p>Sample log format:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>127.0.0.1 - - [15/Oct/2025:12:34:56 +0000] &quot;GET /index.html HTTP/1.1&quot; 200 612
+</span></code></pre></div>
+<p>You can define custom formats:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">log_format</span><span class="w"> </span><span class="s">main</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">$remote_addr</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="nv">$host</span><span class="w"> </span><span class="s">[</span><span class="nv">$time_local]</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$request&quot;</span><span class="w"> </span><span class="nv">$status</span><span class="w"> </span><span class="nv">$body_bytes_sent&#39;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">access_log</span><span class="w"> </span><span class="s">/var/log/nginx/access.log</span><span class="w"> </span><span class="s">main</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="10-caching-static-assets">🧩 10. Caching Static Assets<a class="headerlink" href="#10-caching-static-assets" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(jpg|jpeg|png|gif|css|js|ico|woff2?)</span>$<span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kn">expires</span><span class="w"> </span><span class="s">30d</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">no-transform&quot;</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>👉 Offload repeated requests from your backend and improve browser performance.</p>
+<hr />
+<h2 id="11-security-hardening">🧱 11. Security Hardening<a class="headerlink" href="#11-security-hardening" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Disable server version info:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">server_tokens</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+</span></code></pre></div>
+* Limit request size:</p>
+<p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">client_max_body_size</span><span class="w"> </span><span class="s">10M</span><span class="p">;</span>
+</span></code></pre></div>
+* Prevent clickjacking &amp; MIME sniffing:</p>
+<p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">SAMEORIGIN</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">nosniff</span><span class="p">;</span>
+</span></code></pre></div>
+* Use rate limiting (basic DDOS protection):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">limit_req_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=api:10m</span><span class="w"> </span><span class="s">rate=10r/s</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="kn">limit_req</span><span class="w"> </span><span class="s">zone=api</span><span class="w"> </span><span class="s">burst=20</span><span class="p">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend</span><span class="p">;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="12-example-full-setup-static-api-proxy-https">🧩 12. Example Full Setup (Static + API Proxy + HTTPS)<a class="headerlink" href="#12-example-full-setup-static-api-proxy-https" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="w"> </span><span class="s">www.example.com</span><span class="p">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="p">}</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="w"> </span><span class="s">www.example.com</span><span class="p">;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w">     </span><span class="s">/etc/letsencrypt/live/example.com/fullchain.pem</span><span class="p">;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/example.com/privkey.pem</span><span class="p">;</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/html</span><span class="p">;</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://127.0.0.1:8080</span><span class="p">;</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="13-nginx-in-development-environments">🧩 13. Nginx in Development Environments<a class="headerlink" href="#13-nginx-in-development-environments" title="Permanent link">&para;</a></h2>
+<h3 id="jetbrains-idea-pycharm">JetBrains (IDEA / PyCharm)<a class="headerlink" href="#jetbrains-idea-pycharm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You can <strong>run and debug local servers</strong> via “Edit Configurations → Nginx”.</li>
+<li>Syntax highlighting is built-in; test configs directly with <code>nginx -t</code>.</li>
+<li>Use <code>Deployment</code> tools to sync <code>/etc/nginx/</code> or container configs to remote hosts.</li>
+</ul>
+<h3 id="vs-code">VS Code<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h3>
+<p>Install:</p>
+<ul>
+<li><strong>Nginx Configuration Language</strong> (syntax highlighting)</li>
+<li><strong>Nginx Snippets</strong> (ready-to-use config templates)</li>
+<li><strong>Docker Extension</strong> (if you’re running Nginx in containers)</li>
+</ul>
+<p>Run via Docker:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/nginx.conf:/etc/nginx/nginx.conf<span class="w"> </span>nginx
+</span></code></pre></div>
+<hr />
+<h2 id="14-troubleshooting">🧰 14. Troubleshooting<a class="headerlink" href="#14-troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Config change not applied</td>
+<td><code>sudo nginx -t &amp;&amp; sudo systemctl reload nginx</code></td>
+</tr>
+<tr>
+<td>“Bad Gateway (502)”</td>
+<td>Backend down or wrong <code>proxy_pass</code> target</td>
+</tr>
+<tr>
+<td>Permission denied</td>
+<td>Ensure Nginx user (<code>www-data</code>/<code>nginx</code>) can access files</td>
+</tr>
+<tr>
+<td>Infinite redirect loop</td>
+<td>Check <code>proxy_pass</code> URLs and rewrite rules</td>
+</tr>
+<tr>
+<td>SSL errors</td>
+<td>Verify certificate paths &amp; permissions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-advanced-topics-for-later">🧠 15. Advanced Topics (for later)<a class="headerlink" href="#15-advanced-topics-for-later" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Reverse proxy caching (<code>proxy_cache_path</code>, <code>proxy_cache</code>).</li>
+<li>HTTP/2 and QUIC/HTTP3 enablement.</li>
+<li>Gzip and Brotli compression.</li>
+<li>Load balancing with health checks.</li>
+<li>Serving multiple domains (SNI).</li>
+<li>Dockerized Nginx reverse proxy setups.</li>
+<li>Using Nginx as a static file CDN.</li>
+</ul>
+<hr />
+<h2 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Nginx is both <strong>a web server and a reverse proxy</strong> — efficient, flexible, and production-grade.</li>
+<li>Serve static content directly and offload dynamic requests to backends.</li>
+<li>Always test (<code>nginx -t</code>) before reloading.</li>
+<li>Secure with HTTPS, caching, and rate limiting.</li>
+<li>Lightweight, predictable, and nearly indestructible — it’s the web’s quiet workhorse.</li>
+</ul>
+<hr />
+<p>📄 <strong>File path suggestion:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docs/
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>└─ cheatsheets/
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>   └─ tools/
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      └─ nginx/
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>         └─ quick-start.md
+</span></code></pre></div>
+<hr />
+<h2 id="16-nginx-in-developer-workflows-jetbrains-vs-code">💻 16. Nginx in Developer Workflows (JetBrains &amp; VS Code)<a class="headerlink" href="#16-nginx-in-developer-workflows-jetbrains-vs-code" title="Permanent link">&para;</a></h2>
+<p>Nginx isn’t just a server you “deploy somewhere.”<br />
+It’s a <strong>local testing tool</strong>, <strong>reverse proxy in development</strong>, and part of modern CI/CD pipelines.</p>
+<hr />
+<h3 id="jetbrains-ides-intellij-idea-pycharm-etc">🧩 JetBrains IDEs (IntelliJ IDEA, PyCharm, etc.)<a class="headerlink" href="#jetbrains-ides-intellij-idea-pycharm-etc" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>File templates</strong></td>
+<td>Built-in syntax highlighting for <code>nginx.conf</code> and <code>.conf</code> files.</td>
+</tr>
+<tr>
+<td><strong>Remote deployment</strong></td>
+<td>Sync <code>/etc/nginx/</code> or Docker configs via “Deployment → Remote Host”.</td>
+</tr>
+<tr>
+<td><strong>Before launch tasks</strong></td>
+<td>Run <code>nginx -t</code> automatically to test config before restarting.</td>
+</tr>
+<tr>
+<td><strong>Docker integration</strong></td>
+<td>Configure Nginx container services directly in IDE Services tab.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pro tip:</strong>  </p>
+<p>In JetBrains, you can make a <em>Run Configuration</em> that executes:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>nginx<span class="w"> </span>-t<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</span></code></pre></div>
+<p>This gives you one-click config validation + reload directly from the IDE.</p>
+<hr />
+<h3 id="vs-code-integration">🧠 VS Code Integration<a class="headerlink" href="#vs-code-integration" title="Permanent link">&para;</a></h3>
+<p>VS Code can act as your Nginx control panel with the right extensions.</p>
+<p><strong>Recommended setup:</strong></p>
+<ul>
+<li><strong>Nginx Configuration Language</strong> → syntax + linting</li>
+<li><strong>Nginx Snippets</strong> → quick templates</li>
+<li><strong>Docker Extension</strong> → manage running containers</li>
+<li><strong>REST Client</strong> → test API endpoints proxied through Nginx</li>
+</ul>
+<p>You can run Nginx locally for frontend-backend routing:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span>--name<span class="w"> </span>dev-nginx<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/nginx.conf:/etc/nginx/nginx.conf:ro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span>nginx:latest
+</span></code></pre></div>
+<hr />
+<h2 id="17-nginx-docker-compose-in-local-development">🧰 17. Nginx + Docker Compose in Local Development<a class="headerlink" href="#17-nginx-docker-compose-in-local-development" title="Permanent link">&para;</a></h2>
+<p>A clean, composable setup to proxy requests between your frontend and backend:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./nginx.conf:/etc/nginx/nginx.conf:ro</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="nt">expose</span><span class="p">:</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3000&quot;</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="w">    </span><span class="nt">expose</span><span class="p">:</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+</span></code></pre></div>
+<p>Then <code>nginx.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">events</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">      </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://frontend:3000</span><span class="p">;</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">      </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend:8080</span><span class="p">;</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>✅ <strong>Benefits:</strong></p>
+<ul>
+<li>Unified local environment — no cross-origin chaos.</li>
+<li>Hot reload compatible (mount local code).</li>
+<li>Easier to mirror staging/production later.</li>
+</ul>
+<hr />
+<h2 id="18-staging-vs-production-patterns">🚀 18. Staging vs. Production Patterns<a class="headerlink" href="#18-staging-vs-production-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Goal</th>
+<th>Typical Nginx Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local</strong></td>
+<td>Simulate routing and test caching/proxy rules</td>
+<td>Run via Docker or native install</td>
+</tr>
+<tr>
+<td><strong>Staging</strong></td>
+<td>Mimic production routing and SSL</td>
+<td>Reverse proxy + TLS</td>
+</tr>
+<tr>
+<td><strong>Production</strong></td>
+<td>Serve static content + proxy dynamic requests</td>
+<td>Load balancer + cache layer</td>
+</tr>
+</tbody>
+</table>
+<p>Example split configs:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>nginx/
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a> ├─ nginx.conf           # global settings
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a> ├─ conf.d/
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a> │   ├─ dev.conf         # local proxy setup
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a> │   ├─ staging.conf     # SSL, rate limiting
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a> │   └─ production.conf  # caching, load balancing
+</span></code></pre></div>
+<hr />
+<h2 id="19-common-cicd-integrations">🧩 19. Common CI/CD Integrations<a class="headerlink" href="#19-common-cicd-integrations" title="Permanent link">&para;</a></h2>
+<p><strong>Build pipeline (Dockerized):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Dockerfile</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="l l-Scalar l-Scalar-Plain">FROM nginx:latest</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="l l-Scalar l-Scalar-Plain">COPY nginx.conf /etc/nginx/nginx.conf</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="l l-Scalar l-Scalar-Plain">COPY dist/ /usr/share/nginx/html</span>
+</span></code></pre></div>
+<p><strong>GitHub Actions snippet:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build &amp; Push Nginx Image</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="no">docker build -t ghcr.io/user/app-nginx:${{ github.sha }} .</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="no">docker push ghcr.io/user/app-nginx:${{ github.sha }}</span>
+</span></code></pre></div>
+<p><strong>Deployment example (Docker Swarm / Kubernetes):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Swarm stack.yml</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/user/app-nginx:latest</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">    </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">      </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">      </span><span class="nt">restart_policy</span><span class="p">:</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">on-failure</span>
+</span></code></pre></div>
+<hr />
+<h2 id="20-best-practices-developer-habits">🧠 20. Best Practices &amp; Developer Habits<a class="headerlink" href="#20-best-practices-developer-habits" title="Permanent link">&para;</a></h2>
+<h3 id="configuration-hygiene">Configuration Hygiene<a class="headerlink" href="#configuration-hygiene" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keep production configs <strong>readonly</strong> and version-controlled.</li>
+<li>Split by domain or role — one file per app.</li>
+<li>Use includes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">include</span><span class="w"> </span><span class="n">/etc/nginx/conf.d/*.conf</span>;
+</span></code></pre></div>
+<h3 id="developer-sanity-checklist">Developer sanity checklist<a class="headerlink" href="#developer-sanity-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Always run <code>nginx -t</code> before reload.</li>
+<li>Use <code>$host</code> and <code>$remote_addr</code> headers when proxying.</li>
+<li>Don’t run with root inside containers (use <code>nginx</code> user).</li>
+<li>Redirect all HTTP to HTTPS — even locally, if possible.</li>
+<li>Keep logs rotated (<code>logrotate</code> or Docker log limits).</li>
+</ul>
+<h3 id="ide-habit">IDE habit<a class="headerlink" href="#ide-habit" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Format configs automatically before commit.</li>
+<li>Use pre-commit hooks to validate syntax:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>nginx<span class="w"> </span>-t<span class="w"> </span>-q<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span></code></pre></div>
+<hr />
+<h2 id="summary-developer-edition">✅ Summary (Developer Edition)<a class="headerlink" href="#summary-developer-edition" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Integrate Nginx directly in IDE or Compose — no manual SSH needed.</li>
+<li>Test configs automatically before reloads.</li>
+<li>Run the same Nginx image locally and in production for consistency.</li>
+<li>Version-control your <code>.conf</code> files like code — because they <em>are</em> code.</li>
+<li>Treat Nginx as your <strong>traffic controller</strong>, not just a web server.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../mkdocs/setup/" class="btn btn-neutral float-left" title="MkDocs Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../concepts/languages/java/_meta/blueprint/" class="btn btn-neutral float-right" title="📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../mkdocs/setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../concepts/languages/java/_meta/blueprint/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/07-core-layers/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>Core Layers - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Core Layers";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/core/07-core-layers.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/core/07-core-layers/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Core</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">Core Layers</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#1-the-five-core-layers">🧩 1. The Five Core Layers</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#2-layer-1-reflection-layer">🪞 2. Layer 1 — Reflection Layer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#3-layer-2-beans-layer">🌿 3. Layer 2 — Beans Layer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#4-layer-3-container-layer">⚙️ 4. Layer 3 — Container Layer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#5-layer-4-aop-layer">🧠 5. Layer 4 — AOP Layer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#6-layer-5-events-layer">📡 6. Layer 5 — Events Layer</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#7-full-system-flow-from-class-to-context">🧬 7. Full System Flow — From Class to Context</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#8-spring-core-layer-map-visual">🧱 8. Spring Core Layer Map (Visual)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#9-core-takeaway">🪞 9. Core Takeaway</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Core</li>
+      <li class="breadcrumb-item active">Core Layers</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/core/07-core-layers.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-core-layers-from-reflection-to-runtime-intelligence">🌱 Spring Core Layers — From Reflection to Runtime Intelligence<a class="headerlink" href="#spring-core-layers-from-reflection-to-runtime-intelligence" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Essence:</strong>
+Spring’s heart is its <strong>Core Framework</strong>, a layered architecture that turns static Java classes into a living, self-managing system.
+Each layer adds new powers: <em>perception → life → coordination → adaptation → communication.</em></p>
+</blockquote>
+<hr />
+<h2 id="1-the-five-core-layers">🧩 1. The Five Core Layers<a class="headerlink" href="#1-the-five-core-layers" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[1] Reflection Layer   → how Spring sees and wires your classes
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[2] Beans Layer        → how Spring gives those classes life
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>[3] Container Layer    → how Spring coordinates and manages them
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[4] AOP Layer          → how Spring intercepts and enhances behavior
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>[5] Events Layer       → how Spring communicates and reacts to change
+</span></code></pre></div>
+<p>Each layer builds on the one before it — forming an upward chain from <strong>raw Java mechanics</strong> to <strong>dynamic runtime orchestration</strong>.</p>
+<hr />
+<h2 id="2-layer-1-reflection-layer">🪞 2. Layer 1 — Reflection Layer<a class="headerlink" href="#2-layer-1-reflection-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Teach Spring how to <em>see</em> your code.</p>
+<p>Spring begins at the lowest level of Java introspection: the <strong>Reflection API</strong>.
+It loads your classes, inspects annotations, creates instances, and injects dependencies.</p>
+<table>
+<thead>
+<tr>
+<th>Core Mechanisms</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Class&lt;?&gt;</code></td>
+<td>Java’s runtime type representation</td>
+</tr>
+<tr>
+<td>Reflection API</td>
+<td>Read annotations, fields, constructors, methods</td>
+</tr>
+<tr>
+<td><code>@Autowired</code></td>
+<td>Dependency injection using reflection</td>
+</tr>
+<tr>
+<td>ClassLoader</td>
+<td>Loads <code>.class</code> files into Metaspace</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mental model:</strong>
+Reflection is the microscope — Spring examines your code, understands it, and prepares to animate it.</p>
+<p>→ See: <a href="reflection/reflection-layer.md"><code>reflection-layer.md</code></a></p>
+<hr />
+<h2 id="3-layer-2-beans-layer">🌿 3. Layer 2 — Beans Layer<a class="headerlink" href="#3-layer-2-beans-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Give your classes <em>life</em>.</p>
+<p>Spring transforms static class definitions into managed, stateful objects called <strong>Beans</strong>.
+Each bean is born from a <strong>BeanDefinition</strong>, which describes its type, scope, dependencies, and lifecycle methods.</p>
+<table>
+<thead>
+<tr>
+<th>Core Concepts</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Component</code>, <code>@Service</code>, <code>@Repository</code></td>
+<td>Mark beans for auto-detection</td>
+</tr>
+<tr>
+<td><code>@Bean</code></td>
+<td>Define explicit beans in config</td>
+</tr>
+<tr>
+<td><code>@PostConstruct</code>, <code>@PreDestroy</code></td>
+<td>Lifecycle callbacks</td>
+</tr>
+<tr>
+<td><code>BeanDefinition</code></td>
+<td>Metadata blueprint for each bean</td>
+</tr>
+<tr>
+<td>Scopes</td>
+<td>Singleton, prototype, request, etc.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mental model:</strong>
+Beans are the organs — alive within the Spring organism, created, wired, and disposed of predictably.</p>
+<p>→ See: <a href="beans/beans-layer.md"><code>beans-layer.md</code></a></p>
+<hr />
+<h2 id="4-layer-3-container-layer">⚙️ 4. Layer 3 — Container Layer<a class="headerlink" href="#4-layer-3-container-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Coordinate and manage all living beans.</p>
+<p>At this stage, Spring evolves from a builder into a <strong>container</strong> —
+a runtime environment that performs <strong>Inversion of Control (IoC)</strong> and <strong>Dependency Injection (DI)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Core Components</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BeanFactory</strong></td>
+<td>The raw IoC engine that instantiates and wires beans</td>
+</tr>
+<tr>
+<td><strong>ApplicationContext</strong></td>
+<td>The enhanced container: adds lifecycle events, resource loading, profiles</td>
+</tr>
+<tr>
+<td><strong>Dependency Injection</strong></td>
+<td>Automatic connection of beans by type/name</td>
+</tr>
+<tr>
+<td><strong>Profiles &amp; Environment</strong></td>
+<td>Context configuration and selection</td>
+</tr>
+<tr>
+<td><strong>Lifecycle Events</strong></td>
+<td>Signals like <code>ContextRefreshedEvent</code> and <code>ContextClosedEvent</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mental model:</strong>
+The Container is the brain — it knows every bean, how they depend on each other, and when to awaken or retire them.</p>
+<p>→ See: <a href="container/container-layer.md"><code>container-layer.md</code></a></p>
+<hr />
+<h2 id="5-layer-4-aop-layer">🧠 5. Layer 4 — AOP Layer<a class="headerlink" href="#5-layer-4-aop-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Add <em>intelligence</em> — the ability to intercept and extend behavior.</p>
+<p>AOP (Aspect-Oriented Programming) lets Spring weave extra logic into existing methods without modifying code.
+It creates <strong>proxies</strong> that wrap your beans and inject crosscutting concerns like transactions, caching, and logging.</p>
+<table>
+<thead>
+<tr>
+<th>Core Elements</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@Aspect</code></td>
+<td>Marks a class containing crosscutting logic</td>
+</tr>
+<tr>
+<td><code>@Before</code>, <code>@After</code>, <code>@Around</code></td>
+<td>Advice that runs around methods</td>
+</tr>
+<tr>
+<td><code>execution(...)</code></td>
+<td>Pointcut expressions targeting specific methods</td>
+</tr>
+<tr>
+<td>Proxies</td>
+<td>JDK or CGLIB-based runtime wrappers</td>
+</tr>
+<tr>
+<td>Built-in Aspects</td>
+<td><code>@Transactional</code>, <code>@Async</code>, <code>@Cacheable</code>, <code>@PreAuthorize</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mental model:</strong>
+AOP is the nervous system — it controls reflexes, adds patterns of behavior, and keeps your core logic pure.</p>
+<p>→ See: <a href="aop/aop-layer.md"><code>aop-layer.md</code></a></p>
+<hr />
+<h2 id="6-layer-5-events-layer">📡 6. Layer 5 — Events Layer<a class="headerlink" href="#6-layer-5-events-layer" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Enable <em>communication</em> — make Spring aware of its own changes.</p>
+<p>Spring’s event system allows components to <strong>broadcast</strong> and <strong>listen</strong> for signals.
+It uses the Observer pattern to loosely couple actions across the app.</p>
+<table>
+<thead>
+<tr>
+<th>Core Concepts</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ApplicationEvent</code></td>
+<td>Base event class</td>
+</tr>
+<tr>
+<td><code>@EventListener</code></td>
+<td>Declarative event listener</td>
+</tr>
+<tr>
+<td><code>ApplicationEventPublisher</code></td>
+<td>Publishes events to the container</td>
+</tr>
+<tr>
+<td>Built-in Events</td>
+<td><code>ContextRefreshedEvent</code>, <code>ApplicationReadyEvent</code>, etc.</td>
+</tr>
+<tr>
+<td>Async Events</td>
+<td><code>@Async</code> + <code>@EnableAsync</code> for background handling</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mental model:</strong>
+Events are the heartbeat — they keep the container alive, synchronized, and reactive to its own lifecycle.</p>
+<p>→ See: <a href="events/events-layer.md"><code>events-layer.md</code></a></p>
+<hr />
+<h2 id="7-full-system-flow-from-class-to-context">🧬 7. Full System Flow — From Class to Context<a class="headerlink" href="#7-full-system-flow-from-class-to-context" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. JVM loads classes into Metaspace.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Reflection scans annotations and builds BeanDefinitions.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. IoC container creates beans and injects dependencies.
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>4. Post-processors modify or proxy beans (AOP).
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>5. Context publishes lifecycle events.
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>6. Beans operate in a managed runtime ecosystem.
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>7. On shutdown → destroy methods + ContextClosedEvent.
+</span></code></pre></div>
+<hr />
+<h2 id="8-spring-core-layer-map-visual">🧱 8. Spring Core Layer Map (Visual)<a class="headerlink" href="#8-spring-core-layer-map-visual" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌────────────────────────────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│            [5] Events Layer                │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   Communicates lifecycle &amp; app events      │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>└────────────────────────────────────────────┘
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                ↑
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>┌────────────────────────────────────────────┐
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│            [4] AOP Layer                   │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   Adds crosscutting logic via proxies      │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>└────────────────────────────────────────────┘
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                ↑
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>┌────────────────────────────────────────────┐
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│            [3] Container Layer             │
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│   IoC engine managing all beans            │
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>└────────────────────────────────────────────┘
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>                ↑
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>┌────────────────────────────────────────────┐
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│            [2] Beans Layer                 │
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│   Defines bean metadata &amp; lifecycle        │
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>└────────────────────────────────────────────┘
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>                ↑
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>┌────────────────────────────────────────────┐
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│            [1] Reflection Layer            │
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│   Reflection + @Autowired wiring           │
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>└────────────────────────────────────────────┘
+</span></code></pre></div>
+<hr />
+<h2 id="9-core-takeaway">🪞 9. Core Takeaway<a class="headerlink" href="#9-core-takeaway" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Spring Core isn’t just a framework — it’s a living architecture.</strong></p>
+<p>Each layer adds a new dimension of intelligence:</p>
+<ul>
+<li><strong>Reflection</strong> lets Spring <em>see</em>.</li>
+<li><strong>Beans</strong> let it <em>live</em>.</li>
+<li><strong>Container</strong> lets it <em>think</em>.</li>
+<li><strong>AOP</strong> lets it <em>act and adapt</em>.</li>
+<li><strong>Events</strong> let it <em>communicate</em>.</li>
+</ul>
+<p>Together, they transform ordinary Java code into a <strong>self-managing runtime organism</strong> — the foundation of the modern Spring ecosystem.</p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../05-quickstarter/" class="btn btn-neutral float-left" title="Spring Core Quick-Starter"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../10-reflection-layer/" class="btn btn-neutral float-right" title="Reflection Layer">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../05-quickstarter/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../10-reflection-layer/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

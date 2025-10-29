@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/data/h2/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>H2 setup - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "H2 setup";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/data/h2.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/data/h2/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Data</a>
+    <ul class="current">
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">H2 setup</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#what-is-h2">🗄️ What is H2?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#what-is-dbeaver">🖥️ What is DBeaver?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#how-to-use-h2-dbeaver-step-by-step">🔧 How to use H2 + DBeaver (step by step)</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#1-install-dbeaver">1. Install DBeaver</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-get-h2">2. Get H2</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-connect-dbeaver-to-h2">3. Connect DBeaver to H2</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#4-try-some-sql">4. Try some SQL</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#important-concepts">🔍 Important concepts</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#when-to-use">✅ When to use</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#what-is-spring-boot">🌱 What is Spring Boot?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#what-is-h2-in-spring-boot">🗄️ What is H2 in Spring Boot?</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#how-to-set-up">🔧 How to set up</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#1-create-spring-boot-project">1. Create Spring Boot project</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-add-an-entity">2. Add an Entity</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-create-a-repository">3. Create a Repository</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#4-configure-h2">4. Configure H2</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#in-memory-db-disappears-when-app-stops">In-memory DB (disappears when app stops)</a>
+        <ul>
+    <li class="toctree-l8"><a class="reference internal" href="#file-db-persists-to-disk-easier-with-dbeaver">File DB (persists to disk, easier with DBeaver)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#5-create-a-rest-controller">5. Create a REST Controller</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#6-run-the-app">6. Run the app</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#inspect-in-dbeaver">🖥️ Inspect in DBeaver</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#concepts-recap">✅ Concepts Recap</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#for-production">⚠️ For Production</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Data</li>
+      <li class="breadcrumb-item active">H2 setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/data/h2.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="h2-database-with-dbeaver-and-spring-boot-full-setup-guide">🚀 H2 Database with DBeaver and Spring Boot — Full Setup Guide<a class="headerlink" href="#h2-database-with-dbeaver-and-spring-boot-full-setup-guide" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-h2">🗄️ What is H2?<a class="headerlink" href="#what-is-h2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>H2 is a database engine written in Java.</strong></li>
+<li>It is <strong>not part of Spring</strong> or DBeaver — it’s its own project.</li>
+<li>
+<p>It’s <strong>lightweight, fast, embeddable</strong>, and can run:</p>
+<ul>
+<li><strong>In-memory</strong> → everything stored in RAM, disappears when you stop your app.</li>
+<li><strong>File-based</strong> → saves data in a <code>.mv.db</code> file on disk.</li>
+<li><strong>TCP server</strong> → runs like a mini DB server that tools (like DBeaver) can connect to.</li>
+</ul>
+</li>
+</ul>
+<p>Think of H2 as a <strong>mini MySQL/Postgres</strong> but simpler, great for learning, demos, or development.</p>
+<hr />
+<h2 id="what-is-dbeaver">🖥️ What is DBeaver?<a class="headerlink" href="#what-is-dbeaver" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>DBeaver is a GUI tool</strong> — it is not a database itself.</li>
+<li>It lets you connect to databases (H2, MySQL, Postgres, SQLite, etc.), <strong>browse tables, run SQL, and manage data</strong>.</li>
+<li>DBeaver sometimes shows an “example DB” — that’s just a demo H2 database included so you can click around.</li>
+</ul>
+<hr />
+<h2 id="how-to-use-h2-dbeaver-step-by-step">🔧 How to use H2 + DBeaver (step by step)<a class="headerlink" href="#how-to-use-h2-dbeaver-step-by-step" title="Permanent link">&para;</a></h2>
+<h3 id="1-install-dbeaver">1. Install DBeaver<a class="headerlink" href="#1-install-dbeaver" title="Permanent link">&para;</a></h3>
+<p>On Fedora (or most Linux):</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>flatpak<span class="w"> </span>install<span class="w"> </span>flathub<span class="w"> </span>io.dbeaver.DBeaverCommunity
+</span></code></pre></div>
+<p>Run it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>flatpak<span class="w"> </span>run<span class="w"> </span>io.dbeaver.DBeaverCommunity
+</span></code></pre></div>
+<hr />
+<h3 id="2-get-h2">2. Get H2<a class="headerlink" href="#2-get-h2" title="Permanent link">&para;</a></h3>
+<p>Download from: <a href="https://www.h2database.com">https://www.h2database.com</a> → <code>h2-*.jar</code>.
+This JAR contains the database engine.</p>
+<p>Run H2 as a <strong>TCP server</strong>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>java<span class="w"> </span>-cp<span class="w"> </span>h2*.jar<span class="w"> </span>org.h2.tools.Server<span class="w"> </span>-tcp<span class="w"> </span>-tcpAllowOthers<span class="w"> </span>-tcpPort<span class="w"> </span><span class="m">9092</span><span class="w"> </span>-ifNotExists
+</span></code></pre></div>
+<ul>
+<li><code>-tcp</code> → start in server mode</li>
+<li><code>-tcpPort 9092</code> → listens on port 9092</li>
+<li><code>-tcpAllowOthers</code> → lets other apps (like DBeaver) connect</li>
+<li><code>-ifNotExists</code> → creates DB if it doesn’t exist</li>
+</ul>
+<p>This keeps H2 running like a small DB server on your machine.</p>
+<hr />
+<h3 id="3-connect-dbeaver-to-h2">3. Connect DBeaver to H2<a class="headerlink" href="#3-connect-dbeaver-to-h2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open DBeaver → <strong>New Connection</strong> → choose <strong>H2</strong>.</li>
+<li>Select <strong>Server</strong> mode (since we started TCP).</li>
+<li>
+<p>Fill in:</p>
+<ul>
+<li><strong>Host:</strong> <code>localhost</code></li>
+<li><strong>Port:</strong> <code>9092</code></li>
+<li><strong>Database:</strong> <code>~/testdb</code> (H2 will create <code>testdb.mv.db</code> in your home folder)</li>
+<li><strong>User:</strong> <code>sa</code></li>
+<li><strong>Password:</strong> <em>(leave empty unless you set one)</em></li>
+</ul>
+</li>
+</ol>
+<p>Now you can open SQL editor in DBeaver and start working with H2.</p>
+<hr />
+<h3 id="4-try-some-sql">4. Try some SQL<a class="headerlink" href="#4-try-some-sql" title="Permanent link">&para;</a></h3>
+<p>In DBeaver SQL editor:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Create a table</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">-- Insert rows</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">-- Query rows</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+</span></code></pre></div>
+<p>You’ll see the results in DBeaver’s result grid.</p>
+<hr />
+<h2 id="important-concepts">🔍 Important concepts<a class="headerlink" href="#important-concepts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>H2 is the database engine</strong> (like a lightweight MySQL).</li>
+<li><strong>DBeaver is just the UI client</strong> that connects to it.</li>
+<li><strong>TCP server</strong> mode lets external apps (like DBeaver) connect.</li>
+<li><strong>File DB</strong> → persists data in <code>.mv.db</code> file.</li>
+<li><strong>In-memory DB</strong> → temporary, vanishes when stopped.</li>
+</ul>
+<hr />
+<h2 id="when-to-use">✅ When to use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Learning SQL without installing MySQL/Postgres.</li>
+<li>Quick development or testing.</li>
+<li>Exploring databases with a GUI (DBeaver).</li>
+</ul>
+<p>⚠️ <strong>Not recommended for production</strong> — for real apps use MySQL, Postgres, etc.</p>
+<hr />
+<h2 id="what-is-spring-boot">🌱 What is Spring Boot?<a class="headerlink" href="#what-is-spring-boot" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Spring Boot</strong> is a Java framework that makes it easy to build applications.</li>
+<li>
+<p>It gives you:</p>
+<ul>
+<li>Auto-configuration (sensible defaults).</li>
+<li>Embedded servers (no need to deploy to Tomcat manually).</li>
+<li>Starters (dependencies for common features).</li>
+<li>For databases, it integrates smoothly with <strong>H2</strong>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="what-is-h2-in-spring-boot">🗄️ What is H2 in Spring Boot?<a class="headerlink" href="#what-is-h2-in-spring-boot" title="Permanent link">&para;</a></h2>
+<ul>
+<li>H2 is just a database engine.</li>
+<li>Spring Boot can detect H2 on the classpath and automatically connect to it.</li>
+<li>
+<p>You can run your app with:</p>
+<ul>
+<li><strong>In-memory DB</strong> → fast, temporary.</li>
+<li><strong>File DB</strong> → persists data to disk.</li>
+<li><strong>TCP server</strong> → allows external tools like DBeaver to connect.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="how-to-set-up">🔧 How to set up<a class="headerlink" href="#how-to-set-up" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-spring-boot-project">1. Create Spring Boot project<a class="headerlink" href="#1-create-spring-boot-project" title="Permanent link">&para;</a></h3>
+<p>Use <a href="https://start.spring.io">Spring Initializr</a> or CLI:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>spring<span class="w"> </span>init<span class="w"> </span>--dependencies<span class="o">=</span>web,data-jpa,h2<span class="w"> </span>demo
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>demo
+</span></code></pre></div>
+<p>Dependencies:</p>
+<ul>
+<li><code>spring-boot-starter-web</code> → REST API / web endpoints.</li>
+<li><code>spring-boot-starter-data-jpa</code> → JPA/Hibernate for database.</li>
+<li><code>com.h2database:h2</code> → the H2 DB engine.</li>
+</ul>
+<hr />
+<h3 id="2-add-an-entity">2. Add an Entity<a class="headerlink" href="#2-add-an-entity" title="Permanent link">&para;</a></h3>
+<p>In <code>src/main/java/.../User.java</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.persistence.*</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nd">@Entity</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nd">@Id</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="c1">// getters &amp; setters</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This defines a table <code>user</code> with columns <code>id</code> and <code>name</code>.</p>
+<hr />
+<h3 id="3-create-a-repository">3. Create a Repository<a class="headerlink" href="#3-create-a-repository" title="Permanent link">&para;</a></h3>
+<p>In <code>UserRepository.java</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.JpaRepository</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">UserRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<p>Spring Data JPA generates CRUD methods (save, findAll, delete, etc.) automatically.</p>
+<hr />
+<h3 id="4-configure-h2">4. Configure H2<a class="headerlink" href="#4-configure-h2" title="Permanent link">&para;</a></h3>
+<p>In <code>src/main/resources/application.properties</code>:</p>
+<h3 id="in-memory-db-disappears-when-app-stops">In-memory DB (disappears when app stops)<a class="headerlink" href="#in-memory-db-disappears-when-app-stops" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:h2:mem:testdb;MODE=MySQL</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">spring.datasource.driver-class-name</span><span class="o">=</span><span class="s">org.h2.Driver</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">sa</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">spring.datasource.password</span><span class="o">=</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">spring.h2.console.path</span><span class="o">=</span><span class="s">/h2-console</span>
+</span></code></pre></div>
+<p>Visit: <code>http://localhost:8080/h2-console</code></p>
+<h4 id="file-db-persists-to-disk-easier-with-dbeaver">File DB (persists to disk, easier with DBeaver)<a class="headerlink" href="#file-db-persists-to-disk-easier-with-dbeaver" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:h2:file:./data/devdb;MODE=MySQL;AUTO_SERVER=TRUE</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="na">spring.datasource.driver-class-name</span><span class="o">=</span><span class="s">org.h2.Driver</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">sa</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="na">spring.datasource.password</span><span class="o">=</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="na">spring.jpa.hibernate.ddl-auto</span><span class="o">=</span><span class="s">update</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="na">spring.h2.console.enabled</span><span class="o">=</span><span class="s">true</span>
+</span></code></pre></div>
+<hr />
+<h3 id="5-create-a-rest-controller">5. Create a REST Controller<a class="headerlink" href="#5-create-a-rest-controller" title="Permanent link">&para;</a></h3>
+<p>In <code>UserController.java</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.*</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nd">@RestController</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/users&quot;</span><span class="p">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserController</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UserController</span><span class="p">(</span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nd">@GetMapping</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="nd">@PostMapping</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="6-run-the-app">6. Run the app<a class="headerlink" href="#6-run-the-app" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./mvnw<span class="w"> </span>spring-boot:run
+</span></code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./gradlew<span class="w"> </span>bootRun
+</span></code></pre></div>
+<p>Test it:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8080/users<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;Alice&quot;}&#39;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>curl<span class="w"> </span>http://localhost:8080/users
+</span></code></pre></div>
+<hr />
+<h2 id="inspect-in-dbeaver">🖥️ Inspect in DBeaver<a class="headerlink" href="#inspect-in-dbeaver" title="Permanent link">&para;</a></h2>
+<p>If you used <strong>file mode</strong> with <code>AUTO_SERVER=TRUE</code>:</p>
+<ul>
+<li>Start your app (it creates <code>./data/devdb.mv.db</code>).</li>
+<li>In DBeaver → New Connection → H2 → Server mode.</li>
+<li>Host: <code>localhost</code>, Port: <code>9092</code> (if TCP server), or point to file (<code>./data/devdb</code>).</li>
+<li>User: <code>sa</code>, Password: <em>(blank)</em>.</li>
+</ul>
+<p>You’ll see the <code>USER</code> table and the rows created from your REST API calls.</p>
+<hr />
+<h2 id="concepts-recap">✅ Concepts Recap<a class="headerlink" href="#concepts-recap" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Entity</strong> = Java class → DB table.</li>
+<li><strong>Repository</strong> = Interface → auto CRUD methods.</li>
+<li><strong>Datasource URL</strong> = defines how Spring talks to DB (in-memory, file, or server).</li>
+<li><strong>H2 Console</strong> = web UI at <code>/h2-console</code> for quick inspection.</li>
+<li><strong>DBeaver</strong> = external UI if you want richer DB exploration.</li>
+</ul>
+<hr />
+<h2 id="for-production">⚠️ For Production<a class="headerlink" href="#for-production" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Replace H2 with <strong>real DB</strong> (MySQL/Postgres).</li>
+<li>Change dependency to the right JDBC driver.</li>
+<li>Change <code>spring.datasource.url</code>, username, password.</li>
+<li>Keep entity + repository code the same.</li>
+</ul>
+<hr />
+<p>✅ With this setup, you can build a Spring Boot app, test it against H2, and explore data with DBeaver — all without installing a heavy database server.</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../core/30-events-layer/" class="btn btn-neutral float-left" title="Events Layer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mysql/" class="btn btn-neutral float-right" title="MySQL setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../core/30-events-layer/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

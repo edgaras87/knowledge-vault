@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/" />
+      <link rel="shortcut icon" href="../../../../../../../../img/favicon.ico" />
+    <title>ServletUriComponentsBuilder - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ServletUriComponentsBuilder";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Classes</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" >Web</a>
+    <ul class="current">
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6 current"><a class="reference internal current" >Uri</a>
+    <ul class="current">
+                <li class="toctree-l7 current"><a class="reference internal current" href="#">ServletUriComponentsBuilder</a>
+    <ul class="current">
+    <li class="toctree-l8"><a class="reference internal" href="#what-it-is-and-why-its-useful">What it is (and why it’s useful)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#quick-glossary">Quick glossary</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#core-package-location">Core package &amp; location</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#typical-use-building-the-location-header-201-created">Typical use: building the Location header (201 Created)</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#common-factory-methods">Common factory methods</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#examples-creating-urls">Examples — creating URLs</a>
+        <ul>
+    <li class="toctree-l9"><a class="reference internal" href="#from-current-request-or-context">From current request or context</a>
+    </li>
+    <li class="toctree-l9"><a class="reference internal" href="#from-explicit-httpservletrequest">From explicit HttpServletRequest</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#building-relative-or-templated-uris">Building relative or templated URIs</a>
+        <ul>
+    <li class="toctree-l9"><a class="reference internal" href="#advanced-transformations">Advanced transformations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#reading-uri-components">Reading URI components</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#adding-or-replacing-query-parameters">Adding or replacing query parameters</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#output-conversions">Output conversions</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#practical-utilities">Practical utilities</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#encoding-behavior">Encoding behavior</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#proxy-deployment-awareness">Proxy / deployment awareness</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#gotchas-anti-patterns">Gotchas &amp; anti-patterns</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#mini-reference-table">Mini reference table</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#end-to-end-example">End-to-end example</a>
+    </li>
+    <li class="toctree-l8"><a class="reference internal" href="#bottom-line-summary">Bottom line summary</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Layers</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../layers/core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../layers/dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Classes</li>
+          <li class="breadcrumb-item">Web</li>
+          <li class="breadcrumb-item">Uri</li>
+      <li class="breadcrumb-item active">ServletUriComponentsBuilder</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="java-spring-web-mvc-servleturicomponentsbuilder-cheatsheet">🧩 Java &amp; Spring Web MVC — <code>ServletUriComponentsBuilder</code> Cheatsheet<a class="headerlink" href="#java-spring-web-mvc-servleturicomponentsbuilder-cheatsheet" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Unified quick reference: from basic Java concepts of URI building to Spring’s <code>ServletUriComponentsBuilder</code> and related utilities for safe, framework-integrated URL construction.</p>
+</blockquote>
+<hr />
+<h2 id="what-it-is-and-why-its-useful">What it is (and why it’s useful)<a class="headerlink" href="#what-it-is-and-why-its-useful" title="Permanent link">&para;</a></h2>
+<p><code>ServletUriComponentsBuilder</code> (Spring MVC) builds <strong>absolute URLs</strong> from the <strong>current HTTP request</strong> (scheme, host, port, context path). It saves you from manual string concatenation, handles encoding, and stays correct across environments (localhost, production, reverse proxies).</p>
+<p>It is essentially a servlet-aware extension of <code>UriComponentsBuilder</code>, aware of your running request and servlet context.</p>
+<hr />
+<h2 id="quick-glossary">Quick glossary<a class="headerlink" href="#quick-glossary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Context path</strong> – Base path your app is mounted at (e.g., <code>/myapp</code>).</li>
+<li><strong>Request URI</strong> – Path of the current request (e.g., <code>/api/users/42</code>).</li>
+<li><strong>Builder</strong> – Fluent object you add parts to (path, query, fragment) to produce a URL.</li>
+<li><strong>UriComponents</strong> – Immutable representation of a URI (scheme/host/port/path/query).</li>
+<li><strong>Forwarded headers</strong> – Proxy headers (<code>X-Forwarded-*</code>) telling the app the external URL.</li>
+<li><strong>Encode</strong> – Percent-encode unsafe characters (once—and only once).</li>
+</ul>
+<hr />
+<h2 id="core-package-location">Core package &amp; location<a class="headerlink" href="#core-package-location" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Class:</strong> <code>org.springframework.web.servlet.support.ServletUriComponentsBuilder</code></li>
+<li><strong>Module:</strong> <code>spring-webmvc</code></li>
+<li><strong>Also see:</strong> <code>org.springframework.web.util.UriComponentsBuilder</code></li>
+</ul>
+<hr />
+<h2 id="typical-use-building-the-location-header-201-created">Typical use: building the <code>Location</code> header (201 Created)<a class="headerlink" href="#typical-use-building-the-location-header-201-created" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ContactDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">CreateContact</span><span class="w"> </span><span class="n">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">Contact</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="n">URI</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p">.</span><span class="na">fromCurrentRequest</span><span class="p">()</span><span class="w">      </span><span class="c1">// e.g., http://localhost:8080/contacts</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span><span class="w">             </span><span class="c1">// → http://.../contacts/{id}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p">.</span><span class="na">buildAndExpand</span><span class="p">(</span><span class="n">saved</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p">.</span><span class="na">toUri</span><span class="p">();</span><span class="w">                  </span><span class="c1">// encodes safely</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">created</span><span class="p">(</span><span class="n">location</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="n">ContactDto</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">saved</span><span class="p">));</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This produces a <strong>fully qualified URI</strong>, correctly encoded and respecting forwarded headers when configured.</p>
+<hr />
+<h2 id="common-factory-methods">Common factory methods<a class="headerlink" href="#common-factory-methods" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Factory method</th>
+<th>Base</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fromCurrentRequest()</code></td>
+<td>Full current request URI (with query)</td>
+<td>For related links within the same endpoint</td>
+</tr>
+<tr>
+<td><code>fromCurrentRequestUri()</code></td>
+<td>Current URI, but without query params</td>
+<td>When adding new query params</td>
+</tr>
+<tr>
+<td><code>fromCurrentContextPath()</code></td>
+<td>Context root only (<code>scheme://host:port/context</code>)</td>
+<td>For top-level links like <code>/health</code> or <code>/login</code></td>
+</tr>
+<tr>
+<td><code>fromRequest(request)</code></td>
+<td>Explicit <code>HttpServletRequest</code></td>
+<td>When the request object is available</td>
+</tr>
+<tr>
+<td><code>UriComponentsBuilder.fromPath("/path")</code></td>
+<td>No servlet dependency</td>
+<td>For tests or offline link building</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="examples-creating-urls">Examples — creating URLs<a class="headerlink" href="#examples-creating-urls" title="Permanent link">&para;</a></h2>
+<h3 id="from-current-request-or-context">From current request or context<a class="headerlink" href="#from-current-request-or-context" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentContextPath</span><span class="p">()</span><span class="w">      </span><span class="c1">// https://example.com/myapp</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/files/123.png&quot;</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">()</span><span class="w">       </span><span class="c1">// https://example.com/myapp/api/users/42</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="p">.</span><span class="na">replacePath</span><span class="p">(</span><span class="s">&quot;/health&quot;</span><span class="p">)</span><span class="w">        </span><span class="c1">// path becomes /health</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="p">.</span><span class="na">replaceQuery</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span><span class="w">            </span><span class="c1">// drop query</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://example.com/myapp/files/123.png
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>https://example.com/myapp/health
+</span></code></pre></div>
+<h3 id="from-explicit-httpservletrequest">From explicit <code>HttpServletRequest</code><a class="headerlink" href="#from-explicit-httpservletrequest" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="p">.</span><span class="na">fromRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="p">.</span><span class="na">replacePath</span><span class="p">(</span><span class="s">&quot;/docs&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="p">.</span><span class="na">replaceQuery</span><span class="p">(</span><span class="s">&quot;v=1&quot;</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// → https://example.com/myapp/docs?v=1</span>
+</span></code></pre></div>
+<hr />
+<h2 id="building-relative-or-templated-uris">Building relative or templated URIs<a class="headerlink" href="#building-relative-or-templated-uris" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentContextPath</span><span class="p">()</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/api&quot;</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="p">.</span><span class="na">pathSegment</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{id}&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">// safe segment joining + encoding</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="p">.</span><span class="na">queryParam</span><span class="p">(</span><span class="s">&quot;verbose&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{v}&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">// adds ?verbose=1</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="p">.</span><span class="na">buildAndExpand</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">         </span><span class="c1">// expand placeholders</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">// → https://example.com/myapp/api/users/42?verbose=1</span>
+</span></code></pre></div>
+<h3 id="advanced-transformations">Advanced transformations<a class="headerlink" href="#advanced-transformations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">()</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="p">.</span><span class="na">replacePath</span><span class="p">(</span><span class="s">&quot;/search&quot;</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="p">.</span><span class="na">replaceQueryParam</span><span class="p">(</span><span class="s">&quot;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;café&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// encoded to caf%C3%A9</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="p">.</span><span class="na">fragment</span><span class="p">(</span><span class="s">&quot;top&quot;</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>https://example.com/myapp/search?q=caf%C3%A9#top
+</span></code></pre></div>
+<hr />
+<h2 id="reading-uri-components">Reading URI components<a class="headerlink" href="#reading-uri-components" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">var</span><span class="w"> </span><span class="n">comps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">comps</span><span class="p">.</span><span class="na">getScheme</span><span class="p">());</span><span class="w">   </span><span class="c1">// https</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">comps</span><span class="p">.</span><span class="na">getHost</span><span class="p">());</span><span class="w">     </span><span class="c1">// example.com</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">comps</span><span class="p">.</span><span class="na">getPort</span><span class="p">());</span><span class="w">     </span><span class="c1">// -1 (default)</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">comps</span><span class="p">.</span><span class="na">getPath</span><span class="p">());</span><span class="w">     </span><span class="c1">// /myapp/api/users/42</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">comps</span><span class="p">.</span><span class="na">getQuery</span><span class="p">());</span><span class="w">    </span><span class="c1">// active=true</span>
+</span></code></pre></div>
+<hr />
+<h2 id="adding-or-replacing-query-parameters">Adding or replacing query parameters<a class="headerlink" href="#adding-or-replacing-query-parameters" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">()</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p">.</span><span class="na">queryParam</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">.</span><span class="na">queryParam</span><span class="p">(</span><span class="s">&quot;size&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">.</span><span class="na">queryParam</span><span class="p">(</span><span class="s">&quot;sort&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name,asc&quot;</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">.</span><span class="na">toUri</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h2 id="output-conversions">Output conversions<a class="headerlink" href="#output-conversions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">UriComponents</span><span class="w"> </span><span class="n">comps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">comps</span><span class="p">.</span><span class="na">toUri</span><span class="p">();</span><span class="w">              </span><span class="c1">// java.net.URI</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">String</span><span class="w"> </span><span class="n">asString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">comps</span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span><span class="w"> </span><span class="c1">// String</span>
+</span></code></pre></div>
+<hr />
+<h2 id="practical-utilities">Practical utilities<a class="headerlink" href="#practical-utilities" title="Permanent link">&para;</a></h2>
+<p><strong>Pagination links (RFC‑5988 style):</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">UriComponentsBuilder</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">();</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">String</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">replaceQueryParam</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">String</span><span class="w"> </span><span class="n">next</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">replaceQueryParam</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">).</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">String</span><span class="w"> </span><span class="n">prev</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">replaceQueryParam</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">page</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)).</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">()</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="p">.</span><span class="na">header</span><span class="p">(</span><span class="s">&quot;Link&quot;</span><span class="p">,</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">      </span><span class="s">&quot;&lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;; rel=\&quot;first\&quot;, &quot;</span><span class="w"> </span><span class="o">+</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="s">&quot;&lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">next</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;; rel=\&quot;next\&quot;,  &quot;</span><span class="w"> </span><span class="o">+</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="s">&quot;&lt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prev</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;; rel=\&quot;prev\&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Self link assembler:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">URI</span><span class="w"> </span><span class="nf">selfForId</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">      </span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">()</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">      </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">      </span><span class="p">.</span><span class="na">buildAndExpand</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="p">.</span><span class="na">toUri</span><span class="p">();</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="encoding-behavior">Encoding behavior<a class="headerlink" href="#encoding-behavior" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Path and query parts are <strong>encoded automatically</strong>.</li>
+<li>Never manually <code>URLEncoder.encode</code> before passing.</li>
+<li><code>URI.create()</code> does <em>not</em> encode and will throw for illegal chars.</li>
+<li>Always rely on <code>pathSegment()</code> or <code>buildAndExpand()</code>.</li>
+</ul>
+<hr />
+<h2 id="proxy-deployment-awareness">Proxy / deployment awareness<a class="headerlink" href="#proxy-deployment-awareness" title="Permanent link">&para;</a></h2>
+<p>Behind reverse proxies (e.g. Nginx, Traefik):</p>
+<p>Enable forwarded header support:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@Bean</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">ForwardedHeaderFilter</span><span class="w"> </span><span class="nf">forwardedHeaderFilter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ForwardedHeaderFilter</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>Or in <code>application.properties</code>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">server.forward-headers-strategy</span><span class="o">=</span><span class="s">framework</span>
+</span></code></pre></div>
+<p>Otherwise, you’ll see internal addresses like <code>http://localhost:8080</code> in generated links.</p>
+<hr />
+<h2 id="gotchas-anti-patterns">Gotchas &amp; anti-patterns<a class="headerlink" href="#gotchas-anti-patterns" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Placeholders aren’t magic:</strong> must call <code>buildAndExpand(...)</code>.</li>
+<li><strong>Double slashes:</strong> avoid <code>path("/a/").path("/b")</code> — use <code>pathSegment()</code>.</li>
+<li><strong>Off-request usage:</strong> <code>fromCurrent*()</code> requires a servlet request context.</li>
+<li><strong>Null query values:</strong> <code>queryParam("x", (Object)null)</code> produces <code>?x</code>; use <code>replaceQueryParam()</code> to remove.</li>
+<li><strong>Double encoding:</strong> don’t call <code>.encode()</code> twice.</li>
+</ul>
+<hr />
+<h2 id="mini-reference-table">Mini reference table<a class="headerlink" href="#mini-reference-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fromCurrentContextPath()</code></td>
+<td>Base = scheme + host + port + context</td>
+<td><code>https://ex.com/app</code></td>
+</tr>
+<tr>
+<td><code>fromCurrentRequestUri()</code></td>
+<td>Full current URI</td>
+<td><code>https://ex.com/app/api/u/42</code></td>
+</tr>
+<tr>
+<td><code>path("/x")</code></td>
+<td>Append raw path</td>
+<td><code>/app/x</code></td>
+</tr>
+<tr>
+<td><code>pathSegment("a", "b")</code></td>
+<td>Append encoded segments</td>
+<td><code>/a%20b</code></td>
+</tr>
+<tr>
+<td><code>queryParam("k", v)</code></td>
+<td>Add query param</td>
+<td><code>?k=1</code></td>
+</tr>
+<tr>
+<td><code>replacePath("/p")</code></td>
+<td>Replace path</td>
+<td><code>/p</code></td>
+</tr>
+<tr>
+<td><code>replaceQueryParam("k", v)</code></td>
+<td>Replace param</td>
+<td><code>?k=9</code></td>
+</tr>
+<tr>
+<td><code>fragment("top")</code></td>
+<td>Add fragment</td>
+<td><code>#top</code></td>
+</tr>
+<tr>
+<td><code>buildAndExpand(...)</code></td>
+<td>Expand templates</td>
+<td><code>/u/42</code></td>
+</tr>
+<tr>
+<td><code>toUri()</code></td>
+<td>→ <code>java.net.URI</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>toUriString()</code></td>
+<td>→ String</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="end-to-end-example">End-to-end example<a class="headerlink" href="#end-to-end-example" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// Incoming: https://api.example.com/myapp/api/users/42?active=true</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">String</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentContextPath</span><span class="p">()</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/profiles/{id}&quot;</span><span class="p">)</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="p">.</span><span class="na">buildAndExpand</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">String</span><span class="w"> </span><span class="n">avatar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentContextPath</span><span class="p">()</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">        </span><span class="p">.</span><span class="na">path</span><span class="p">(</span><span class="s">&quot;/files/avatars/{id}.png&quot;</span><span class="p">)</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="p">.</span><span class="na">buildAndExpand</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="n">String</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ServletUriComponentsBuilder</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">        </span><span class="p">.</span><span class="na">fromCurrentRequestUri</span><span class="p">()</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">        </span><span class="p">.</span><span class="na">replacePath</span><span class="p">(</span><span class="s">&quot;/search&quot;</span><span class="p">)</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">        </span><span class="p">.</span><span class="na">replaceQueryParam</span><span class="p">(</span><span class="s">&quot;q&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;café&quot;</span><span class="p">)</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">        </span><span class="p">.</span><span class="na">replaceQueryParam</span><span class="p">(</span><span class="s">&quot;page&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">        </span><span class="p">.</span><span class="na">toUriString</span><span class="p">();</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">profile</span><span class="p">);</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">avatar</span><span class="p">);</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">search</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>https://api.example.com/myapp/profiles/42
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>https://api.example.com/myapp/files/avatars/42.png
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>https://api.example.com/myapp/search?q=caf%C3%A9&amp;page=2
+</span></code></pre></div>
+<hr />
+<h2 id="bottom-line-summary">Bottom line summary<a class="headerlink" href="#bottom-line-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <strong><code>fromCurrentContextPath()</code></strong> to build top-level or absolute URLs.</li>
+<li>Use <strong><code>fromCurrentRequestUri()</code></strong> to tweak the current endpoint into a related one.</li>
+<li>Prefer <strong><code>pathSegment()</code></strong> over manual slashes.</li>
+<li>Enable <strong><code>ForwardedHeaderFilter</code></strong> for proxy correctness.</li>
+<li>Outside servlet context → use <strong><code>UriComponentsBuilder</code></strong>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../http/ResponseEntity/" class="btn btn-neutral float-left" title="ResponseEntity<T>"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../core/05-quickstarter/" class="btn btn-neutral float-right" title="Spring Core Quick-Starter">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../http/ResponseEntity/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../core/05-quickstarter/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../../../..";</script>
+    <script src="../../../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../../../js/theme.js"></script>
+      <script src="../../../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

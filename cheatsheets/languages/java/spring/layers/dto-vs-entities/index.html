@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/layers/dto-vs-entities/" />
+      <link rel="shortcut icon" href="../../../../../../img/favicon.ico" />
+    <title>DTOs vs Entities - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "DTOs vs Entities";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/spring/layers/dto-vs-entities.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/spring/layers/dto-vs-entities/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../classes/Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../classes/nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Spring</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" >Layers</a>
+    <ul class="current">
+                <li class="toctree-l5"><a class="reference internal" href="../core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l5 current"><a class="reference internal current" href="#">DTOs vs Entities</a>
+    <ul class="current">
+    <li class="toctree-l6"><a class="reference internal" href="#core-distinction">🔑 Core Distinction</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#when-you-can-skip-dtos">🚫 When You Can Skip DTOs</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#why-you-should-use-dtos">✅ Why You Should Use DTOs</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#example-contact-entity-dtos">🧱 Example: Contact Entity + DTOs</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#request-dtos">Request DTOs</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#response-dto">Response DTO</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#mapping-strategies-entity-dto">🔁 Mapping Strategies (Entity ↔ DTO)</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#1-mapstruct-recommended-for-production">1. MapStruct (recommended for production)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#2-modelmapper-fast-prototyping">2. ModelMapper (fast prototyping)</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#3-manual-mapping-small-apps">3. Manual Mapping (small apps)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#spring-data-interface-projections">🧠 Spring Data Interface Projections</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#serialization-cycles-jackson">🔄 Serialization Cycles (Jackson)</a>
+        <ul>
+    <li class="toctree-l7"><a class="reference internal" href="#option-1-jsonmanagedreference-jsonbackreference">Option 1: @JsonManagedReference / @JsonBackReference</a>
+    </li>
+    <li class="toctree-l7"><a class="reference internal" href="#option-2-jsonidentityinfo">Option 2: @JsonIdentityInfo</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#validation-api-vs-db-constraints">⚙️ Validation: API vs DB Constraints</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#performance-security-tips">🧰 Performance &amp; Security Tips</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#project-skeleton-dto-friendly-layout">📦 Project Skeleton (DTO-friendly Layout)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#tldr-when-to-use-what">🧭 TL;DR — When to Use What</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Spring</li>
+          <li class="breadcrumb-item">Layers</li>
+      <li class="breadcrumb-item active">DTOs vs Entities</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/spring/layers/dto-vs-entities.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spring-boot-dtos-vs-entities-cheatsheet">🧩 Spring Boot — DTOs vs Entities Cheatsheet<a class="headerlink" href="#spring-boot-dtos-vs-entities-cheatsheet" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Essence:</strong> Entities are your <em>persistence model</em> (database schema).<br />
+DTOs (Data Transfer Objects) are your <em>API model</em> (request/response contracts).<br />
+Mixing them leads to fragile APIs, security leaks, and serialization pain.</p>
+</blockquote>
+<hr />
+<h2 id="core-distinction">🔑 Core Distinction<a class="headerlink" href="#core-distinction" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Entity</th>
+<th style="text-align: left;">DTO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Purpose</strong></td>
+<td style="text-align: left;">Persistence (DB schema)</td>
+<td style="text-align: left;">API request/response</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Managed by</strong></td>
+<td style="text-align: left;">JPA/Hibernate</td>
+<td style="text-align: left;">Jackson / Validation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contains</strong></td>
+<td style="text-align: left;">IDs, relationships, DB constraints</td>
+<td style="text-align: left;">only fields relevant to API</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Annotations</strong></td>
+<td style="text-align: left;"><code>@Entity</code>, <code>@Table</code>, <code>@Column</code></td>
+<td style="text-align: left;"><code>@NotBlank</code>, <code>@Email</code>, etc.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Visibility</strong></td>
+<td style="text-align: left;">Internal</td>
+<td style="text-align: left;">Public</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Evolution</strong></td>
+<td style="text-align: left;">DB-driven</td>
+<td style="text-align: left;">Client-driven</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Remember:</strong> Jackson annotations ≠ DTOs. They’re formatting tools, not boundary definitions.</p>
+</blockquote>
+<hr />
+<h2 id="when-you-can-skip-dtos">🚫 When You <em>Can</em> Skip DTOs<a class="headerlink" href="#when-you-can-skip-dtos" title="Permanent link">&para;</a></h2>
+<p>You can temporarily skip DTOs if:
+- The app is small and internal.
+- Entities are flat (no relations, no sensitive fields).
+- You accept API/DB coupling risk.</p>
+<p>But even then:
+- Use <code>@JsonIgnore</code> for sensitive data.
+- Handle cycles (<code>@JsonManagedReference</code> / <code>@JsonBackReference</code>).
+- Expect refactoring later when complexity grows.</p>
+<hr />
+<h2 id="why-you-should-use-dtos">✅ Why You Should Use DTOs<a class="headerlink" href="#why-you-should-use-dtos" title="Permanent link">&para;</a></h2>
+<p><strong>Security:</strong> Prevent leaking internal fields (e.g., <code>password</code>, <code>isAdmin</code>, audit data).<br />
+<strong>Stability:</strong> Entities evolve freely while DTOs keep a stable public API.<br />
+<strong>Validation:</strong> Add <code>@NotBlank</code>, <code>@Email</code>, etc. for request validation.<br />
+<strong>Flexibility:</strong> Tailor different DTOs per endpoint (don’t reuse everything).<br />
+<strong>Performance:</strong> Avoid lazy-loading cycles or massive entity graphs.<br />
+<strong>Versioning:</strong> Create <code>v2</code> DTOs without breaking clients.</p>
+<hr />
+<h2 id="example-contact-entity-dtos">🧱 Example: Contact Entity + DTOs<a class="headerlink" href="#example-contact-entity-dtos" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nd">@Entity</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Contact</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nd">@Id</span><span class="w"> </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">UUID</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">photoUrl</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="c1">// Never expose this!</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="request-dtos">Request DTOs<a class="headerlink" href="#request-dtos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">CreateContactRequest</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nd">@Email</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">photoUrl</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nd">@NotBlank</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">UpdateContactRequest</span><span class="p">(</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nd">@Email</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">photoUrl</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">password</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<h3 id="response-dto">Response DTO<a class="headerlink" href="#response-dto" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ContactResponse</span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">photoUrl</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="mapping-strategies-entity-dto">🔁 Mapping Strategies (Entity ↔ DTO)<a class="headerlink" href="#mapping-strategies-entity-dto" title="Permanent link">&para;</a></h2>
+<p>Mapping = the glue between persistence and API layers.
+Several approaches exist — pick one main strategy.</p>
+<h3 id="1-mapstruct-recommended-for-production">1. <strong>MapStruct (recommended for production)</strong><a class="headerlink" href="#1-mapstruct-recommended-for-production" title="Permanent link">&para;</a></h3>
+<p><em>Fast, compile-time, explicit.</em></p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Mapper</span><span class="p">(</span><span class="n">componentModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spring&quot;</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ContactMapper</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nd">@Mapping</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">Contact</span><span class="w"> </span><span class="nf">toEntity</span><span class="p">(</span><span class="n">CreateContactRequest</span><span class="w"> </span><span class="n">req</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nd">@BeanMapping</span><span class="p">(</span><span class="n">nullValuePropertyMappingStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NullValuePropertyMappingStrategy</span><span class="p">.</span><span class="na">IGNORE</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">updateEntity</span><span class="p">(</span><span class="n">UpdateContactRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="nd">@MappingTarget</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="n">ContactResponse</span><span class="w"> </span><span class="nf">toResponse</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">entity</span><span class="p">);</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Service example:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@Service</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@RequiredArgsConstructor</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ContactService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ContactRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ContactMapper</span><span class="w"> </span><span class="n">mapper</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="n">encoder</span><span class="p">;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ContactResponse</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">CreateContactRequest</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">toEntity</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="n">encoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">()));</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">toResponse</span><span class="p">(</span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ContactResponse</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">UpdateContactRequest</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">).</span><span class="na">orElseThrow</span><span class="p">();</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="n">mapper</span><span class="p">.</span><span class="na">updateEntity</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">().</span><span class="na">isBlank</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="n">c</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="n">encoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">()));</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">toResponse</span><span class="p">(</span><span class="n">repo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="2-modelmapper-fast-prototyping">2. <strong>ModelMapper (fast prototyping)</strong><a class="headerlink" href="#2-modelmapper-fast-prototyping" title="Permanent link">&para;</a></h3>
+<p><em>Reflection-based, minimal setup, slower.</em></p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Configuration</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModelMapperConfig</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nd">@Bean</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ModelMapper</span><span class="w"> </span><span class="nf">modelMapper</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">ModelMapper</span><span class="w"> </span><span class="n">mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModelMapper</span><span class="p">();</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">mm</span><span class="p">.</span><span class="na">getConfiguration</span><span class="p">().</span><span class="na">setPropertyCondition</span><span class="p">(</span><span class="n">Conditions</span><span class="p">.</span><span class="na">isNotNull</span><span class="p">());</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mm</span><span class="p">;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelMapper</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">Contact</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">ContactResponse</span><span class="w"> </span><span class="n">dto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modelMapper</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span><span class="w"> </span><span class="n">ContactResponse</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Pros: zero boilerplate.
+Cons: less control, easy to miss subtle mismatches.</p>
+<hr />
+<h3 id="3-manual-mapping-small-apps">3. <strong>Manual Mapping (small apps)</strong><a class="headerlink" href="#3-manual-mapping-small-apps" title="Permanent link">&para;</a></h3>
+<p><em>Ultimate control, no dependencies.</em></p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Component</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ContactMapper</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="nf">toEntity</span><span class="p">(</span><span class="n">CreateContactRequest</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">();</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">name</span><span class="p">());</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">email</span><span class="p">());</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">setPhotoUrl</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">photoUrl</span><span class="p">());</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">());</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">applyUpdate</span><span class="p">(</span><span class="n">UpdateContactRequest</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">name</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">name</span><span class="p">());</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">email</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">email</span><span class="p">());</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">photoUrl</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">setPhotoUrl</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">photoUrl</span><span class="p">());</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">().</span><span class="na">isBlank</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">      </span><span class="n">c</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="na">password</span><span class="p">());</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">ContactResponse</span><span class="w"> </span><span class="nf">toResponse</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ContactResponse</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getEmail</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getPhotoUrl</span><span class="p">());</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pros: no magic.
+Cons: verbose as app grows.</p>
+<hr />
+<h2 id="spring-data-interface-projections">🧠 Spring Data Interface Projections<a class="headerlink" href="#spring-data-interface-projections" title="Permanent link">&para;</a></h2>
+<p><em>Read-only, auto-mapped “DTOs” generated by Spring Data.</em></p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ContactView</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">getId</span><span class="p">();</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ContactRepository</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Contact</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ContactView</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByNameContainingIgnoreCase</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Controller:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/contacts&quot;</span><span class="p">)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ContactView</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">repo</span><span class="p">.</span><span class="na">findByNameContainingIgnoreCase</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>✅ Great for lightweight reads.
+❌ Not for writes (can’t persist).</p>
+<hr />
+<h2 id="serialization-cycles-jackson">🔄 Serialization Cycles (Jackson)<a class="headerlink" href="#serialization-cycles-jackson" title="Permanent link">&para;</a></h2>
+<p>When you serialize bidirectional relationships (<code>User</code> ↔ <code>Order</code>), Jackson can loop infinitely.</p>
+<h3 id="option-1-jsonmanagedreference-jsonbackreference">Option 1: <code>@JsonManagedReference</code> / <code>@JsonBackReference</code><a class="headerlink" href="#option-1-jsonmanagedreference-jsonbackreference" title="Permanent link">&para;</a></h3>
+<p>Breaks recursion by ignoring the “back” side during serialization.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nd">@JsonManagedReference</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nd">@JsonBackReference</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Good for simple parent→child relationships.</p>
+<h3 id="option-2-jsonidentityinfo">Option 2: <code>@JsonIdentityInfo</code><a class="headerlink" href="#option-2-jsonidentityinfo" title="Permanent link">&para;</a></h3>
+<p>Uses object IDs instead of nesting endlessly.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@JsonIdentityInfo</span><span class="p">(</span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectIdGenerators</span><span class="p">.</span><span class="na">PropertyGenerator</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nd">@JsonIdentityInfo</span><span class="p">(</span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObjectIdGenerators</span><span class="p">.</span><span class="na">PropertyGenerator</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<p>Good for complex graphs or both-direction references.</p>
+<hr />
+<h2 id="validation-api-vs-db-constraints">⚙️ Validation: API vs DB Constraints<a class="headerlink" href="#validation-api-vs-db-constraints" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Layer</th>
+<th style="text-align: left;">Validation Type</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>DTO</strong></td>
+<td style="text-align: left;">API/business validation</td>
+<td style="text-align: left;"><code>@NotBlank</code>, <code>@Email</code>, <code>@Pattern</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entity</strong></td>
+<td style="text-align: left;">DB-level constraints</td>
+<td style="text-align: left;"><code>@Column(nullable=false)</code>, unique indexes</td>
+</tr>
+</tbody>
+</table>
+<p>Fail fast at the API layer — never let invalid input hit the database.</p>
+<hr />
+<h2 id="performance-security-tips">🧰 Performance &amp; Security Tips<a class="headerlink" href="#performance-security-tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use DTOs to avoid lazy-loading traps (<code>LazyInitializationException</code>).</li>
+<li>Don’t return entire entity graphs — shape responses explicitly.</li>
+<li>Always whitelist fields (DTOs) instead of blacklisting (<code>@JsonIgnore</code>).</li>
+<li>Encode passwords in the <strong>service layer</strong>, not in mappers.</li>
+<li>For large APIs, use <strong>MapStruct + record DTOs</strong> — the cleanest and fastest.</li>
+</ul>
+<hr />
+<h2 id="project-skeleton-dto-friendly-layout">📦 Project Skeleton (DTO-friendly Layout)<a class="headerlink" href="#project-skeleton-dto-friendly-layout" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>src/
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  main/java/com/example/contacts/
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    entity/Contact.java
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    dto/
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>      CreateContactRequest.java
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>      UpdateContactRequest.java
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>      ContactResponse.java
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    mapper/ContactMapper.java
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    repo/ContactRepository.java
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    service/ContactService.java
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    web/ContactController.java
+</span></code></pre></div>
+<blockquote>
+<p>Optional extras: <code>config/SecurityConfig.java</code> for <code>PasswordEncoder</code>,
+<code>resources/application.yml</code> for dev DB, <code>test/.../ContactServiceTest.java</code>.</p>
+</blockquote>
+<hr />
+<h2 id="tldr-when-to-use-what">🧭 TL;DR — When to Use What<a class="headerlink" href="#tldr-when-to-use-what" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Context</th>
+<th style="text-align: left;">Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Small internal app</td>
+<td style="text-align: left;">Manual mapping or ModelMapper</td>
+</tr>
+<tr>
+<td style="text-align: left;">Production API</td>
+<td style="text-align: left;">MapStruct + record DTOs</td>
+</tr>
+<tr>
+<td style="text-align: left;">Read-only queries</td>
+<td style="text-align: left;">Spring Data projections</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bi-directional relationships</td>
+<td style="text-align: left;">DTOs or <code>@JsonIdentityInfo</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Security-critical data</td>
+<td style="text-align: left;">Always separate DTOs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>In short:</strong>
+Use <strong>Entities</strong> for persistence.
+Use <strong>DTOs</strong> for communication.
+Use <strong>Mappers</strong> as bridges.
+Keep them separate — your future self will thank you.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../core-flow/" class="btn btn-neutral float-left" title="Core Flow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../setup/development-in-containers/" class="btn btn-neutral float-right" title="Development in Containers">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../core-flow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../setup/development-in-containers/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../../..";</script>
+    <script src="../../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../../js/theme.js"></script>
+      <script src="../../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
