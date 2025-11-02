@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/URI/" />
+      <link rel="shortcut icon" href="../../../../../img/favicon.ico" />
+    <title>URI - Knowledge Vault</title>
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../../css/overrides.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "URI";
+        var mkdocs_page_input_path = "cheatsheets/languages/java/classes/URI.md";
+        var mkdocs_page_url = "/knowledge-vault/cheatsheets/languages/java/classes/URI/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../../.." class="icon icon-home"> Knowledge Vault
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../..">Knowledge Vault</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text"> meta</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../../_meta/structure-notes/">Structure Notes</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ai</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Prompts</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/class-cheatsheet/">Class cheatsheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../ai/prompts/new-prompt/">New prompt</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Containers</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/_meta/blueprint/">Containers — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Quickstart</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/docker/">🐳 Docker Quickstart</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../containers/quickstart/podman/">🚀 Podman Quickstart</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Templates</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Compose</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/mysql/">MySQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/postgresql/">PostgreSQL</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../containers/templates/compose/sql-server/">SQL Server</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Databases</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >In memory</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🔴 redis</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Relational</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >🐘 postgresql</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/">quick-refresher</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Languages</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Java</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../_meta/blueprint/">Java — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" >Classes</a>
+    <ul class="current">
+                <li class="toctree-l4"><a class="reference internal" href="../Class/">Class<?></a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../ClassLoader/">ClassLoader</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../Stream/">Stream</a>
+                </li>
+                <li class="toctree-l4 current"><a class="reference internal current" href="#">URI</a>
+    <ul class="current">
+    <li class="toctree-l5"><a class="reference internal" href="#1-the-anatomy-of-a-uri">1) The anatomy of a URI</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#2-gettinginspecting-parts">2) Getting/inspecting parts</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#3-building-uris-correctly-no-broken-encoding">3) Building URIs correctly (no broken encoding)</a>
+        <ul>
+    <li class="toctree-l6"><a class="reference internal" href="#a-using-multi-arg-constructor-lets-the-jdk-encode-for-you">A) Using multi-arg constructor (lets the JDK encode for you)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#b-for-opaque-uris-eg-mailto">B) For opaque URIs (e.g., mailto)</a>
+    </li>
+    <li class="toctree-l6"><a class="reference internal" href="#c-if-you-must-start-from-a-string">C) If you must start from a string</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#4-resolve-relativize-normalize-path-math">4) Resolve / relativize / normalize (path math)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#5-hostnames-ipv6-and-idns">5) Hostnames, IPv6, and IDNs</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#6-query-parameters-safe-construction">6) Query parameters (safe construction)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#7-uri-vs-url-vs-urlconnection">7) URI vs URL vs URLConnection</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#8-equality-normalization-case">8) Equality, normalization, case</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#9-common-operations-cookbook">9) Common operations cookbook</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#10-exceptions-and-validation">10) Exceptions and validation</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#11-performance-immutability">11) Performance &amp; immutability</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#12-pitfalls-and-fixes">12) Pitfalls (and fixes)</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#13-minimal-patterns-to-memorize">13) Minimal patterns to memorize</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#14-where-it-plugs-into-your-stack">14) Where it plugs into your stack</a>
+    </li>
+    <li class="toctree-l5"><a class="reference internal" href="#15-mental-model">15) Mental model</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Nio</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../nio/path/">Path</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/_meta/blueprint/">Spring Core — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Annotations</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/_meta/blueprint/">Spring Annotations — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Database</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/database/id-generation%20/">ID Generation</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Rest</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/rest/controllers-and-mapping/">Spring Controller Annotations & Mapping</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Binding</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/overview/">Request Binding Overview</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/path-variable/">@PathVariable</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/request-body/">@RequestBody</a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/annotations/rest/binding/request-param/">@RequestParam</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Serialization</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/serialization/json/">@Json</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Transactions</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/annotations/transactions/transactional/">@Transactional</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Input</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/input/05-core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/input/10-dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/input/15-correctness-and-predictability/">Correctness & Predictability</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/input/20-sanitation-and-validation/">Sanitization & Validation</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/input/25-dto-and-input/">DTOs & Inputs</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Layout</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/layout/05-backbone/">Project Backbone</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/layout/10-single-slice-example/">Single-Slice Example</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/layout/15-multi-slice-example/">Multi-Slice Example</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Validation</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/architecture/validation/quick-starter/">Quick Starter</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Classes</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/classes/core/ApplicationContext/">ApplicationContext</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../spring/classes/data/Pagination/">Pagination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Web</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/HttpEntity/">HttpEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/RequestEntity/">RequestEntity<T></a>
+                </li>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/http/ResponseEntity/">ResponseEntity<T></a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" >Uri</a>
+    <ul>
+                <li class="toctree-l7"><a class="reference internal" href="../../spring/classes/web/uri/ServletUriComponentsBuilder/">ServletUriComponentsBuilder</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/05-quickstarter/">Spring Core Quick-Starter</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/07-core-layers/">Core Layers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/10-reflection-layer/">Reflection Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/15-beans-layer/">Beans Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/20-container-layer/">Container Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/25-aop-layer/">AOP Layer</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/core/30-events-layer/">Events Layer</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Data</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/data/h2/">H2 setup</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/data/mysql/">MySQL setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Setup</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/development-in-containers/">Development in Containers</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/project-configuration/">Project Configuration</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/project-layout-structure/">Project Layout Structure for Development</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../spring/setup/spring-app-as-linux-native/">Spring Boot JAR the “Linux-native” way</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Python</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../python/basics/">Python Basics</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Environments</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../python/environments/venv/">.venv</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/00-quickstart/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../networking/http/state/">State</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/backend-overview/">backend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/frontend-overview/">frontend-system-overview</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/architecture/fullstack-deployment-overview/">fullstack-deployment-overview</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Editors</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/_meta/blueprint/">Editors — Future Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Idea</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/idea/code-snippets/">IDEA Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Vscode</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/editors/vscode/code-snippets/">VS Code Snippets</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Git</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/quick-start/">Quick Start</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/git/remotes/">Remote ↔ Local</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/filesystem-hierarchy/">Linux Filesystem Hierarchy</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/core/systemd/">Systemd + Systemctl</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Fedora</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../tools/linux/fedora/installing-and-managing-software/">Installing/Managing Software (DNF guide)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Mkdocs</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/mkdocs/setup/">MkDocs Setup</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Nginx</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../tools/nginx/quick-start/">Quick Start</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Languages</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Java</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/_meta/blueprint/">📚 Java Reflection &amp; Class Loading Cheatsheet and Concept Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/00-java-runtime-and-reflection/">Java Runtime & Reflection</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/10-object-class-classloader-metaspace/">Object vs Class<?> in Java</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/20-class-in-java-docs/">Understanding `.class` in Java Docs</a>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" href="../../../../../concepts/languages/java/core/30-string-pool-and-memory/">String Pool & JVM Memory Model</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" > meta</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/_meta/blueprint/">Core Blueprint</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Architecture</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" >Input</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/input/05-core-flow/">Core Flow</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/input/10-dto-vs-entities/">DTOs vs Entities</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/input/15-correctness-and-predictability/">Correctness & Predictability</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/input/20-sanitation-and-validation/">Sanitation & Validation</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/input/25-dto-and-input/">DTOs & Inputs</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" >Validation</a>
+    <ul>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/validation/05-what-is-jakarta/">What is Jakarta Validation?</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/validation/10-valid-vs-validated/">10 valid vs validated</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/validation/15-validation-philosophy/">Validation Philosophy</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/validation/20-constraint-composition/">Constraint Composition</a>
+                </li>
+                <li class="toctree-l6"><a class="reference internal" href="../../../../../concepts/languages/java/spring/architecture/validation/90-questions-and-answers/">Q&A's</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l4"><a class="reference internal" >Core</a>
+    <ul>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/03-quickstart/">Quickstart to Spring Core</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/05-reflection-and-autowired/">Reflection & `@Autowired`</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/10-bean-anatomy/">Bean Anatomy</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/15-context-lifecycle/">Spring Context Lifecycle</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/20-dependency-injection-patterns/">Dependency Injection Patterns</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/25-ioc-container/">IoC Container</a>
+                </li>
+                <li class="toctree-l5"><a class="reference internal" href="../../../../../concepts/languages/java/spring/core/30-aop-concepts/">Aspect-Oriented Programming (AOP)</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Networking</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" >Http</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/10-index/">Starter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/20-http-foundations/">HTTP Foundations</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/30-state-evolution/">State (Evolution)</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/40-cookies/">Cookies</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../../../../concepts/networking/http/50-tokens/">Tokens</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Backend</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../learning/backend/spring-roadmap/">🧭 SPRING ROADMAP — 2025 Backend Path</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Practice</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Spring</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../../practice/spring/starter/">Starter</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../..">Knowledge Vault</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Cheatsheets</li>
+          <li class="breadcrumb-item">Languages</li>
+          <li class="breadcrumb-item">Java</li>
+          <li class="breadcrumb-item">Classes</li>
+      <li class="breadcrumb-item active">URI</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/edgaras87/knowledge-vault/edit/main/docs/cheatsheets/languages/java/classes/URI.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="javaneturi-precise-immutable-identifiers">🔗 <code>java.net.URI</code> — Precise, Immutable Identifiers<a class="headerlink" href="#javaneturi-precise-immutable-identifiers" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Essence:</strong> <code>URI</code> is an <strong>immutable</strong> parser/builder for Uniform Resource Identifiers.
+It models pieces of an identifier (scheme, authority, path, query, fragment), does <strong>no I/O</strong>, and can <strong>resolve/relativize/normalize</strong> paths safely.</p>
+</blockquote>
+<hr />
+<h2 id="1-the-anatomy-of-a-uri">1) The anatomy of a URI<a class="headerlink" href="#1-the-anatomy-of-a-uri" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>scheme &quot;:&quot; [//authority] path [&quot;?&quot; query] [&quot;#&quot; fragment]
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>authority = [userinfo &quot;@&quot;] host [ &quot;:&quot; port ]
+</span></code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://alice:secret@example.com:8443/api/v1/users?q=bob#top
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>└────┬─┘ └──────┬──────┘└─────────authority──────────┘└path┘ └query┘ └fragment┘
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> scheme     userinfo             host       port
+</span></code></pre></div>
+<p><strong>Opaque vs hierarchical</strong></p>
+<ul>
+<li><strong>Hierarchical:</strong> has <code>//</code> (e.g., <code>https://...</code>) → has path, can <code>resolve/relativize</code>.</li>
+<li><strong>Opaque:</strong> no <code>/</code> after scheme (e.g., <code>mailto:joe@example.com</code>, <code>urn:isbn:...</code>) → no path semantics.</li>
+</ul>
+<hr />
+<h2 id="2-gettinginspecting-parts">2) Getting/inspecting parts<a class="headerlink" href="#2-gettinginspecting-parts" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://example.com:8443/a/b%20c?x=1&amp;y=2#frag&quot;</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">u</span><span class="p">.</span><span class="na">getScheme</span><span class="p">();</span><span class="w">          </span><span class="c1">// &quot;https&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">u</span><span class="p">.</span><span class="na">getUserInfo</span><span class="p">();</span><span class="w">        </span><span class="c1">// null (if present: &quot;alice:secret&quot;)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">u</span><span class="p">.</span><span class="na">getHost</span><span class="p">();</span><span class="w">            </span><span class="c1">// &quot;example.com&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">u</span><span class="p">.</span><span class="na">getPort</span><span class="p">();</span><span class="w">            </span><span class="c1">// 8443  (−1 if absent)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">u</span><span class="p">.</span><span class="na">getPath</span><span class="p">();</span><span class="w">            </span><span class="c1">// &quot;/a/b c&quot;            (decoded view)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">u</span><span class="p">.</span><span class="na">getRawPath</span><span class="p">();</span><span class="w">         </span><span class="c1">// &quot;/a/b%20c&quot;          (encoded view)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">u</span><span class="p">.</span><span class="na">getQuery</span><span class="p">();</span><span class="w">           </span><span class="c1">// &quot;x=1&amp;y=2&quot;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">u</span><span class="p">.</span><span class="na">getRawQuery</span><span class="p">();</span><span class="w">        </span><span class="c1">// &quot;x=1&amp;y=2&quot;           (if encoded, you see raw)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">u</span><span class="p">.</span><span class="na">getFragment</span><span class="p">();</span><span class="w">        </span><span class="c1">// &quot;frag&quot;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">u</span><span class="p">.</span><span class="na">isAbsolute</span><span class="p">();</span><span class="w">         </span><span class="c1">// true (has scheme)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">u</span><span class="p">.</span><span class="na">isOpaque</span><span class="p">();</span><span class="w">           </span><span class="c1">// false</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">u</span><span class="p">.</span><span class="na">getAuthority</span><span class="p">();</span><span class="w">       </span><span class="c1">// &quot;example.com:8443&quot;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">u</span><span class="p">.</span><span class="na">getSchemeSpecificPart</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;//example.com:8443/a/b%20c?x=1&amp;y=2&quot;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Use <code>getRaw*</code> when you care about exact percent-encoding; <code>get*</code> returns decoded characters.</p>
+</blockquote>
+<hr />
+<h2 id="3-building-uris-correctly-no-broken-encoding">3) Building URIs correctly (no broken encoding)<a class="headerlink" href="#3-building-uris-correctly-no-broken-encoding" title="Permanent link">&para;</a></h2>
+<h3 id="a-using-multi-arg-constructor-lets-the-jdk-encode-for-you">A) Using multi-arg constructor (lets the JDK encode for you)<a class="headerlink" href="#a-using-multi-arg-constructor-lets-the-jdk-encode-for-you" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="s">&quot;https&quot;</span><span class="p">,</span><span class="w">                </span><span class="c1">// scheme</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kc">null</span><span class="p">,</span><span class="w">                   </span><span class="c1">// userInfo</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="s">&quot;example.com&quot;</span><span class="p">,</span><span class="w">          </span><span class="c1">// host</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="mi">8443</span><span class="p">,</span><span class="w">                   </span><span class="c1">// port</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="s">&quot;/a/b c&quot;</span><span class="p">,</span><span class="w">               </span><span class="c1">// path (unencoded input OK)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="s">&quot;q=a%2Bb&amp;lang=en&quot;</span><span class="p">,</span><span class="w">      </span><span class="c1">// query (give pre-encoded OR build carefully)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="s">&quot;top&quot;</span><span class="w">                   </span><span class="c1">// fragment</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">// https://example.com:8443/a/b%20c?q=a%2Bb&amp;lang=en#top</span>
+</span></code></pre></div>
+<h3 id="b-for-opaque-uris-eg-mailto">B) For <strong>opaque</strong> URIs (e.g., mailto)<a class="headerlink" href="#b-for-opaque-uris-eg-mailto" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&quot;mailto&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;joe@example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// &quot;mailto:joe@example.com&quot;</span>
+</span></code></pre></div>
+<h3 id="c-if-you-must-start-from-a-string">C) If you must start from a string<a class="headerlink" href="#c-if-you-must-start-from-a-string" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://example.com/a/b%20c?q=1#x&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// throws IAE if invalid</span>
+</span></code></pre></div>
+<blockquote>
+<p>Avoid manual string concatenation for paths. Let the constructor encode path segments.
+For complex query building, assemble the query string with careful encoding of <strong>values</strong> (see §6).</p>
+</blockquote>
+<hr />
+<h2 id="4-resolve-relativize-normalize-path-math">4) Resolve / relativize / normalize (path math)<a class="headerlink" href="#4-resolve-relativize-normalize-path-math" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://example.com/app/&quot;</span><span class="p">);</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">rel</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;../img/logo.png&quot;</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">base</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="n">rel</span><span class="p">);</span><span class="w">      </span><span class="c1">// https://example.com/img/logo.png</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">URI</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://example.com/a/b/c&quot;</span><span class="p">);</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">base</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">target</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;a/b/c&quot; (relative from base)</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">URI</span><span class="w"> </span><span class="n">messy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://x/y/./z/../a&quot;</span><span class="p">);</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">messy</span><span class="p">.</span><span class="na">normalize</span><span class="p">();</span><span class="w">       </span><span class="c1">// https://x/y/a</span>
+</span></code></pre></div>
+<blockquote>
+<p>Works only for <strong>hierarchical</strong> URIs.</p>
+</blockquote>
+<hr />
+<h2 id="5-hostnames-ipv6-and-idns">5) Hostnames, IPv6, and IDNs<a class="headerlink" href="#5-hostnames-ipv6-and-idns" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">v6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&quot;http&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[2001:db8::1]&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/api&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// http://[2001:db8::1]:8080/api</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">// Internationalized domain:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">URI</span><span class="w"> </span><span class="n">idn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://münich.example/straße&quot;</span><span class="p">);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">idn</span><span class="p">.</span><span class="na">toASCIIString</span><span class="p">();</span><span class="w">  </span><span class="c1">// punycode host + percent-encoded path</span>
+</span></code></pre></div>
+<p><strong>Rule:</strong> IPv6 hosts must be bracketed <code>[addr]</code>.</p>
+<hr />
+<h2 id="6-query-parameters-safe-construction">6) Query parameters (safe construction)<a class="headerlink" href="#6-query-parameters-safe-construction" title="Permanent link">&para;</a></h2>
+<p><strong>Do not</strong> use <code>URLEncoder</code> on a whole query string; it’s for HTML form encoding of <strong>parameter values</strong>.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;q=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">URLEncoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="s">&quot;a+b c&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">          </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&amp;lang=en&quot;</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&quot;https&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/search&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
+<p>If you’re in Spring, prefer <code>UriComponentsBuilder</code> for ergonomic, safe query building.</p>
+<hr />
+<h2 id="7-uri-vs-url-vs-urlconnection">7) URI vs URL vs URLConnection<a class="headerlink" href="#7-uri-vs-url-vs-urlconnection" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>I/O?</th>
+<th>Represents</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>URI</code></td>
+<td>❌</td>
+<td>Identifier only</td>
+<td>Parsing, composition, math</td>
+</tr>
+<tr>
+<td><code>URL</code></td>
+<td>⚠️ can open</td>
+<td>Location (protocol-bound)</td>
+<td>Legacy, mixes ID with I/O</td>
+</tr>
+<tr>
+<td><code>HttpClient</code> / <code>URLConnection</code></td>
+<td>✅</td>
+<td>Network access</td>
+<td>Build requests; pass <code>URI</code> to them</td>
+</tr>
+</tbody>
+</table>
+<p>Convert when you must:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">URL</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="na">toURL</span><span class="p">();</span><span class="w"> </span><span class="c1">// may throw MalformedURLException if not absolute</span>
+</span></code></pre></div>
+<hr />
+<h2 id="8-equality-normalization-case">8) Equality, normalization, case<a class="headerlink" href="#8-equality-normalization-case" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;HTTP://EXAMPLE.com/%7Ealice&quot;</span><span class="p">);</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;http://example.com/~alice&quot;</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">           </span><span class="c1">// false (character-by-character)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">a</span><span class="p">.</span><span class="na">normalize</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">normalize</span><span class="p">());</span><span class="w"> </span><span class="c1">// still may be false (host case-insensitive, path not normalized by %7E vs ~)</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">a</span><span class="p">.</span><span class="na">toASCIIString</span><span class="p">().</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">toASCIIString</span><span class="p">());</span><span class="w"> </span><span class="c1">// better, but not perfect</span>
+</span></code></pre></div>
+<p><strong>Takeaway:</strong> <code>URI#equals</code> is strict. For logical equality, normalize and compare components you care about.</p>
+<hr />
+<h2 id="9-common-operations-cookbook">9) Common operations cookbook<a class="headerlink" href="#9-common-operations-cookbook" title="Permanent link">&para;</a></h2>
+<p><strong>Join base + segment (without double slashes)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://api.example.com/users/&quot;</span><span class="p">);</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="s">&quot;42&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// https://api.example.com/users/42</span>
+</span></code></pre></div>
+<p><strong>Append query param</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">String</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;page=1&amp;size=20&quot;</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&quot;https&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;api.example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/items&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Strip fragment</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">noFrag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="na">getScheme</span><span class="p">(),</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="na">getSchemeSpecificPart</span><span class="p">(),</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Replace path but keep origin</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">replaced</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="na">getScheme</span><span class="p">(),</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="na">getUserInfo</span><span class="p">(),</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="na">getHost</span><span class="p">(),</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="na">getPort</span><span class="p">(),</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">                       </span><span class="s">&quot;/health&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h2 id="10-exceptions-and-validation">10) Exceptions and validation<a class="headerlink" href="#10-exceptions-and-validation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>new URI(...)</code> throws <code>URISyntaxException</code> (checked) for invalid syntax.</li>
+<li><code>URI.create(...)</code> throws <code>IllegalArgumentException</code> (unchecked).</li>
+<li>Typical bad inputs: unescaped spaces in <strong>single-string</strong> constructor, malformed IPv6, illegal chars in <code>host</code>.</li>
+</ul>
+<hr />
+<h2 id="11-performance-immutability">11) Performance &amp; immutability<a class="headerlink" href="#11-performance-immutability" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>URI</code> is <strong>immutable</strong> and thread-safe. Cache freely.</li>
+<li>Parsing is cheap; the heavy part is your own encoding/decoding and network I/O (which <code>URI</code> doesn’t do).</li>
+</ul>
+<hr />
+<h2 id="12-pitfalls-and-fixes">12) Pitfalls (and fixes)<a class="headerlink" href="#12-pitfalls-and-fixes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pitfall</th>
+<th>Why it hurts</th>
+<th>Do instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hand-concatenating <code>"/a" + "/" + b</code></td>
+<td>Double slashes, missed encoding</td>
+<td>Use multi-arg constructor + <code>resolve</code></td>
+</tr>
+<tr>
+<td>Using <code>URLEncoder</code> on entire URI</td>
+<td>Produces invalid <code>%3A//</code> etc.</td>
+<td>Encode <strong>values</strong> only, or let <code>URI</code> encode path</td>
+</tr>
+<tr>
+<td>Forgetting brackets for IPv6</td>
+<td>Parser treats <code>:</code> as port</td>
+<td>Use <code>[2001:db8::1]</code></td>
+</tr>
+<tr>
+<td>Comparing URIs with <code>equals</code> expecting “same resource”</td>
+<td>Too strict; doesn’t canonicalize</td>
+<td>Normalize and/or compare components</td>
+</tr>
+<tr>
+<td>Assuming <code>getPath()</code> returns encoded string</td>
+<td>It’s decoded view</td>
+<td>Use <code>getRawPath()</code> for exact bytes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-minimal-patterns-to-memorize">13) Minimal patterns to memorize<a class="headerlink" href="#13-minimal-patterns-to-memorize" title="Permanent link">&para;</a></h2>
+<p><strong>String → URI (validate)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&quot;https://example.com/a b&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// throws URISyntaxException</span>
+</span></code></pre></div>
+<p><strong>Safe build (JDK encodes path)</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">URI</span><span class="p">(</span><span class="s">&quot;https&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/a b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;q=a%2Bb&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Base + relative</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://ex.com/root/&quot;</span><span class="p">);</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">resolve</span><span class="p">(</span><span class="s">&quot;child?id=1&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Relativize</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">URI</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://ex.com/a/&quot;</span><span class="p">);</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">URI</span><span class="w"> </span><span class="n">tgt</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">URI</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;https://ex.com/a/b/c&quot;</span><span class="p">);</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">root</span><span class="p">.</span><span class="na">relativize</span><span class="p">(</span><span class="n">tgt</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;b/c&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="14-where-it-plugs-into-your-stack">14) Where it plugs into your stack<a class="headerlink" href="#14-where-it-plugs-into-your-stack" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>HttpClient</code> (Java 11+)</strong>: <code>HttpRequest.newBuilder(URI).build()</code></li>
+<li><strong>Spring (MVC/WebClient)</strong>: <code>URI</code> everywhere; for building use <code>UriComponentsBuilder</code>.</li>
+<li><strong>JAX-RS</strong>: <code>UriBuilder</code> mirrors the same ideas.</li>
+</ul>
+<hr />
+<h2 id="15-mental-model">15) Mental model<a class="headerlink" href="#15-mental-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[URI]  — pure identifier, no I/O
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  • immutable components (scheme, authority, path, query, fragment)
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  • safe composition (constructors) and math (resolve/relativize/normalize)
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  • dual views: raw (encoded) vs decoded
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  • feeds higher-level HTTP clients and frameworks
+</span></code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Stream/" class="btn btn-neutral float-left" title="Stream"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../nio/path/" class="btn btn-neutral float-right" title="Path">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/edgaras87/knowledge-vault" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Stream/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../nio/path/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../../..";</script>
+    <script src="../../../../../js/theme_extra.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+      <script src="../../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

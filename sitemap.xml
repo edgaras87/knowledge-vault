@@ -2,338 +2,414 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/_meta/structure-notes/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/ai/prompts/class-cheatsheet/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/ai/prompts/new-prompt/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/quickstart/docker/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/quickstart/podman/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/templates/compose/mysql/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/templates/compose/postgresql/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/containers/templates/compose/sql-server/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/databases/in-memory/%F0%9F%94%B4%20redis/quick-refresher/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/databases/relational/%F0%9F%90%98%20postgresql/quick-refresher/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/Class/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/ClassLoader/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/Stream/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/URI/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/classes/nio/path/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/database/id-generation%20/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/controllers-and-mapping/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/binding/overview/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/binding/path-variable/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/binding/request-body/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/rest/binding/request-param/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/serialization/json/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/annotations/transactions/transactional/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/input/05-core-flow/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/input/10-dto-vs-entities/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/input/15-correctness-and-predictability/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/input/20-sanitation-and-validation/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/input/25-dto-and-input/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/layout/05-backbone/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/layout/10-single-slice-example/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/layout/15-multi-slice-example/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/architecture/validation/quick-starter/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/core/ApplicationContext/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/data/Pagination/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/web/http/HttpEntity/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/web/http/RequestEntity/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/web/http/ResponseEntity/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/classes/web/uri/ServletUriComponentsBuilder/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/05-quickstarter/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/07-core-layers/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/10-reflection-layer/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/15-beans-layer/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/20-container-layer/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/25-aop-layer/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/core/30-events-layer/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/data/h2/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/data/mysql/</loc>
-         <lastmod>2025-10-29</lastmod>
-    </url>
-    <url>
-         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/layers/core-flow/</loc>
-         <lastmod>2025-10-29</lastmod>
-    </url>
-    <url>
-         <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/layers/dto-vs-entities/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/development-in-containers/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/project-configuration/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/project-layout-structure/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/java/spring/setup/spring-app-as-linux-native/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/python/basics/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/languages/python/environments/venv/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/networking/http/00-quickstart/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/networking/http/state/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/backend-overview/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/frontend-overview/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/architecture/fullstack-deployment-overview/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/editors/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/editors/idea/code-snippets/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/editors/vscode/code-snippets/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/git/quick-start/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/git/remotes/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/linux/core/filesystem-hierarchy/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/linux/core/systemd/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/linux/fedora/installing-and-managing-software/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/mkdocs/setup/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/cheatsheets/tools/nginx/quick-start/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/core/00-java-runtime-and-reflection/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/core/10-object-class-classloader-metaspace/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/core/20-class-in-java-docs/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/core/30-string-pool-and-memory/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/_meta/blueprint/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/input/05-core-flow/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/input/10-dto-vs-entities/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/input/15-correctness-and-predictability/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/input/20-sanitation-and-validation/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/input/25-dto-and-input/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/validation/05-what-is-jakarta/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/validation/10-valid-vs-validated/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/validation/15-validation-philosophy/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/validation/20-constraint-composition/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/architecture/validation/90-questions-and-answers/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/03-quickstart/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/05-reflection-and-autowired/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/10-bean-anatomy/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/15-context-lifecycle/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/20-dependency-injection-patterns/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/25-ioc-container/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/languages/java/spring/core/30-aop-concepts/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/10-index/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/20-http-foundations/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/30-state-evolution/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/40-cookies/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/concepts/networking/http/50-tokens/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://edgaras87.github.io/knowledge-vault/learning/backend/spring-roadmap/</loc>
-         <lastmod>2025-10-29</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://edgaras87.github.io/knowledge-vault/practice/spring/starter/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
 </urlset>
