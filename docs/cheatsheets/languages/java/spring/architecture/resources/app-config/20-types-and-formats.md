@@ -15,8 +15,7 @@ aliases:
 
 # Types & Formats — Cheatsheet
 
-Spring Boot performs automatic type conversion when binding configuration values.  
-YAML values are Strings, but the binder transforms them into Java types such as `Duration`, `DataSize`, `URI`, collections, and nested structures.
+Spring Boot performs automatic type conversion when binding configuration values. YAML values are Strings, but the binder transforms them into Java types such as `Duration`, `DataSize`, `URI`, collections, and nested structures.
 
 This page shows the formats Spring understands and how they map into Java types.
 

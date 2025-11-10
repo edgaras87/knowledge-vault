@@ -19,19 +19,23 @@ This section groups everything into focused notes, each covering a specific them
 
 Use this index as the entry point when navigating or learning any part of Spring’s configuration model.
 
+
+
 ---
 
-# 1. Profiles  
+# 1. Types & Formats
 
-How Spring selects environment-specific configuration.
+Reference for how Spring converts text into Java types.
 
-In **profiles.md** covers:
+In **types-and-formats.md** covers:
 
-- `spring.profiles.active`
-- `application-<profile>.yml`
-- profile groups
-- profile-based activation of beans
-- profile behavior in tests
+- Duration (`10s`, `2m`, `500ms`)
+- DataSize (`10MB`, `200KB`)
+- URI, InetAddress, Path
+- lists and maps
+- structured objects
+- environment variable mapping
+- quick reference table
 
 ---
 
@@ -64,19 +68,18 @@ In **validation.md** covers:
 
 ---
 
-# 4. Types & Formats
+# 4. Profiles  
 
-Reference for how Spring converts text into Java types.
+How Spring selects environment-specific configuration.
 
-In **types-and-formats.md** covers:
+In **profiles.md** covers:
 
-- Duration (`10s`, `2m`, `500ms`)
-- DataSize (`10MB`, `200KB`)
-- URI, InetAddress, Path
-- lists and maps
-- structured objects
-- environment variable mapping
-- quick reference table
+- `spring.profiles.active`
+- `application-<profile>.yml`
+- profile groups
+- profile-based activation of beans
+- profile behavior in tests
+
 
 ---
 
@@ -174,10 +177,10 @@ In **troubleshooting.md** covers:
 spring/
 └─ properties/
    ├─ index.md
-   ├─ profiles.md
+   ├─ types-and-formats.md
    ├─ binding.md
    ├─ validation.md
-   ├─ types-and-formats.md
+   ├─ profiles.md
    ├─ sources-and-precedence.md
    ├─ exposing-config.md
    ├─ feature-flags.md
