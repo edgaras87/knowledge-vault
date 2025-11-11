@@ -12,17 +12,17 @@ aliases:
   - Spring Properties - Property Binding Cheatsheet
 ---
 
-# Property Binding — Cheatsheet
+# Spring Boot Configuration Binding — Cheatsheet
 
-Binding is how Spring takes values from `application.yml`, environment variables, or command-line arguments and turns them into Java fields and records.  
-Use it to provide structured, typed configuration to your application without hardcoding.
+Configuration binding loads values from YAML, environment variables, or command-line arguments and turns them into typed Java objects. Use it to centralize configuration, enforce structure, and keep runtime settings out of code.
 
 ---
 
-## 1. Two binding mechanisms
+## 1. Binding mechanisms
 
-### a) @ConfigurationProperties  
-Use this for **groups** of properties, nested values, structured config, and anything domain-like.
+### `@ConfigurationProperties`
+
+For grouped, structured, nested configuration.
 
 ```java
 @ConfigurationProperties(prefix = "app")
@@ -39,23 +39,22 @@ Enable via:
 class Config {}
 ```
 
-Or rely on `@SpringBootApplication` package scanning if the class is under the main package.
+Or via `@ConfigurationPropertiesScan` inside the application package.
 
-### b) @Value  
-Use for **single**, simple values, especially when they have no structure.
+### `@Value`
+
+For single, isolated values only.
 
 ```java
-@Value("${app.host}")
-URI host;
+@Value("${feature.preview:false}")
+boolean preview;   // includes default
 ```
 
-Don’t use `@Value` for multi-field config — it becomes brittle and noisy.
+Avoid using `@Value` for anything structured or multi-field.
 
 ---
 
-## 2. YAML → Java type matching
-
-Spring converts common values automatically:
+## 2. YAML → Java conversion
 
 ```yaml
 app:
@@ -65,33 +64,33 @@ app:
     itemsPerPage: 20
 ```
 
-Maps into:
+Maps to:
 
 ```java
 new AppProps(
-  URI("http://localhost:8080"),
+  URI.create("http://localhost:8080"),
   Duration.ofSeconds(5),
   new Limits(20)
 );
 ```
 
-Supported types include:
-- `String`, `int`, `long`, `boolean`
-- `Duration`, `Period`, `DataSize`
-- `URI`, `URL`, `InetAddress`
-- `List<T>`, `Set<T>`, `Map<String, T>`
-- Records and simple POJOs
+The binder supports primitives, wrappers, `URI`, `Duration`, `Period`, `DataSize`, `UUID`, collections, and simple POJOs/records.
 
 ---
 
-## 3. Constructor binding (recommended)
+## 3. Constructor binding
 
-Records use constructor binding automatically.
+Records bind via their canonical constructor automatically.
+
+```java
+@ConfigurationProperties("app")
+public record AppProps(URI host) {}
+```
 
 For classes:
 
 ```java
-@ConfigurationProperties(prefix = "app")
+@ConfigurationProperties("app")
 @ConstructorBinding
 public class AppProps {
   private final URI host;
@@ -99,13 +98,11 @@ public class AppProps {
 }
 ```
 
-Constructor binding = immutable + safe + clear.
-
 ---
 
-## 4. Nested structures
+## 4. Nested configuration
 
-Just define nested records or static inner classes:
+Use nested records or static nested classes.
 
 ```java
 @ConfigurationProperties("storage")
@@ -114,31 +111,20 @@ public record StorageProps(Path root, S3 s3) {
 }
 ```
 
-YAML:
-
-```yaml
-storage:
-  root: "/var/data"
-  s3:
-    bucket: "media"
-    region: "eu-central-1"
-```
-
 ---
 
-## 5. Lists and maps
+## 5. Collections
 
 **List**
 
 ```yaml
-app:
-  admins:
-    - alice
-    - bob
+admins:
+  - alice
+  - bob
 ```
 
 ```java
-List<String> admins
+List<String> admins;
 ```
 
 **Map**
@@ -150,160 +136,209 @@ limits:
 ```
 
 ```java
-Map<String, Integer> limits
+Map<String, Integer> limits;
 ```
 
 ---
 
-## 6. Default values
+## 6. Defaults
 
-Option A — define defaults in Java:
+### YAML-side defaults
 
-```java
-public record AppProps(URI host, Duration timeout) {
-  public AppProps {
-    if (timeout == null) timeout = Duration.ofSeconds(5);
-  }
-}
-```
-
-Option B — define defaults in YAML (preferred):
+Recommended for clarity.
 
 ```yaml
-app:
-  timeout: 5s
+feature:
+  preview: false
 ```
 
-YAML defaults keep Java clean.
+### Java-side defaults in configuration properties
 
----
+```java
+public record FeatureProps(
+  @DefaultValue("false") boolean preview
+) {}
+```
 
-## 7. Overriding & precedence (binding sees final resolved value)
+### One-off scalar via `@Value`
 
-Binding doesn’t care *where* the value came from — it receives the final resolved property.
-
-Precedence example:
-
-1) Command line  
-2) Environment variables  
-3) application-<profile>.yml  
-4) application.yml  
-
-So this changes the final `AppProps.host` regardless of YAML:
-
-```bash
-java -jar app.jar --app.host=https://override.example
+```java
+@Value("${feature.preview:false}")
+boolean preview;
 ```
 
 ---
 
-## 8. Binding errors & diagnostics
+## 7. Property source precedence
 
-If Spring cannot convert a value, it fails fast:
+1. Command line
+2. Environment variables
+3. `application-<profile>.yml`
+4. `application.yml`
+
+---
+
+## 8. Binding errors & debugging
 
 ```
 Failed to bind properties under 'app.timeout' to java.time.Duration
 ```
 
-To debug:
+Diagnostics:
 
-```properties
+```
 logging.level.org.springframework.boot.context.properties=DEBUG
 logging.level.org.springframework.boot.context.config=DEBUG
 ```
 
 ---
 
-## 9. Mixing @Value and @ConfigurationProperties
+## 9. Annotations for configuration binding
 
-Allowed, but separate concerns cleanly.
+### Core
 
-Example of sensible mixing:
+* `@ConfigurationProperties(prefix = "...")`
+* `@ConfigurationPropertiesScan`
+* `@EnableConfigurationProperties`
+* `@Validated`
 
-- Structured config → `AppProps`  
-- Single flag → `@Value("${feature.preview:false}")`
+### Constructor control
 
-Avoid mixing them for the same domain.
+* `@ConstructorBinding` (classes only)
+
+### Key & default customization
+
+* `@Name("external-key")`
+* `@DefaultValue("...")`
+
+### Units
+
+* `@DurationUnit(...)`
+* `@DataSizeUnit(...)`
+
+### Conversion & nesting
+
+* `@NestedConfigurationProperty`
+* `@ConfigurationPropertiesBinding`
+
+### Single-value injection
+
+* `@Value("${key:default}")`
 
 ---
 
-## 10. Testing property binding
+## 10. Example — Full configuration using your YAML
 
-```java
-@SpringBootTest
-@EnableConfigurationProperties(AppProps.class)
-@TestPropertySource(properties = "app.timeout=1s")
-class AppPropsTest {
-
-  @Autowired AppProps props;
-
-  @Test void bindsCorrectly() {
-    assertEquals(Duration.ofSeconds(1), props.timeout());
-  }
-}
-```
-
----
-
-## 11. Practical example (in your style)
-
-YAML:
+### YAML
 
 ```yaml
 app:
-  host: http://localhost:8080
+
+  host: "https://api.example.com"
+  cache-dir: "/var/tmp/cache"
+  ip: "192.168.1.10"
+
+  api:
+    version: v1
+
+  pagination:
+    default-size: 20
+    max-size: 200
+
+  features:
+    signup: true
+    metrics: true
+
   limits:
-    uploads: 10MB
-    itemsPerPage: 25
+    uploads: 25MB
+    items-per-page: 100
+    timeout: 5s
+
+  locale:
+    default-tag: "en_US"
+
+  default-roles: [USER, ADMIN]
+  role-quotas:
+    USER: 100
+    ADMIN: 1000
+  labels:
+    env: "prod"
+    region: "eu-central"
 ```
 
-Java:
+### Java
 
 ```java
 @ConfigurationProperties(prefix = "app")
-public record AppProps(URI host, Limits limits) {
-  public record Limits(DataSize uploads, int itemsPerPage) {}
+@Validated
+public record AppProps(
+    @NotNull URI host,
+    @Name("cache-dir") Path cacheDir,
+    @NotNull String ip,
+
+    Api api,
+    Pagination pagination,
+    Features features,
+    Limits limits,
+    Locale locale,
+
+    List<Role> defaultRoles,
+    Map<Role, Integer> roleQuotas,
+    Map<String, String> labels
+) {
+
+  public record Api(
+      @NotBlank String version
+  ) {}
+
+  public record Pagination(
+      @Name("default-size") @Min(1) int defaultSize,
+      @Name("max-size") @Min(1) int maxSize
+  ) {}
+
+  public record Features(
+      @DefaultValue("false") boolean signup,
+      @DefaultValue("false") boolean metrics
+  ) {}
+
+  public record Limits(
+      @DataSizeUnit(MEGABYTES) DataSize uploads,
+      @Name("items-per-page") @Min(1) int itemsPerPage,
+      @DurationUnit(SECONDS) Duration timeout
+  ) {}
+
+  public record Locale(
+      @Name("default-tag") @NotBlank String defaultTag
+  ) {}
 }
+
+enum Role { USER, ADMIN }
 ```
 
-Usage:
+### Example of a one-off flag via `@Value`
 
 ```java
-@RestController
-class AppController {
-  private final AppProps props;
-
-  AppController(AppProps props) {
-    this.props = props;
-  }
-
-  @GetMapping("/api/app")
-  AppInfoResponse info() {
-    return new AppInfoResponse(props.host(), props.limits().itemsPerPage());
-  }
+@Component
+class Flags {
+  @Value("${feature.preview:false}")
+  boolean preview;
 }
 ```
 
 ---
 
-## 12. DO / DON'T
+## 11. DO / DON’T
 
 **DO**
-- Use records for immutable config.
-- Keep each configuration class small and grouped by domain.
-- Use YAML over properties when nesting is involved.
+
+* Use records for immutable config.
+* Group config by domain.
+* Prefer YAML defaults or `@DefaultValue`.
+* Keep nested config modeled as nested records.
 
 **DON’T**
-- Don’t scatter `@Value` everywhere.
-- Don’t put secrets into YAML.
-- Don’t use binding for runtime state (properties are startup config).
 
----
-
-## 13. Quick glossary
-
-- **Binder** — converts raw String values into Java types.  
-- **ConfigurationProperties** — structured binding of grouped values.  
-- **@Value** — single-value injection.  
-- **Config Data** — system that loads YAML/env/args in a defined order.
+* Don’t scatter `@Value` everywhere.
+* Don’t store secrets in YAML.
+* Don’t mutate configuration objects after startup.
 
