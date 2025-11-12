@@ -240,6 +240,85 @@ Useful to verify what profile is active and where values originated.
 
 ---
 
+## 10. IntelliJ IDEA (Community) Setup
+
+Organize your YAML files like this:
+
+```
+src/main/resources/
+├─ application.yml               # defaults (always loaded)
+├─ application-local.yml         # overrides for local dev
+├─ application-dev.yml           # overrides for dev/staging
+└─ application-prod.yml          # overrides for prod
+```
+
+
+You’ll use **Application** run configs.
+
+1. Run → **Edit Configurations…**
+2. Select your app, click **Modify options**, enable **VM options**.
+3. Duplicate the config for each profile.
+4. Set in **VM options** (preferred):
+
+```
+App — local : -Dspring.profiles.active=local
+App — dev   : -Dspring.profiles.active=dev
+App — prod  : -Dspring.profiles.active=prod
+```
+
+Alternatively:
+
+* Program arguments → `--spring.profiles.active=dev`
+* or Environment variable → `SPRING_PROFILES_ACTIVE=dev`
+
+---
+
+### Verify active profile
+
+```java
+@SpringBootApplication
+public class ShoppingCartApplication {
+  public ShoppingCartApplication(org.springframework.core.env.Environment env) {
+    System.out.println(">> Active profiles: " + String.join(",", env.getActiveProfiles()));
+  }
+  public static void main(String[] args) {
+    org.springframework.boot.SpringApplication.run(ShoppingCartApplication.class, args);
+  }
+}
+```
+
+Run your `App — dev` config; the console should print:
+
+```
+>> Active profiles: dev
+```
+
+---
+
+### Rules of thumb
+
+* Never hard-code `spring.profiles.active` inside `application.yml`.
+  → Always choose via run config, env var, or CLI flag.
+* Spring loads in order:
+  `application.yml` → `application-<profile>.yml` (later wins on conflicts).
+* You can activate multiple profiles:
+  `-Dspring.profiles.active=dev,metrics`
+* Tests use their own: `@ActiveProfiles("test")`.
+
+
+### TL;DR
+
+| Environment | Command / Config Flag            | YAML File Used          |
+| ----------- | -------------------------------- | ----------------------- |
+| Local dev   | `-Dspring.profiles.active=local` | `application-local.yml` |
+| Team dev    | `-Dspring.profiles.active=dev`   | `application-dev.yml`   |
+| Production  | `-Dspring.profiles.active=prod`  | `application-prod.yml`  |
+
+
+
+
+---
+
 This file covers:
 
 - activation
@@ -249,3 +328,4 @@ This file covers:
 - test usage
 - pitfalls
 - practical example from your structure
+- IntelliJ setup
