@@ -84,6 +84,7 @@ markdown_extensions:
       alternate_style: true                # Nice UI for tabbed code examples
   - pymdownx.tasklist:
       custom_checkbox: true                # Pretty checkboxes in lists
+      clickable_checkbox: false            # Disable toggling checkboxes in rendered HTML
 
 # Exclude meta folders from the documentation build
 #exclude_docs: |
