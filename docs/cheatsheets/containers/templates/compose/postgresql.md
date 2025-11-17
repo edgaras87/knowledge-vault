@@ -43,9 +43,9 @@ $ENGINE exec -it pg psql -U appuser -d appdb
 # (running on host) and DBeaver/psql can connect to via localhost.
 
 services:
-  pg:
+  postgres:
     image: postgres:16
-    container_name: pg
+    container_name: postgres
     restart: unless-stopped
 
     environment:
@@ -56,30 +56,30 @@ services:
       POSTGRES_DB: appdb
 
       # Optional but nice for consistent timestamps
-      TZ: Europe/Vilnius
+      #TZ: Europe/Vilnius
 
       # Optional: control initdb encoding/locale for new cluster
-      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C.UTF-8"
+      #POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C.UTF-8"
 
     ports:
       - "5432:5432"
       # If host 5432 is busy, remap: "5433:5432" (then JDBC port=5433)
 
     # Postgres server settings (put comments on their own lines)
-    command:
+    #command:
       # Examples; tweak as needed:
-      - -c
-      - shared_buffers=256MB
-      - -c
-      - max_connections=100
-      - -c
-      - timezone=Europe/Vilnius
+      #- -c
+      #- shared_buffers=256MB
+      #- -c
+      #- max_connections=100
+      #- -c
+      #- timezone=Europe/Vilnius
 
     volumes:
       - pg_data:/var/lib/postgresql/data
       # Named volume for persistent data (recommended default on Linux).
 
-      - ./initdb:/docker-entrypoint-initdb.d:ro,Z
+      #- ./initdb:/docker-entrypoint-initdb.d:ro,Z
       # Optional: .sql/.sh here run once on first boot (when volume is empty).
       # Add :Z on SELinux systems; harmless elsewhere.
 
@@ -88,6 +88,19 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
+
+  # Optional UI
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
 
 volumes:
   pg_data:
@@ -107,7 +120,7 @@ $ENGINE ps
 
 ## 🧩 Connect (DBeaver or psql)
 
-* Host: `localhost`
+* Host: `localhost` (container_name: `postgres` for Podman rootless pgadmin)
 * Port: `5432` (or your remap, e.g., `5433`)
 * DB: `appdb`
 * User/Pass: `appuser` / `apppass`
@@ -265,8 +278,24 @@ spring.jpa.hibernate.ddl-auto=update
 # spring.jpa.hibernate.ddl-auto=create
 # spring.jpa.hibernate.ddl-auto=create-drop
 
+#spring.jpa.hibernate.show-sql: false
+
 # Optional: be explicit about dialect
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+```
+
+`application.yaml` essentials:
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/appdb
+    username: appuser
+    password: apppass
+  jpa:
+    hibernate:
+      ddl-auto: validate # or validate | update | create | create-drop as needed
+    #show-sql: false
 ```
 
 > Using `./initdb` or Flyway/Liquibase? Prefer `ddl-auto=validate` to catch mismatches without altering the DB.
