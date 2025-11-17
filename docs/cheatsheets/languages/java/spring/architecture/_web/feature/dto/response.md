@@ -9,7 +9,7 @@ tags:
     - design
 summary: How we shape API responses - naming, structure, envelopes, expansions, and conventions.
 aliases:
-  - Response DTOs Cheatsheet
+    - Spring Web Feature Layer - Response Cheatsheet
 ---
 
 # `web/user/dto/response` — Cheatsheet (shapes, rules, templates)
