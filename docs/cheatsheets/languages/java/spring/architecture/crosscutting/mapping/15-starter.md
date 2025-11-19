@@ -24,41 +24,70 @@ Used correctly, it keeps the web layer, domain layer, and persistence layer clea
 
 ## Contents
 
-1. [What MapStruct Actually Does](#1-what-mapstruct-actually-does)  
-2. [Orientational Folder Layout](#2-orientational-folder-layout)  
-3. [Global Config Setup (the 3 core rules)](#3-global-config-setup-the-3-core-rules)  
-4. [Web Mappers (HTTP edge)](#4-web-mappers-http-edge)  
-5. [Infra Mappers (JPA--external-systems)](#5-infra-mappers-jpa--external-systems)  
-6. [Updating Existing Entities (`@MappingTarget`)](#6-updating-existing-entities-mappingtarget)  
-7. [Expressions & Helper Classes](#7-expressions--helper-classes)  
-8. [Enum Mapping](#8-enum-mapping)  
-9. [Null Handling](#9-null-handling)  
-10. [Collections](#10-collections)  
-11. [Nested Mapping](#11-nested-mapping)  
-12. [Custom Methods](#12-custom-methods)  
-13. [When NOT to Use MapStruct](#13-when-not-to-use-mapstruct)  
-14. [Layered Architecture + MapStruct (Summary)](#14-layered-architecture--mapstruct-summary)  
+1. [Dependency Setup (Minimal)](#1-dependency-setup-minimal)  
+2. [What MapStruct Actually Does](#2-what-mapstruct-actually-does)  
+3. [Orientational Folder Layout](#3-orientational-folder-layout)  
+4. [Global Config Setup (the 3 core rules)](#4-global-config-setup-the-3-core-rules)  
+5. [Web Mappers (HTTP edge)](#5-web-mappers-http-edge)  
+6. [Infra Mappers (JPA / external systems)](#6-infra-mappers-jpa--external-systems)  
+7. [Updating Existing Entities (`@MappingTarget`)](#7-updating-existing-entities-mappingtarget)  
+8. [Expressions & Helper Classes](#8-expressions--helper-classes)  
+9. [Enum Mapping](#9-enum-mapping)  
+10. [Null Handling](#10-null-handling)  
+11. [Collections](#11-collections)  
+12. [Nested Mapping](#12-nested-mapping)  
+13. [Custom Methods](#13-custom-methods)  
+14. [When NOT to Use MapStruct](#14-when-not-to-use-mapstruct)  
+15. [Layered Architecture + MapStruct (Summary)](#15-layered-architecture--mapstruct-summary)  
 
 ---
 
-## 1. What MapStruct Actually Does
+## 1. Dependency Setup (Minimal)
 
-MapStruct generates pure Java mapping code at **compile time** based on simple interfaces.
+MapStruct needs only **two dependencies** to work:
+
+```xml
+<!-- API dependency: -->
+<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct</artifactId>
+    <version>1.6.2</version>
+</dependency>
+
+
+<!-- Annotation processor: -->
+<dependency>
+    <groupId>org.mapstruct</groupId>
+    <artifactId>mapstruct-processor</artifactId>
+    <version>1.6.2</version>
+    <scope>provided</scope>
+</dependency>
+```
+
+Optional if you use Lombok: add normal Lombok dependencies.
+
+Annotation processing must be enabled in your IDE/build tool — nothing else required.
+
+---
+
+## 2. What MapStruct Actually Does
+
+MapStruct generates pure Java mapping code at **compile time** using simple interfaces.
 
 It does not:
 
-- run reflection  
-- hit databases  
-- perform validation  
-- execute business logic
+* use reflection
+* perform business logic
+* hit databases
+* validate input
 
-It only transforms shapes → shapes.
+Its job is strictly **shape → shape transformations**.
 
 ---
 
-## 2. Orientational Folder Layout
+## 3. Orientational Folder Layout
 
-*(This is only an example. Do not treat it as strict rules; it is here just to show where concepts usually live.)*
+*(Just an example showing where mapping concepts typically live.)*
 
 ```text
 src/main/java/com/edge/shopping_cart
@@ -95,9 +124,9 @@ src/main/java/com/edge/shopping_cart
 
 ---
 
-## 3. Global Config Setup (the 3 core rules)
+## 4. Global Config Setup (the 3 core rules)
 
-This global config defines cross-cutting mapper behavior across all layers.
+Global config defines cross-cutting mapping rules.
 
 ```java
 @MapperConfig(
@@ -142,12 +171,12 @@ public interface SomethingMapper {}
 
 ---
 
-## 4. Web Mappers (HTTP edge)
+## 5. Web Mappers (HTTP edge)
 
-Translates:
+Convert:
 
-**Request DTO → Command**
-**Domain → Response DTO**
+* **Request DTO → Command**
+* **Domain → Response DTO**
 
 Example:
 
@@ -159,13 +188,18 @@ public interface UserWebMapper {
 }
 ```
 
-These mappers never touch persistence, timestamps, security, or problem handling logic.
+No JPA, timestamps, or security logic here.
 
 ---
 
-## 5. Infra Mappers (JPA / external systems) {#5-infra-mappers-jpa--external-systems}
+## 6. Infra Mappers (JPA / external systems) {#6-infra-mappers-jpa--external-systems}
 
-Responsible for moving between **domain** and **infrastructure-specific** shapes.
+Convert:
+
+* **Domain ↔ JPA entity**
+* **Domain ↔ external API models**
+
+Example:
 
 ```java
 @Mapper(config = GlobalMapperConfig.class)
@@ -179,7 +213,7 @@ Domain objects stay pure; JPA entities remain persistence-only.
 
 ---
 
-## 6. Updating Existing Entities (`@MappingTarget`)
+## 7. Updating Existing Entities (`@MappingTarget`)
 
 Used when updating a JPA entity in place:
 
@@ -192,16 +226,16 @@ Missing fields → preserved (because of IGNORE strategy).
 
 ---
 
-## 7. Expressions & Helper Classes {#7-expressions--helper-classes}
+## 8. Expressions & Helper Classes {#8-expressions--helper-classes}
 
 When simple field-to-field mapping isn’t enough.
 
 For derived values:
 
 ```java
-@Mapping(target = "problemsUri",
-         expression = "java(problemLinks.type(src.getSlug()))")
-UserResponse toResponse(User src, @Context ProblemLinks problemLinks);
+@Mapping(target = "problemLink",
+         expression = "java(problemLinks.type(domain.getSlug()))")
+UserResponse toResponse(User domain, @Context ProblemLinks problemLinks);
 ```
 
 Use default methods for readability:
@@ -214,7 +248,7 @@ default URI toSlugLink(String slug, @Context ProblemLinks links) {
 
 ---
 
-## 8. Enum Mapping
+## 9. Enum Mapping
 
 Automatic when names match.
 
@@ -230,9 +264,9 @@ StatusDto map(Status domain);
 
 ---
 
-## 9. Null Handling
+## 10. Null Handling
 
-Most common setups:
+Commonly used settings:
 
 ```java
 nullValueCheckStrategy = ALWAYS
@@ -244,19 +278,19 @@ These are used for PATCH-like operations or DTOs that should not erase data.
 
 ---
 
-## 10. Collections
+## 11. Collections
 
-Automatically supported:
+Supported out of the box:
 
 ```java
-List<UserListItemResponse> toListItems(List<User> users);
+List<UserListItemResponse> toResponses(List<User> users);
 ```
 
 If element types have mappers, MapStruct chains them automatically.
 
 ---
 
-## 11. Nested Mapping
+## 12. Nested Mapping
 
 Flattening:
 
@@ -265,13 +299,13 @@ Flattening:
 User toUser(UserFlatDto dto);
 ```
 
-For large nested structures, DTOs that mirror the domain are cleaner.
+Or keep nested structures if that matches your domain logic better.
 
 ---
 
-## 12. Custom Methods
+## 13. Custom Methods
 
-Every `default` or `static` method is eligible:
+Default and static methods are available for mapping:
 
 ```java
 default URI toUri(String raw) {
@@ -283,35 +317,26 @@ MapStruct calls it automatically when needed.
 
 ---
 
-## 13. When NOT to Use MapStruct
+## 14. When NOT to Use MapStruct
 
-Avoid MapStruct when:
+Avoid MapStruct for:
 
-* mapping requires business logic or decisions
-* mapping depends on repositories or side effects
-* mapping rules change dynamically
-* validation is necessary during transformation
+* business decisions
+* validation
+* repository lookups
+* dynamic mapping rules
+* side-effectful transformations
 
 MapStruct should stay mechanical.
 
 ---
 
-## 14. Layered Architecture + MapStruct (Summary)
+## 15. Layered Architecture + MapStruct (Summary) {#15-layered-architecture--mapstruct-summary}
 
-* Web mappers ←→ handle request/response shapes
-* Infra mappers ←→ deal with JPA/external systems
+* Web mappers handle request/response
+* Infra mappers handle JPA/external
 * Domain is pure
-* Commands/Inputs flow one way
-* Responses flow the other
-* Global config keeps consistency
-* MapStruct keeps mapping boring and predictable
-
-
-
-
-
-
-
-
-
-
+* Commands flow down
+* Responses flow up
+* Global config ensures consistency
+* Mapping stays predictable and boring
